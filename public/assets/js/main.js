@@ -1,5 +1,5 @@
-import { register, login } from "./firebase/auth.js";
-import { auth, db } from "./firebase/firebase-init.js";
+import { register, login } from "./fierbase/auth.js";
+import { auth, db } from "./fierbase/firebase-init.js";
 
 console.log(auth, db);
 
@@ -21,4 +21,3 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 });
 
 
-//aici legam fisiere fiebase cu fisieurm indexhtml
