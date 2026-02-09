@@ -1,0 +1,35 @@
+type User @table {
+  username: String!
+  email: String!
+  password: String!
+  role: String! # Can be "Teacher" or "Student"
+  createdAt: Timestamp!
+}
+
+type Module @table {
+  title: String!
+  description: String!
+  difficultyLevel: String!
+  createdAt: Timestamp!
+  content: String
+  estimatedDuration: Int
+}
+
+type Enrollment @table(key: ["student", "module"]) {
+  student: User! # Assuming this refers to a student user
+  module: Module!
+  enrollmentDate: Timestamp!
+  status: String! # Can be "InProgress", "Completed"
+  completionDate: Timestamp
+  score: Float
+}
+
+type Assignment @table(key: ["teacher", "student", "module"]) {
+  teacher: User! # Assuming this refers to a teacher user
+  student: User! # Assuming this refers to a student user
+  module: Module!
+  assignmentDate: Timestamp!
+  dueDate: Timestamp!
+  notes: String
+  status: String # Can be "Assigned", "Submitted", "Graded"
+}
