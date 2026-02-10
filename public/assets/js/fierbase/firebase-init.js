@@ -5,14 +5,16 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase
 
 // Configurația
 const firebaseConfig = {
-  apiKey: "API_KEY",
+  apiKey: "AIzaSyAXwFweuQuYYH-XbZ7cbhvGpwZeQA3hp7A",
   authDomain: "safenet-juniors.firebaseapp.com",
+  databaseURL: "https://safenet-juniors-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "safenet-juniors",
-  storageBucket: "safenet-juniors.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
+  storageBucket: "safenet-juniors.firebasestorage.app",
+  messagingSenderId: "518363329516",
+  appId: "1:518363329516:web:b579aeb0ad672b689946c9",
+  measurementId: "G-0NNKX47XYD"
 };
-
+// npm install firebase
 
 const app = initializeApp(firebaseConfig);
 

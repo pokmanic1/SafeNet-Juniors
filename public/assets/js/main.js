@@ -18,6 +18,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     const password = document.getElementById("loginPassword").value;
 
     login(email, password);
+    
 });
 
 

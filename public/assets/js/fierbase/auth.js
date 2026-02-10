@@ -37,6 +37,8 @@ export async function login(email, password) {
     try {
     await signInWithEmailAndPassword(auth, email, password);
     alert("Autentificat cu succes!");
+    document.querySelector(".autentificat").innerHTML='<a href="./pages/dashboard.html">Jocuri</a>';
+    document.querySelector(".autentificat").style.display = "block";
     } catch (error) {
     alert(error.message);
     }
