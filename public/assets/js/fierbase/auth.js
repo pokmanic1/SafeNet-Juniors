@@ -1,8 +1,8 @@
 import { auth, db } from "./firebase-init.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import {
     doc,
@@ -27,7 +27,12 @@ export async function register(username, email, password, role) {
         createdAt: new Date()
     });
 
-    alert("Înregistrare reușită!");
+        alert("Înregistrare reușită!");
+        const link = document.querySelector('.autentificat');
+        if (link) {
+            link.style.display = 'block';
+            link.classList.remove('hidden');
+        }
     } catch (error) {
     alert(error.message);
     }
@@ -36,10 +41,15 @@ export async function register(username, email, password, role) {
 export async function login(email, password) {
     try {
     await signInWithEmailAndPassword(auth, email, password);
-    alert("Autentificat cu succes!");
-    document.querySelector(".autentificat").innerHTML='<a href="./pages/dashboard.html">Jocuri</a>';
-    document.querySelector(".autentificat").style.display = "block";
+        alert("Autentificat cu succes!");
+        const link = document.querySelector('.autentificat');
+        if (link) {
+            link.style.display = 'block';
+        }
     } catch (error) {
     alert(error.message);
     }
 }
+
+
+
