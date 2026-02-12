@@ -5,24 +5,31 @@ import { utilizatori_Arr } from "./utilizatori.js";
 console.log(auth, db);
 
 
-   
-  
 
-document.getElementById("registerBtn").addEventListener("click", () => {
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const role = document.getElementById("role").value;
+const registerBtn = document.getElementById("registerBtn");
 
-    register(username, email, password, role);
-});
+if (registerBtn) {
+    registerBtn.addEventListener("click", () => {
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const role = document.getElementById("role").value;
 
-document.getElementById("loginBtn").addEventListener("click", () => {
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-    
-    login(email, password);
-});
+        register(username, email, password, role);
+    });
+}
+
+const loginBtn = document.getElementById("loginBtn");
+
+if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        login(email, password);
+    });
+}
+
 
 //  const username = document.getElementById("username").value;
 //     const email = document.getElementById("email").value;
