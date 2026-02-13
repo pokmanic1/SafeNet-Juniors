@@ -24,34 +24,34 @@ import { onAuthStateChanged, auth } from "./fierbase/firebase-init.js";
 //     }
 // }
 
-if (typeof onAuthStateChanged === 'function') {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const userData = utilizatori_Arr.find(u => u.User_UID === user.uid);
-            if (userData) {
-                console.log('User is authenticated (local):', userData);
-            } else {
-                const newUser = {
-                    User_UID: user.uid,
-                    Nume: user.displayName || '',
-                    Email: user.email || '',
-                    Role: 'elev'
-                };
-                utilizatori_Arr.push(newUser);
-                save();
-                console.log('Added user to utilizatori_Arr (local):', newUser);
-            }
-        } else {
-            console.log('User is not authenticated');
-        }
-        console.log('Authenticated Firebase user (raw):', user);
-    });
-}
+// if (typeof onAuthStateChanged === 'function') {
+//     onAuthStateChanged(auth, (user) => {
+//         if (user) {
+//             const userData = utilizatori_Arr.find(u => u.User_UID === user.uid);
+//             if (userData) {
+//                 console.log('User is authenticated (local):', userData);
+//             } else {
+//                 const newUser = {
+//                     User_UID: user.uid,
+//                     Nume: user.displayName || '',
+//                     Email: user.email || '',
+//                     Role: 'elev'
+//                 };
+//                 utilizatori_Arr.push(newUser);
+//                 save();
+//                 console.log('Added user to utilizatori_Arr (local):', newUser);
+//             }
+//         } else {
+//             console.log('User is not authenticated');
+//         }
+//         console.log('Authenticated Firebase user (raw):', user);
+//     });
+// }
 
-console.log('-----------------------------');
-console.log('Current utilizatori_Arr:', utilizatori_Arr);
+// console.log('-----------------------------');
+// console.log('Current utilizatori_Arr:', utilizatori_Arr);
 
-// persist current state (no-op if identical)
-save();
+// // persist current state (no-op if identical)
+// save();
 
 
