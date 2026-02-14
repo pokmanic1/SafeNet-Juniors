@@ -38,6 +38,7 @@ export async function register(username, email, password, role) {
     }
 }
 
+
 export async function login(email, password) {
     try {
     await signInWithEmailAndPassword(auth, email, password);

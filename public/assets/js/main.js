@@ -14,11 +14,12 @@ if (registerBtn) {
         const email = document.getElementById("email");
         const password = document.getElementById("password");
         const role = document.getElementById("role");
-
+        const checkbox=document.getElementById("checkbox");
         registerBtn.addEventListener("input", x);
         email.addEventListener("input", x);
         password.addEventListener("input", x);
         role.addEventListener("input", x);
+        // 
 
     registerBtn.addEventListener("click", () => {
         const username1 = username.value;
@@ -31,7 +32,7 @@ if (registerBtn) {
 
     function x() {
         if(username.value.trim() !== "" && email.value.trim() !== ""
-            && password.value.trim() !== "" && role.value.trim() !== ""){
+            && password.value.trim() !== "" && role.value.trim() !== "" ) {
             registerBtn.style.backgroundColor = "black";
     }
 }
