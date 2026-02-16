@@ -46,7 +46,7 @@ function genereazaPerechi() {
             indexuri.push(rand);
         }
     }
-
+    
     indexuri.forEach(i => {
 
         newArr.push({
@@ -79,9 +79,8 @@ function createCard(item) {
 
     const back = document.createElement('div');
     back.classList.add('back');
-
+    
     if (item.type === "image") {
-        // wrap path in quotes so URLs with spaces/parentheses work
         back.style.backgroundImage = `url('${item.imaginea}')`;
         back.style.backgroundSize = "cover";
         back.style.backgroundPosition = "center";
