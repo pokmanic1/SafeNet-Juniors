@@ -81,7 +81,7 @@ for (let i = 0; i < newArr.length; i++) {
 }
 
 
-console.log(arrCuExercitii);
+
 
 
 let contor = 0;

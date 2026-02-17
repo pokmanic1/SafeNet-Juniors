@@ -25,30 +25,27 @@
             flex: 2;
             cursor: pointer;
         }
-
-        
     </style>
 </head>
 
 <body>
 
-    <div class="flex justify-between items-center px-12 py-4 bg-white">
-
+    <header class="flex justify-between items-center px-12 py-6 shadow-sm">
         <div class="flex items-center gap-2">
-            <img class="w-[100px]" src="./img/image-removebg-preview.png" alt="">
-
+            <img class=" w-24" src="./img/image-removebg-preview.png" alt="Logo">
         </div>
 
-        <div class="space-x-8 text-gray-700 font-medium">
-            <a href="./dashboard.html">Jocuri</a>
-            <a href="#">Assessment</a>
-        </div>
+        <nav class="space-x-8 text-gray-700 font-medium">
+            <a href="./assessment.html">Assessment</a>
+            <a href="../index.html">Acasa</a>
+            <a href="./about.html">Despre noi</a>
+        </nav>
 
         <div class="space-x-6 text-gray-700 font-medium">
-            <a href="#">Înregistrare</a>
-            <a href="#">Conectare</a>
+            <a href="./conecteazate.html">Conecteaza-te</a>
+            <a href="./inregistreazate.html">Inregistreaza-te</a>
         </div>
-    </div>
+    </header>
 
     <div class="container flex w-[60%] mx-auto mt-[100px] gap-5">
         <div class="card   bg-black w-[200px] h-[350px] rounded-[40px] "> </div>
@@ -58,6 +55,12 @@
     </div>
 
 
+
+
+
+
+
+    <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
 </html>
