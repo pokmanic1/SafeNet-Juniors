@@ -28,6 +28,7 @@ export async function register(username, email, password, role) {
     });
 
         alert("Înregistrare reușită!");
+        window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
             link.style.display = 'block';
@@ -43,6 +44,7 @@ export async function login(email, password) {
     try {
     await signInWithEmailAndPassword(auth, email, password);
         alert("Autentificat cu succes!");
+        window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
             link.style.display = 'block';
