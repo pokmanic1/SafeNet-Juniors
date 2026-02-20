@@ -21,7 +21,7 @@ export async function register(username, email, password, role) {
     const user = userCredential.user;
 
     await setDoc(doc(db, "users", user.uid), {
-        username: username,
+        usearname: username,
         email: email,
         role: role,
         createdAt: new Date()

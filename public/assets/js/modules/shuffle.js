@@ -1,3 +1,14 @@
+import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../conecteazate.html";
+    }
+});
+
+
+
+
 let arrText = [
     'frauda',
     'mesaj',
@@ -46,7 +57,7 @@ function genereazaPerechi() {
             indexuri.push(rand);
         }
     }
-    
+
     indexuri.forEach(i => {
 
         newArr.push({
@@ -79,7 +90,7 @@ function createCard(item) {
 
     const back = document.createElement('div');
     back.classList.add('back');
-    
+
     if (item.type === "image") {
         back.style.backgroundImage = `url('${item.imaginea}')`;
         back.style.backgroundSize = "cover";

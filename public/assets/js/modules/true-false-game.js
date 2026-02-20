@@ -1,124 +1,96 @@
+import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../conecteazate.html";
+    }
+});
+
+
 let arr = [
+
     {
         propozitii: [
-            { text: 'hariu', raspuns: true },
-            { text: 'b', raspuns: false },
-            { text: 'c', raspuns: true }
+            { text: 'Parola trebuie să fie cunoscută doar de tine.', raspuns: true },
+            { text: 'Putem spune parola colegilor.', raspuns: false },
+            { text: 'O parolă poate conține litere și cifre.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'd', raspuns: true },
-            { text: 'e', raspuns: false },
-            { text: 'f', raspuns: true }
+            { text: 'Numele este o dată personală.', raspuns: true },
+            { text: 'Putem spune adresa oricui online.', raspuns: false },
+            { text: 'Datele personale trebuie protejate.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'g', raspuns: true },
-            { text: 'h', raspuns: false },
-            { text: 'i ', raspuns: true }
+            { text: 'Dacă ceva ne sperie online, spunem unui adult.', raspuns: true },
+            { text: 'Ignorăm mereu lucrurile care ne sperie.', raspuns: false },
+            { text: 'Este bine să cerem ajutor.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'j ', raspuns: true },
-            { text: 'k', raspuns: false },
-            { text: 'l', raspuns: true }
+            { text: 'Putem avea încredere în orice persoană online.', raspuns: false },
+            { text: 'Nu trebuie să oferim informații necunoscuților.', raspuns: true },
+            { text: 'O persoană online poate să nu fie cine spune că este.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'm', raspuns: true },
-            { text: 'n 2', raspuns: false },
-            { text: 'o 3', raspuns: true }
+            { text: 'Putem instala jocuri fără permisiune.', raspuns: false },
+            { text: 'Trebuie să cerem voie unui adult.', raspuns: true },
+            { text: 'Toate jocurile de pe internet sunt sigure.', raspuns: false }
         ]
     },
+
     {
         propozitii: [
-            { text: 'p 1', raspuns: true },
-            { text: 'q 2', raspuns: false },
-            { text: 'r 3', raspuns: true }
+            { text: '„1234” este o parolă sigură.', raspuns: false },
+            { text: 'O parolă simplă este ușor de ghicit.', raspuns: true },
+            { text: 'Parolele trebuie să fie greu de ghicit.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 's 1', raspuns: true },
-            { text: 't 2', raspuns: false },
-            { text: 'z 3', raspuns: true }
+            { text: 'Putem folosi calculatorul fără să anunțăm pe nimeni.', raspuns: false },
+            { text: 'Este bine să folosim calculatorul responsabil.', raspuns: true },
+            { text: 'Putem sta oricât dorim pe internet fără reguli.', raspuns: false }
         ]
     },
+
     {
         propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
+            { text: 'Răspundem la orice mesaj primit.', raspuns: false },
+            { text: 'Un mesaj ciudat trebuie raportat.', raspuns: true },
+            { text: 'Este bine să ignorăm și să anunțăm un adult.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
+            { text: 'Putem trimite poze necunoscuților.', raspuns: false },
+            { text: 'Pozele sunt informații personale.', raspuns: true },
+            { text: 'Trebuie să protejăm fotografiile noastre.', raspuns: true }
         ]
     },
+
     {
         propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
-        ]
-    },
-    {
-        propozitii: [
-            { text: 'x 1', raspuns: true },
-            { text: 'y 2', raspuns: false },
-            { text: 'w 3', raspuns: true }
+            { text: 'Internetul este mereu sigur.', raspuns: false },
+            { text: 'Trebuie să fim atenți pe internet.', raspuns: true },
+            { text: 'Putem face orice online fără consecințe.', raspuns: false }
         ]
     }
-]
+
+];
+
 let newArr = [];
 let arrCuExercitii = [];
 let arrIndex = [];
@@ -242,6 +214,7 @@ function restart() {
     contorCorect = 0;
     newArr = []
     arrCuExercitii = [];
+    arrIndex = [];
     creareArr();
     genereazaHTML();
 }

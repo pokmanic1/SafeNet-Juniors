@@ -7,7 +7,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         x.innerHTML = `
         <div class="flex items-center">
-            <p  class="w-[60px] text-[13px] ">Conectata  ${user.username}</p>
+            <p  class="w-[60px] text-[13px] ">Conectata  ${user.email}</p>
             <div class="ml-3 w-8 h-8 rounded-[40px] bg-black"></div>
         </div>`;
         y.style.display = "none";
