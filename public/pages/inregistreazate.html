@@ -21,11 +21,11 @@
 
     <!-- NAVBAR (pentru inregistreazate.html) -->
     <header class="w-full">
-        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
 
             <!-- Left: Logo -->
             <a href="../index.html" class="flex items-center gap-3">
-                <img class="w-32 object-contain" src="../assets/img/image-removebg-preview (5).png"
+                <img class="w-28 sm:w-32 object-contain" src="../assets/img/image-removebg-preview (5).png"
                     alt="SafeNet Junior">
             </a>
 
@@ -61,7 +61,7 @@
 
         <!-- Mobile menu -->
         <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 py-4 space-y-3 font-semibold">
 
                 <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
                 <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
@@ -76,55 +76,47 @@
     </header>
     <!-- ------------------------------------------------ -->
 
-    <div class="flex min-h-screen ml-[100px]">
+    <div class="flex flex-col md:flex-row min-h-screen px-4 sm:px-6 lg:px-8 md:ml-[100px]">
 
-        <div class="w-700px flex items-center justify-center">
-            <img class="w-[500px]" src="../assets/img/image-removebg-preview (3).png" alt="">
+        <div class="w-full md:w-1/2 flex items-center justify-center py-10 md:py-0">
+            <img class="w-72 sm:w-96 md:w-[500px]" src="../assets/img/image-removebg-preview (3).png" alt="">
         </div>
 
-        <div class="flex items-center justify-center">
+        <div class="w-full md:w-1/2 flex items-center justify-center py-10 md:py-0">
             <!-- ------------------------------------------------ -->
-            <div class="ml-[100px] ">
+            <div class="w-full max-w-xl md:ml-[100px]">
                 <div class="flex justify-start">
-                    <h1 class="text-4xl font-semibold text-gray-800 mb-5 mr-[120px] text-center">
+                    <h1 class="text-3xl sm:text-4xl font-semibold text-gray-800 mb-5 md:mr-[120px] text-center md:text-left">
                         Creeaza un Cont
                     </h1>
                 </div>
 
-
-
-
-
                 <div class="mb-4">
                     <label class="block text-sm text-gray-600 mb-1 mt-6">Nume</label>
                     <input type="text" id="username"
-                        class="w-[600px] h-[50px]  shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
                 </div>
-
 
                 <div class="mb-4">
                     <label class="block text-sm text-gray-600 mb-1 mt-6">Rol</label>
                     <select id="role"
-                        class="w-[600px] h-[50px] shadow-lg shadow-gray-300  px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
                         <option>Selectează rol</option>
                         <option>Elev</option>
                         <option>Profesor</option>
                     </select>
                 </div>
 
-
-
-
                 <div class="mb-4">
                     <label class="block text-sm text-gray-600 mb-1 mt-6">Email</label>
                     <input type="email" placeholder="Enter your email address" id="email"
-                        class=" shadow-lg shadow-gray-300 w-[600px] h-[50px] px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        class="shadow-lg shadow-gray-300 w-full md:w-[600px] h-[50px] px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-sm text-gray-600 mb-1 mt-6">Parolă</label>
                     <input type="password" id="password"
-                        class="w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
                 </div>
 
                 <div class="flex items-start gap-2 text-sm text-gray-600 mb-6 mt-6">
@@ -135,13 +127,13 @@
                         <span class="underline">Privacy Policy</span>
                     </p>
                 </div>
-                <div class="flex justify-center">
+
+                <div class="flex justify-center md:justify-start">
                     <button id="registerBtn"
-                        class="w-[450px] py-3 bg-gray-400 text-white rounded-full mt-3 font-medium hover:bg-gray-500 transition ">
+                        class="w-full sm:w-[450px] py-3 bg-gray-400 text-white rounded-full mt-3 font-medium hover:bg-gray-500 transition ">
                         Creează un Cont
                     </button>
                 </div>
-
 
             </div>
 
@@ -150,7 +142,7 @@
 
     <!-- Footer -->
     <section class="subsol bg-white">
-        <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-[100px] py-16">
             <!-- Map -->
             <div class="mt-12">
                 <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
