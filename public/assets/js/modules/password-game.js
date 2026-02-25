@@ -108,7 +108,7 @@ function afisareConditii() {
         div.id = "conditie-" + index;
 
         div.className = `
-            p-4
+            p-2
             border-2
             border-black
             rounded-xl
@@ -163,6 +163,27 @@ function verificaParola(password) {
 
 }
 
+document.querySelector('.restart').addEventListener('click',function (){
+    restart();
+})
+
+function restart(){
+
+    const win = document.querySelector('#winMessage');
+    if (win) {
+        win.remove();
+    }
+
+    container.innerHTML = "";
+    input.disabled = false;
+
+    contor = 0;
+    newArrConditii = [];
+    arrIndex = [];
+
+    creareArr();
+    afisareConditii();
+}
 input.addEventListener("input", (e) => {
     verificaParola(e.target.value);
 });
