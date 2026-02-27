@@ -97,8 +97,13 @@
 
         <h1>Introdu intrebarile </h1>
         <h2> intrebarea x</h2>
+
+        <input id="nr_conditii" type="number" min="1" max="10" step="1"
+            placeholder="Adauga numarul de conditii maxim 10" class="border border-black w-[200px] p-2 mb-4">
+        <button id="btn_incepe">Incepe</button>
+
         <select id="conditie" class="border border-black w-[400px] p-2 mb-4">
-            <option disabled selected>Alege o condiție</option>
+            <option value="" disabled selected>Alege o condiție</option>
             <option value="0">Să conțină un numar</option>
             <option value="1">Să conțină un cuvânt specific</option>
             <option value="1">Sa aiba un numar minim de caractere</option>
@@ -115,10 +120,10 @@
 
 
 
-        <input type="text" placeholder="Introdu numele tău"
-            class="input_intrebari  border mt-[10px] border-gray-400 rounded px-4 py-2 w-[600px] focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="text" id="valoareExtra" placeholder="Introdu valoarea..."
+            class="hidden border border-gray-400 rounded px-4 py-2 w-[400px] mb-4" />
         <button id="btn">Adaugă</button>
-
+        <button id="btn_restart"> Restarteaza</button>
     </div>
 
 
@@ -277,36 +282,109 @@
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
     <!-- <script type="module" src="../../../assets/js/modules/password-game.js"></script> -->
     <script type="module">
-        // import { } from '../../../assets/js/modules/password-game.js'
         let arrProfesori = [];
+        let nr_conditii = document.getElementById("nr_conditii");
+        let btn_incepe = document.getElementById("btn_incepe");
+        let adev = true;
+        let conditie = document.getElementById("conditie");
+        let valoareExtra = document.getElementById("valoareExtra");
+        let button = document.getElementById("btn");
+        conditie.classList.add("hidden");
+        btn.classList.add("hidden");
+        document.getElementById("btn_restart").classList.add("hidden");
 
-        const input_intrebari = document.querySelector(".input_intrebari");
-        const button = document.getElementById("btn");
-        const conditie = document.getElementById('conditie');
+        function alegereaNumarului() {
 
-        if (conditie) {
-            button.addEventListener("click", () => {
+            const numar = Number(nr_conditii.value);
 
-                if (conditie.value === '0') {
-                    input_intrebari.style = 'none';
-                    arrProfesori.push({ conditia: conditie.value});
+            if (numar > 0 && numar <= 10) {
 
-                }
+                conditie.classList.remove("hidden");
+                button.classList.remove("hidden");
+                document.getElementById("btn_restart").classList.remove("hidden");
 
+                nr_conditii.classList.add("hidden");
+                btn_incepe.classList.add("hidden");
 
+                console.log("Joc început cu", numar, "condiții");
 
+            } else {
+                alert("Introdu un număr de condiții dintre 1 și 10");
+            }
 
-
-
-                let valoare = input_intrebari.value;
-                if (valoare.trim() !== "") {
-                    arrProfesori.push({ conditia: conditie.value, valoarea: input_intrebari.value });
-                    console.log(arrProfesori);
-                    input_intrebari.value = "";
-                }
-
-            });
         }
+
+        btn_incepe.addEventListener("click", () => {
+            alegereaNumarului();
+        });
+
+
+
+
+        conditie.addEventListener("change", () => {
+
+            if (conditie.value === "1") {
+                valoareExtra.classList.remove("hidden");
+            } else {
+                valoareExtra.classList.add("hidden");
+                valoareExtra.value = "";
+            }
+
+        });
+
+
+        button.addEventListener("click", () => {
+            if(arrProfesori.length<nr_conditii.value){
+
+            if (conditie.value === "") {
+                alert("Alege o condiție!");
+                return;
+            }
+
+            const textConditie = conditie.options[conditie.selectedIndex].text;
+
+            let obiect = {
+                tip: conditie.value,
+                conditie: textConditie
+            };
+
+            if (conditie.value === "1") {
+
+                if (!valoareExtra.value.trim()) {
+                    alert("Trebuie să introduci o valoare!");
+                    return;
+                }
+
+                obiect.valoare = valoareExtra.value;
+            }
+
+            arrProfesori.push(obiect);
+        }
+        else{
+            alert(`ati introdus deja ${nr_conditii.value} conditii`)
+        }
+            console.log(arrProfesori);
+
+        });
+
+
+        document.getElementById("btn_restart").addEventListener('click', () => {
+            arrProfesori = [];
+            nr_conditii.value = "";
+            conditie.classList.add("hidden");
+            btn.classList.add("hidden");
+            document.getElementById("btn_restart").classList.add("hidden");
+            valoareExtra.classList.add("hidden");
+            
+            nr_conditii.classList.remove("hidden");
+            btn_incepe.classList.remove("hidden");
+            alegereaNumarului();
+        });
+
+
+
+        localStorage.setItem("conditii", JSON.stringify(arrProfesori));
+
     </script>
 </body>
 

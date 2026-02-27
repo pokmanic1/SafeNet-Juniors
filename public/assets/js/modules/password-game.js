@@ -1,5 +1,11 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 
+
+const conditii = JSON.parse(localStorage.getItem("conditii"));
+console.log(conditii);
+
+
+
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         window.location.href = "../conecteazate.html";
