@@ -184,12 +184,51 @@ function restart(){
     creareArr();
     afisareConditii();
 }
+
 input.addEventListener("input", (e) => {
     verificaParola(e.target.value);
 });
 
 afisareConditii();
  
+
+
+// -------------------------------------
+//pentru profesori
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function genereazaHTML(){
 //     if(contor<5){
