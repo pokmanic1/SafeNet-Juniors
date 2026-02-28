@@ -1,10 +1,68 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 
+const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
+let newArrConditii1 = [];
 
-const conditii = JSON.parse(localStorage.getItem("conditii"));
-console.log(conditii);
+dateSalvate.forEach(element => {
+    let obj = {
+        text: element.valoare ? `${element.conditie}: ${element.valoare}` : element.conditie,
+        validate: null
+    };
 
+    // Construim logica de validare bazată pe textul condiției
+    switch (element.conditie) {
+        case "Să conțină un numar":
+            obj.validate = (password) => /\d/.test(password);
+            break;
 
+        case "Să conțină un cuvânt specific":
+            obj.validate = (password) => password.includes(element.valoare);
+            break;
+
+        case "Sa aiba un numar minim de caractere":
+            obj.validate = (password) => password.length >= parseInt(element.valoare);
+            break;
+
+        case "Sa contina o litera mare":
+            obj.validate = (password) => /[A-Z]/.test(password);
+            break;
+
+        case "Sa contina un caracter special":
+            obj.validate = (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            break;
+
+        case "Sa aiba un numar minim de cifre":
+            obj.validate = (password) => (password.match(/\d/g) || []).length >= parseInt(element.valoare);
+            break;
+
+        case "Sa nu contina spatii":
+            obj.validate = (password) => !password.includes(" ");
+            break;
+
+        case "Sa aiba lungime para":
+            obj.validate = (password) => password.length % 2 === 0;
+            break;
+
+        case "Sa aiba lungime impara":
+            obj.validate = (password) => password.length % 2 !== 0;
+            break;
+
+        case "Sa contine un numar specifica": // Atenție la typo-ul din HTML "specifica"
+            obj.validate = (password) => password.includes(element.valoare);
+            break;
+
+        case "Sa contine o litera specifica":
+            obj.validate = (password) => password.includes(element.valoare);
+            break;
+
+        default:
+            obj.validate = (password) => true;
+    }
+
+    newArrConditii1.push(obj);
+});
+
+console.log("Condiții profesor încărcate:", newArrConditii1);
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -70,32 +128,30 @@ let newArrConditii=[];
 let arrIndex=[];
 creareArr();
 function creareArr() {
-    for (let i = 0; i < 5; i++) {
-        let nr;
-        let adv = true;
-        while (adv) {
-            let mem =false;
-            nr = Math.floor(Math.random() *  Conditii.length);
-            for (let j = 0; j < arrIndex.length; j++) {
-                if(nr===arrIndex[j]){
-                    mem=true;
+    if (newArrConditii1.length === 0) {
+        console.log("Generăm condiții aleatorii...");
+        for (let i = 0; i < 5; i++) { 
+            let nr;
+            let adv = true;
+            while (adv) {
+                let mem = false;
+                nr = Math.floor(Math.random() * Conditii.length);
+                for (let j = 0; j < arrIndex.length; j++) {
+                    if (nr === arrIndex[j]) {
+                        mem = true;
+                    }
                 }
-            }
-                if ( !mem) {
+                if (!mem) {
                     adv = false;
-                    console.log(nr);
                     arrIndex.push(nr);
                 }
-                
-
-        }
-        for (let j = 0; j < Conditii.length; j++) {
-            if (nr === j) {
-                newArrConditii.push(Conditii[j]);
-
             }
+            newArrConditii.push(Conditii[nr]);
         }
-
+    } 
+    else {
+        console.log("Folosim condițiile profesorului.");
+        newArrConditii = [...newArrConditii1];
     }
 }
 
@@ -173,8 +229,7 @@ document.querySelector('.restart').addEventListener('click',function (){
     restart();
 })
 
-function restart(){
-
+function restart() {
     const win = document.querySelector('#winMessage');
     if (win) {
         win.remove();
@@ -182,12 +237,17 @@ function restart(){
 
     container.innerHTML = "";
     input.disabled = false;
+    input.value = ""; 
+    localStorage.removeItem("conditiiProfesori");
 
     contor = 0;
     newArrConditii = [];
     arrIndex = [];
+    
+    newArrConditii1 = []; 
 
     creareArr();
+    
     afisareConditii();
 }
 

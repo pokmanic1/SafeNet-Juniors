@@ -334,7 +334,10 @@
 
 
         button.addEventListener("click", () => {
-            if(arrProfesori.length<nr_conditii.value){
+            if (arrProfesori.length >= Number(nr_conditii.value)) {
+                alert(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`);
+                return;
+            }
 
             if (conditie.value === "") {
                 alert("Alege o condiție!");
@@ -342,29 +345,58 @@
             }
 
             const textConditie = conditie.options[conditie.selectedIndex].text;
+            const valoareNoua = valoareExtra.value.trim();
 
+            // Verificăm conflicte și duplicate
+            const conflictGasit = arrProfesori.some(element => {
+                // 1. Verificăm duplicat exact
+                if (element.conditie === textConditie) {
+                    if (conditie.value === "1") {
+                        if (element.valoare === valoareNoua) {
+                            alert("Această condiție cu această valoare există deja!");
+                            return true;
+                        }
+                    } else {
+                        alert("Această condiție a fost deja adăugată!");
+                        return true;
+                    }
+                }
+
+                // 2. Verificăm conflict logic Par/Impar
+                if (textConditie === "Sa aiba lungime para" && element.conditie === "Sa aiba lungime impara") {
+                    alert("Conflict: Ai deja lungime IMPARĂ setată!");
+                    return true;
+                }
+                if (textConditie === "Sa aiba lungime impara" && element.conditie === "Sa aiba lungime para") {
+                    alert("Conflict: Ai deja lungime PARĂ setată!");
+                    return true;
+                }
+
+                return false;
+            });
+
+            // Dacă some() a returnat true, oprim execuția
+            if (conflictGasit) return;
+
+            // --- De aici încolo codul tău de adăugare rămâne la fel ---
             let obiect = {
                 tip: conditie.value,
                 conditie: textConditie
             };
 
             if (conditie.value === "1") {
-
-                if (!valoareExtra.value.trim()) {
+                if (!valoareNoua) {
                     alert("Trebuie să introduci o valoare!");
                     return;
                 }
-
-                obiect.valoare = valoareExtra.value;
+                obiect.valoare = valoareNoua;
             }
 
             arrProfesori.push(obiect);
-        }
-        else{
-            alert(`ati introdus deja ${nr_conditii.value} conditii`)
-        }
-            console.log(arrProfesori);
+            localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
 
+            valoareExtra.value = "";
+            console.log("Adăugat cu succes:", obiect);
         });
 
 
@@ -375,7 +407,7 @@
             btn.classList.add("hidden");
             document.getElementById("btn_restart").classList.add("hidden");
             valoareExtra.classList.add("hidden");
-            
+
             nr_conditii.classList.remove("hidden");
             btn_incepe.classList.remove("hidden");
             alegereaNumarului();
