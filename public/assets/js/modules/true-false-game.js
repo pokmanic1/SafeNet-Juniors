@@ -5,6 +5,7 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "../conecteazate.html";
     }
 });
+let dateSalvate = JSON.parse(localStorage.getItem("intrebariTrueFalse")) || [];
 
 
 let arr = [
@@ -96,70 +97,67 @@ let arrCuExercitii = [];
 let arrIndex = [];
 creareArr();
 
+let contor = 0;
+let contorCorect = 0;
+
 function creareArr() {
-    for (let i = 0; i < 10; i++) {
-        let nr;
-        let adv = true;
-        while (adv) {
-            let mem =false;
-            nr = Math.floor(Math.random() *  arr.length);
-            for (let j = 0; j < arrIndex.length; j++) {
-                if(nr===arrIndex[j]){
-                    mem=true;
-                }
-            }
-                if ( !mem) {
-                    adv = false;
-                    console.log(nr);arrIndex.push(nr);
-                }
-                
+    newArr = [];
+    arrCuExercitii = [];
+    arrIndex = [];
 
-        }
-        for (let j = 0; j < arr.length; j++) {
-            if (nr === j) {
-                newArr.push(arr[j]);
-
-            }
-        }
-
+    if (dateSalvate && dateSalvate.length > 0) {
+        console.log("Folosim întrebările profesorului.");
+        arrCuExercitii = [...dateSalvate];
     }
+    else {
+        console.log("Folosim întrebările default.");
+        for (let i = 0; i < 10; i++) {
+            let nr;
+            let adv = true;
+            while (adv) {
+                let mem = false;
+                nr = Math.floor(Math.random() * arr.length);
+                for (let j = 0; j < arrIndex.length; j++) {
+                    if (nr === arrIndex[j]) {
+                        mem = true;
+                    }
+                }
+                if (!mem) {
+                    adv = false;
+                    arrIndex.push(nr);
+                }
+            }
 
+            newArr.push(arr[nr]);
+        }
 
-    for (let i = 0; i < newArr.length; i++) {
-        let nr = Math.floor(Math.random() * 3);
-        arrCuExercitii.push(newArr[i].propozitii[nr]);
-
-        console.log('arraiul');
-        console.log(newArr[i].propozitii[nr]);
+        for (let i = 0; i < newArr.length; i++) {
+            let nrPropozitie = Math.floor(Math.random() * 3);
+            arrCuExercitii.push(newArr[i].propozitii[nrPropozitie]);
+        }
     }
 }
 
+// ... 
 
-
-
-
-let contor = 0;
-let contorCorect = 0;
 function genereazaHTML() {
-
-    if (contor < 10) {
+    if (contor < arrCuExercitii.length) {
 
         document.querySelector('.restart').innerHTML = "";
-
         document.querySelector('#true').style.display = 'inline-block';
         document.querySelector('#false').style.display = 'inline-block';
 
         document.querySelector('.nrIntrebare').innerHTML = `Intrebare ${contor + 1}`;
         document.querySelector('.textIntrebare').innerHTML = `${arrCuExercitii[contor].text}`;
-        document.querySelector(".scorul").innerHTML = `Scorul ${contorCorect}`;
+        document.querySelector(".scorul").innerHTML = `Scor: ${contorCorect}`;
         document.querySelector(".scorul").style.display = 'block';
 
     }
     else {
 
-        document.querySelector(".scorul").innerHTML = `Scorul ${contorCorect}`;
+        document.querySelector(".scorul").innerHTML = `Scor Final: ${contorCorect}`;
         document.querySelector('.textIntrebare').innerHTML =
-            `Ai răspuns corect la ${contorCorect} întrebări din 10.`;
+            `Ai răspuns corect la ${contorCorect} întrebări din ${arrCuExercitii.length}.`;
 
         document.querySelector('#true').style.display = 'none';
         document.querySelector('#false').style.display = 'none';
@@ -167,7 +165,7 @@ function genereazaHTML() {
         document.querySelector('.restart').innerHTML = `
             <button class="raspuns mt-2 w-[300px] h-[50px]" id="restart-btn">
                 <img class="w-[300px] h-[50px] object-cover rounded-[20px]"
-                     src="../../assets/img/true-false-game/image 11.png" alt="">
+                    src="../../../assets/img/true-false-game/image 11.png" alt="Restart">
             </button>
         `;
 
@@ -176,7 +174,6 @@ function genereazaHTML() {
         });
     }
 }
-
 
 function dacaECorect(raspunsUtilizator) {
     {
@@ -210,13 +207,19 @@ function initializare() {
 }
 
 function restart() {
+    localStorage.removeItem("intrebariTrueFalse");
+    
+    dateSalvate = []; 
+
     contor = 0;
     contorCorect = 0;
-    newArr = []
+    newArr = [];
     arrCuExercitii = [];
     arrIndex = [];
+
     creareArr();
     genereazaHTML();
+    
+    console.log("Jocul a fost resetat la întrebările implicite.");
 }
-
 initializare();
