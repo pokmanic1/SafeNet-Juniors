@@ -37,12 +37,20 @@
             .card.flipped{
                 transform: rotateY(180deg);
             }
-          .card.matched .front {
-    background-color: #4ade80;
-    box-shadow: 0 0 10px green;
-    cursor: default;
+/* Când cardul este potrivit, fundalul devine verde și conținutul dispare */
+.card.matched .back {
+    background-color: #4ade80 !important; /* Verde */
+    background-image: none !important;    /* Șterge imaginea */
+    color: transparent;                   /* Ascunde textul */
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4ade80;
 }
 
+/* Păstrăm rotația cardului ca să rămână verde pe față */
+.card.matched {
+    transform: rotateY(180deg);
+    cursor: default;
+}
         </style>
 
 
