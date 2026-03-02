@@ -7,7 +7,15 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
-
+if(JSON.parse(localStorage.getItem("shuffleGameData"))){
+console.log('estele')
+}else{
+    console.log("nu")
+}
+let dateSalvate=JSON.parse(localStorage.getItem("shuffleGameData")) || [];
+console.log("-----------------------------------------");
+console.log(dateSalvate);
+console.log("-----------------------------------------");
 
 let arrText = [
     'frauda',
@@ -48,6 +56,7 @@ const jocul = document.querySelector('.joc');
 let newArr = [];
 
 function genereazaPerechi() {
+    if(dateSalvate.lenght===0){
     let indexuri = [];
 
     while (indexuri.length < 8) {
@@ -60,7 +69,7 @@ function genereazaPerechi() {
     indexuri.forEach(i => {
 
         newArr.push({
-            id: i,              // 🔥 ID adăugat
+            id: i,             
             type: "text",
             value: arrText[i]
         });
@@ -72,7 +81,10 @@ function genereazaPerechi() {
             imaginea: arrImaginea[i]
         });
 
-    });
+    });}
+    else{
+        newArr=[...dateSalvate];
+    }
 }
 
 console.log(newArr)
