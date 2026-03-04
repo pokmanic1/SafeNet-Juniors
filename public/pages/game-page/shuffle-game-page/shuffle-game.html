@@ -5,64 +5,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <style>
-            .card {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    cursor: pointer;
-}
+    <style>
+        .card {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
 
-.front, .back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-}
+        .front,
+        .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+        }
 
-.front {
-    background-color: #ccc;
-}
+        .front {
+            background-color: #ccc;
+        }
 
-.back {
-    transform: rotateY(180deg);
-    background-size: cover;
-    background-position: center;
-}
+        .back {
+            transform: rotateY(180deg);
+            background-size: cover;
+            background-position: center;
+        }
 
-            .card.flipped{
-                transform: rotateY(180deg);
-            }
-/* Când cardul este potrivit, fundalul devine verde și conținutul dispare */
-.card.matched .back {
-    background-color: #4ade80 !important; /* Verde */
-    background-image: none !important;    /* Șterge imaginea */
-    color: transparent;                   /* Ascunde textul */
-    border-radius: 8px;
-    box-shadow: 0 0 10px #4ade80;
-}
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
 
-/* Păstrăm rotația cardului ca să rămână verde pe față */
-.card.matched {
-    transform: rotateY(180deg);
-    cursor: default;
-}
-        </style>
+        /* Când cardul este potrivit, fundalul devine verde și conținutul dispare */
+        .card.matched .back {
+            background-color: #4ade80 !important;
+            /* Verde */
+            background-image: none !important;
+            /* Șterge imaginea */
+            color: transparent;
+            /* Ascunde textul */
+            border-radius: 8px;
+            box-shadow: 0 0 10px #4ade80;
+        }
+
+        /* Păstrăm rotația cardului ca să rămână verde pe față */
+        .card.matched {
+            transform: rotateY(180deg);
+            cursor: default;
+        }
+    </style>
+
 
 
 </head>
 
-<body class="flex justify-center items-center h-[100dvh ]  m-0 font-serif">
-    <div class="container flex justify-center items-center flex-col h-[100dvh]">
-        <div class="joc grid grid-cols-[repeat(4,100px)] gap-4">
-            
-        </div>
-    </div>
+<body>
 
+    <header class="w-full">
+        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+
+            <a href="../index.html" class="flex items-center gap-3">
+                <img class="w-32 object-contain" src="../assets/img/image-removebg-preview (5).png"
+                    alt="SafeNet Junior">
+            </a>
+
+            <nav class="hidden md:flex items-center gap-12 font-semibold">
+                <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
+                <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-10 font-semibold">
+                <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
+                <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
+            </div>
+
+            <button id="menuBtn"
+                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+
+                <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
+                <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
+
+                <div class="h-px bg-gray-200 my-2"></div>
+
+                <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
+                    Înregistrare
+                </a>
+                <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
+                    Conectare
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="flex flex-col justify-center items-center h-[100dvh]">
+        <div class="flex justify-center items-center gap-6">
+            <button class="time px-[50px] py-[8px] bg-blue-400 rounded-[20px]">time</button>
+            <button class="scor  px-[50px] py-[8px] bg-blue-400 rounded-[20px]" >0</button>
+             <button class="restart  px-[11px] py-[8px] bg-blue-400 rounded-[40px]">Re</button>
+        </div>
+        
+        <div class="flex justify-center items-center   m-0 font-serif mt-[20px]">
+            <div class="container flex justify-center items-center flex-col ">
+                <div class="joc grid grid-cols-[repeat(4,100px)] gap-4">
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
     <script type="module" src="../../../assets/js/modules/shuffle.js"></script>
 </body>
 

@@ -16,6 +16,8 @@ let dateSalvate=JSON.parse(localStorage.getItem("shuffleGameData")) || [];
 console.log("-----------------------------------------");
 console.log(dateSalvate);
 console.log("-----------------------------------------");
+console.log(dateSalvate.lenght);
+console.log("-----------------------------------------");
 
 let arrText = [
     'frauda',
@@ -46,17 +48,19 @@ let arrImaginea = [
     '../../../assets/img/img-shufle-game/sterge.png',
     '../../../assets/img/img-shufle-game/virus.png',
 ];
+let interval;
+
 
 let primaIncercareId = null;
 let aDouaIncercareId = null;
 let contor = 0;
 const DELAY = 1000;
-const jocul = document.querySelector('.joc');
+let jocul = document.querySelector('.joc');
 
 let newArr = [];
 
 function genereazaPerechi() {
-    if(dateSalvate.lenght===0){
+    if(dateSalvate.length===0){
     let indexuri = [];
 
     while (indexuri.length < 8) {
@@ -75,7 +79,7 @@ function genereazaPerechi() {
         });
 
         newArr.push({
-            id: i,              // 🔥 ID adăugat
+            id: i,              
             type: "image",
             value: arrText[i],
             imaginea: arrImaginea[i]
@@ -128,7 +132,7 @@ function createCard(item) {
 function initializare() {
     genereazaPerechi();
     shuffle(newArr);
-
+    pornesteCeas(0,0);
     newArr.forEach(item => {
         const card = createCard(item);
         jocul.appendChild(card);
@@ -158,6 +162,7 @@ function match() {
     const selected = document.querySelectorAll('.selected');
     selected.forEach(card => {
         card.classList.add('matched');
+        document.querySelector(".scor").innerHTML=`${contorPerechi++}`;
     });
 }
 
@@ -171,6 +176,40 @@ aDouaIncercareId = null;
         card.classList.remove('selected', 'flipped');
     });
 }
+
+function pornesteCeas(minute , secunde) {
+    
+     interval = setInterval(() => {
+        
+            document.querySelector(".time").innerHTML=`${String(minute).padStart(2, '0')}:${ String(secunde).padStart(2, '0')}`;
+
+
+        secunde++;
+
+        if (secunde === 60) {
+            secunde = 0;
+            minute++;
+        }
+
+        if (minute === 59 && secunde === 59) {
+            console.log("59:59");
+            clearInterval(interval);
+            console.log("Ceas oprit!");
+        }
+
+    }, 1000);
+    
+}
+
+document.querySelector(".restart").addEventListener('click',()=>{
+ primaIncercareId = null;
+ aDouaIncercareId = null;
+ contor = 0;
+ jocul.innerHTML='';
+    clearInterval(interval);
+ initializare();
+});
+let contorPerechi=0;
 
 jocul.addEventListener('click', Click);
 initializare();
