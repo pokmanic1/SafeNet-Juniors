@@ -117,18 +117,59 @@
 
     <section class="flex flex-col justify-center items-center h-[100dvh]">
         <div class="flex justify-center items-center gap-6">
-            <button class="time px-[50px] py-[8px] bg-blue-400 rounded-[20px]">time</button>
-            <button class="scor  px-[50px] py-[8px] bg-blue-400 rounded-[20px]" >0</button>
-             <button class="restart  px-[11px] py-[8px] bg-blue-400 rounded-[40px]">Re</button>
-        </div>
-        
-        <div class="flex justify-center items-center   m-0 font-serif mt-[20px]">
-            <div class="container flex justify-center items-center flex-col ">
-                <div class="joc grid grid-cols-[repeat(4,100px)] gap-4">
+            <div class="relative w-[110px]">
+
+                <select  class="nivelul w-full appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
+               text-white font-medium 
+               px-5 py-3  
+               rounded-xl 
+               shadow-lg
+               cursor-pointer
+               focus:outline-none focus:ring-4 focus:ring-blue-300
+               hover:from-blue-600 hover:to-blue-700
+               transition-all duration-300">
+
+                    <option value="1"class="text-gray-700">
+                        Nivelul 1
+                    </option>
+
+                    <option value="2" class="text-black">
+                        Nivelul 2
+                    </option>
+
+                    <option value="3" class="text-black">
+                        Nivelul 3
+                    </option>
+
+                    <option value="4" class="text-black">
+                        Nivelul 4
+                    </option>
+
+                </select>
 
 
-                </div>
             </div>
+            <button class="time  bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
+               text-white font-medium 
+               px-5 py-3  rounded-xl  shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700
+               transition-all duration-300" ">time</button>
+            <button class=" scor bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 text-white
+                font-medium px-5 py-3 rounded-xl shadow-lg cursor-pointer focus:outline-none focus:ring-4
+                focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700 transition-all duration-300">Scorul :
+                0</button>
+            <button class="restart w-[50px]  bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
+               text-white font-medium 
+              p-3   rounded-[40px]  shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700
+               transition-all duration-300"">Re</button>
+        </div>
+
+        <div class=" flex justify-center items-center m-0 font-serif mt-[20px]">
+                <div class="container flex justify-center items-center flex-col ">
+                    <div class="joc grid grid-cols-[repeat(4,100px)] gap-4">
+
+
+                    </div>
+                </div>
         </div>
 
     </section>
