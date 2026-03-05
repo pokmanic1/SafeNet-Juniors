@@ -11,7 +11,7 @@
 <body class="h-[111dvh] w-full bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/true-false-game/image 9.png');">
 
-            <header class="flex justify-between items-center px-12 py-3 shadow-sm bg-white">
+    <header class="flex justify-between items-center px-12 py-3 shadow-sm bg-white">
         <div class="flex items-center gap-2">
             <img class=" w-24" src="../../../assets/img/image-removebg-preview (5).png" alt="Logo">
         </div>
@@ -31,20 +31,51 @@
     <div class="container flex justify-center items-center flex-col h-[100dvh]">
 
         <div class="flex justify-start items-start gap-[150px]">
-            <div class=" w-[240px] h-[60px] bg-green-700 flex justify-center items-center border-[5px] border-green-800 rounded-[10px] ml-[40px]">
-                <h1 class="nrIntrebare text-center font-bold text-[30px]  text-yellow-400">Intrebare 1</h1>
+            <div>
+                <div
+                    class=" w-[240px] h-[60px] bg-green-700 flex justify-center items-center border-[5px] border-green-800 rounded-[10px] ml-[40px]">
+                    <h1 class="nrIntrebare text-center font-bold text-[30px]  text-yellow-400">Intrebare 1</h1>
+                </div class="">
+                <select class="nivelul ml-[20px] w-[200px] appearance-none bg-gradient-to-r from-blue-500 to-blue-600  mt-10 
+               text-white font-medium 
+               px-5 py-3  
+               rounded-xl 
+               shadow-lg
+               cursor-pointer
+               focus:outline-none focus:ring-4 focus:ring-blue-300
+               hover:from-blue-600 hover:to-blue-700
+               transition-all duration-300">
+
+                    <option value="1" class="text-gray-700">
+                        Nivelul 1
+                    </option>
+
+                    <option value="2" class="text-black">
+                        Nivelul 2
+                    </option>
+
+                    <option value="3" class="text-black">
+                        Nivelul 3
+                    </option>
+
+                    <option value="4" class="text-black">
+                        Nivelul 4
+                    </option>
+
+                </select>
             </div>
-            
             <img src="../../../assets/img/true-false-game/image-removebg-preview (4).png" alt="">
-            
-            <div class=" w-[240px] h-[60px] bg-green-700 flex justify-center items-center border-[5px] border-green-800 rounded-[10px] mr-[40px]">
+
+            <div
+                class=" w-[240px] h-[60px] bg-green-700 flex justify-center items-center border-[5px] border-green-800 rounded-[10px] mr-[40px]">
                 <h1 class="scorul text-center font-bold text-[30px]  text-yellow-400">Scor</h1>
             </div>
         </div>
-        
 
 
-        <div class="mt-3 border-[5px] border-black w-[900px] h-[100px] bg-gray-300 flex justify-center items-center rounded-[30px]">
+
+        <div
+            class="mt-3 border-[5px] border-black w-[900px] h-[100px] bg-gray-300 flex justify-center items-center rounded-[30px]">
             <h2 class="textIntrebare pading-40px font-bold text-3xl">Text intrebare 1</h2>
         </div>
 
@@ -52,20 +83,22 @@
 
         <div class="mt-10 ">
             <button class="raspuns mt-2 mr-5 w-[300px] h-[50px]" id="true">
-                <img class="w-[300px] h-[50px] object-cover rounded-[20px] mr-5" src="../../../assets/img/true-false-game/image 7.png" alt="">
+                <img class="w-[300px] h-[50px] object-cover rounded-[20px] mr-5"
+                    src="../../../assets/img/true-false-game/image 7.png" alt="">
             </button>
 
             <button class="raspuns mt-2 w-[300px] h-[50px]" id="false">
-                <img class="w-[300px] h-[50px] object-cover rounded-[20px] ml-5 " src="../../../assets/img/true-false-game/image 10.png" alt="">
+                <img class="w-[300px] h-[50px] object-cover rounded-[20px] ml-5 "
+                    src="../../../assets/img/true-false-game/image 10.png" alt="">
             </button>
-             <!-- <button class="raspuns mt-2 w-[300px] h-[50px]" id="false">
+            <!-- <button class="raspuns mt-2 w-[300px] h-[50px]" id="false">
                 <img class="w-[300px] h-[50px] object-cover rounded-[20px] ml-5 " src="../../assets/img/true-false-game/image 11.png" alt="">
             </button> -->
             <button class="restart"></button>
         </div>
     </div>
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
-    <script type="module"  src="../../../assets/js/modules/true-false-game.js"></script>
+    <script type="module" src="../../../assets/js/modules/true-false-game.js"></script>
 </body>
 
 </html>

@@ -229,7 +229,7 @@ function match() {
 }
 
 function reset() {
-    localStorage.removeItem("shuffleGameData");
+    
     primaIncercareId = null;
     aDouaIncercareId = null;
     contor = 0;
@@ -242,7 +242,7 @@ function reset() {
 
 function pornesteCeas(minute, secunde) {
 
-    let interval = setInterval(() => {
+    interval = setInterval(() => {
 
         document.querySelector(".time").innerHTML = `${String(minute).padStart(2, '0')}:${String(secunde).padStart(2, '0')}`;
 
@@ -271,6 +271,7 @@ function pornesteCeas(minute, secunde) {
 
 
 document.querySelector(".restart").addEventListener('click', () => {
+    localStorage.removeItem("shuffleGameData");
     primaIncercareId = null;
     aDouaIncercareId = null;
     newArr = [];
