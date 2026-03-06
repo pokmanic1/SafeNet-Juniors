@@ -70,8 +70,6 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-
-
 const Conditii = [
     {
         text: "Minim 8 caractere",
@@ -123,6 +121,27 @@ const Conditii = [
     }
 ];
 
+let numarDeConditii=4;
+
+const selectNivel = document.querySelector(".nivelul");
+let nivelul = 1;
+selectNivel.addEventListener('change', (event) => {
+    nivelul = event.target.value;
+        if (nivelul == 1) {numarDeConditii=4;} 
+
+        else if (nivelul == 2) {numarDeConditii=5;} 
+
+        else if (nivelul == 3) {numarDeConditii=6; } 
+
+        else if (nivelul == 4) {numarDeConditii=7;}
+    restart()
+
+});
+
+
+
+
+
 
 let newArrConditii=[];
 let arrIndex=[];
@@ -130,7 +149,7 @@ creareArr();
 function creareArr() {
     if (newArrConditii1.length === 0) {
         console.log("Generăm condiții aleatorii...");
-        for (let i = 0; i < 5; i++) { 
+        for (let i = 0; i < numarDeConditii; i++) { 
             let nr;
             let adv = true;
             while (adv) {
