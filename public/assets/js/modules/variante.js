@@ -6,6 +6,8 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+let dateSalvate = JSON.parse(localStorage.getItem('jocVarianteCustom')) || [];
+
 let arr1 = [
     {
         intrebare: "intrebare1",
@@ -493,13 +495,13 @@ selectNivel.addEventListener('change', (event) => {
 
     } else if (nivelul == 2) {
         arr = arr2;
-                console.log("nivelul a fost schimbat");
+        console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 3) {
-        arr = arr3;        console.log("nivelul a fost schimbat");
+        arr = arr3; console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 4) {
-        arr = arr4;        console.log("nivelul a fost schimbat");
+        arr = arr4; console.log("nivelul a fost schimbat");
 
     }
     restart()
@@ -515,39 +517,43 @@ let varianta2Element = document.querySelector('.varianta2');
 let varianta3Element = document.querySelector('.varianta3');
 let varianta4Element = document.querySelector('.varianta4');
 
-let textIntrebare=document.querySelector('.textIntrebare');
-let textScoar=document.querySelector('.textScoar');
-let contorScor=0;
-let butonRestart=document.querySelector('.butonRestart');
+let textIntrebare = document.querySelector('.textIntrebare');
+let textScoar = document.querySelector('.textScoar');
+let contorScor = 0;
+let butonRestart = document.querySelector('.butonRestart');
 
 
-let arr=[...arr1];
+let arr = [...arr1];
 let newArr = [];
 let arrCuExercitii = [];
 let arrIndex = [];
 createArr();
 
 function createArr() {
-    for (let i = 0; i < 10; i++) {
-        let nr;
-        let adv = true;
-        while (adv) {
-            let mem = false;
-            nr = Math.floor(Math.random() * arr.length);
-            for (let j = 0; j < arrIndex.length; j++) {
-                if (nr === arrIndex[j]) {
-                    mem = true;
+    if (dateSalvate.length > 0) {
+        console.log("Folosim întrebările profesorului.");
+        newArr = [...dateSalvate];
+    } else {
+        for (let i = 0; i < 10; i++) {
+            let nr;
+            let adv = true;
+            while (adv) {
+                let mem = false;
+                nr = Math.floor(Math.random() * arr.length);
+                for (let j = 0; j < arrIndex.length; j++) {
+                    if (nr === arrIndex[j]) {
+                        mem = true;
+                    }
+                }
+                if (!mem) {
+                    adv = false;
+                    arrIndex.push(nr);
                 }
             }
-            if (!mem) {
-                adv = false;
-                arrIndex.push(nr);
-            }
+
+            newArr.push(arr[nr]);
         }
-
-        newArr.push(arr[nr]);
     }
-
 
 }
 console.log(newArr);
@@ -561,9 +567,12 @@ function genereazaHTML() {
         varianta2Element.innerHTML = itemCurent.variante[1].varianta;
         varianta3Element.innerHTML = itemCurent.variante[2].varianta;
         varianta4Element.innerHTML = itemCurent.variante[3].varianta;
-        textIntrebare.innerHTML=contor;
-        textScoar.innerHTML=contorScor;
+        textIntrebare.innerHTML = contor;
+        textScoar.innerHTML = contorScor;
+
     } else {
+        textIntrebare.innerHTML = contor;
+        textScoar.innerHTML = contorScor;
         alert("Testul s-a terminat!");
     }
 }
@@ -571,7 +580,7 @@ genereazaHTML();
 
 let butoane = document.querySelectorAll('.butonVariante');
 
-butoane.forEach((buton, index) => {  
+butoane.forEach((buton, index) => {
     buton.addEventListener('click', () => {
         let intrebareCurenta = newArr[contor];
 
@@ -586,14 +595,17 @@ butoane.forEach((buton, index) => {
     });
 });
 
-butonRestart.addEventListener('click',()=>{
-    newArr = [];
- arrCuExercitii = [];
-arrIndex = [];
-contor=0;
-contorScor=0;
-createArr();
-genereazaHTML();
+butonRestart.addEventListener('click', () => {
+    restart();
 })
 
-
+function restart() {
+    newArr = [];
+    arrCuExercitii = [];
+    arrIndex = [];
+    contor = 0;
+    contorScor = 0;
+    
+    createArr();
+    genereazaHTML();
+}

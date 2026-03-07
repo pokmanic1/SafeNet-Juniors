@@ -1,11 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            display: flex;
+            gap: 5px;
+            width: 70%;
+        }
+
+        .card {
+            transition: 0.4s ease-in-out;
+            flex: 1;
+        }
+
+        .card:hover {
+            flex: 2;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <!-- NAVBAR (pentru pagina games.html aflată în /pages) -->
+    <header class="w-full">
+        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+
+            <!-- Left: Logo -->
+            <a href="../index.html" class="flex items-center gap-3">
+                <img class="w-32 object-contain" src="../assets/img/image-removebg-preview (5).png"
+                    alt="SafeNet Junior">
+            </a>
+
+            <!-- Desktop menu -->
+            <nav class="hidden md:flex items-center gap-12 font-semibold">
+                <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
+                <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
+            </nav>
+
+            <!-- Desktop auth -->
+            <div class="hidden md:flex items-center gap-10 font-semibold">
+                <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
+                <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
+            </div>
+
+            <!-- Mobile toggle -->
+            <button id="menuBtn"
+                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
+                <!-- Icon hamburger -->
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+                <!-- Icon X -->
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+
+                <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
+                <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
+
+                <div class="h-px bg-gray-200 my-2"></div>
+
+                <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
+                    Înregistrare
+                </a>
+                <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
+                    Conectare
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="w-full min-h-[90dvh] flex flex-col justify-center items-center p-6">
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 w-full max-w-2xl">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Configurare Joc Variante</h1>
+
+            <div id="pasul1" class="flex flex-col items-center">
+                <label class="mb-2 font-medium text-gray-700">Câte întrebări dorești să creezi?</label>
+                <input id="nr_intrebari" type="number" min="1" max="20" placeholder="Maxim 20"
+                    class="border-2 border-blue-100 w-full p-3 mb-6 rounded-xl focus:border-blue-500 outline-none transition">
+                <button id="btn_incepe"
+                    class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition shadow-lg">
+                    Începe Configurarea
+                </button>
+            </div>
+
+            <div id="pasul2" class="flex flex-col hidden">
+                <h2 id="titlu_pas" class="text-xl mb-6 font-bold text-blue-700 border-b pb-2">Întrebarea 1</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Textul întrebării:</label>
+                        <input type="text" id="text_intrebare" placeholder="Scrie întrebarea aici..."
+                            class="border border-gray-300 w-full p-3 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-3">
+                        <label class="text-sm font-semibold text-gray-600">Variante de răspuns (bifează pe cea
+                            corectă):</label>
+
+                        <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border">
+                            <input type="radio" name="raspuns_corect" value="0" class="w-5 h-5 cursor-pointer">
+                            <input type="text" id="v0" placeholder="Varianta 1"
+                                class="flex-1 bg-transparent outline-none">
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border">
+                            <input type="radio" name="raspuns_corect" value="1" class="w-5 h-5 cursor-pointer">
+                            <input type="text" id="v1" placeholder="Varianta 2"
+                                class="flex-1 bg-transparent outline-none">
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border">
+                            <input type="radio" name="raspuns_corect" value="2" class="w-5 h-5 cursor-pointer">
+                            <input type="text" id="v2" placeholder="Varianta 3"
+                                class="flex-1 bg-transparent outline-none">
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border">
+                            <input type="radio" name="raspuns_corect" value="3" class="w-5 h-5 cursor-pointer">
+                            <input type="text" id="v3" placeholder="Varianta 4"
+                                class="flex-1 bg-transparent outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button id="btn_adauga"
+                        class="flex-1 bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition shadow-md">
+                        Salvează Întrebarea
+                    </button>
+                    <button id="btn_restart"
+                        class="bg-red-100 text-red-600 font-bold px-6 py-3 rounded-xl hover:bg-red-200 transition">
+                        Reset
+                    </button>
+                </div>
+
+                <p id="progres" class="mt-6 text-center text-gray-500 font-medium italic">Întrebări salvate: 0 / 0</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <section class="subsol bg-white">
+        <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
+            <!-- Top -->
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
+                <!-- Brand -->
+                <div class="md:w-1/3">
+                    <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
+                    <p class="text-gray-600 mt-3 leading-relaxed">
+                        Platformă educațională pentru siguranța online, dedicată elevilor din ciclul primar.
+                    </p>
+                    <p class="text-gray-600 mt-3 leading-relaxed">
+                        Instituție vizată: <span class="font-medium">Școala Primară „Alexandru Donici”, Cahul</span>
+                    </p>
+                </div>
+
+                <!-- Links + Contact -->
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Navigare -->
+                    <div>
+                        <h2 class="font-semibold text-gray-900">Navigare</h2>
+                        <ul class="mt-3 space-y-2 text-gray-600">
+                            <li><a class="hover:text-gray-900" href="./index.html">Acasă</a></li>
+                            <li><a class="hover:text-gray-900" href="./pages/modules.html">Module</a></li>
+                            <li><a class="hover:text-gray-900" href="./pages/games.html">Jocuri</a></li>
+                            <li><a class="hover:text-gray-900" href="./pages/about.html">Despre noi</a></li>
+                            <li><a class="hover:text-gray-900" href="./pages/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h2 class="font-semibold text-gray-900">Contact</h2>
+                        <div class="mt-3 space-y-2 text-gray-600">
+                            <p><span class="font-medium text-gray-900">Telefon:</span> +373 (79) 000 000</p>
+                            <p>
+                                <span class="font-medium text-gray-900">Email:</span>
+                                <a class="hover:text-gray-900 underline"
+                                    href="mailto:contact@safenetjunior.md">contact@safenetjunior.md</a>
+                            </p>
+                            <p>
+                                <span class="font-medium text-gray-900">Adresă:</span>
+                                Școala Primară „Alexandru Donici”, Cahul, Republica Moldova
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Social (link extern) -->
+                    <div>
+                        <h2 class="font-semibold text-gray-900">Social</h2>
+                        <div class="mt-3 space-y-2 text-gray-600">
+                            <a class="block hover:text-gray-900 underline"
+                                href="https://www.facebook.com/tekwillinfiecarescoala" target="_blank"
+                                rel="noopener">Facebook</a>
+                            <a class="block hover:text-gray-900 underline"
+                                href="https://www.instagram.com/tekwillinfiecarescoala/" target="_blank"
+                                rel="noopener">Instagram</a>
+                            <a class="block hover:text-gray-900 underline"
+                                href="https://www.tiktok.com/@tekwillinfiecarescoala" target="_blank"
+                                rel="noopener">TikTok</a>
+                            <a class="block hover:text-gray-900 underline"
+                                href="https://www.linkedin.com/company/tekwill-in-every-school/" target="_blank"
+                                rel="noopener">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="mt-12">
+                <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
+                <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
+                    <iframe title="Harta - Școala Primară Alexandru Donici, Cahul"
+                        src="https://www.google.com/maps?q=%C8%98coala%20Primar%C4%83%20Alexandru%20Donici%20Cahul&output=embed"
+                        width="100%" height="280" style="border:0;" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
+                <p class="leading-relaxed">
+                    Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de
+                    proiectul
+                    „Tekwill în Fiecare Școală” și nu reflectă neapărat opinia proiectului.
+                </p>
+                <p class="mt-2">&copy; 2026 SafeNet Junior.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="module">
+        let arrIntrebariVariante = [];
+        let numarTotal = 0;
+
+        const inputNr = document.getElementById("nr_intrebari");
+        const btnIncepe = document.getElementById("btn_incepe");
+        const pasul1 = document.getElementById("pasul1");
+        const pasul2 = document.getElementById("pasul2");
+
+        const inputText = document.getElementById("text_intrebare");
+        const btnAdauga = document.getElementById("btn_adauga");
+        const btnRestart = document.getElementById("btn_restart");
+        const titluPas = document.getElementById("titlu_pas");
+        const progresText = document.getElementById("progres");
+
+        btnIncepe.addEventListener("click", () => {
+            numarTotal = parseInt(inputNr.value);
+            if (numarTotal > 0) {
+                pasul1.classList.add("hidden");
+                pasul2.classList.remove("hidden");
+                actualizeazaInterfata();
+            } else {
+                alert("Introdu un număr valid de întrebări!");
+            }
+        });
+
+        btnAdauga.addEventListener("click", () => {
+            const textIntrebare = inputText.value.trim();
+            const radioCorect = document.querySelector('input[name="raspuns_corect"]:checked');
+
+            const v0 = document.getElementById("v0").value.trim();
+            const v1 = document.getElementById("v1").value.trim();
+            const v2 = document.getElementById("v2").value.trim();
+            const v3 = document.getElementById("v3").value.trim();
+
+            if (!textIntrebare || !v0 || !v1 || !v2 || !v3) {
+                alert("Te rugăm să completezi toate câmpurile!");
+                return;
+            }
+
+            if (!radioCorect) {
+                alert("Te rugăm să bifezi varianta corectă!");
+                return;
+            }
+
+            const indexCorect = parseInt(radioCorect.value);
+
+            const obiectIntrebare = {
+                intrebare: textIntrebare,
+                variante: [
+                    { varianta: v0, raspuns: indexCorect === 0 },
+                    { varianta: v1, raspuns: indexCorect === 1 },
+                    { varianta: v2, raspuns: indexCorect === 2 },
+                    { varianta: v3, raspuns: indexCorect === 3 }
+                ]
+            };
+
+            arrIntrebariVariante.push(obiectIntrebare);
+
+            localStorage.setItem("jocVarianteCustom", JSON.stringify(arrIntrebariVariante));
+
+            inputText.value = "";
+            document.getElementById("v0").value = "";
+            document.getElementById("v1").value = "";
+            document.getElementById("v2").value = "";
+            document.getElementById("v3").value = "";
+            radioCorect.checked = false;
+
+            if (arrIntrebariVariante.length < numarTotal) {
+                actualizeazaInterfata();
+            } else {
+                alert("Toate întrebările au fost salvate cu succes!");
+                btnAdauga.disabled = true;
+                btnAdauga.classList.add("opacity-50", "cursor-not-allowed");
+            }
+        });
+
+        btnRestart.addEventListener("click", () => {
+            if (confirm("Ești sigur că vrei să ștergi tot?")) {
+                localStorage.removeItem("jocVarianteCustom");
+                location.reload();
+            }
+        });
+
+        function actualizeazaInterfata() {
+            titluPas.textContent = `Configurează Întrebarea ${arrIntrebariVariante.length + 1}`;
+            progresText.textContent = `Întrebări salvate: ${arrIntrebariVariante.length} / ${numarTotal}`;
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
+
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            iconOpen.classList.toggle('hidden', open);
+            iconClose.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            setMenu(!isOpen);
+        });
+
+        // Închide meniul când se schimbă la desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMenu(false);
+        });
+
+        // Închide meniul când se apasă Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    </script>
+
+
+    <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
+
 </html>
