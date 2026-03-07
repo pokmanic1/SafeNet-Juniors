@@ -125,11 +125,19 @@ let arr = [
         ]
     },
 ];
+
 let intrebareElement = document.querySelector('.intrebarea1');
 let varianta1Element = document.querySelector('.varianta1');
 let varianta2Element = document.querySelector('.varianta2');
 let varianta3Element = document.querySelector('.varianta3');
 let varianta4Element = document.querySelector('.varianta4');
+
+let textIntrebare=document.querySelector('.textIntrebare');
+let textScoar=document.querySelector('.textScoar');
+let contorScor=0;
+let butonRestart=document.querySelector('.butonRestart');
+
+
 
 let newArr = [];
 let arrCuExercitii = [];
@@ -163,14 +171,15 @@ console.log(newArr);
 let contor = 0;
 function genereazaHTML() {
     if (contor < newArr.length) {
+
         let itemCurent = newArr[contor];
-
         intrebareElement.innerHTML = itemCurent.intrebare;
-
         varianta1Element.innerHTML = itemCurent.variante[0].varianta;
         varianta2Element.innerHTML = itemCurent.variante[1].varianta;
         varianta3Element.innerHTML = itemCurent.variante[2].varianta;
         varianta4Element.innerHTML = itemCurent.variante[3].varianta;
+        textIntrebare.innerHTML=contor;
+        textScoar.innerHTML=contorScor;
     } else {
         alert("Testul s-a terminat!");
     }
@@ -179,13 +188,13 @@ genereazaHTML();
 
 let butoane = document.querySelectorAll('.butonVariante');
 
-butoane.forEach((buton, index) => {
-    
+butoane.forEach((buton, index) => {  
     buton.addEventListener('click', () => {
         let intrebareCurenta = newArr[contor];
 
         if (intrebareCurenta.variante[index].raspuns === true) {
             alert("Corect! ");
+            contorScor++;
         } else {
             alert("Greșit! ");
         }
@@ -193,3 +202,15 @@ butoane.forEach((buton, index) => {
         genereazaHTML();
     });
 });
+
+butonRestart.addEventListener('click',()=>{
+    newArr = [];
+ arrCuExercitii = [];
+arrIndex = [];
+contor=0;
+contorScor=0;
+createArr();
+genereazaHTML();
+})
+
+
