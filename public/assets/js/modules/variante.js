@@ -6,7 +6,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-let arr = [
+let arr1 = [
     {
         intrebare: "intrebare1",
         variante: [
@@ -125,6 +125,389 @@ let arr = [
         ]
     },
 ];
+let arr2 = [
+    {
+        intrebare: "intrebare1-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare2-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare3-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare4",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare5-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare6-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare7-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare8-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare9-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare19-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare11-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare12-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare13-2",
+        variante: [
+            { varianta: "varianta1-2", raspuns: false },
+            { varianta: "varianta2-2", raspuns: true },
+            { varianta: "varianta3-2", raspuns: false },
+            { varianta: "varianta4-2", raspuns: false },
+        ]
+    },
+];
+let arr3 = [
+    {
+        intrebare: "intrebare1-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare2-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare3-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare4",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare5-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare6-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare7-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare8-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare9-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare19-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare11-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare12-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare13-3",
+        variante: [
+            { varianta: "varianta1-3", raspuns: false },
+            { varianta: "varianta2-3", raspuns: true },
+            { varianta: "varianta3-3", raspuns: false },
+            { varianta: "varianta4-3", raspuns: false },
+        ]
+    },
+];
+let arr4 = [
+    {
+        intrebare: "intrebare1-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare2-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare3-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare5-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare6-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare7-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare8-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare9-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare19-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare11-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare12-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+    {
+        intrebare: "intrebare13-4",
+        variante: [
+            { varianta: "varianta1-4", raspuns: false },
+            { varianta: "varianta2-4", raspuns: true },
+            { varianta: "varianta3-4", raspuns: false },
+            { varianta: "varianta4-4", raspuns: false },
+        ]
+    },
+];
+
+const selectNivel = document.querySelector(".nivelul");
+let nivelul = 1;
+selectNivel.addEventListener('change', (event) => {
+    nivelul = event.target.value;
+    if (nivelul == 1) {
+        arr = arr1;
+        console.log("nivelul a fost schimbat");
+
+    } else if (nivelul == 2) {
+        arr = arr2;
+                console.log("nivelul a fost schimbat");
+
+    } else if (nivelul == 3) {
+        arr = arr3;        console.log("nivelul a fost schimbat");
+
+    } else if (nivelul == 4) {
+        arr = arr4;        console.log("nivelul a fost schimbat");
+
+    }
+    restart()
+
+});
+
+
+
 
 let intrebareElement = document.querySelector('.intrebarea1');
 let varianta1Element = document.querySelector('.varianta1');
@@ -138,7 +521,7 @@ let contorScor=0;
 let butonRestart=document.querySelector('.butonRestart');
 
 
-
+let arr=[...arr1];
 let newArr = [];
 let arrCuExercitii = [];
 let arrIndex = [];
