@@ -1,92 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        .container {
-            display: flex;
-            gap: 5px;
-            width: 70%;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .container {
+      display: flex;
+      gap: 5px;
+      width: 70%;
+    }
 
-        .card {
-            transition: 0.4s ease-in-out;
-            flex: 1;
-        }
+    .card {
+      transition: 0.4s ease-in-out;
+      flex: 1;
+    }
 
-        .card:hover {
-            flex: 2;
-            cursor: pointer;
-        }
-    </style>
+    .card:hover {
+      flex: 2;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-       <!-- NAVBAR (pentru pagina games.html aflată în /pages) -->
-    <header class="w-full">
-        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+  <!-- NAVBAR (pentru pagina games.html aflată în /pages) -->
+  <header class="w-full">
+    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
 
-            <!-- Left: Logo -->
-            <a href="../index.html" class="flex items-center gap-3">
-                <img class="w-32 object-contain" src="../assets/img/image-removebg-preview (5).png"
-                    alt="SafeNet Junior">
-            </a>
+      <!-- Left: Logo -->
+      <a href="../index.html" class="flex items-center gap-3">
+        <img class="w-32 object-contain" src="../assets/img/image-removebg-preview (5).png" alt="SafeNet Junior">
+      </a>
 
-            <!-- Desktop menu -->
-            <nav class="hidden md:flex items-center gap-12 font-semibold">
-                <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
-                <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
-            </nav>
+      <!-- Desktop menu -->
+      <nav class="hidden md:flex items-center gap-12 font-semibold">
+        <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
+        <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
+      </nav>
 
-            <!-- Desktop auth -->
-            <div class="hidden md:flex items-center gap-10 font-semibold">
-                <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
-                <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
-            </div>
+      <!-- Desktop auth -->
+      <div class="hidden md:flex items-center gap-10 font-semibold">
+        <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
+        <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
+      </div>
 
-            <!-- Mobile toggle -->
-            <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
-                aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-                <!-- Icon hamburger -->
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+      <!-- Mobile toggle -->
+      <button id="menuBtn"
+        class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+        aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
+        <!-- Icon hamburger -->
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
 
-                <!-- Icon X -->
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
+        <!-- Icon X -->
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
 
-                <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
-                <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
+        <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
+        <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
 
-                <div class="h-px bg-gray-200 my-2"></div>
+        <div class="h-px bg-gray-200 my-2"></div>
 
-                <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
-                    Înregistrare
-                </a>
-                <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
-                    Conectare
-                </a>
-            </div>
-        </div>
-    </header>
+        <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
+          Înregistrare
+        </a>
+        <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
+          Conectare
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="my-[500px]  flex items-center justify-center ">
 
 
-      <!-- Footer -->
+
+    <button class="w-8 h-8 rounded-[40px] bg-black border-0"></button>
+
+
+  </div>
+  <script>
+
+    document.querySelector('.butonDashboard').addEventListener('click', () => {
+
+    
+    });
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
   <section class="subsol bg-white">
     <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
       <!-- Top -->
@@ -204,6 +234,7 @@
   </script>
 
 
-    <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
+  <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
 </body>
+
 </html>

@@ -93,37 +93,67 @@
 
     <!-- ----------------------------------------------- -->
 
-    <div class="w-full h-[110dvh] border-2 border-black flex flex-col justify-center items-center ">
+    <div class="min-h-screen flex flex-col justify-center items-center px-4 py-20">
+        <div
+            class="w-full max-w-2xl bg-white rounded-3xl shadow-xl shadow-slate-200/60 p-8 md:p-12 border border-slate-100 text-center">
 
-        <h1>Introdu intrebarile </h1>
-        <h2> intrebarea x</h2>
+            <div class="mb-10">
+                <span
+                    class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
+                    Profesor</span>
+                <h1 class="text-3xl md:text-4xl font-bold mt-4 text-slate-900">Configurează provocarea</h1>
+                <h2 class="text-slate-500 mt-2 italic">Pasul: Definirea regulilor de securitate</h2>
+            </div>
 
-        <input id="nr_conditii" type="number" min="1" max="10" step="1"
-            placeholder="Adauga numarul de conditii maxim 10" class="border border-black w-[200px] p-2 mb-4">
-        <button id="btn_incepe">Incepe</button>
+            <div class="flex flex-col items-center space-y-6">
+                <div class="w-full max-w-sm">
+                    <input id="nr_conditii" type="number" min="1" max="10" step="1"
+                        placeholder="Câte condiții vrei? (1-10)"
+                        class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+                </div>
 
-        <select id="conditie" class="border border-black w-[400px] p-2 mb-4">
-            <option value="" disabled selected>Alege o condiție</option>
-            <option value="0">Să conțină un numar</option>
-            <option value="1">Să conțină un cuvânt specific</option>
-            <option value="1">Sa aiba un numar minim de caractere</option>
-            <option value="0">Sa contina o litera mare</option>
-            <option value="0">Sa contina un caracter special </option>
-            <option value="1">Sa aiba un numar minim de cifre </option>
-            <option value="0">Sa nu contina spatii </option>
-            <option value="0">Sa aiba lungime para </option>
-            <option value="0">Sa aiba lungime impara </option>
-            <option value="1">Sa contine un numar specifica </option>
-            <option value="1">Sa contine o litera specifica </option>
+                <button id="btn_incepe"
+                    class="group relative bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
+                    Începe configurarea
+                </button>
 
-        </select>
+                <div class="w-full space-y-4">
+                    <select id="conditie"
+                        class="hidden w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-slate-50 font-medium">
+                        <option value="" disabled selected>Alege o regulă pentru parolă...</option>
+                        <option value="0">Să conțină un număr</option>
+                        <option value="1">Să conțină un cuvânt specific</option>
+                        <option value="1">Să aibă un număr minim de caractere</option>
+                        <option value="0">Să conțină o literă mare</option>
+                        <option value="0">Să conțină un caracter special</option>
+                        <option value="1">Să aibă un număr minim de cifre</option>
+                        <option value="0">Să nu conțină spații</option>
+                        <option value="0">Să aibă lungime pară</option>
+                        <option value="0">Să aibă lungime impară</option>
+                        <option value="1">Să conțină un număr specific</option>
+                        <option value="1">Să conțină o literă specifică</option>
+                    </select>
 
+                    <input type="text" id="valoareExtra" placeholder="Introdu valoarea aici..."
+                        class="hidden w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-slate-50" />
+                </div>
 
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <button id="btn"
+                        class="hidden bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                        Adaugă Regula
+                    </button>
+                    <!-- ------------------------ -->
 
-        <input type="text" id="valoareExtra" placeholder="Introdu valoarea..."
-            class="hidden border border-gray-400 rounded px-4 py-2 w-[400px] mb-4" />
-        <button id="btn">Adaugă</button>
-        <button id="btn_restart"> Restarteaza</button>
+                    <!-- ------------------------ -->
+                    <button id="btn_restart"
+                        class="hidden bg-white text-rose-500 border-2 border-rose-100 px-8 py-4 rounded-2xl font-bold hover:bg-rose-50 transition-all">
+                        Resetează Tot
+                    </button>
+                </div>
+                <p id="mesajEroare" class="text-red-500  hidden text-[14px] "></p>
+            </div>
+        </div>
     </div>
 
 
@@ -289,6 +319,18 @@
         let conditie = document.getElementById("conditie");
         let valoareExtra = document.getElementById("valoareExtra");
         let button = document.getElementById("btn");
+        let mesajEroare = document.getElementById("mesajEroare");
+
+        function afiseazaEroare(text, timp = 2000) {
+            mesajEroare.innerText = text;
+            mesajEroare.classList.remove("hidden");
+
+            setTimeout(() => {
+                mesajEroare.classList.add("hidden");
+                mesajEroare.innerText = "";
+            }, timp);
+        }
+
         conditie.classList.add("hidden");
         btn.classList.add("hidden");
         document.getElementById("btn_restart").classList.add("hidden");
@@ -309,7 +351,7 @@
                 console.log("Joc început cu", numar, "condiții");
 
             } else {
-                alert("Introdu un număr de condiții dintre 1 și 10");
+                afiseazaEroare("Introdu un număr de condiții dintre 1 și 10");
             }
 
         }
@@ -335,40 +377,46 @@
 
         button.addEventListener("click", () => {
             if (arrProfesori.length >= Number(nr_conditii.value)) {
-                alert(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`);
+
+                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`);
+
                 return;
             }
 
             if (conditie.value === "") {
-                alert("Alege o condiție!");
+                afiseazaEroare("Alege o condiție!");
+
+
                 return;
             }
 
             const textConditie = conditie.options[conditie.selectedIndex].text;
             const valoareNoua = valoareExtra.value.trim();
 
-            // Verificăm conflicte și duplicate
             const conflictGasit = arrProfesori.some(element => {
-                // 1. Verificăm duplicat exact
                 if (element.conditie === textConditie) {
                     if (conditie.value === "1") {
                         if (element.valoare === valoareNoua) {
-                            alert("Această condiție cu această valoare există deja!");
+
+                            afiseazaEroare("Această condiție cu această valoare există deja!");
                             return true;
                         }
                     } else {
-                        alert("Această condiție a fost deja adăugată!");
+                        afiseazaEroare("Această condiție a fost deja adăugată!");
                         return true;
                     }
                 }
 
-                // 2. Verificăm conflict logic Par/Impar
                 if (textConditie === "Sa aiba lungime para" && element.conditie === "Sa aiba lungime impara") {
-                    alert("Conflict: Ai deja lungime IMPARĂ setată!");
+
+                    afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!");
+
                     return true;
                 }
                 if (textConditie === "Sa aiba lungime impara" && element.conditie === "Sa aiba lungime para") {
-                    alert("Conflict: Ai deja lungime PARĂ setată!");
+
+                    afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!");
+
                     return true;
                 }
 
@@ -386,7 +434,7 @@
 
             if (conditie.value === "1") {
                 if (!valoareNoua) {
-                    alert("Trebuie să introduci o valoare!");
+                    afiseazaEroare("Trebuie să introduci o valoare!");
                     return;
                 }
                 obiect.valoare = valoareNoua;
@@ -396,7 +444,15 @@
             localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
 
             valoareExtra.value = "";
-            console.log("Adăugat cu succes:", obiect);
+            console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
+            button.classList.add("scale-110", "bg-green-500", "shadow-green-200");
+            button.innerText = "Adăugat! ";
+
+            setTimeout(() => {
+                button.classList.remove("scale-110", "bg-green-500", "shadow-green-200");
+                button.innerText = "Adaugă Regula";
+                button.disabl
+            }, 1000);
         });
 
 

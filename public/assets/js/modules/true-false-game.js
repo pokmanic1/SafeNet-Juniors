@@ -371,17 +371,17 @@ selectNivel.addEventListener('change', (event) => {
 
     } else if (nivelul == 2) {
         arr = arr2;
-                console.log("nivelul a fost schimbat");
+        console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 3) {
-        arr = arr3;        console.log("nivelul a fost schimbat");
+        arr = arr3; console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 4) {
-        arr = arr4;        console.log("nivelul a fost schimbat");
+        arr = arr4; console.log("nivelul a fost schimbat");
 
     }
     restart()
-
+    clearInterval(interval);
 });
 
 
@@ -392,7 +392,7 @@ creareArr();
 
 let contor = 0;
 let contorCorect = 0;
-
+let interval;
 function creareArr() {
     newArr = [];
     arrCuExercitii = [];
@@ -436,7 +436,7 @@ function creareArr() {
 function genereazaHTML() {
     if (contor < arrCuExercitii.length) {
 
-        document.querySelector('.restart').innerHTML = "";
+        document.querySelector('.restart').innerHTML = `<img class="w-[60%] " src="../../../assets/img/img-shufle-game/A-buton-restart.png" alt="">`;
         document.querySelector('#true').style.display = 'inline-block';
         document.querySelector('#false').style.display = 'inline-block';
 
@@ -455,12 +455,7 @@ function genereazaHTML() {
         document.querySelector('#true').style.display = 'none';
         document.querySelector('#false').style.display = 'none';
 
-        document.querySelector('.restart').innerHTML = `
-            <button class="raspuns mt-2 w-[300px] h-[50px]" id="restart-btn">
-                <img class="w-[300px] h-[50px] object-cover rounded-[20px]"
-                    src="../../../assets/img/true-false-game/image 11.png" alt="Restart">
-            </button>
-        `;
+
 
         document.querySelector('#restart-btn').addEventListener('click', function () {
             restart();
@@ -495,7 +490,32 @@ document.querySelector('.restart').addEventListener('click', function () {
     genereazaHTML();
 });
 
+function pornesteCeas(minute, secunde) {
+
+    interval = setInterval(() => {
+
+        document.querySelector(".time").innerHTML = `${String(minute).padStart(2, '0')}:${String(secunde).padStart(2, '0')}`;
+
+
+        secunde++;
+
+        if (secunde === 60) {
+            secunde = 0;
+            minute++;
+        }
+
+        if (minute === 59 && secunde === 59) {
+
+            clearInterval(interval);
+
+        }
+
+    }, 1000);
+
+}
+
 function initializare() {
+    pornesteCeas(0, 0);
     genereazaHTML()
 }
 
@@ -512,7 +532,8 @@ function restart() {
 
     creareArr();
     genereazaHTML();
-
+    clearInterval(interval);
+    pornesteCeas(0,0);
     console.log("Jocul a fost resetat la întrebările implicite.");
 }
 initializare();

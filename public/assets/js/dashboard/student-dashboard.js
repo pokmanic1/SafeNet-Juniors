@@ -8,12 +8,21 @@ onAuthStateChanged(auth, (user) => {
         x.innerHTML = `
         <div class="flex items-center">
             <p  class="w-[60px] text-[13px] ">Conectata  ${user.email}</p>
-            <div class="ml-3 w-8 h-8 rounded-[40px] bg-black"></div>
+            <button class="butonDashboard w-8 h-8 rounded-[40px] bg-black border-0" ></button>
         </div>`;
         y.style.display = "none";
+
+
         console.log(`Bună ziua, ${user.email}`)
     } else {
-        console.log('conecteazate')
+
+        console.log('conecteazate');
+
     }
 });
 
+document.querySelector('.butonDashboard').addEventListener('click',()=>{
+
+    
+    
+});
