@@ -12,336 +12,350 @@ let arr1 = [
 
     {
         propozitii: [
-            { text: 'Parola trebuie să fie cunoscută doar de tine.', raspuns: true },
-            { text: 'Putem spune parola colegilor.', raspuns: false },
-            { text: 'O parolă poate conține litere și cifre.', raspuns: true }
+            { text: 'Parola trebuie păstrată secretă.', raspuns: true },
+            { text: 'Putem spune parola oricui.', raspuns: false },
+            { text: 'O parolă bună conține litere și cifre.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Numele este o dată personală.', raspuns: true },
-            { text: 'Putem spune adresa oricui online.', raspuns: false },
+            { text: 'Numele și adresa sunt date personale.', raspuns: true },
+            { text: 'Putem trimite date personale necunoscuților.', raspuns: false },
             { text: 'Datele personale trebuie protejate.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Dacă ceva ne sperie online, spunem unui adult.', raspuns: true },
-            { text: 'Ignorăm mereu lucrurile care ne sperie.', raspuns: false },
-            { text: 'Este bine să cerem ajutor.', raspuns: true }
+            { text: 'Dacă vedem ceva ciudat online, spunem unui adult.', raspuns: true },
+            { text: 'Trebuie să păstrăm totul secret față de adulți.', raspuns: false },
+            { text: 'Este bine să cerem ajutor când avem o problemă.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Putem avea încredere în orice persoană online.', raspuns: false },
-            { text: 'Nu trebuie să oferim informații necunoscuților.', raspuns: true },
-            { text: 'O persoană online poate să nu fie cine spune că este.', raspuns: true }
+            { text: 'O persoană online poate să nu fie cine spune că este.', raspuns: true },
+            { text: 'Toate persoanele de pe internet sunt de încredere.', raspuns: false },
+            { text: 'Trebuie să fim atenți cu necunoscuții online.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Putem instala jocuri fără permisiune.', raspuns: false },
-            { text: 'Trebuie să cerem voie unui adult.', raspuns: true },
-            { text: 'Toate jocurile de pe internet sunt sigure.', raspuns: false }
+            { text: 'Trebuie să cerem voie înainte de a instala jocuri.', raspuns: true },
+            { text: 'Putem instala orice aplicație fără permisiune.', raspuns: false },
+            { text: 'Unele aplicații pot fi periculoase.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: '„1234” este o parolă sigură.', raspuns: false },
-            { text: 'O parolă simplă este ușor de ghicit.', raspuns: true },
-            { text: 'Parolele trebuie să fie greu de ghicit.', raspuns: true }
+            { text: 'Parolele simple sunt ușor de ghicit.', raspuns: true },
+            { text: '„1234” este o parolă foarte sigură.', raspuns: false },
+            { text: 'Parolele lungi sunt mai sigure.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Putem folosi calculatorul fără să anunțăm pe nimeni.', raspuns: false },
-            { text: 'Este bine să folosim calculatorul responsabil.', raspuns: true },
-            { text: 'Putem sta oricât dorim pe internet fără reguli.', raspuns: false }
+            { text: 'Calculatorul trebuie folosit responsabil.', raspuns: true },
+            { text: 'Putem sta pe internet fără limite.', raspuns: false },
+            { text: 'Este bine să respectăm regulile stabilite de adulți.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
-            { text: 'Răspundem la orice mesaj primit.', raspuns: false },
-            { text: 'Un mesaj ciudat trebuie raportat.', raspuns: true },
-            { text: 'Este bine să ignorăm și să anunțăm un adult.', raspuns: true }
+            { text: 'Mesajele ciudate trebuie raportate.', raspuns: true },
+            { text: 'Trebuie să răspundem la orice mesaj primit.', raspuns: false },
+            { text: 'Putem ignora mesajele suspecte și anunța un adult.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
+            { text: 'Fotografiile personale trebuie protejate.', raspuns: true },
             { text: 'Putem trimite poze necunoscuților.', raspuns: false },
-            { text: 'Pozele sunt informații personale.', raspuns: true },
-            { text: 'Trebuie să protejăm fotografiile noastre.', raspuns: true }
+            { text: 'Pozele pot conține informații personale.', raspuns: true }
         ]
     },
 
     {
         propozitii: [
+            { text: 'Internetul poate avea și riscuri.', raspuns: true },
             { text: 'Internetul este mereu sigur.', raspuns: false },
-            { text: 'Trebuie să fim atenți pe internet.', raspuns: true },
-            { text: 'Putem face orice online fără consecințe.', raspuns: false }
+            { text: 'Trebuie să fim atenți când folosim internetul.', raspuns: true }
+        ]
+    },
+
+    {
+        propozitii: [
+            { text: 'Trebuie să vorbim respectuos online.', raspuns: true },
+            { text: 'Putem trimite mesaje jignitoare.', raspuns: false },
+            { text: 'Comunicarea online trebuie să fie responsabilă.', raspuns: true }
+        ]
+    },
+
+    {
+        propozitii: [
+            { text: 'Siguranța digitală este importantă.', raspuns: true },
+            { text: 'Nu este nevoie să ne protejăm conturile.', raspuns: false },
+            { text: 'Parolele și datele trebuie păstrate în siguranță.', raspuns: true }
         ]
     }
 
 ];
 let arr2 = [
 
-    {
-        propozitii: [
-            { text: 'Parola trebuie să fie cunoscută doar de tine2.', raspuns: true },
-            { text: 'Putem spune parola colegilo2r.', raspuns: false },
-            { text: 'O parolă poate conține litere și cifre.2', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Este bine să folosim parole diferite pentru conturi diferite.', raspuns: true },
+        { text: 'Putem folosi aceeași parolă pentru toate conturile.', raspuns: false },
+        { text: 'Parolele diferite cresc securitatea conturilor.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Numele este o dată personală2.', raspuns: true },
-            { text: 'Putem spune adresa oricui online2.', raspuns: false },
-            { text: 'Datele personale trebuie protejate2.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Conturile online pot fi protejate cu parole puternice.', raspuns: true },
+        { text: 'Nu este important să protejăm conturile online.', raspuns: false },
+        { text: 'Codurile de verificare pot crește securitatea.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Dacă ceva ne sperie online, spunem unui adult2.', raspuns: true },
-            { text: 'Ignorăm mereu lucrurile care ne sperie2.', raspuns: false },
-            { text: 'Este bine să cerem ajutor.2', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Datele personale trebuie oferite doar site-urilor de încredere.', raspuns: true },
+        { text: 'Putem trimite date personale oricui pe internet.', raspuns: false },
+        { text: 'Protejarea datelor personale ne ajută să fim în siguranță.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem avea încredere în orice persoană online2.', raspuns: false },
-            { text: 'Nu trebuie să oferim informații necunoscuților.2', raspuns: true },
-            { text: 'O persoană online poate să nu fie cine spune că este.2', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Unele mesaje online pot fi false.', raspuns: true },
+        { text: 'Toate mesajele de pe internet sunt sigure.', raspuns: false },
+        { text: 'Mesajele suspecte trebuie verificate.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem instala jocuri fără permisiune2.', raspuns: false },
-            { text: 'Trebuie să cerem voie unui adult2.', raspuns: true },
-            { text: 'Toate jocurile de pe internet sunt sigure2.', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Nu toate fișierele de pe internet sunt sigure.', raspuns: true },
+        { text: 'Putem descărca orice fișier fără risc.', raspuns: false },
+        { text: 'Unele fișiere pot conține programe periculoase.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: '„1234” este o parolă sigură2.', raspuns: false },
-            { text: 'O parolă simplă este ușor de ghicit2.', raspuns: true },
-            { text: 'Parolele trebuie să fie greu de ghicit2.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Programele antivirus ajută la protejarea dispozitivelor.', raspuns: true },
+        { text: 'Calculatorul nu are nevoie de protecție.', raspuns: false },
+        { text: 'Actualizările ajută la securitatea dispozitivelor.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem folosi calculatorul fără să anunțăm pe nimeni2.', raspuns: false },
-            { text: 'Este bine să folosim calculatorul responsabil2.', raspuns: true },
-            { text: 'Putem sta oricât dorim pe internet fără reguli2.', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Este bine să existe limite pentru timpul petrecut online.', raspuns: true },
+        { text: 'Putem sta pe internet fără limite.', raspuns: false },
+        { text: 'Activitățile offline sunt la fel de importante.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Răspundem la orice mesaj primit2.', raspuns: false },
-            { text: 'Un mesaj ciudat trebuie raportat2.', raspuns: true },
-            { text: 'Este bine să ignorăm și să anunțăm un adult2.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Mesajele de la necunoscuți trebuie tratate cu atenție.', raspuns: true },
+        { text: 'Trebuie să răspundem imediat tuturor mesajelor.', raspuns: false },
+        { text: 'Este bine să verificăm cine ne trimite mesajul.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem trimite poze necunoscuților2.', raspuns: false },
-            { text: 'Pozele sunt informații personale2.', raspuns: true },
-            { text: 'Trebuie să protejăm fotografiile noastre2.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Fotografiile publicate online pot fi văzute de multe persoane.', raspuns: true },
+        { text: 'Pozele online dispar imediat.', raspuns: false },
+        { text: 'Trebuie să fim atenți ce imagini publicăm.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Internetul este mereu sigur2.', raspuns: false },
-            { text: 'Trebuie să fim atenți pe internet2.', raspuns: true },
-            { text: 'Putem face orice online fără consecințe.2', raspuns: false }
-        ]
-    }
+{
+    propozitii: [
+        { text: 'Nu toate informațiile de pe internet sunt corecte.', raspuns: true },
+        { text: 'Tot ce citim online este adevărat.', raspuns: false },
+        { text: 'Trebuie să verificăm sursele informațiilor.', raspuns: true }
+    ]
+}
 
 ];
-
 let arr3 = [
 
-    {
-        propozitii: [
-            { text: 'Parola trebuie să fie cunoscută doar de tine3.', raspuns: true },
-            { text: 'Putem spune parola colegilor3.', raspuns: false },
-            { text: 'O parolă poate conține litere și cifre3.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Autentificarea în doi pași crește securitatea conturilor.', raspuns: true },
+        { text: 'Autentificarea în doi pași nu este utilă.', raspuns: false },
+        { text: 'Uneori trebuie introdus un cod suplimentar pentru autentificare.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Numele este o dată personală3.', raspuns: true },
-            { text: 'Putem spune adresa oricui online3.', raspuns: false },
-            { text: 'Datele personale trebuie protejate3.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Phishingul încearcă să fure date personale.', raspuns: true },
+        { text: 'Phishingul este un joc online.', raspuns: false },
+        { text: 'Unele site-uri false imită platforme reale.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Dacă ceva ne sperie online, spunem unui adult3.', raspuns: true },
-            { text: 'Ignorăm mereu lucrurile care ne sperie3.', raspuns: false },
-            { text: 'Este bine să cerem ajutor3.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Rețelele Wi-Fi publice pot fi nesigure.', raspuns: true },
+        { text: 'Toate rețelele Wi-Fi sunt complet sigure.', raspuns: false },
+        { text: 'Datele pot fi interceptate pe rețele nesigure.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem avea încredere în orice persoană online3.', raspuns: false },
-            { text: 'Nu trebuie să oferim informații necunoscuțilo3r.', raspuns: true },
-            { text: 'O persoană online poate să nu fie cine spune că este3.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Actualizările software pot corecta probleme de securitate.', raspuns: true },
+        { text: 'Nu este necesar să actualizăm programele.', raspuns: false },
+        { text: 'Actualizările ajută la protejarea dispozitivelor.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem instala jocuri fără permisiune3.', raspuns: false },
-            { text: 'Trebuie să cerem voie unui adult3.', raspuns: true },
-            { text: 'Toate jocurile de pe internet sunt sigure3.', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Malware-ul este un program periculos.', raspuns: true },
+        { text: 'Malware-ul îmbunătățește calculatorul.', raspuns: false },
+        { text: 'Malware-ul poate deteriora sistemele.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: '„1234” este o parolă sigură.3', raspuns: false },
-            { text: 'O parolă simplă este ușor de ghicit.3', raspuns: true },
-            { text: 'Parolele trebuie să fie greu de ghicit.3', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Platformele online pot colecta date despre utilizatori.', raspuns: true },
+        { text: 'Internetul nu colectează niciodată date.', raspuns: false },
+        { text: 'Trebuie să înțelegem cum sunt folosite datele noastre.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem folosi calculatorul fără să anunțăm pe nimeni.3', raspuns: false },
-            { text: 'Este bine să folosim calculatorul responsabil3.', raspuns: true },
-            { text: 'Putem sta oricât dorim pe internet fără reguli.3', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Managerii de parole pot ajuta la stocarea sigură a parolelor.', raspuns: true },
+        { text: 'Nu este nevoie să protejăm parolele.', raspuns: false },
+        { text: 'Managerii de parole pot genera parole complexe.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Răspundem la orice mesaj primit3.', raspuns: false },
-            { text: 'Un mesaj ciudat trebuie raportat3.', raspuns: true },
-            { text: 'Este bine să ignorăm și să anunțăm un adult3.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Atașamentele din email pot conține viruși.', raspuns: true },
+        { text: 'Toate atașamentele sunt sigure.', raspuns: false },
+        { text: 'Trebuie să deschidem doar fișiere din surse de încredere.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem trimite poze necunoscuților3.', raspuns: false },
-            { text: 'Pozele sunt informații personale3.', raspuns: true },
-            { text: 'Trebuie să protejăm fotografiile noastre.3', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Setările de confidențialitate controlează cine vede informațiile.', raspuns: true },
+        { text: 'Setările de confidențialitate nu sunt importante.', raspuns: false },
+        { text: 'Trebuie să verificăm cine poate vedea profilul nostru.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Internetul este mereu sigur3.', raspuns: false },
-            { text: 'Trebuie să fim atenți pe internet3.', raspuns: true },
-            { text: 'Putem face orice online fără consecințe3.', raspuns: false }
-        ]
-    }
+{
+    propozitii: [
+        { text: 'Activitatea online lasă urme digitale.', raspuns: true },
+        { text: 'Activitatea online nu poate fi urmărită.', raspuns: false },
+        { text: 'Urmele digitale pot rămâne pe internet mult timp.', raspuns: true }
+    ]
+}
 
 ];
 let arr4 = [
 
-    {
-        propozitii: [
-            { text: 'Parola trebuie să fie cunoscută doar de tine4.', raspuns: true },
-            { text: 'Putem spune parola colegilor4.', raspuns: false },
-            { text: 'O parolă poate conține litere și cifre.4', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Criptarea transformă datele într-un cod securizat.', raspuns: true },
+        { text: 'Criptarea face datele publice.', raspuns: false },
+        { text: 'Doar persoanele autorizate pot citi date criptate.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Numele este o dată personală4.', raspuns: true },
-            { text: 'Putem spune adresa oricui online4.', raspuns: false },
-            { text: 'Datele personale trebuie protejate4.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Un VPN poate proteja conexiunea la internet.', raspuns: true },
+        { text: 'VPN-ul face internetul mai lent fără niciun beneficiu.', raspuns: false },
+        { text: 'VPN-ul creează o conexiune securizată.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Dacă ceva ne sperie online, spunem unui adult4.', raspuns: true },
-            { text: 'Ignorăm mereu lucrurile care ne sperie.4', raspuns: false },
-            { text: 'Este bine să cerem ajutor4.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Firewall-ul monitorizează traficul de rețea.', raspuns: true },
+        { text: 'Firewall-ul distruge calculatorul.', raspuns: false },
+        { text: 'Firewall-ul poate bloca accesul neautorizat.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem avea încredere în orice persoană online.4', raspuns: false },
-            { text: 'Nu trebuie să oferim informații necunoscuților4.', raspuns: true },
-            { text: 'O persoană online poate să nu fie cine spune că este4.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Atacurile cibernetice încearcă să acceseze sisteme informatice.', raspuns: true },
+        { text: 'Atacurile cibernetice ajută la securitate.', raspuns: false },
+        { text: 'Unele atacuri încearcă să distrugă date.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem instala jocuri fără permisiune.4', raspuns: false },
-            { text: 'Trebuie să cerem voie unui adult4.', raspuns: true },
-            { text: 'Toate jocurile de pe internet sunt sigure.4', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Ingineria socială manipulează oamenii pentru a obține informații.', raspuns: true },
+        { text: 'Ingineria socială este un program antivirus.', raspuns: false },
+        { text: 'Atacatorii folosesc uneori manipularea psihologică.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: '„1234” este o parolă sigură4.', raspuns: false },
-            { text: 'O parolă simplă este ușor de ghicit.4', raspuns: true },
-            { text: 'Parolele trebuie să fie greu de ghicit4.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Monitorizarea securității detectează activități suspecte.', raspuns: true },
+        { text: 'Nu este nevoie să monitorizăm rețelele.', raspuns: false },
+        { text: 'Sistemele de securitate pot identifica atacuri.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem folosi calculatorul fără să anunțăm pe nimeni.4', raspuns: false },
-            { text: 'Este bine să folosim calculatorul responsabil.4', raspuns: true },
-            { text: 'Putem sta oricât dorim pe internet fără reguli4.', raspuns: false }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Backup-ul permite recuperarea datelor pierdute.', raspuns: true },
+        { text: 'Backup-ul șterge datele.', raspuns: false },
+        { text: 'Copiile de siguranță sunt importante.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Răspundem la orice mesaj primit4.', raspuns: false },
-            { text: 'Un mesaj ciudat trebuie raportat4.', raspuns: true },
-            { text: 'Este bine să ignorăm și să anunțăm un adult4.', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Ransomware-ul blochează accesul la date.', raspuns: true },
+        { text: 'Ransomware-ul este un program de protecție.', raspuns: false },
+        { text: 'Uneori atacatorii cer bani pentru deblocarea datelor.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Putem trimite poze necunoscuților4.', raspuns: false },
-            { text: 'Pozele sunt informații personale4.', raspuns: true },
-            { text: 'Trebuie să protejăm fotografiile noastre.4', raspuns: true }
-        ]
-    },
+{
+    propozitii: [
+        { text: 'Politicile de securitate stabilesc reguli pentru protecția datelor.', raspuns: true },
+        { text: 'Politicile de securitate nu sunt necesare.', raspuns: false },
+        { text: 'Organizațiile folosesc reguli pentru a proteja informațiile.', raspuns: true }
+    ]
+},
 
-    {
-        propozitii: [
-            { text: 'Internetul este mereu sigur4.', raspuns: false },
-            { text: 'Trebuie să fim atenți pe internet.4', raspuns: true },
-            { text: 'Putem face orice online fără consecințe4.', raspuns: false }
-        ]
-    }
+{
+    propozitii: [
+        { text: 'Educația în securitate ajută la recunoașterea pericolelor online.', raspuns: true },
+        { text: 'Nu este important să învățăm despre securitate.', raspuns: false },
+        { text: 'Cunoștințele despre securitate cresc siguranța online.', raspuns: true }
+    ]
+}
 
 ];
-
 
 
 
@@ -454,6 +468,7 @@ function genereazaHTML() {
 
         document.querySelector('#true').style.display = 'none';
         document.querySelector('#false').style.display = 'none';
+            clearInterval(interval);
 
 
 
@@ -533,7 +548,7 @@ function restart() {
     creareArr();
     genereazaHTML();
     clearInterval(interval);
-    pornesteCeas(0,0);
+    pornesteCeas(0, 0);
     console.log("Jocul a fost resetat la întrebările implicite.");
 }
 initializare();
