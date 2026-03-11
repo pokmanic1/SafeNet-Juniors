@@ -70,7 +70,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-const Conditii = [
+const Conditii1 = [
     {
         text: "Minim 8 caractere",
         validate: (password) => password.length >= 8
@@ -120,20 +120,67 @@ const Conditii = [
         validate: (password) => password.includes("2024")
     }
 ];
+const Conditii2 = [
+    { text: "Minim 10 caractere", validate: (p) => p.length >= 10 },
+    { text: "Conține cel puțin 3 cifre", validate: (p) => (p.match(/\d/g) || []).length >= 3 },
+    { text: "Conține o lună din an (ex: mai, iunie)", validate: (p) => /(ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|decembrie)/i.test(p) },
+    { text: "Conține un simbol de monedă ($, €, £)", validate: (p) => /[$€£]/.test(p) },
+    { text: "Include numele 'Net'", validate: (p) => p.includes("Net") },
+    { text: "Lungimea parolei este număr par", validate: (p) => p.length % 2 === 0 },
+    { text: "Conține o cifră impară (1, 3, 5, 7, 9)", validate: (p) => /[13579]/.test(p) }
+];
+
+const Conditii3 = [
+    { text: "Minim 12 caractere", validate: (p) => p.length >= 12 },
+    { text: "Conține un număr prim de o cifră (2, 3, 5 sau 7)", validate: (p) => /[2357]/.test(p) },
+    { text: "Suma primelor două cifre din parolă este 10", validate: (p) => {
+        const digits = p.match(/\d/g);
+        return digits && digits.length >= 2 && (parseInt(digits[0]) + parseInt(digits[1]) === 10);
+    }},
+    { text: "Conține o culoare (rosu, verde, albastru)", validate: (p) => /(rosu|verde|albastru|galben|negru|alb)/i.test(p) },
+    { text: "Include un an din secolul 21 (2000-2099)", validate: (p) => /20\d{2}/.test(p) },
+    { text: "Conține cel puțin 2 litere mari", validate: (p) => (p.match(/[A-Z]/g) || []).length >= 2 },
+    { text: "Nu are caractere care se repetă consecutiv (ex: 'aa')", validate: (p) => !/(.)\1/.test(p) }
+];
+
+const Conditii4 = [
+    { text: "Lungime exactă de 16 caractere", validate: (p) => p.length === 16 },
+    { text: "Conține un prefix de protocol securizat (https)", validate: (p) => p.toLowerCase().includes("https") },
+    { text: "Conține un numeral roman (I, V, X, L, C)", validate: (p) => /[IVXLC]/.test(p) },
+    { text: "Include extensia unui fișier periculos (.exe, .bat, .vbs)", validate: (p) => /(\.exe|\.bat|\.vbs)/i.test(p) },
+    { text: "Ultimele 3 caractere sunt litere mici", validate: (p) => /[a-z]{3}$/.test(p) },
+    { text: "Conține cel puțin 3 caractere speciale diferite", validate: (p) => new Set(p.match(/[!@#$%^&*(),.?":{}|<>]/g)).size >= 3 },
+    { text: "Conține un număr format din 3 cifre", validate: (p) => /\d{3}/.test(p) }
+];
+
 
 let numarDeConditii=4;
 let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
+let Conditii = [...Conditii1]; // Default nivel 1
+
 selectNivel.addEventListener('change', (event) => {
-    nivelul = event.target.value;
-        if (nivelul == 1) {numarDeConditii=4;} 
+    nivelul = parseInt(event.target.value);
+    
+    // Schimbăm setul de condiții în funcție de nivel
+    if (nivelul == 1) { 
+        Conditii = [...Conditii1]; 
+        numarDeConditii = 4; 
+    } 
+    else if (nivelul == 2) { 
+        Conditii = [...Conditii2]; 
+        numarDeConditii = 5; 
+    } 
+    else if (nivelul == 3) { 
+        Conditii = [...Conditii3]; 
+        numarDeConditii = 6; 
+    } 
+    else if (nivelul == 4) { 
+        Conditii = [...Conditii4]; 
+        numarDeConditii = 7; 
+    }
 
-        else if (nivelul == 2) {numarDeConditii=5;} 
-
-        else if (nivelul == 3) {numarDeConditii=6; } 
-
-        else if (nivelul == 4) {numarDeConditii=7;}
     restart(); 
     clearInterval(interval);
     pornesteCeas(0, 0);
