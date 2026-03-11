@@ -122,7 +122,7 @@ const Conditii = [
 ];
 
 let numarDeConditii=4;
-
+let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
 selectNivel.addEventListener('change', (event) => {
@@ -134,8 +134,9 @@ selectNivel.addEventListener('change', (event) => {
         else if (nivelul == 3) {numarDeConditii=6; } 
 
         else if (nivelul == 4) {numarDeConditii=7;}
-    restart()
-
+    restart(); 
+    clearInterval(interval);
+    pornesteCeas(0, 0);
 });
 
 
@@ -189,14 +190,15 @@ function afisareConditii() {
         div.id = "conditie-" + index;
 
         div.className = `
-            p-2
-            border-2
-            border-black
+            py-[16px]
+            //border-2
+            //border-black
             rounded-xl
-            bg-red-200
+            bg-[#FF0000]
             text-center
             font-semibold
             transition
+            text-white
         `;
 
         div.textContent = conditie.text;
@@ -216,15 +218,15 @@ function verificaParola(password) {
 
         if (conditie.validate(password)) {
 
-            element.classList.remove("bg-red-200");
-            element.classList.add("bg-green-300");
+            element.classList.remove("bg-[#FF0000]");
+            element.classList.add("bg-[#52994E]");
 
             completate++;
 
         } else {
 
-            element.classList.remove("bg-green-300");
-            element.classList.add("bg-red-200");
+            element.classList.remove("bg-[#52994E]");
+            element.classList.add("bg-[#FF0000]");
 
         }
 
@@ -237,7 +239,7 @@ function verificaParola(password) {
                 Ai câștigat jocul!
             </div>
         `);
-
+        clearInterval(interval);
         input.disabled = true;
 
     }
@@ -246,6 +248,7 @@ function verificaParola(password) {
 
 document.querySelector('.restart').addEventListener('click',function (){
     restart();
+
 })
 
 function restart() {
@@ -268,6 +271,8 @@ function restart() {
     creareArr();
     
     afisareConditii();
+    clearInterval(interval);
+    pornesteCeas(0, 0);
 }
 
 input.addEventListener("input", (e) => {
@@ -275,8 +280,31 @@ input.addEventListener("input", (e) => {
 });
 
 afisareConditii();
- 
+  pornesteCeas(0, 0);
 
+function pornesteCeas(minute, secunde) {
+
+    interval = setInterval(() => {
+
+        document.querySelector(".time").innerHTML = `${String(minute).padStart(2, '0')}:${String(secunde).padStart(2, '0')}`;
+
+
+        secunde++;
+
+        if (secunde === 60) {
+            secunde = 0;
+            minute++;
+        }
+
+        if (minute === 59 && secunde === 59) {
+
+            clearInterval(interval);
+
+        }
+
+    }, 1000);
+
+}
 
 // -------------------------------------
 //pentru profesori
