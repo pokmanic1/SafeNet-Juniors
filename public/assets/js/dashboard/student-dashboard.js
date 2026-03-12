@@ -21,8 +21,8 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-document.querySelector('.butonDashboard').addEventListener('click',()=>{
+// document.querySelector('.butonDashboard').addEventListener('click',()=>{
 
     
     
-});
+// });
