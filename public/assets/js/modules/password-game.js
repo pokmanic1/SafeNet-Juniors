@@ -1,5 +1,9 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../../../pages/conecteazate.html";
+    }
+});
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
 
@@ -64,11 +68,7 @@ dateSalvate.forEach(element => {
 
 console.log("Condiții profesor încărcate:", newArrConditii1);
 
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "../conecteazate.html";
-    }
-});
+
 
 const Conditii1 = [
     {

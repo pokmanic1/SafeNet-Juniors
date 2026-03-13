@@ -2,7 +2,7 @@ import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        window.location.href = "../conecteazate.html";
+        window.location.href = "../../../pages/conecteazate.html";
     }
 });
 let dateSalvate = JSON.parse(localStorage.getItem("intrebariTrueFalse")) || [];
