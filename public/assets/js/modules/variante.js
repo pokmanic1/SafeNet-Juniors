@@ -578,8 +578,8 @@ function restart() {
     createArr();
     genereazaHTML();
     localStorage.removeItem("jocVarianteCustom");
-    clearInterval
+    clearInterval(interval)
     pornesteCeas(0, 0);
-
+    
 }
 initializare();
