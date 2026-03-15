@@ -1,76 +1,108 @@
 let ArrJocuri = [
     {
-        nume: 'Shuffle game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 1,
-        media: 30,
-        ancora:''
-    },
-    {
+        id: 1,
         nume: 'Documentatia Shuffle game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora:''
+        ancora: ''
     },
+    {
+        id: 1,
+        nume: 'Shuffle game',
+        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        incercari: 1,
+        media: 30,
+        ancora: ''
+    },
+
     // --------------------------
     {
-        nume: 'True-False game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 2,
-        media: 50,
-        ancora:''
-    },
-    {
+        id: 2,
         nume: 'Documentatia True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora:''
+        ancora: ''
     },
+    {
+        id: 2,
+        nume: 'True-False game',
+        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        incercari: 2,
+        media: 50,
+        ancora: ''
+    },
+
     // ---------------------------------
     {
-        nume: 'Password game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 4,
-        media: 20,
-        ancora:''
-    },
-    {
+        id: 3,
         nume: 'Documentatia Password game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora:''
+        ancora: ''
     },
+    {
+        id: 3,
+        nume: 'Password game',
+        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        incercari: 4,
+        media: 20,
+        ancora: ''
+    },
+
     // ---------------------------------
     {
-        nume: 'Variante Game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 5,
-        media: 10,
-        ancora:''
-    },
-    {
+        id: 4,
         nume: 'Documentatia Variante game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora:''
+        ancora: ''
     },
+    {
+        id: 4,
+        nume: 'Variante Game',
+        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        incercari: 5,
+        media: 10,
+        ancora: ''
+    },
+
 ]
 
-let sageata_jos="../assets/img/img-assasment/Sageata_jos.png";
-let sageata_stanga="../assets/img/img-assasment/Sageata_stanga.png";
+if (localStorage.getItem('vizitat_password_game') === '1') {
+    console.log('a vizitat password');
+}
+if (localStorage.getItem('vizitat_shuffle_game') === '1') {
+    console.log('a vizitat shuffle');
+} else {
+    console.log('NU a vizitat shuffle');
+}
+if (localStorage.getItem('vizitat_truefalse_game') === '1') {
+    console.log('a vizitat true false');
+} else { console.log('NU a vizitat true false') }
 
-let incercariGeneral=5;
+if (localStorage.getItem('vizitat_variante_game') === '1') {
+    console.log('a vizitat variante');
+} else { console.log('NU a vizitat variante') }
+
+
+
+
+
+let sageata_jos = "../assets/img/img-assasment/Sageata_jos.png";
+let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
+
+let incercariGeneral = 5;
 let AssasmentHTML = ``;
 ArrJocuri.forEach((item) => {
 
     if (item.incercari === -1) {
-        
-        AssasmentHTML+=`<div class="container flex flex-col items-center justify-center mt-[40px]">
-            <div class="card-total overflow-hidden relative w-[800px] h-[300px] flex items-center justify-center">
+
+        AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
+            <div class="card-total overflow-hidden relative w-[800px] flex items-center justify-center" style="height:80px">
 
 
                 <!-- --------- -->
@@ -78,8 +110,8 @@ ArrJocuri.forEach((item) => {
                     class="card-sus w-[800px] h-[80px] bg-[#DADADA] rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-6" >
                     <div class="icon h-[60%] mt-[11px] w-[50px]"> <img
                             src="../assets/img/img-assasment/Calendar_Check.png" alt=""></div>
-                    <div class="text text-black  mt-[23px] text-xl w-[400px] h-[60%]">${item.nume}</div>
-                    <button class="sageata h-[60%] mt-[21px] w-[50px] ml-[210px]"><img
+                    <div class="text text-black  mt-[23px]  text-xl w-[400px] h-[60%]">${item.nume}</div>
+                    <button class="sageata h-[60%] mt-[6px] w-[50px] ml-[210px]"><img
                             src=${sageata_stanga} alt=""></div>
                 </button>
                 <!-- -------- -->
@@ -97,12 +129,9 @@ ArrJocuri.forEach((item) => {
             </div>
         </div>`
     }
-
-    else{
-               
-        AssasmentHTML+=`<div class="container flex flex-col items-center justify-center mt-[40px]">
-            <div class="card-total overflow-hidden relative w-[800px] h-[300px] flex items-center justify-center">
-
+    else {
+        AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
+            <div class="card-total overflow-hidden relative w-[800px] flex items-center justify-center" style="height:80px">
 
                 <!-- --------- -->
                 <div
@@ -110,7 +139,7 @@ ArrJocuri.forEach((item) => {
                     <div class="icon h-[60%] mt-[11px] w-[50px]"> <img
                             src="../assets/img/img-assasment/Calendar_Check.png" alt=""></div>
                     <div class="text text-black  mt-[23px] text-xl w-[400px] h-[60%]">${item.nume}</div>
-                    <button class="sageata h-[60%] mt-[21px] w-[50px] ml-[210px]"><img
+                    <button class="sageata h-[60%] mt-[6px] w-[50px] ml-[210px]"><img
                             src=${sageata_stanga} alt=""></div>
                 </button>
                 <!-- -------- -->
@@ -135,26 +164,37 @@ ArrJocuri.forEach((item) => {
 
 })
 
-document.querySelector('.tabele_assasment').innerHTML=AssasmentHTML;
+document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
 
 
 const carduri = document.querySelectorAll('.card-total');
-const carduri_jos=document.querySelectorAll('.card-jos')
+const carduri_jos = document.querySelectorAll('.card-jos')
 carduri.forEach((card) => {
     const buton = card.querySelector('.sageata');
     const imagineSageata = buton.querySelector('img');
     const cardJos = card.querySelector('.card-jos');
-    const cardTotal = card; 
+    let esteInchis = true;
 
     buton.addEventListener('click', () => {
-        if (imagineSageata.getAttribute('src') === sageata_jos) {
-            imagineSageata.setAttribute('src', sageata_stanga);
-            cardJos.style.display = 'none';
-            cardTotal.style.height = '80px'; 
-        } else {
+        if (esteInchis) {
             imagineSageata.setAttribute('src', sageata_jos);
             cardJos.style.display = 'flex';
-            cardTotal.style.height = '300px'; 
+            card.style.height = '300px';
+            esteInchis = false;
+        } else {
+            imagineSageata.setAttribute('src', sageata_stanga);
+            cardJos.style.display = 'none';
+            card.style.height = '80px';
+            esteInchis = true;
         }
     });
 });
+
+
+
+
+ArrJocuri.forEach((item) => {
+
+});
+
+

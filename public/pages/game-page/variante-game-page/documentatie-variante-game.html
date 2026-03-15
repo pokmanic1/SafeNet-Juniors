@@ -201,6 +201,16 @@
 
         </div>
     </main>
+    <script>
+        const key_variante_game = 'vizitat_variante_game';
+        if (!localStorage.getItem(key_variante_game)) {
+            localStorage.setItem(key_variante_game, '1');
+            console.log('Vizitator nou la variante');
+        } else {
+            console.log('A mai fost la variante');
+        }
+    </script>
+
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
