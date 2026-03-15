@@ -5,7 +5,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora: ''
+        ancora: './game-page/shuffle-game-page/documentatie-shuffle-game.html',
+        statut: 1
     },
     {
         id: 1,
@@ -13,7 +14,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: 1,
         media: 30,
-        ancora: ''
+        ancora: './game-page/shuffle-game-page/shuffle-game.html',
+        statut: 0
     },
 
     // --------------------------
@@ -23,7 +25,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora: ''
+        ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+        statut: 1
     },
     {
         id: 2,
@@ -31,7 +34,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: 2,
         media: 50,
-        ancora: ''
+        ancora: './game-page/true-false-game-page/true-false-game.html',
+        statut: 0
     },
 
     // ---------------------------------
@@ -41,7 +45,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora: ''
+        ancora: './game-page/password-game-page/documentatie-password-game.html',
+        statut: 1
     },
     {
         id: 3,
@@ -49,7 +54,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: 4,
         media: 20,
-        ancora: ''
+        ancora: './game-page/password-game-page/password-game.html',
+        statut: 0
     },
 
     // ---------------------------------
@@ -59,7 +65,8 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
         media: 0,
-        ancora: ''
+        ancora: './game-page/variante-game-page/documentatie-variante-game.html',
+        statut: 1
     },
     {
         id: 4,
@@ -67,29 +74,53 @@ let ArrJocuri = [
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: 5,
         media: 10,
-        ancora: ''
+        ancora: './game-page/variante-game-page/variante-game.html',
+        statut: 0
     },
 
 ]
 
-if (localStorage.getItem('vizitat_password_game') === '1') {
-    console.log('a vizitat password');
+function schimbarea_statut(i) {
+    ArrJocuri.forEach((item) => {
+        if (i == item.id) {
+            if (item.statut === 1) { item.statut = 0; }
+            else { item.statut = 1; }
+        }
+    })
 }
-if (localStorage.getItem('vizitat_shuffle_game') === '1') {
-    console.log('a vizitat shuffle');
-} else {
-    console.log('NU a vizitat shuffle');
+
+function vizitare_paginilor() {
+    if (localStorage.getItem('vizitat_password_game') === '1') {
+        console.log('a vizitat password');
+        schimbarea_statut(3);}
+    else {
+        console.log('NU a vizitat password');
+    }
+    // ---------------------
+    if (localStorage.getItem('vizitat_shuffle_game') === '1') {
+        console.log('a vizitat shuffle');
+        schimbarea_statut(1);
+    }
+    else {
+        console.log('NU a vizitat shuffle');
+    }
+    // ---------------------
+    if (localStorage.getItem('vizitat_truefalse_game') === '1') {
+        console.log('a vizitat true false');
+        schimbarea_statut(2);
+    } else { console.log('NU a vizitat true false') }
+    // --------------------
+    if (localStorage.getItem('vizitat_variante_game') === '1') {
+        console.log('a vizitat variante');
+        schimbarea_statut(4);
+    } else { console.log('NU a vizitat variante') }
+    console.log(ArrJocuri);
 }
-if (localStorage.getItem('vizitat_truefalse_game') === '1') {
-    console.log('a vizitat true false');
-} else { console.log('NU a vizitat true false') }
-
-if (localStorage.getItem('vizitat_variante_game') === '1') {
-    console.log('a vizitat variante');
-} else { console.log('NU a vizitat variante') }
-
-
-
+// localStorage.removeItem("vizitat_variante_game");
+// localStorage.removeItem("vizitat_truefalse_game");
+// localStorage.removeItem("vizitat_shuffle_game");
+// localStorage.removeItem("vizitat_password_game");
+vizitare_paginilor();
 
 
 let sageata_jos = "../assets/img/img-assasment/Sageata_jos.png";
@@ -98,10 +129,10 @@ let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
 let incercariGeneral = 5;
 let AssasmentHTML = ``;
 ArrJocuri.forEach((item) => {
+    if (item.statut === 1) {
+        if (item.incercari === -1) {
 
-    if (item.incercari === -1) {
-
-        AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
+            AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
             <div class="card-total overflow-hidden relative w-[800px] flex items-center justify-center" style="height:80px">
 
 
@@ -128,9 +159,9 @@ ArrJocuri.forEach((item) => {
                 </div>
             </div>
         </div>`
-    }
-    else {
-        AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
+        }
+        else {
+            AssasmentHTML += `<div class="container flex flex-col items-center justify-center mt-[40px]">
             <div class="card-total overflow-hidden relative w-[800px] flex items-center justify-center" style="height:80px">
 
                 <!-- --------- -->
@@ -158,8 +189,7 @@ ArrJocuri.forEach((item) => {
                 </div>
             </div>
         </div>`
-
-
+        }
     }
 
 })
@@ -190,6 +220,8 @@ carduri.forEach((card) => {
     });
 });
 
+
+localStorage.removeItem("");
 
 
 

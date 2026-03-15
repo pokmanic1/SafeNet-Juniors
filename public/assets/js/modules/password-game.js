@@ -4,6 +4,13 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "../../../pages/conecteazate.html";
     }
 });
+
+
+ if (localStorage.getItem('vizitat_password_game') !== '1') {
+                window.location.href = "../../../pages/assessment.html";
+
+    }
+   
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
 

@@ -6,7 +6,9 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-
+ if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
+        window.location.href = "../../../pages/assessment.html";
+    }
 
 let dateSalvate = JSON.parse(localStorage.getItem("shuffleGameData")) || [];
 console.log("Datele salvate de profesor -----------------------------------------");

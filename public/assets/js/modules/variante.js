@@ -6,6 +6,11 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+if (localStorage.getItem('vizitat_variante_game') !== '1') {
+    window.location.href = "../../../pages/assessment.html";
+
+}
+
 let dateSalvate = JSON.parse(localStorage.getItem('jocVarianteCustom')) || [];
 
 let arr1 = [
@@ -514,10 +519,10 @@ function genereazaHTML() {
         // alert("Testul s-a terminat!");
     }
 }
-function initializare() { 
+function initializare() {
     pornesteCeas(0, 0);
     genereazaHTML();
-   
+
 }
 let butoane = document.querySelectorAll('.butonVariante');
 butoane.forEach((buton, index) => {
@@ -529,7 +534,7 @@ butoane.forEach((buton, index) => {
 
         if (intrebareCurenta.variante[index].raspuns === true) {
 
-            contorScor++;contor++;
+            contorScor++; contor++;
             genereazaHTML();
         } else {
 
@@ -580,6 +585,6 @@ function restart() {
     localStorage.removeItem("jocVarianteCustom");
     clearInterval(interval)
     pornesteCeas(0, 0);
-    
+
 }
 initializare();

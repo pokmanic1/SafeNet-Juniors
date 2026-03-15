@@ -5,6 +5,14 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "../../../pages/conecteazate.html";
     }
 });
+
+      if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
+                window.location.href = "../../../pages/assessment.html";
+    } 
+   
+
+
+
 let dateSalvate = JSON.parse(localStorage.getItem("intrebariTrueFalse")) || [];
 
 
