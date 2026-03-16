@@ -1,3 +1,12 @@
+let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
+let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
+console.log("inercari");
+console.log(contor_assasment_incercari);
+console.log("corecte");
+console.log(contor_assasment_corecte);
+
+
+
 let ArrJocuri = [
     {
         id: 1,
@@ -32,8 +41,8 @@ let ArrJocuri = [
         id: 2,
         nume: 'True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 2,
-        media: 50,
+        incercari: contor_assasment_incercari,
+        media: Math.round((contor_assasment_corecte/contor_assasment_incercari)*100),
         ancora: './game-page/true-false-game-page/true-false-game.html',
         statut: 0
     },
@@ -116,7 +125,7 @@ function vizitare_paginilor() {
     } else { console.log('NU a vizitat variante') }
     console.log(ArrJocuri);
 }
-// localStorage.removeItem("vizitat_variante_game");
+ localStorage.removeItem("vizitat_variante_game");
 // localStorage.removeItem("vizitat_truefalse_game");
 // localStorage.removeItem("vizitat_shuffle_game");
 // localStorage.removeItem("vizitat_password_game");
@@ -178,7 +187,7 @@ ArrJocuri.forEach((item) => {
                     class="card-jos flex overflow-hidden bg-[#EEEEEE] w-[800px] h-[300px] absolute top-0 left-0 z-0 rounded-[30px] p-[30px]" style="display:none">
                     <div class="w-70%">
                         <h2 class="mt-[70px] text-black w-[550px] h-[50px] ">${item.descriere}</h2>
-                        <h3 class="mt-[85px] text-black w-[200px] h-[30px] ">Reușită: ${item.media}%</h3>
+                        <h3 class="mt-[85px] text-black w-[200px] h-[30px] ">Reușită: ${item.media} %</h3>
                         <h3 class=" text-black w-[200px] h-[30px] ">Încercări: ${item.incercari}/${incercariGeneral}</h3>
                     </div>
                     <div class="w-[100px] h-[50px] mt-[200px] bg-black ml-[95px] rounded-[30px]">
