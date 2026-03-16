@@ -11,6 +11,19 @@ onAuthStateChanged(auth, (user) => {
 
     }
    
+
+
+
+    let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
+    let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
+
+
+
+
+
+
+
+
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
 
@@ -166,7 +179,7 @@ let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
 let Conditii = [...Conditii1]; // Default nivel 1
-
+let totalSecondsElapsed = 0;
 selectNivel.addEventListener('change', (event) => {
     nivelul = parseInt(event.target.value);
     
@@ -293,17 +306,42 @@ function verificaParola(password) {
                 Ai câștigat jocul!
             </div>
         `);
+
+            if (totalSecondsElapsed < 60) { 
+                contor_assasment_corecte++;
+                contor_assasment_incercari++;
+            } else {
+                contor_assasment_incercari++;  
+            }
+
+
+
+
+             localStorage.setItem('contor_assasment_password_corecte', JSON.stringify(contor_assasment_corecte));
+            localStorage.setItem('contor_assasment_password_incercari', JSON.stringify(contor_assasment_incercari));
+
+
+
         clearInterval(interval);
         input.disabled = true;
-
+            
     }
 
 }
+
+
+
+
+
 
 document.querySelector('.restart').addEventListener('click',function (){
     restart();
 
 })
+
+
+
+
 
 function restart() {
     const win = document.querySelector('#winMessage');
@@ -329,13 +367,29 @@ function restart() {
     pornesteCeas(0, 0);
 }
 
+
+
+
+
+
 input.addEventListener("input", (e) => {
     verificaParola(e.target.value);
 });
 
+
+
+
+
+
+
 afisareConditii();
   pornesteCeas(0, 0);
 
+
+
+
+
+  
 function pornesteCeas(minute, secunde) {
 
     interval = setInterval(() => {
@@ -344,7 +398,7 @@ function pornesteCeas(minute, secunde) {
 
 
         secunde++;
-
+        totalSecondsElapsed++;
         if (secunde === 60) {
             secunde = 0;
             minute++;

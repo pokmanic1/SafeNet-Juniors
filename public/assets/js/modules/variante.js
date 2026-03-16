@@ -11,6 +11,17 @@ if (localStorage.getItem('vizitat_variante_game') !== '1') {
 
 }
 
+
+
+let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
+let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
+
+
+
+
+
+
+
 let dateSalvate = JSON.parse(localStorage.getItem('jocVarianteCustom')) || [];
 
 let arr1 = [
@@ -498,6 +509,8 @@ function createArr() {
     }
 
 }
+
+
 console.log(newArr);
 let contor = 0;
 function genereazaHTML() {
@@ -516,7 +529,17 @@ function genereazaHTML() {
         textIntrebare.innerHTML = contor;
         textScoar.innerHTML = contorScor;
         clearInterval(interval);
-        // alert("Testul s-a terminat!");
+        if (contorScor > 7) {
+
+            contor_assasment_corecte++;
+            contor_assasment_incercari++;
+        }
+        else {
+            contor_assasment_incercari++;
+        }
+        localStorage.setItem('contor_assasment_variante_corecte', JSON.stringify(contor_assasment_corecte));
+        localStorage.setItem('contor_assasment_variante_incercari', JSON.stringify(contor_assasment_incercari));
+
     }
 }
 function initializare() {

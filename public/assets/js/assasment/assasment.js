@@ -1,10 +1,15 @@
-let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
-let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
-console.log("inercari");
-console.log(contor_assasment_incercari);
-console.log("corecte");
-console.log(contor_assasment_corecte);
-
+// -------------------------------
+let contor_assasment_corecte_shuffle= JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
+let contor_assasment_incercari_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
+//--------------------------------------------------
+let contor_assasment_corecte_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
+let contor_assasment_incercari_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
+// -------------------------------
+let contor_assasment_corecte_password = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
+let contor_assasment_incercari_password = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
+// -------------------------------
+let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
+let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
 
 
 let ArrJocuri = [
@@ -21,8 +26,8 @@ let ArrJocuri = [
         id: 1,
         nume: 'Shuffle game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 1,
-        media: 30,
+        incercari:contor_assasment_incercari_shuffle,
+        media: Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100),
         ancora: './game-page/shuffle-game-page/shuffle-game.html',
         statut: 0
     },
@@ -41,8 +46,8 @@ let ArrJocuri = [
         id: 2,
         nume: 'True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: contor_assasment_incercari,
-        media: Math.round((contor_assasment_corecte/contor_assasment_incercari)*100),
+        incercari: contor_assasment_incercari_truefalse,
+        media: Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100),
         ancora: './game-page/true-false-game-page/true-false-game.html',
         statut: 0
     },
@@ -61,8 +66,8 @@ let ArrJocuri = [
         id: 3,
         nume: 'Password game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 4,
-        media: 20,
+        incercari: contor_assasment_incercari_password,
+        media: Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100),
         ancora: './game-page/password-game-page/password-game.html',
         statut: 0
     },
@@ -81,8 +86,8 @@ let ArrJocuri = [
         id: 4,
         nume: 'Variante Game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: 5,
-        media: 10,
+        incercari: contor_assasment_incercari_variante,
+        media:  Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
         ancora: './game-page/variante-game-page/variante-game.html',
         statut: 0
     },
@@ -99,13 +104,7 @@ function schimbarea_statut(i) {
 }
 
 function vizitare_paginilor() {
-    if (localStorage.getItem('vizitat_password_game') === '1') {
-        console.log('a vizitat password');
-        schimbarea_statut(3);}
-    else {
-        console.log('NU a vizitat password');
-    }
-    // ---------------------
+
     if (localStorage.getItem('vizitat_shuffle_game') === '1') {
         console.log('a vizitat shuffle');
         schimbarea_statut(1);
@@ -119,13 +118,21 @@ function vizitare_paginilor() {
         schimbarea_statut(2);
     } else { console.log('NU a vizitat true false') }
     // --------------------
+    if (localStorage.getItem('vizitat_password_game') === '1') {
+        console.log('a vizitat password');
+        schimbarea_statut(3);
+    }
+    else {
+        console.log('NU a vizitat password');
+    }
+    // ---------------------
     if (localStorage.getItem('vizitat_variante_game') === '1') {
         console.log('a vizitat variante');
         schimbarea_statut(4);
     } else { console.log('NU a vizitat variante') }
     console.log(ArrJocuri);
 }
- localStorage.removeItem("vizitat_variante_game");
+//localStorage.removeItem("vizitat_variante_game");
 // localStorage.removeItem("vizitat_truefalse_game");
 // localStorage.removeItem("vizitat_shuffle_game");
 // localStorage.removeItem("vizitat_password_game");
@@ -188,7 +195,7 @@ ArrJocuri.forEach((item) => {
                     <div class="w-70%">
                         <h2 class="mt-[70px] text-black w-[550px] h-[50px] ">${item.descriere}</h2>
                         <h3 class="mt-[85px] text-black w-[200px] h-[30px] ">Reușită: ${item.media} %</h3>
-                        <h3 class=" text-black w-[200px] h-[30px] ">Încercări: ${item.incercari}/${incercariGeneral}</h3>
+                        <h3 class=" text-black w-[200px] h-[30px] ">Încercări: ${item.incercari}</h3>
                     </div>
                     <div class="w-[100px] h-[50px] mt-[200px] bg-black ml-[95px] rounded-[30px]">
                         <a class="flex items-center justify-center w-full h-full text-white" href=${item.ancora}>

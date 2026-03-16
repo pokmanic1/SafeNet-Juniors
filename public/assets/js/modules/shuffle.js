@@ -6,13 +6,23 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
- if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
-        window.location.href = "../../../pages/assessment.html";
-    }
+if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
+    window.location.href = "../../../pages/assessment.html";
+}
+
+
+
+let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
+let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
+
+
+
 
 let dateSalvate = JSON.parse(localStorage.getItem("shuffleGameData")) || [];
 console.log("Datele salvate de profesor -----------------------------------------");
 console.log(dateSalvate);
+
+
 
 
 let arrText1 = ['frauda', 'mesaj', 'parola', 'phishing', 'protectie', 'riscuri', 'securitate', 'sigur', 'siguranta', 'spam', 'sterge', 'virus'];
@@ -80,13 +90,15 @@ let arrImaginea4 = [
 ];
 
 
-let arrText = [...arrText1]; 
+let arrText = [...arrText1];
 let arrImaginea = [...arrImaginea1];
 let nivelul = 1;
+let totalSecondsElapsed = 0;
+
 const selectNivel = document.querySelector(".nivelul");
 selectNivel.addEventListener('change', (event) => {
     nivelul = event.target.value;
-        if (nivelul == 1) {
+    if (nivelul == 1) {
         arrText = arrText1;
         arrImaginea = arrImaginea1;
     } else if (nivelul == 2) {
@@ -100,15 +112,15 @@ selectNivel.addEventListener('change', (event) => {
         arrImaginea = arrImaginea4;
     }
 
-    jocul.innerHTML = ''; 
-    newArr = [];          
+    jocul.innerHTML = '';
+    newArr = [];
     contor = 0;
     contorPerechi = 0;
     document.querySelector(".scor").innerHTML = `Scorul : 0`;
-    
-    clearInterval(interval); 
-    
-    initializare(); 
+
+    clearInterval(interval);
+
+    initializare();
 });
 
 
@@ -226,16 +238,40 @@ function match() {
     const selected = document.querySelectorAll('.selected');
     selected.forEach(card => {
         card.classList.add('matched');
-        document.querySelector(".scor").innerHTML = `Scorul : ${contorPerechi++}`;
+
     });
+    contorPerechi++;
+    document.querySelector(".scor").innerHTML = `Scorul : ${contorPerechi}`;
+
+    if (contorPerechi === 8) {
+
+        clearInterval(interval);
+        if (totalSecondsElapsed < 90) {
+            contor_assasment_corecte++;
+            contor_assasment_incercari++;
+        } else {
+            contor_assasment_incercari++;
+        }
+
+
+
+
+        localStorage.setItem('contor_assasment_shuffle_corecte', JSON.stringify(contor_assasment_corecte));
+        localStorage.setItem('contor_assasment_shuffle_incercari', JSON.stringify(contor_assasment_incercari));
+
+
+
+    }
+
+
 }
 
 function reset() {
-    
+
     primaIncercareId = null;
     aDouaIncercareId = null;
     contor = 0;
-    
+
     const selected = document.querySelectorAll('.selected');
     selected.forEach(card => {
         card.classList.remove('selected', 'flipped');
@@ -250,7 +286,7 @@ function pornesteCeas(minute, secunde) {
 
 
         secunde++;
-
+        totalSecondsElapsed++;
         if (secunde === 60) {
             secunde = 0;
             minute++;
@@ -278,10 +314,10 @@ document.querySelector(".restart").addEventListener('click', () => {
     aDouaIncercareId = null;
     newArr = [];
     contor = 0;
-       contorPerechi = 0;
+    contorPerechi = 0;
     document.querySelector(".scor").innerHTML = `Scorul : ${contorPerechi}`;
 
-    
+
     jocul.innerHTML = '';
     clearInterval(interval);
     initializare();
@@ -293,3 +329,4 @@ initializare();
 
 
 
+//problema la contor perechi
