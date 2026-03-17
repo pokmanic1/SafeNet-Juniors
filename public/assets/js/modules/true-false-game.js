@@ -412,8 +412,9 @@ selectNivel.addEventListener('change', (event) => {
         arr = arr4; console.log("nivelul a fost schimbat");
 
     }
-    restart()
     clearInterval(interval);
+    restart();
+    
 });
 
 
@@ -501,7 +502,13 @@ function genereazaHTML() {
         localStorage.setItem('contor_assasment_true-false_corecte', JSON.stringify(contor_assasment_corecte));
         localStorage.setItem('contor_assasment_true-false_incercari', JSON.stringify(contor_assasment_incercari));
 
+        
+        const modal = document.getElementById("finalModal");
+        modal.classList.remove("hidden");
 
+        document.getElementById("scorFinal").innerText = `${contorCorect} / ${arrCuExercitii.length}`;
+        document.getElementById("nivelFinal").innerText = nivelul;
+        document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
         document.querySelector('#restart-btn').addEventListener('click', function () {
             restart();
         });
@@ -533,6 +540,13 @@ document.querySelector('#false').addEventListener('click', function () {
 document.querySelector('.restart').addEventListener('click', function () {
     restart();
     genereazaHTML();
+});
+document.querySelector('.restart1').addEventListener('click', function () {
+    restart();
+    genereazaHTML();
+     const modal = document.getElementById("finalModal");
+        modal.classList.add("hidden");
+
 });
 
 function pornesteCeas(minute, secunde) {
