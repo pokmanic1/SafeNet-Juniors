@@ -260,7 +260,10 @@ function match() {
         localStorage.setItem('contor_assasment_shuffle_incercari', JSON.stringify(contor_assasment_incercari));
 
 
-
+        const modal = document.getElementById("finalModal");
+        modal.classList.remove("hidden");
+        document.getElementById("scorFinal").innerText = `${contorPerechi} / 8`; document.getElementById("nivelFinal").innerText = nivelul;
+        document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
     }
 
 
@@ -305,10 +308,7 @@ function pornesteCeas(minute, secunde) {
 
 
 
-
-
-
-document.querySelector(".restart").addEventListener('click', () => {
+function rst() {
     localStorage.removeItem("shuffleGameData");
     primaIncercareId = null;
     aDouaIncercareId = null;
@@ -321,7 +321,21 @@ document.querySelector(".restart").addEventListener('click', () => {
     jocul.innerHTML = '';
     clearInterval(interval);
     initializare();
+}
+
+
+document.querySelector(".restart").addEventListener('click', () => {
+    rst();
 });
+
+document.querySelector('.restart1').addEventListener('click', function () {
+    rst();
+    const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
+
+});
+
+
 let contorPerechi = 0;
 
 jocul.addEventListener('click', Click);

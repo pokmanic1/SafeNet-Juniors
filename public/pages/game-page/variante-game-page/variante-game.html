@@ -14,6 +14,56 @@
 
 <body class="h-[100dvh] w-full bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png');">
+        <div id="finalModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+
+        <div class="bg-[#7AB5D3] rounded-[20px] p-7 w-[380px] relative text-center">
+
+         
+
+            <div class="flex justify-center items-end gap-1.5 mb-3">
+                <div class="w-7 h-7 bg-[#f5c518]"
+                    style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+                </div>
+                <div class="w-[38px] h-[38px] bg-[#f5c518]"
+                    style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+                </div>
+                <div class="w-7 h-7 bg-[#f5c518]"
+                    style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+                </div>
+            </div>
+
+            <h1 class="text-[22px] font-bold text-[#1a1a2e] mb-5">Felicitări!</h1>
+
+            <div class="bg-[#ffffff] rounded-xl px-5 py-2 flex flex-col">
+
+                <div class="flex justify-between py-3 border-b">
+                    <span>Nivelul</span>
+                    <span id="nivelFinal"></span>
+                </div>
+
+                <div class="flex justify-between py-3 border-b">
+                    <span>Întrebări corecte</span>
+                    <span id="scorFinal"></span>
+                </div>
+
+                <div class="flex justify-between py-3">
+                    <span>Timpul</span>
+                    <span id="timpFinal"></span>
+                </div>
+
+            </div>
+
+            <div class="flex gap-3 mt-5">
+                <button id="retryBtn" class="restart1 flex-1 py-[11px] border bg-white rounded-full text-[13px]">
+                    Încearcă din nou
+                </button>
+
+                
+                <a href="../../games.html" class="flex-1 py-[11px] bg-[#3a7bd5] rounded-full text-white">Meniu Jocuri</a>
+            </div>
+
+        </div>
+        </div>
 
     <!-- NAVBAR (pentru pagina games.html aflată în /pages) -->
     <header class="w-full bg-white">

@@ -537,6 +537,15 @@ function genereazaHTML() {
         else {
             contor_assasment_incercari++;
         }
+
+        const modal = document.getElementById("finalModal");
+        modal.classList.remove("hidden");
+
+document.getElementById("scorFinal").innerText = `${contorScor} / ${newArr.length}`;
+        document.getElementById("nivelFinal").innerText = nivelul;
+        document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
+
+
         localStorage.setItem('contor_assasment_variante_corecte', JSON.stringify(contor_assasment_corecte));
         localStorage.setItem('contor_assasment_variante_incercari', JSON.stringify(contor_assasment_incercari));
 
@@ -547,6 +556,8 @@ function initializare() {
     genereazaHTML();
 
 }
+
+
 let butoane = document.querySelectorAll('.butonVariante');
 butoane.forEach((buton, index) => {
     buton.addEventListener('click', () => {
@@ -595,6 +606,15 @@ function pornesteCeas(minute, secunde) {
     }, 1000);
 
 }
+
+document.querySelector('.restart1').addEventListener('click', function () {
+    restart();
+    
+     const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
+
+});
+
 
 function restart() {
     newArr = [];

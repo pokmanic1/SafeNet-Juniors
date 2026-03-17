@@ -313,11 +313,13 @@ function verificaParola(password) {
             } else {
                 contor_assasment_incercari++;  
             }
+            const modal = document.getElementById("finalModal");
+            modal.classList.remove("hidden");
 
-
-
-
-             localStorage.setItem('contor_assasment_password_corecte', JSON.stringify(contor_assasment_corecte));
+            document.getElementById("scorFinal").innerText = `${newArrConditii.length} / ${newArrConditii.length}`;
+            document.getElementById("nivelFinal").innerText = nivelul;
+            document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
+            localStorage.setItem('contor_assasment_password_corecte', JSON.stringify(contor_assasment_corecte));
             localStorage.setItem('contor_assasment_password_incercari', JSON.stringify(contor_assasment_incercari));
 
 
@@ -338,7 +340,13 @@ document.querySelector('.restart').addEventListener('click',function (){
     restart();
 
 })
+document.querySelector('.restart1').addEventListener('click', function () {
+    restart();
+    
+    const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
 
+});
 
 
 
