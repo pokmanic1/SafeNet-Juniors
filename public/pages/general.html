@@ -87,13 +87,94 @@
   </header>
 
 
-  <SECtion class=" py-[500px] border-[1px] border-black mx-auto flex justify-center items-center">
+  <SECtion class=" py-[500px] border-[1px] border-black mx-auto flex justify-center items-center  flex-col">
+
+    <div class="bg-[#d9eef8] rounded-[20px] p-7 w-[380px] relative text-center mb-[400px]">
+
+      <button
+        class="absolute top-3 right-3 w-[26px] h-[26px] rounded-full bg-[#4a90d9] text-white border-none cursor-pointer text-sm flex items-center justify-center">
+        ✕
+      </button>
+
+      <div class="flex justify-center items-end gap-1.5 mb-3">
+        <div class="w-7 h-7 bg-[#f5c518]"
+          style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+        </div>
+        <div class="w-[38px] h-[38px] bg-[#f5c518]"
+          style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+        </div>
+        <div class="w-7 h-7 bg-[#f5c518]"
+          style="clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)">
+        </div>
+      </div>
+
+      <h1 class="text-[22px] font-bold text-[#1a1a2e] mt-0 mb-5">Felicitări!</h1>
+
+      <div class="bg-white rounded-xl px-5 py-2 flex flex-col">
+
+        <div class="flex items-center justify-between py-3 border-b border-[#e8e8e8]">
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+            <span class="text-sm text-[#444]">Nivelul</span>
+          </div>
+          <span class="text-base font-bold text-[#1a1a2e]">2</span>
+        </div>
+
+        <div class="flex items-center justify-between py-3 border-b border-[#e8e8e8]">
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <span class="text-sm text-[#444]">Mișcări</span>
+          </div>
+          <span class="text-base font-bold text-[#1a1a2e]">23</span>
+        </div>
+
+        <div class="flex items-center justify-between py-3">
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <span class="text-sm text-[#444]">Timpul</span>
+          </div>
+          <span class="text-base font-bold text-[#1a1a2e]">01:23</span>
+        </div>
+
+      </div>
+
+      <div class="flex gap-3 mt-5">
+        <button
+          class="flex-1 flex items-center justify-center gap-1.5 py-[11px] border border-[#ccc] bg-white rounded-full text-[13px] text-[#333] cursor-pointer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 4v6h6" />
+            <path d="M3.51 15a9 9 0 1 0 .49-3.8" />
+          </svg>
+          Încearcă din nou
+        </button>
+        <button
+          class="flex-1 flex items-center justify-center gap-1.5 py-[11px] border-none bg-[#3a7bd5] rounded-full text-[13px] text-white font-medium cursor-pointer">
+          Continuă
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polygon points="10 8 16 12 10 16 10 8" fill="white" stroke="none" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
 
     <div id="dashboardUser" class="bg-[#7AB5D3] p-[6px] rounded-[40px] w-[480px] relative">
 
       <div class="absolute top-[15px] right-[15px]">
-        <button id="closeDashboard" class="inchidere_b w-[40px] h-[40px] rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">
-          <img class="w-[70%] " src=""  alt="">
+        <button id="closeDashboard"
+          class="inchidere_b w-[40px] h-[40px] rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">
+          <img class="w-[70%] " src="" alt="">
         </button>
       </div>
 
@@ -117,7 +198,8 @@
           </div>
         </div>
 
-        <div class="w-[420px] h-[80px] flex justify-center items-center p-[10px] mt-[25px] gap-[15px] bg-[#93CCE9] rounded-[25px] mx-auto">
+        <div
+          class="w-[420px] h-[80px] flex justify-center items-center p-[10px] mt-[25px] gap-[15px] bg-[#93CCE9] rounded-[25px] mx-auto">
 
           <div class="w-[190px] h-[55px] bg-white  rounded-[15px] flex items-center justify-center gap-[8px]">
             <img src="../assets/img/img-patrat-la-iconita-profil/Setari.png" alt="" class="w-[30px]  my-auto"> Setări
