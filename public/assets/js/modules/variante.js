@@ -7,8 +7,9 @@ onAuthStateChanged(auth, (user) => {
 });
 
 if (localStorage.getItem('vizitat_variante_game') !== '1') {
-    window.location.href = "../../../pages/assessment.html";
-
+    // window.location.href = "../../../pages/assessment.html";
+            const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+        DacaNuAVizitatDocu.classList.remove("hidden");
 }
 
 

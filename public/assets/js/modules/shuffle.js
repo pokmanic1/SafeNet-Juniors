@@ -8,7 +8,8 @@ onAuthStateChanged(auth, (user) => {
 
 if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
     // window.location.href = "../../../pages/assessment.html";
-    
+        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+        DacaNuAVizitatDocu.classList.remove("hidden");
 }
 
 
