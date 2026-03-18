@@ -3,16 +3,21 @@ import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
-        const DacaNuSaConectat=document.getElementById("dacaNuSaConectat");
+        const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
 
-if (localStorage.getItem('vizitat_variante_game') !== '1') {
-    // window.location.href = "../../../pages/assessment.html";
-            const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
-        DacaNuAVizitatDocu.classList.remove("hidden");
-}
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if (localStorage.getItem('vizitat_variante_game') !== '1') {
+            // window.location.href = "../../../pages/assessment.html";
+            const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
+            DacaNuAVizitatDocu.classList.remove("hidden");
+        }
+    }
+});
+
 
 
 
@@ -544,7 +549,7 @@ function genereazaHTML() {
         const modal = document.getElementById("finalModal");
         modal.classList.remove("hidden");
 
-document.getElementById("scorFinal").innerText = `${contorScor} / ${newArr.length}`;
+        document.getElementById("scorFinal").innerText = `${contorScor} / ${newArr.length}`;
         document.getElementById("nivelFinal").innerText = nivelul;
         document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
 
@@ -612,8 +617,8 @@ function pornesteCeas(minute, secunde) {
 
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
-    
-     const modal = document.getElementById("finalModal");
+
+    const modal = document.getElementById("finalModal");
     modal.classList.add("hidden");
 
 });

@@ -3,16 +3,22 @@ import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
-        const DacaNuSaConectat=document.getElementById("dacaNuSaConectat");
+        const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
 
-if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
-    // window.location.href = "../../../pages/assessment.html";
-        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
-        DacaNuAVizitatDocu.classList.remove("hidden");
-}
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
+            // window.location.href = "../../../pages/assessment.html";
+            const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
+            DacaNuAVizitatDocu.classList.remove("hidden");
+        }
+    }
+});
+
+
 
 
 let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
@@ -418,7 +424,7 @@ selectNivel.addEventListener('change', (event) => {
     }
     clearInterval(interval);
     restart();
-    
+
 });
 
 
@@ -506,7 +512,7 @@ function genereazaHTML() {
         localStorage.setItem('contor_assasment_true-false_corecte', JSON.stringify(contor_assasment_corecte));
         localStorage.setItem('contor_assasment_true-false_incercari', JSON.stringify(contor_assasment_incercari));
 
-        
+
         const modal = document.getElementById("finalModal");
         modal.classList.remove("hidden");
 
@@ -548,8 +554,8 @@ document.querySelector('.restart').addEventListener('click', function () {
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
     genereazaHTML();
-     const modal = document.getElementById("finalModal");
-        modal.classList.add("hidden");
+    const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
 
 });
 

@@ -6,6 +6,16 @@ onAuthStateChanged(auth, (user) => {
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+       if (localStorage.getItem('vizitat_password_game') !== '1') {
+        //window.location.href = "../../../pages/assessment.html";
+        
+        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+        DacaNuAVizitatDocu.classList.remove("hidden");
+    }
+    }
+});
 
 
 if (localStorage.getItem('vizitat_password_game') !== '1') {

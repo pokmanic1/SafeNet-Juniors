@@ -132,7 +132,7 @@ function vizitare_paginilor() {
     } else { console.log('NU a vizitat variante') }
     console.log(ArrJocuri);
 }
-localStorage.removeItem("vizitat_variante_game");
+//localStorage.removeItem("vizitat_variante_game");
 // localStorage.removeItem("vizitat_truefalse_game");
 // localStorage.removeItem("vizitat_shuffle_game");
 // localStorage.removeItem("vizitat_password_game");

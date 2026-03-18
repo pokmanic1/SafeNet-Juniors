@@ -3,16 +3,20 @@ import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
-        const DacaNuSaConectat=document.getElementById("dacaNuSaConectat");
+        const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
+            // window.location.href = "../../../pages/assessment.html";
+            const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
+            DacaNuAVizitatDocu.classList.remove("hidden");
+        }
+    }
+});
 
-if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
-    // window.location.href = "../../../pages/assessment.html";
-        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
-        DacaNuAVizitatDocu.classList.remove("hidden");
-}
 
 
 
