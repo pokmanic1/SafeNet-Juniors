@@ -6,11 +6,13 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
- if (localStorage.getItem('vizitat_password_game') !== '1') {
-                window.location.href = "../../../pages/assessment.html";
-
+if (localStorage.getItem('vizitat_password_game') !== '1') {
+        //window.location.href = "../../../pages/assessment.html";
+        
+        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+        DacaNuAVizitatDocu.classList.remove("hidden");
     }
-   
+
 
 
 
