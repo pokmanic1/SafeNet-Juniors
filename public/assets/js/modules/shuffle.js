@@ -33,7 +33,7 @@ console.log(dateSalvate);
 
 
 
-let arrText1 = ['frauda', 'mesaj', 'parola', 'phishing', 'protectie', 'riscuri', 'securitate', 'sigur', 'siguranta', 'spam', 'sterge', 'virus'];
+let arrText1 = ['alerta de', 'mesaj', 'parola', 'phishing', 'protectie', 'riscuri', 'securitate', 'sigur', 'siguranta', 'spam', 'sterge', 'virus'];
 let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/frauda.png',
     '../../../assets/img/img-shufle-game/mesaj.png',
