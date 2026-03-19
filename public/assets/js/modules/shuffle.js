@@ -46,6 +46,7 @@ let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/wwwLvl1.png',
     '../../../assets/img/img-shufle-game/intrenetLvl1.png',
 ];
+//wfewfew
 
 let arrText2 = ['phishing', 'identitate', 'hacker', 'confidentialitate', 'securitate', 'scanare', 'alerta de securitate', 'siguranta', 'furt de date', 'monitorizare'];
 let arrImaginea2 = [
