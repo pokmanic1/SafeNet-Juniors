@@ -33,68 +33,62 @@ console.log(dateSalvate);
 
 
 
-let arrText1 = ['alerta de', 'mesaj', 'parola', 'phishing', 'protectie', 'riscuri', 'securitate', 'sigur', 'siguranta', 'spam', 'sterge', 'virus'];
+let arrText1 = ['parola', 'mesaj', 'cont', 'cod pin', 'spam', 'virus', 'eroare', 'cos de gunoi', 'www', 'internet'];
+
 let arrImaginea1 = [
-    '../../../assets/img/img-shufle-game/frauda.png',
-    '../../../assets/img/img-shufle-game/mesaj.png',
-    '../../../assets/img/img-shufle-game/parola.png',
-    '../../../assets/img/img-shufle-game/phishing.png',
-    '../../../assets/img/img-shufle-game/protectie.png',
-    '../../../assets/img/img-shufle-game/riscuri.png',
-    '../../../assets/img/img-shufle-game/securitate.png',
-    '../../../assets/img/img-shufle-game/sigur.png',
-    '../../../assets/img/img-shufle-game/siguranta.png',
-    '../../../assets/img/img-shufle-game/spam.png',
-    '../../../assets/img/img-shufle-game/sterge.png',
-    '../../../assets/img/img-shufle-game/virus.png',
+    '../../../assets/img/img-shufle-game/parolaLvl1.png',
+    '../../../assets/img/img-shufle-game/mesajLvl1.png',
+    '../../../assets/img/img-shufle-game/contLvl1.png',
+    '../../../assets/img/img-shufle-game/codPinLvl1.png',
+    '../../../assets/img/img-shufle-game/spamLvl1.png',
+    '../../../assets/img/img-shufle-game/virusLvl1.png',
+    '../../../assets/img/img-shufle-game/eroareLvl.1.png',
+    '../../../assets/img/img-shufle-game/cosGunoiLvl1.png',
+    '../../../assets/img/img-shufle-game/wwwLvl1.png',
+    '../../../assets/img/img-shufle-game/intrenetLvl1.png',
 ];
+//wfewfew
 
-let arrText2 = ['frauda2', 'mesaj2', 'parola2', 'phishing2', 'protectie2', 'riscuri2', 'securitate2', 'sigur2', 'siguranta2', 'spam2', 'sterge2', 'virus2'];
+let arrText2 = ['phishing', 'identitate', 'hacker', 'confidentialitate', 'securitate', 'scanare', 'alerta de securitate', 'siguranta', 'furt de date', 'monitorizare'];
 let arrImaginea2 = [
-    '../../../assets/img/img-shufle-game/frauda.png',
-    '../../../assets/img/img-shufle-game/mesaj.png',
-    '../../../assets/img/img-shufle-game/parola.png',
-    '../../../assets/img/img-shufle-game/phishing.png',
-    '../../../assets/img/img-shufle-game/protectie.png',
-    '../../../assets/img/img-shufle-game/riscuri.png',
-    '../../../assets/img/img-shufle-game/securitate.png',
-    '../../../assets/img/img-shufle-game/sigur.png',
-    '../../../assets/img/img-shufle-game/siguranta.png',
-    '../../../assets/img/img-shufle-game/spam.png',
-    '../../../assets/img/img-shufle-game/sterge.png',
-    '../../../assets/img/img-shufle-game/virus.png',
+    '../../../assets/img/img-shufle-game/phishingLvl2.png',
+    '../../../assets/img/img-shufle-game/identitateLvl2.png',
+    '../../../assets/img/img-shufle-game/hackerLvl2.png',
+    '../../../assets/img/img-shufle-game/confidentialitateLvl2.png',
+    '../../../assets/img/img-shufle-game/securitateLvl2.png',
+    '../../../assets/img/img-shufle-game/scanareLvl2.png',
+    '../../../assets/img/img-shufle-game/alertaSecLvl2.png',
+    '../../../assets/img/img-shufle-game/sigurantaLvl2.png',
+    '../../../assets/img/img-shufle-game/furtDateLvl2.png',
+    '../../../assets/img/img-shufle-game/monitorizareLvl2.png',
 ];
 
-let arrText3 = ['frauda3', 'mesaj3', 'parola3', 'phishing3', 'protectie3', 'riscuri3', 'securitate3', 'sigur3', 'siguranta3', 'spam3', 'sterge3', 'virus3'];
+let arrText3 = ['cache', 'cookies', 'riscuri', 'frauda', 'atac cibernetic', 'vpn', 'https', 'windows defender', 'cloud', 'ip address'];
 let arrImaginea3 = [
-    '../../../assets/img/img-shufle-game/frauda.png',
-    '../../../assets/img/img-shufle-game/mesaj.png',
-    '../../../assets/img/img-shufle-game/parola.png',
-    '../../../assets/img/img-shufle-game/phishing.png',
-    '../../../assets/img/img-shufle-game/protectie.png',
-    '../../../assets/img/img-shufle-game/riscuri.png',
-    '../../../assets/img/img-shufle-game/securitate.png',
-    '../../../assets/img/img-shufle-game/sigur.png',
-    '../../../assets/img/img-shufle-game/siguranta.png',
-    '../../../assets/img/img-shufle-game/spam.png',
-    '../../../assets/img/img-shufle-game/sterge.png',
-    '../../../assets/img/img-shufle-game/virus.png',
+    '../../../assets/img/img-shufle-game/cacheLvl3.png',
+    '../../../assets/img/img-shufle-game/cookiesLvl3.png',
+    '../../../assets/img/img-shufle-game/riscuriLvl3.png',
+    '../../../assets/img/img-shufle-game/FraudaLvl3.png',
+    '../../../assets/img/img-shufle-game/atacCiberneticLvl3.png',
+    '../../../assets/img/img-shufle-game/vpnLvl3.png',
+    '../../../assets/img/img-shufle-game/httpsLvl3.png',
+    '../../../assets/img/img-shufle-game/windowsDefenderLvl3.png',
+    '../../../assets/img/img-shufle-game/cloudLvl3.png',
+    '../../../assets/img/img-shufle-game/ipLvl3.png',
 ];
 
-let arrText4 = ['frauda4', 'mesaj4', 'parola4', 'phishing4', 'protectie4', 'riscuri4', 'securitate4', 'sigur4', 'siguranta4', 'spam4', 'sterge4', 'virus4'];
+let arrText4 = ['dnsmasq', 'proxy server', 'date', 'recaptcha', 'criptare', 'politica de securitate', 'tor project', 'duckduckgo', 'macos', 'firewall'];
 let arrImaginea4 = [
-    '../../../assets/img/img-shufle-game/frauda.png',
-    '../../../assets/img/img-shufle-game/mesaj.png',
-    '../../../assets/img/img-shufle-game/parola.png',
-    '../../../assets/img/img-shufle-game/phishing.png',
-    '../../../assets/img/img-shufle-game/protectie.png',
-    '../../../assets/img/img-shufle-game/riscuri.png',
-    '../../../assets/img/img-shufle-game/securitate.png',
-    '../../../assets/img/img-shufle-game/sigur.png',
-    '../../../assets/img/img-shufle-game/siguranta.png',
-    '../../../assets/img/img-shufle-game/spam.png',
-    '../../../assets/img/img-shufle-game/sterge.png',
-    '../../../assets/img/img-shufle-game/virus.png',
+    '../../../assets/img/img-shufle-game/dnsLvl4.png',
+    '../../../assets/img/img-shufle-game/proxyLvl4.png',
+    '../../../assets/img/img-shufle-game/dateLvl4.png',
+    '../../../assets/img/img-shufle-game/captchaLvl4.png',
+    '../../../assets/img/img-shufle-game/criptareLvl4.png',
+    '../../../assets/img/img-shufle-game/politicaSecuritateLvl4.png',
+    '../../../assets/img/img-shufle-game/torLvl4.png',
+    '../../../assets/img/img-shufle-game/duckLvl4.png',
+    '../../../assets/img/img-shufle-game/osLvl4.png',
+    '../../../assets/img/img-shufle-game/firewallLvl4.png',
 ];
 
 
