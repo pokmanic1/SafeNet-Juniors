@@ -21,23 +21,28 @@
 
     <!-- NAVBAR (pentru conecteazate.html) -->
     <header class="w-full">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
+       <div class="mx-[90px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <!-- Left: Logo -->
             <a href="../index.html" class="flex items-center gap-3">
-                <img class="w-20  object-contain" src="../assets/img/image-removebg-preview (5).png"
+                <img class="w-20 object-contain" src="../assets/img/image-removebg-preview (5).png"
                     alt="SafeNet Junior">
             </a>
 
             <!-- Desktop menu -->
-            <nav class="hidden md:flex items-center gap-12 font-semibold">
+            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
                 <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
                 <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
             </nav>
 
             <!-- Desktop auth -->
             <div class="hidden md:flex items-center gap-10 font-semibold">
-                <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
+                <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">
+                    Conectare
+                </a>
+                <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">
+                    Înregistrare
+                </a>
             </div>
 
             <!-- Mobile toggle -->
@@ -45,11 +50,13 @@
                 class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
                 aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
 
+                <!-- Icon hamburger -->
                 <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
+                <!-- Icon X -->
                 <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

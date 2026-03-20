@@ -34,7 +34,6 @@ console.log(dateSalvate);
 
 
 let arrText1 = ['parola', 'mesaj', 'cont', 'cod pin', 'spam', 'virus', 'eroare', 'cos de gunoi', 'www', 'internet'];
-
 let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/parolaLvl1.png',
     '../../../assets/img/img-shufle-game/mesajLvl1.png',
@@ -47,7 +46,6 @@ let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/wwwLvl1.png',
     '../../../assets/img/img-shufle-game/intrenetLvl1.png',
 ];
-//wfewfew
 
 let arrText2 = ['phishing', 'identitate', 'hacker', 'confidentialitate', 'securitate', 'scanare', 'alerta de securitate', 'siguranta', 'furt de date', 'monitorizare'];
 let arrImaginea2 = [
@@ -197,6 +195,7 @@ function createCard(item) {
         back.style.alignItems = "center";
         back.style.fontSize = "20px";
         back.style.fontWeight = "bold";
+        
     }
 
     card.appendChild(front);

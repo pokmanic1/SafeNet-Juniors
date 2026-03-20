@@ -27,7 +27,7 @@
 
   <!-- NAVBAR -->
   <header class="w-full">
-    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+    <div class="mx-[90px] max-w-full px-6 py-3 flex items-center justify-between">
 
       <!-- Left: Logo -->
       <a href="./index.html" class="flex items-center gap-3">
@@ -35,15 +35,18 @@
       </a>
 
       <!-- Desktop menu -->
-      <nav class="hidden md:flex items-center gap-12 font-semibold">
+      <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
         <a class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/games.html">Jocuri</a>
-        <a class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px] " href="./pages/assessment.html">Teste</a>
+        <a class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px] "
+          href="./pages/assessment.html">Teste</a>
       </nav>
 
       <!-- Desktop auth -->
       <div class="hidden md:flex items-center gap-10 font-semibold">
-        <a id="InregistreazataID" class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/inregistreazate.html">Înregistrare</a>
-        <a id="ConecteazataID" class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/conecteazate.html">Conectare</a>
+        <a id="InregistreazataID" class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/inregistreazate.html">Înregistrare</a>
+        <a id="ConecteazataID" class="hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/conecteazate.html">Conectare</a>
       </div>
 
       <!-- Mobile toggle -->
@@ -68,15 +71,21 @@
     <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
       <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
 
-        <a class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/games.html">Jocuri</a>
-        <a class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/assessment.html">Assessment</a>
+        <a class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/games.html">Jocuri</a>
+        <a class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/assessment.html">Assessment</a>
 
         <div class="h-px bg-gray-200 my-2"></div>
 
-        <a id="InregistreazataID_M" id="InregistreazataID" class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/inregistreazate.html">
+        <a id="InregistreazataID_M" id="InregistreazataID"
+          class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/inregistreazate.html">
           Înregistrare
         </a>
-        <a id="ConecteazataID_M"  id="ConecteazataID"   class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]" href="./pages/conecteazate.html">
+        <a id="ConecteazataID_M" id="ConecteazataID"
+          class="block py-2 hover:text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]"
+          href="./pages/conecteazate.html">
           Conectare
         </a>
       </div>
@@ -85,23 +94,24 @@
 
   <!-- HERO -->
   <section class="relative overflow-hidden">
+    <!-- Background gradient clean -->
     <div aria-hidden="true" class="absolute inset-0" style="
-        background:
-          radial-gradient(circle at 25% 30%, rgba(39,114,219,0.45) 0%, rgba(39,114,219,0) 55%),
-          radial-gradient(circle at 75% 25%, rgba(215,160,255,0.45) 0%, rgba(215,160,255,0) 55%),
-          radial-gradient(circle at 50% 85%, rgba(254,154,207,0.35) 0%, rgba(254,154,207,0) 60%),
-          radial-gradient(circle at 50% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,0.92) 100%);
-       ">
+    background:
+      radial-gradient(circle at 20% 25%, rgba(37,99,235,0.18) 0%, transparent 55%),
+      radial-gradient(circle at 80% 20%, rgba(251,191,36,0.22) 0%, transparent 55%),
+      radial-gradient(circle at 50% 80%, rgba(37,99,235,0.12) 0%, transparent 60%),
+      linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  ">
     </div>
 
-    <!-- Grid overlay discret -->
-    <div aria-hidden="true" class="absolute inset-0 opacity-[0.22]" style="
-        background-image:
-          linear-gradient(to right, rgba(15,23,42,0.10) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(15,23,42,0.10) 1px, transparent 1px);
-        background-size: 56px 56px;
-        mask-image: radial-gradient(circle at 50% 38%, black 0%, transparent 70%);
-       ">
+    <!-- Grid foarte subtil -->
+    <div aria-hidden="true" class="absolute inset-0 opacity-[0.08]" style="
+    background-image:
+      linear-gradient(to right, rgba(37,99,235,0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37,99,235,0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at 50% 40%, black 0%, transparent 75%);
+  ">
     </div>
 
     <!-- Conținut -->
@@ -120,7 +130,7 @@
         <!-- Buton gradient -->
         <div class="mt-10">
           <a href="./pages/about.html" class="inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold text-white
-                  bg-gradient-to-r from-[#2772DB] via-[#7DB2FF] to-[#D7A0FF]
+                  bg-gradient-to-r from-[#1156ea] via-[#2563EB] to-[#71a4f0]
                   shadow-md hover:brightness-95 transition
                   focus:outline-none focus:ring-4 focus:ring-[#7DB2FF]/40">
             Află mai multe
@@ -131,6 +141,66 @@
     </div>
   </section>
 
+  <section class="mt-[50px] mb-[30px] md:mt-[100px] md:mb-[50px]">
+    <h1 class="font-bold text-xl md:text-3xl text-center px-4">
+      Incepe aventura alaturi de noi
+    </h1>
+
+    <div class="flex flex-col md:flex-row gap-[20px] sm:gap-[10px] md:gap-[60px] lg:gap-[100px] justify-center items-center mt-[30px] md:mt-[70px]">
+
+      <div
+        class="w-[130px] h-[130px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px]  sm:w-[140px] sm:h-[140px] bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
+         border-[#2563EB] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
+
+        <div class="w-[40px] h-[40px] md:w-[60px] md:h-[60px]  sm:w-[45px] sm:h-[45px]">
+          <img src="./assets/img/img-pt-index/Screenshot 2026-02-16 202348 1.png" class="object-cover w-full h-full"
+            alt="">
+        </div>
+
+        <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
+          Lectii usoare
+        </h6>
+
+        <p class="text-gray-600 text-[9px] md:text-[12px]  sm:text-[10px] mt-1 text-center">
+          Învață sfaturi de siguranță pas cu pas
+        </p>
+      </div>
+
+      <div
+        class="w-[130px] h-[130px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px] sm:w-[140px] sm:h-[140px] bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
+         border-[#FBBF24] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
+        <div class="w-[40px] h-[40px] md:w-[60px] md:h-[60px] sm:w-[45px] sm:h-[45px]">
+          <img src="./assets/img/img-pt-index/Screenshot 2026-02-16 202354 1.png" class="object-cover w-full h-full"
+            alt="">
+        </div>
+        <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
+          Jocuri distractive
+        </h6>
+        <p class="text-gray-600 text-[9px] md:text-[12px]  sm:text-[10px] mt-1 text-center">
+          Jocuri distractive
+        </p>
+      </div>
+
+      <div
+        class="w-[130px] h-[130px] lg:w-[200px] lg:h-[200px]  md:w-[180px] md:h-[180px] sm:w-[140px] sm:h-[140px]  bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
+         border-[#2563EB] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
+
+        <div class="w-[40px] h-[40px] md:w-[60px] md:h-[60px] sm:w-[45px] sm:h-[45px]">
+          <img src="./assets/img/img-pt-index/Screenshot 2026-02-16 202359 1.png" class="object-cover w-full h-full"
+            alt="">
+        </div>
+
+        <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
+          Experiențe noi
+        </h6>
+
+        <p class="text-gray-600 text-[9px] md:text-[12px] sm:text-[10px] mt-1 text-center">
+          Colectează experiențe pe măsură ce înveți
+        </p>
+      </div>
+
+    </div>
+  </section>
   <!-- Jocuri -->
   <section class="bg-white">
     <div class="mx-auto max-w-7xl px-6 py-16">
@@ -138,7 +208,8 @@
 
         <!-- Text CTA -->
         <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight xl:text-[36px] lg:text-[32px] text-[28px]">
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight xl:text-[36px] lg:text-[32px] text-[28px]">
             Învață prin joc, pas cu pas
           </h2>
 
@@ -150,15 +221,15 @@
 
           <div class="mt-6 space-y-3 text-gray-700 xl:text-[16px] lg:text-[14px] text-[12px]">
             <div class="flex gap-3">
-              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#2772DB]"></span>
+              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#FBBF24]"></span>
               <p><span class="font-semibold">Exersezi</span> decizii corecte în situații online, fără riscuri reale.</p>
             </div>
             <div class="flex gap-3">
-              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#D7A0FF]"></span>
+              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#FBBF24]"></span>
               <p><span class="font-semibold">Înțelegi</span> rapid ce ai făcut bine și ce trebuie îmbunătățit.</p>
             </div>
             <div class="flex gap-3">
-              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#FE9ACF]"></span>
+              <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#FBBF24]"></span>
               <p><span class="font-semibold">Repeti</span> activitățile și îți crești scorul, până stăpânești tema.</p>
             </div>
           </div>
@@ -166,14 +237,14 @@
           <!-- CTA buttons -->
           <div class="mt-10 flex flex-col sm:flex-row gap-4">
             <a href="./pages/games.html" class="inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold text-white
-                    bg-gradient-to-r from-[#2772DB] via-[#7DB2FF] to-[#D7A0FF]
+                    bg-gradient-to-r from-[#1156ea] via-[#2563EB] to-[#71a4f0]
                     shadow-md hover:brightness-95 transition
                     focus:outline-none focus:ring-4 focus:ring-[#7DB2FF]/40">
               Începe activitățile din Jocuri
             </a>
 
             <a href="./pages/assessment.html" class="inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold
-                    border border-gray-300 bg-white text-gray-900
+                    border border-[gray-300] bg-white text-gray-900
                     hover:bg-gray-50 transition
                     focus:outline-none focus:ring-4 focus:ring-gray-200">
               Verifică-ți nivelul
@@ -193,42 +264,43 @@
 
           <div class="relative rounded-3xl border border-gray-200 bg-white/80 backdrop-blur p-6 shadow-sm">
             <div class="flex items-center justify-between">
-              <p class="text-sm font-semibold text-gray-900 xl:text-[14px] lg:text-[12px] text-[10px]">SafeNet Junior • Activități</p>
+              <p class="text-sm font-semibold text-gray-900 xl:text-[14px] lg:text-[12px] text-[10px]">SafeNet Junior •
+                Activități</p>
             </div>
 
             <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="rounded-2xl border border-gray-200 bg-white p-4">
+              <div class="rounded-2xl border border-[#FBBF24] bg-white p-4">
                 <p class="text-sm font-semibold text-gray-900">Activitate scurtă</p>
                 <p class="mt-2 text-xs text-gray-600">Alegi răspunsul corect și vezi imediat explicația.</p>
                 <div class="mt-3 h-2 w-full rounded-full bg-gray-100 overflow-hidden">
-                  <div class="h-full w-[62%] bg-[#2772DB]"></div>
+                  <div class="h-full w-[62%] bg-[#2563EB]"></div>
                 </div>
                 <p class="mt-2 text-xs text-gray-500">Feedback instant</p>
               </div>
 
-              <div class="rounded-2xl border border-gray-200 bg-white p-4">
+              <div class="rounded-2xl border border-[#2563EB] bg-white p-4">
                 <p class="text-sm font-semibold text-gray-900">Recapitulare</p>
                 <p class="mt-2 text-xs text-gray-600">Repeti activitatea și îți îmbunătățești scorul.</p>
                 <div class="mt-3 h-2 w-full rounded-full bg-gray-100 overflow-hidden">
-                  <div class="h-full w-[45%] bg-[#D7A0FF]"></div>
+                  <div class="h-full w-[45%] bg-[#FBBF24]"></div>
                 </div>
                 <p class="mt-2 text-xs text-gray-500">Progres vizibil</p>
               </div>
 
-              <div class="rounded-2xl border border-gray-200 bg-white p-4">
+              <div class="rounded-2xl border border-[#2563EB] bg-white p-4">
                 <p class="text-sm font-semibold text-gray-900">Exersare</p>
                 <p class="mt-2 text-xs text-gray-600">Aplici reguli în situații simulate, fără risc.</p>
                 <div class="mt-3 h-2 w-full rounded-full bg-gray-100 overflow-hidden">
-                  <div class="h-full w-[70%] bg-[#FE9ACF]"></div>
+                  <div class="h-full w-[70%] bg-[#FBBF24]"></div>
                 </div>
                 <p class="mt-2 text-xs text-gray-500">Învățare practică</p>
               </div>
 
-              <div class="rounded-2xl border border-gray-200 bg-white p-4">
+              <div class="rounded-2xl border border-[#FBBF24] bg-white p-4">
                 <p class="text-sm font-semibold text-gray-900">Verificare</p>
                 <p class="mt-2 text-xs text-gray-600">Testezi ce ai înțeles și primești rezultat.</p>
                 <div class="mt-3 h-2 w-full rounded-full bg-gray-100 overflow-hidden">
-                  <div class="h-full w-[55%] bg-[#7DB2FF]"></div>
+                  <div class="h-full w-[55%] bg-[#2563EB]"></div>
                 </div>
                 <p class="mt-2 text-xs text-gray-500">Scor final</p>
               </div>
@@ -245,6 +317,13 @@
       </div>
     </div>
   </section>
+
+
+
+  </section>
+
+
+
 
   <!-- Footer -->
   <section class="subsol bg-white">
