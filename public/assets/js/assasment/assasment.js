@@ -39,9 +39,7 @@ let ArrJocuri = [
         nume: 'Documentatia True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
-        media: contor_assasment_incercari_shuffle === 0
-            ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+        media: 0,
         statut: 1
     },
     {
@@ -49,7 +47,9 @@ let ArrJocuri = [
         nume: 'True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: contor_assasment_incercari_truefalse,
-        media: Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100),
+        media: contor_assasment_incercari_shuffle === 0
+            ? 0
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
         ancora: './game-page/true-false-game-page/true-false-game.html',
         statut: 0
     },
