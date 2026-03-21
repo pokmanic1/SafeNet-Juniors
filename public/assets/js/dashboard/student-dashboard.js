@@ -1,5 +1,5 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-
+import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
@@ -90,6 +90,15 @@ function toggleDashboard(user) {
   document.getElementById("closeDashboard").addEventListener("click", () => {
     dashboardWrapper.remove();
   });
+   document.getElementById("logoutBtn").addEventListener("click", () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Deconectat");
+        window.location.reload(); 
+      })
+      .catch((err) => console.error(err));
+  });
+  
 }
 
 // 🔹 DASHBOARD HTML
@@ -109,8 +118,9 @@ let dashboard = `
     <h2 class="text-[22px] font-semibold text-gray-900 mb-1">Salut!</h2>
     <p id="emailUser" class="text-[13px] text-gray-400 mb-8">user@exemplu.com</p>
 
-    <button class="w-full h-[40px] bg-slate-900 text-white rounded-2xl hover:bg-red-600 transition">
+    <button  id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-white rounded-2xl hover:bg-red-600 transition">
         Ieși din cont
     </button>
 </div>
 `;
+
