@@ -1,5 +1,5 @@
 // -------------------------------
-let contor_assasment_corecte_shuffle= JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
+let contor_assasment_corecte_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
 let contor_assasment_incercari_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
 //--------------------------------------------------
 let contor_assasment_corecte_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
@@ -26,9 +26,10 @@ let ArrJocuri = [
         id: 1,
         nume: 'Shuffle game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari:contor_assasment_incercari_shuffle,
-        media: Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100),
-        ancora: './game-page/shuffle-game-page/shuffle-game.html',
+        incercari: contor_assasment_incercari_shuffle || 0,
+        media: contor_assasment_incercari_shuffle === 0
+            ? 0
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/shuffle-game-page/shuffle-game.html',
         statut: 0
     },
 
@@ -38,8 +39,9 @@ let ArrJocuri = [
         nume: 'Documentatia True-False game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         incercari: -1,
-        media: 0,
-        ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+        media: contor_assasment_incercari_shuffle === 0
+            ? 0
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
         statut: 1
     },
     {
@@ -66,9 +68,10 @@ let ArrJocuri = [
         id: 3,
         nume: 'Password game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: contor_assasment_incercari_password,
-        media: Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100),
-        ancora: './game-page/password-game-page/password-game.html',
+        incercari: contor_assasment_incercari_password || 0,
+        media: contor_assasment_incercari_shuffle === 0
+            ? 0
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/password-game-page/password-game.html',
         statut: 0
     },
 
@@ -86,10 +89,11 @@ let ArrJocuri = [
         id: 4,
         nume: 'Variante Game',
         descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        incercari: contor_assasment_incercari_variante,
-        media:  Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
-        ancora: './game-page/variante-game-page/variante-game.html',
-        statut: 0
+        incercari: contor_assasment_incercari_variante || 0,
+        media: Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
+        media: contor_assasment_incercari_shuffle === 0
+            ? 0
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), statut: 0
     },
 
 ]
