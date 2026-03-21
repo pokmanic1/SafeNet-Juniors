@@ -193,8 +193,9 @@ function createCard(item) {
         back.style.display = "flex";
         back.style.justifyContent = "center";
         back.style.alignItems = "center";
-        back.style.fontSize = "20px";
+        back.style.fontSize = "16px";
         back.style.fontWeight = "bold";
+        back.style.textAlign="center"
         
     }
 
