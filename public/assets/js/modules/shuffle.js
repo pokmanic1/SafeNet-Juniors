@@ -32,8 +32,7 @@ console.log(dateSalvate);
 
 
 
-
-let arrText1 = ['parola', 'mesaj', 'cont', 'cod pin', 'spam', 'virus', 'eroare', 'cos de gunoi', 'www', 'internet'];
+let arrText1 = ['Parolă', 'Mesaj', 'Cont', 'Cod PIN', 'Spam', 'Virus', 'Eroare', 'Coș de Gunoiv', 'WWW', 'Internet'];
 let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/parolaLvl1.png',
     '../../../assets/img/img-shufle-game/mesajLvl1.png',
@@ -47,7 +46,7 @@ let arrImaginea1 = [
     '../../../assets/img/img-shufle-game/intrenetLvl1.png',
 ];
 
-let arrText2 = ['phishing', 'identitate', 'hacker', 'confidentialitate', 'securitate', 'scanare', 'alerta de securitate', 'siguranta', 'furt de date', 'monitorizare'];
+let arrText2 = ['Phishing', 'Identitate', 'Hacker', 'Confidențialitate', 'Securitate', 'Scanare', 'Alertă de Securitate', 'Siguranță', 'Furt de date', 'Monitorizare'];
 let arrImaginea2 = [
     '../../../assets/img/img-shufle-game/phishingLvl2.png',
     '../../../assets/img/img-shufle-game/identitateLvl2.png',
@@ -61,7 +60,7 @@ let arrImaginea2 = [
     '../../../assets/img/img-shufle-game/monitorizareLvl2.png',
 ];
 
-let arrText3 = ['cache', 'cookies', 'riscuri', 'frauda', 'atac cibernetic', 'vpn', 'https', 'windows defender', 'cloud', 'ip address'];
+let arrText3 = ['Cache', 'Cookies', 'Riscuri', 'Fraudă', 'Atac cibernetic', 'VPN', 'HTTPS', 'Windows Defender', 'Cloud', 'IP Address'];
 let arrImaginea3 = [
     '../../../assets/img/img-shufle-game/cacheLvl3.png',
     '../../../assets/img/img-shufle-game/cookiesLvl3.png',
@@ -75,7 +74,7 @@ let arrImaginea3 = [
     '../../../assets/img/img-shufle-game/ipLvl3.png',
 ];
 
-let arrText4 = ['dnsmasq', 'proxy server', 'date', 'recaptcha', 'criptare', 'politica de securitate', 'tor project', 'duckduckgo', 'macos', 'firewall'];
+let arrText4 = ['Dnsmasq', 'Proxy Server', 'Date', 'reCAPTCHA', 'Criptare', 'Politică de Securitate', 'Tor Project', 'DuckDuckGo', 'macOS', 'Firewall'];
 let arrImaginea4 = [
     '../../../assets/img/img-shufle-game/dnsLvl4.png',
     '../../../assets/img/img-shufle-game/proxyLvl4.png',

@@ -16,7 +16,7 @@ let ArrJocuri = [
     {
         id: 1,
         nume: 'Documentatia Shuffle game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Înainte de a începe, citește documentația pentru a învăța termenii. Apoi potrivește fiecare imagine cu perechea sa!',
         incercari: -1,
         media: 0,
         ancora: './game-page/shuffle-game-page/documentatie-shuffle-game.html',
@@ -25,7 +25,7 @@ let ArrJocuri = [
     {
         id: 1,
         nume: 'Shuffle game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Găsește perechile! Întoarce cartonașele și potrivește fiecare imagine cu termenul corect!',
         incercari: contor_assasment_incercari_shuffle || 0,
         media: contor_assasment_incercari_shuffle === 0
             ? 0
@@ -37,7 +37,7 @@ let ArrJocuri = [
     {
         id: 2,
         nume: 'Documentatia True-False game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Parcurge mai întâi documentația, apoi testează ce ai învățat! Tu decizi care afirmații sunt adevărate și care sunt false.',
         incercari: -1,
         media: 0,
         statut: 1
@@ -45,7 +45,7 @@ let ArrJocuri = [
     {
         id: 2,
         nume: 'True-False game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Ești suficient de atent? Citește fiecare afirmație despre securitatea online și decide dacă este adevărată sau falsă!',
         incercari: contor_assasment_incercari_truefalse,
         media: contor_assasment_incercari_shuffle === 0
             ? 0
@@ -58,7 +58,7 @@ let ArrJocuri = [
     {
         id: 3,
         nume: 'Documentatia Password game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Știi ce face o parolă sigură? Citește mai întâi documentația, apoi pune în practică ce ai învățat!',
         incercari: -1,
         media: 0,
         ancora: './game-page/password-game-page/documentatie-password-game.html',
@@ -67,7 +67,7 @@ let ArrJocuri = [
     {
         id: 3,
         nume: 'Password game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Construiește o parolă cât mai puternică! Respectă regulile afișate și creează o combinație care să reziste oricărui atac!',
         incercari: contor_assasment_incercari_password || 0,
         media: contor_assasment_incercari_shuffle === 0
             ? 0
@@ -79,7 +79,7 @@ let ArrJocuri = [
     {
         id: 4,
         nume: 'Documentatia Variante game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Pregătește-te bine! Citește documentația înainte de a intra în quiz. Cel mai bine pregătit câștigă!',
         incercari: -1,
         media: 0,
         ancora: './game-page/variante-game-page/documentatie-variante-game.html',
@@ -88,7 +88,7 @@ let ArrJocuri = [
     {
         id: 4,
         nume: 'Variante Game',
-        descriere: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        descriere: 'Câte știi despre securitatea online? Răspunde rapid la întrebări și acumulează puncte. Fiecare secundă contează!',
         incercari: contor_assasment_incercari_variante || 0,
         media: Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
         media: contor_assasment_incercari_shuffle === 0
