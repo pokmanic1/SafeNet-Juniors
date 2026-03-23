@@ -1,5 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@import "tailwindcss";
+
+/* npm install -D tailwindcss postcss autoprefixer
 /*# sourceMappingURL=app.css.map */

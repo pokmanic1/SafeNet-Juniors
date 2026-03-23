@@ -9,15 +9,13 @@ const yM = document.getElementById("InregistreazataID_M");
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // 🔹 Ascunde butoanele desktop
     if (x) x.style.display = "none";
     if (y) y.style.display = "none";
 
-    // 🔹 Ascunde butoanele mobile
+    
     if (xM) xM.style.display = "none";
     if (yM) yM.style.display = "none";
 
-    // 🔹 Creează buton profil (DESKTOP)
     const userBtn = document.createElement("div");
     userBtn.className = "flex items-center";
     userBtn.innerHTML = `
@@ -31,7 +29,6 @@ onAuthStateChanged(auth, (user) => {
       x.parentNode.insertBefore(userBtn, x.nextSibling);
     }
 
-    // 🔹 Creează buton profil (MOBILE)
     if (xM) {
       const userBtnMobile = document.createElement("div");
       userBtnMobile.className = "flex items-center py-2";
@@ -45,14 +42,13 @@ onAuthStateChanged(auth, (user) => {
       xM.parentNode.insertBefore(userBtnMobile, xM.nextSibling);
     }
 
-    // 🔹 EVENT DESKTOP
+    //
     document.addEventListener("click", (e) => {
       if (e.target.closest("#butonProfil")) {
         toggleDashboard(user);
       }
     });
 
-    // 🔹 EVENT MOBILE
     document.addEventListener("click", (e) => {
       if (e.target.closest("#butonProfilMobile")) {
         toggleDashboard(user);
@@ -101,7 +97,6 @@ function toggleDashboard(user) {
   
 }
 
-// 🔹 DASHBOARD HTML
 let dashboard = `
 <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px]">
    
