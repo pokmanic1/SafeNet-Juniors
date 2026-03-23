@@ -158,7 +158,7 @@ ArrJocuri.forEach((item) => {
 
                 <!-- --------- -->
                 <div
-                    class="card-sus w-full max-w-[800px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6" >
+                    class="card-sus w-full max-w-[1000px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6" >
                     <div class="icon h-[60%] mt-[8px] lg:mt-[4px] w-[30px] sm:w-[40px] lg:w-[50px] flex-shrink-0"> <img
                             src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="w-full h-auto"></div>
                     <div class="text text-black mt-[23px] text-xs sm:text-base lg:text-xl flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate">${item.nume}</div>
@@ -186,7 +186,7 @@ ArrJocuri.forEach((item) => {
 
                 <!-- --------- -->
                 <div
-                    class="card-sus w-full max-w-[800px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
+                    class="card-sus w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
                     <div class="icon h-[60%] mt-[4px] w-[30px] sm:w-[40px] lg:w-[50px] flex-shrink-0"> <img
                             src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="w-full h-auto"></div>
                     <div class="text text-black mt-[23px] text-xs sm:text-base lg:text-xl flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate">${item.nume}</div>
