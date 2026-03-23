@@ -23,7 +23,7 @@ onAuthStateChanged(auth, (user) => {
     userBtn.innerHTML = `
       <button type="button" id="butonProfil"
         class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
-        <img class="w-full h-full object-cover" src="../../../assets/img/Icon.png" alt="Profil">
+        <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
       </button>
     `;
 
@@ -38,7 +38,7 @@ onAuthStateChanged(auth, (user) => {
       userBtnMobile.innerHTML = `
         <button type="button" id="butonProfilMobile"
           class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
-          <img class="w-full h-full object-cover" src="../../../assets/img/Icon.png" alt="Profil">
+          <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
         </button>
       `;
 
@@ -112,7 +112,7 @@ let dashboard = `
     </div>
 
     <div class="relative w-24 h-24 bg-blue-50 rounded-[24px] flex items-center justify-center mx-auto mb-5 shadow-inner">
-        <img id="profileImage" src="../assets/img/img-patrat-la-iconita-profil/Icons.png" class="w-12 opacity-70">
+        <img id="profileImage" src="../../../../public/assets/img/img-patrat-la-iconita-profil/Icons.png" class="w-12 opacity-70">
     </div>
 
     <h2 class="text-[22px] font-semibold text-gray-900 mb-1">Salut!</h2>
