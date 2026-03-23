@@ -2,7 +2,7 @@ import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        // window.location.href = "../../../pages/conecteazate.html";
+        window.location.href = "../../../pages/conecteazate.html";
         const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }

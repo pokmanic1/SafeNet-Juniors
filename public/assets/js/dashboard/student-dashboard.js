@@ -103,7 +103,7 @@ function toggleDashboard(user) {
 
 // 🔹 DASHBOARD HTML
 let dashboard = `
-<div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] w-[380px] p-8 text-center shadow-2xl">
+<div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px]">
    
     <div class="flex justify-end -mt-2 -mr-2">
         <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center">
@@ -111,12 +111,8 @@ let dashboard = `
         </button>
     </div>
 
-    <div class="relative w-24 h-24 bg-blue-50 rounded-[24px] flex items-center justify-center mx-auto mb-5 shadow-inner">
-        <img id="profileImage" src="../../../../public/assets/img/img-patrat-la-iconita-profil/Icons.png" class="w-12 opacity-70">
-    </div>
-
-    <h2 class="text-[22px] font-semibold text-gray-900 mb-1">Salut!</h2>
-    <p id="emailUser" class="text-[13px] text-gray-400 mb-8">user@exemplu.com</p>
+    <h2 class="text-[22px] font-semibold text-gray-900 mb-1">John Doe</h2>
+    <p id="emailUser" class="text-[13px] text-gray-400 mb-2">user@exemplu.com</p>
 
     <button  id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-white rounded-2xl hover:bg-red-600 transition">
         Ieși din cont
