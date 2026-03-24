@@ -11,13 +11,14 @@ import {
 
 
 export async function register(username, email, password, role) {
+        let conectare_p = document.querySelector('.conectare_p');  
     try {
     const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
     );
-
+    
     const user = userCredential.user;
 
     await setDoc(doc(db, "users", user.uid), {
@@ -27,7 +28,7 @@ export async function register(username, email, password, role) {
         createdAt: new Date()
     });
 
-        alert("Înregistrare reușită!");
+        afiseazaEroare("Înregistrare reușită!");
         window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
@@ -35,24 +36,42 @@ export async function register(username, email, password, role) {
             link.classList.remove('hidden');
         }
     } catch (error) {
-    alert(error.message);
+    afiseazaEroare(error.message);
     }
 }
 
 
 export async function login(email, password) {
+    let conectare_p = document.querySelector('.conectare_p');  
     try {
     await signInWithEmailAndPassword(auth, email, password);
-        alert("Autentificat cu succes!");
+        conectare_p.innerText=afiseazaEroare("Autentificat cu succes!");
         window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
             link.style.display = 'block';
         }
     } catch (error) {
-    alert(error.message);
+    conectare_p.innerText=afiseazaEroare(error.message);
     }
 }
 
 
+let mesajEroare = document.querySelectorAll('.conectare_p'); // ------------
 
+function afiseazaEroare(text, timp = 5000) {
+
+    mesajEroare.forEach(el => { // ------------
+        el.innerText = text;
+        el.classList.remove("hidden");
+    });
+
+    setTimeout(() => {
+        mesajEroare.forEach(el => { // ------------
+            el.classList.add("hidden");
+            el.innerText = "";
+        });
+    }, timp);
+
+    return text;
+}
