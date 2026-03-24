@@ -14,7 +14,7 @@ if (registerBtn) {
         const email = document.getElementById("email");
         const password = document.getElementById("password");
         const role = document.getElementById("role");
-        const checkbox=document.getElementById("checkbox");
+        // const checkbox=document.getElementById("checkbox");
         registerBtn.addEventListener("input", x);
         email.addEventListener("input", x);
         password.addEventListener("input", x);

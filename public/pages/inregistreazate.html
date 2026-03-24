@@ -136,11 +136,33 @@
 
                 <div class="flex justify-center ">
                     <button id="registerBtn"
-                        class="w-full sm:w-[450px] py-3 bg-gray-400 text-white rounded-full mt-3 font-medium hover:bg-gray-900 transition ">
+                        class="w-full sm:w-[450px] py-3 bg-gray-400 text-white rounded-full mt-3 font-medium ">
                         Creează un Cont
                     </button>
                 </div>
+                <script>
+                    const username = document.getElementById("username");
+                    const email = document.getElementById("email");
+                    const password = document.getElementById("password");
+                    const role = document.getElementById("role");
 
+                    function checkInputs() {
+                        if (
+                            username.value.trim() !== "" &&
+                            email.value.trim() !== "" &&
+                            password.value.trim() !== "" &&
+                            role.value !== "Selectează rol"
+                        ) {
+                            registerBtn.disabled = false; registerBtn.classList.remove('bg-gray-400'); registerBtn.classList.add('bg-gray-900');
+                        } else {
+                            registerBtn.disabled = true;
+                        }
+                    }
+                    username.addEventListener("input", checkInputs);
+                    email.addEventListener("input", checkInputs);
+                    password.addEventListener("input", checkInputs);
+                    role.addEventListener("change", checkInputs);
+                </script>
             </div>
 
         </div>
@@ -200,7 +222,6 @@
     </script>
     <script type="module" src='../assets/js/main.js'></script>
     <script type="module" src='../assets/js/utilizatori.js'></script>
-    <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
 </html>
