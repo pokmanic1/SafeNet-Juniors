@@ -169,7 +169,7 @@
 <body class="h-[100dvh] bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png')">
 
-    
+
     <div id="dacaNuSaConectat" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
 
         <div class="bg-white border border-gray-200 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
@@ -187,7 +187,8 @@
             </a>
 
             <p class="mt-4 text-[12px] text-gray-400">
-                Nu ai cont? <a href="../../inregistreazate.html" class="text-[#185FA5] hover:underline">Înregistrează-te</a>
+                Nu ai cont? <a href="../../inregistreazate.html"
+                    class="text-[#185FA5] hover:underline">Înregistrează-te</a>
             </p>
 
 
@@ -266,7 +267,7 @@
     </div>
 
     <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
-         <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
+        <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
                 <img class="w-20 object-contain" src="../../../assets/img/image-removebg-preview (5).png"
@@ -318,50 +319,24 @@
 
     <section class="flex flex-col justify-center items-center h-[90dvh] ">
         <div class="flex justify-center items-center gap-6">
-            <div class="relative w-[110px]">
+            <div class="relative w-[130px]">
 
-                <select class="nivelul w-full appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
-               text-white font-medium 
-               px-5 py-3  
-               rounded-xl 
-               shadow-lg
-               cursor-pointer
-               focus:outline-none focus:ring-4 focus:ring-blue-300
-               hover:from-blue-600 hover:to-blue-700
-               transition-all duration-300">
-
-                    <option value="1" class="text-gray-700">
-                        Nivelul 1
-                    </option>
-
-                    <option value="2" class="text-black">
-                        Nivelul 2
-                    </option>
-
-                    <option value="3" class="text-black">
-                        Nivelul 3
-                    </option>
-
-                    <option value="4" class="text-black">
-                        Nivelul 4
-                    </option>
-
+                <select class="nivelul w-full px-5 py-3   rounded-xl  text-center bg-blue-200 text-black font-medium ">
+                    <option value="1" class="text-gray-700">Nivelul 1</option>
+                    <option value="2" class="text-black">Nivelul 2</option>
+                    <option value="3" class="text-black">Nivelul 3</option>
+                    <option value="4" class="text-black">Nivelul 4</option>
                 </select>
 
-
             </div>
-            <button class="time  bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
-               text-white font-medium 
-               px-5 py-3  rounded-xl  shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700
-               transition-all duration-300">time</button>
-            <button class=" scor bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 text-white
-                font-medium px-5 py-3 rounded-xl shadow-lg cursor-pointer focus:outline-none focus:ring-4
-                focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700 transition-all duration-300">Scorul :
-                0</button>
-            <button class="restart w-[50px]  bg-blue-400 appearance-none bg-gradient-to-r from-blue-500 to-blue-600 
-               text-white font-medium 
-              p-3   rounded-[40px]  shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300 hover:from-blue-600 hover:to-blue-700
-               transition-all duration-300"><img src=" ../../../assets/img/img-shufle-game/A-buton-restart.png"
+            <button
+                class="time flex justify-center items-center bg-blue-200 px-3 sm:px-4 lg:px-5 py-2 sm:py-3 rounded-full shadow-md font-medium text-sm sm:text-base">time
+            </button>
+            <button
+                class=" scor flex justify-center items-center bg-blue-200 px-3 sm:px-4 lg:px-5 py-2 sm:py-3 rounded-full shadow-md font-medium text-sm sm:text-base">Scorul
+                :0
+            </button>
+            <button class="restart w-[50px] p-3 rounded-[40px] flex items-center justify-center bg-blue-200  shadow-md text-xl"><img src=" ../../../assets/img/img-shufle-game/A-buton-restart.png"
                     alt=""></button>
         </div>
 
