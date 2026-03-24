@@ -12,11 +12,10 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     if (x) x.style.display = "none";
     if (y) y.style.display = "none";
-
-    
     if (xM) xM.style.display = "none";
     if (yM) yM.style.display = "none";
 
+    // ── DESKTOP: iconița cu toggle dashboard ──
     const userBtn = document.createElement("div");
     userBtn.className = "flex items-center";
     userBtn.innerHTML = `
@@ -25,35 +24,40 @@ onAuthStateChanged(auth, (user) => {
         <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
       </button>
     `;
-
-    if (x) {
-      x.parentNode.insertBefore(userBtn, x.nextSibling);
-    }
+    if (x) x.parentNode.insertBefore(userBtn, x.nextSibling);
 
     if (xM) {
-      const userBtnMobile = document.createElement("div");
-      userBtnMobile.className = "flex items-center py-2";
-      userBtnMobile.innerHTML = `
-        <button type="button" id="butonProfilMobile"
-          class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
-          <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
-        </button>
+      const userInfoMobile = document.createElement("div");
+      userInfoMobile.className = "flex items-center gap-3 py-2";
+      userInfoMobile.id = "mobileUserInfo";
+      userInfoMobile.innerHTML = `
+        <div class="flex justify-center items-center  flex-col mx-auto">
+          <span id="numeUserMobile" class="text-[14px] font-semibold text-gray-900">...</span>
+          <span id="emailUserMobile" class="text-[12px] mt-[5px]  text-gray-400">${user.email}</span>
+        
+        <button id="logoutBtnMobile"
+          class="h-[34px] mt-[10px] px-4 bg-slate-900 text-white text-[13px] rounded-2xl hover:bg-red-600 transition">
+          Ieși din cont
+        </button></div>
       `;
+      xM.parentNode.insertBefore(userInfoMobile, xM.nextSibling);
 
-      xM.parentNode.insertBefore(userBtnMobile, xM.nextSibling);
+      const docRef = doc(db, "users", user.uid);
+      getDoc(docRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const el = document.getElementById("numeUserMobile");
+          if (el) el.textContent = data.usearname;
+        }
+      });
+
+      document.getElementById("logoutBtnMobile").addEventListener("click", () => {
+        signOut(auth).then(() => window.location.reload());
+      });
     }
 
-    //
     document.addEventListener("click", (e) => {
-      if (e.target.closest("#butonProfil")) {
-        toggleDashboard(user);
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      if (e.target.closest("#butonProfilMobile")) {
-        toggleDashboard(user);
-      }
+      if (e.target.closest("#butonProfil")) toggleDashboard(user);
     });
 
     console.log(`Bună ziua, ${user.email}`);
@@ -88,8 +92,8 @@ async function toggleDashboard(user) {
   if (docSnap.exists()) {
     const data = docSnap.data();
 
-    document.getElementById("numeUser").textContent = data.usearname; 
- 
+    document.getElementById("numeUser").textContent = data.usearname;
+
     document.getElementById("emailUser").textContent = user.email;
   }
 

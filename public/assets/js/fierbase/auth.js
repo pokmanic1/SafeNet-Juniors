@@ -36,7 +36,8 @@ export async function register(username, email, password, role) {
             link.classList.remove('hidden');
         }
     } catch (error) {
-    afiseazaEroare(error.message);
+    afiseazaEroare("Inregistrare nereusita");
+    console.error(error.message);
     }
 }
 
@@ -52,8 +53,8 @@ export async function login(email, password) {
             link.style.display = 'block';
         }
     } catch (error) {
-    conectare_p.innerText=afiseazaEroare(error.message);
-    }
+ afiseazaEroare("Inregistrare nereusita");
+    console.error(error.message);    }
 }
 
 

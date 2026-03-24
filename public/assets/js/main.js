@@ -65,29 +65,9 @@ if (loginBtn) {
 
 
 
-
-//  const username = document.getElementById("username").value;
-//     const email = document.getElementById("email").value;
-//     const password = document.getElementById("password").value;
-//     const role = document.getElementById("role").value;
-
-//     let utilizator={
-//         User_UID: '',
-//         Nume: username,
-//         Email: email,
-//         Parola: password,
-//         Role: role
-//     };
-
-//   console.log("------------------------------");
-//     console.log("------------------------------");
-//     console.log("Current utilizator object:", utilizator);
-
-
 export function checkAuthState() {
     onAuthStateChanged(auth, (user) => {
         if (user) { 
-           // const userData = utilizatori_Arr.find(u => u.User_UID === user.uid);
             if (userData) {
                 console.log("User is authenticated:", userData);
             } else {
