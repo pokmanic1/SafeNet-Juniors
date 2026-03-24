@@ -4,7 +4,6 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
-// MOBILE
 const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 
@@ -15,7 +14,6 @@ onAuthStateChanged(auth, (user) => {
     if (xM) xM.style.display = "none";
     if (yM) yM.style.display = "none";
 
-    // ── DESKTOP: iconița cu toggle dashboard ──
     const userBtn = document.createElement("div");
     userBtn.className = "flex items-center";
     userBtn.innerHTML = `

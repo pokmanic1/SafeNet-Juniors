@@ -344,4 +344,3 @@ initializare();
 
 
 
-//problema la contor perechi

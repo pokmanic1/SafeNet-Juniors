@@ -19,5 +19,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-// re-export the auth state helper so other modules can import it
 export { onAuthStateChanged };

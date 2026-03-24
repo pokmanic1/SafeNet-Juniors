@@ -47,7 +47,6 @@ dateSalvate.forEach(element => {
         validate: null
     };
 
-    // Construim logica de validare bazată pe textul condiției
     switch (element.conditie) {
         case "Să conțină un numar":
             obj.validate = (password) => /\d/.test(password);
@@ -85,7 +84,7 @@ dateSalvate.forEach(element => {
             obj.validate = (password) => password.length % 2 !== 0;
             break;
 
-        case "Sa contine un numar specifica": // Atenție la typo-ul din HTML "specifica"
+        case "Sa contine un numar specifica": 
             obj.validate = (password) => password.includes(element.valoare);
             break;
 
@@ -192,12 +191,11 @@ let numarDeConditii=4;
 let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
-let Conditii = [...Conditii1]; // Default nivel 1
+let Conditii = [...Conditii1]; 
 let totalSecondsElapsed = 0;
 selectNivel.addEventListener('change', (event) => {
     nivelul = parseInt(event.target.value);
     
-    // Schimbăm setul de condiții în funcție de nivel
     if (nivelul == 1) { 
         Conditii = [...Conditii1]; 
         numarDeConditii = 4; 
@@ -436,8 +434,6 @@ function pornesteCeas(minute, secunde) {
 
 }
 
-// -------------------------------------
-//pentru profesori
 
 
 
@@ -472,32 +468,3 @@ function pornesteCeas(minute, secunde) {
 
 
 
-
-// function genereazaHTML(){
-//     if(contor<5){
-//         document.querySelector('.restart').innerHTML = "";
-//         document.querySelector('.numarul').innerHTML=`Conditita ${contor}`;
-//         document.querySelector('.conditia').innerHTML=`${newArrConditii[contor].text}`;
-//     }
-//     else
-//     {
-//         document.querySelector('.input-parola').innerHTML=`
-//                     <h1 class="text-3xl font-bold mb-[50px] mt-[100px]">ai finalizat jocul</h1>`;
-//         document.querySelector('.conditia').style.display='none';
-//         document.querySelector('.continua').style.display='none';
-//         document.querySelector('.restart').innerHTML=` <button class="restart mt-[20px]"> restart</button>`;
-        
-//     }
-// }
-// function initializare(){
-//     genereazaHTML();
-// }
-
-// document.querySelector('.continua').addEventListener('click' , function(){
-//     contor++;
-//     genereazaHTML
-// });
-
-
-
-// initializare();

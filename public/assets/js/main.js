@@ -1,7 +1,6 @@
 
 import { register, login } from "./fierbase/auth.js";
 import { auth, db, onAuthStateChanged } from "./fierbase/firebase-init.js";
-//import { utilizatori_Arr } from "./utilizatori.js";
 console.log(auth, db);
 
 
@@ -80,5 +79,4 @@ export function checkAuthState() {
     });
 };
 
-//export { utilizator };
 
