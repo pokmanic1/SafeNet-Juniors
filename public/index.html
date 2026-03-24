@@ -11,12 +11,11 @@
 
   <!-- IMPORTANT: Tailwind CDN eliminat. Folosim CSS generat de Tailwind CLI + SCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="icon" href="./assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      ;
     }
 
     @keyframes fadeUp {
@@ -62,7 +61,6 @@
 </head>
 
 <body class="bg-white text-gray-900 ">
-
   <!-- NAVBAR -->
   <header class="w-full sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
     <div class="mx-[10px] md:mx-[30px] lg:mx-[40px]  max-w-full px-6 py-3 flex items-center justify-between">
@@ -161,8 +159,7 @@
     </div>
   </section>
 
-  <section class="min-h-[75dvh] py-[100px] flex flex-col items-center justify-center
-  ">
+  <section class="min-h-[85dvh] py-[100px] flex flex-col items-center justify-center bg-[#F4FDFF]">
     <!-- style=" background-image: url('./assets/img/backgrounds/background-alb1.png');"  -->
     <h1 class="font-bold text-xl md:text-3xl text-center px-4">
       Incepe aventura alaturi de noi
@@ -171,12 +168,13 @@
     <div
       class="flex flex-col  md:flex-row gap-[20px] sm:gap-[10px] md:gap-[60px] lg:gap-[100px] justify-center items-center mt-[30px] md:mt-[70px]">
 
-      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px]  sm:w-[150px] sm:h-[150px] bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
-         border-[#2563EB] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
+      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px]  sm:w-[150px] sm:h-[150px] bg-white border-[5px] md:border-[4px] rounded-[25px] md:rounded-[30px]
+         border-[#7DB2FF] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center
+         hover:-translate-y-2 hover:shadow-lg transition duration-300 cursor-pointer">
 
-        <div class="w-[40px] h-[40px] md:w-[80px] md:h-[60px]  sm:w-[45px] sm:h-[45px] mx-auto">
-          <img src="./assets/img/img-pt-index/emoji-carte-albastra.png"
-            class="object-cover  object-center w-[90%] h-[90%]" alt="">
+        <div
+          class="w-[40px] h-[40px] md:w-[80px] md:h-[60px] sm:w-[45px] sm:h-[45px] mx-auto flex items-center justify-center">
+          <img src="./assets/img/img-pt-index/blueBook.svg" class="w-[90%] h-[90%] object-contain m-auto" alt="Carte">
         </div>
 
         <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
@@ -188,26 +186,29 @@
         </p>
       </div>
 
-      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px] sm:w-[150px] sm:h-[150px] bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
-         border-[#FBBF24] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
-        <div class="w-[40px] h-[40px] md:w-[80px] md:h-[60px] sm:w-[45px] sm:h-[45px] mx-auto">
-          <img src="./assets/img/img-pt-index/emoji-controler-galben.png"
-            class="object-cover  object-center  w-[90%] h-[90%]" alt="">
+      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px] md:w-[180px] md:h-[180px] sm:w-[150px] sm:h-[150px] bg-white border-[5px] md:border-[4px] rounded-[25px] md:rounded-[30px]
+         border-[#FFD97B] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center
+         hover:-translate-y-2 hover:shadow-lg transition duration-300 cursor-pointer">
+        <div class="w-[40px] h-[40px] md:w-[80px] md:h-[60px] sm:w-[45px] sm:h-[45px] mx-auto flex items-center justify-center">
+          <img src="./assets/img/img-pt-index/yellowController.svg"
+            class="w-[80%] h-[80%] object-contain m-auto" alt="Controller">
         </div>
+
         <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
           Jocuri distractive
         </h6>
         <p class="text-gray-600 text-[9px] md:text-[12px]  sm:text-[10px] mt-1 text-center">
-          Jocuri distractive
+          Joacă-te în timp ce descoperi lucruri noi
         </p>
       </div>
 
-      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px]  md:w-[180px] md:h-[180px] sm:w-[150px] sm:h-[150px]  bg-white border-[5px] md:border-[6px] rounded-[25px] md:rounded-[30px]
-         border-[#2563EB] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center">
+      <div class="w-[140px] h-[140px] lg:w-[200px] lg:h-[200px]  md:w-[180px] md:h-[180px] sm:w-[150px] sm:h-[150px]  bg-white border-[5px] md:border-[4px] rounded-[25px] md:rounded-[30px]
+         border-[#7DB2FF] p-[17px] md:p-[20px] lg:p-[30px] flex flex-col items-center
+         hover:-translate-y-2 hover:shadow-lg transition duration-300 cursor-pointer">
 
-        <div class="w-[40px] h-[40px] md:w-[80px] md:h-[60px] sm:w-[45px] sm:h-[45px] mx-auto">
-          <img src="./assets/img/img-pt-index/emoji-stea-albastra.png"
-            class="object-cover  object-center w-[90%] h-[90%] " alt="">
+        <div class="w-[40px] h-[40px] md:w-[80px] md:h-[60px] sm:w-[45px] sm:h-[45px] mx-auto flex items-center justify-center">
+          <img src="./assets/img/img-pt-index/blueStar.svg"
+            class="w-[90%] h-[90%] object-contain m-auto" alt="Stea">
         </div>
 
         <h6 class="mt-1 md:mt-2 text-center text-[12px] md:text-base">
