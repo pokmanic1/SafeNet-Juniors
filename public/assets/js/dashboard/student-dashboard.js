@@ -1,5 +1,6 @@
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
@@ -61,7 +62,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-function toggleDashboard(user) {
+async function toggleDashboard(user) {
   const existing = document.getElementById("dashboardWrapper");
 
   if (existing) {
@@ -81,37 +82,46 @@ function toggleDashboard(user) {
   dashboardWrapper.innerHTML = dashboard;
   document.body.appendChild(dashboardWrapper);
 
-  document.getElementById("emailUser").textContent = user.email;
+  const docRef = doc(db, "users", user.uid);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const data = docSnap.data();
+
+    document.getElementById("numeUser").textContent = data.usearname; 
+ 
+    document.getElementById("emailUser").textContent = user.email;
+  }
 
   document.getElementById("closeDashboard").addEventListener("click", () => {
     dashboardWrapper.remove();
   });
-   document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth)
-      .then(() => {
-        console.log("Deconectat");
-        window.location.reload(); 
-      })
-      .catch((err) => console.error(err));
+
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    signOut(auth).then(() => window.location.reload());
   });
-  
 }
 
 let dashboard = `
-<div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px]">
-   
-    <div class="flex justify-end -mt-2 -mr-2">
-        <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center">
+<div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
+    
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div> <!-- ------------ -->
+
+    <div class="flex justify-end -mt-2 -mr-2 relative z-10"> <!-- ------------ -->
+        <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center shadow-sm"> <!-- ------------ -->
             ✕
         </button>
     </div>
 
-    <h2 class="text-[22px] font-semibold text-gray-900 mb-1">John Doe</h2>
-    <p id="emailUser" class="text-[13px] text-gray-400 mb-2">user@exemplu.com</p>
+    <div class="relative z-10"> <!-- ------------ -->
+        <h2  id="numeUser" class=" text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">John Doe</h2> <!-- ------------ -->
+        <p id="emailUser" class="text-[13px] text-gray-400 mb-3">user@exemplu.com</p> <!-- ------------ -->
 
-    <button  id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-white rounded-2xl hover:bg-red-600 transition">
-        Ieși din cont
-    </button>
+        <button id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
+            Ieși din cont
+        </button>
+    </div>
+
 </div>
 `;
 
