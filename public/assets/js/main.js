@@ -18,7 +18,7 @@ if (registerBtn) {
         email.addEventListener("input", x);
         password.addEventListener("input", x);
         role.addEventListener("input", x);
-        // 
+        
 
     registerBtn.addEventListener("click", () => {
         const username1 = username.value;
