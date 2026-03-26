@@ -1,22 +1,21 @@
-{ 
-  "name": "safenet-juniors",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-  "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/app.css",
-"watch:css": "npx tailwindcss -i ./src/styles/app.css -o ./public/assets/css/app.css --watch"},
-  "keywords": [],
-  "concurrently": "^9.2.1",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-  "@tailwindcss/cli": "^4.1.18",
-    "autoprefixer": "^10.4.24",
+{
+    "name": "safenet-juniors",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "watch:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./public/assets/css/app.css --watch",
+        "build:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./public/assets/css/app.css --minify"
+    },
+    "keywords": [],
     "concurrently": "^9.2.1",
-    "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1",
-    "sass": "^1.97.3",
-    "tailwindcss": "^3.4.6"
-  }
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.2.2",
+        "concurrently": "^9.2.1",
+        "postcss-cli": "^11.0.1",
+        "sass": "^1.97.3",
+        "tailwindcss": "^4.2.2"
+    }
 }
