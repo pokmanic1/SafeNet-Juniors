@@ -13,17 +13,18 @@ onAuthStateChanged(auth, (user) => {
     if (y) y.style.display = "none";
     if (xM) xM.style.display = "none";
     if (yM) yM.style.display = "none";
+    if (!document.getElementById("butonProfil")) {
+  const userBtn = document.createElement("div");
+  userBtn.className = "flex items-center";
+  userBtn.innerHTML = `
+    <button type="button" id="butonProfil"
+      class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
+      <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
+    </button>
+  `;
 
-    const userBtn = document.createElement("div");
-    userBtn.className = "flex items-center";
-    userBtn.innerHTML = `
-      <button type="button" id="butonProfil"
-        class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
-        <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
-      </button>
-    `;
-    if (x) x.parentNode.insertBefore(userBtn, x.nextSibling);
-
+  if (x) x.parentNode.insertBefore(userBtn, x.nextSibling);
+}
     if (xM) {
       const userInfoMobile = document.createElement("div");
       userInfoMobile.className = "flex items-center gap-3 py-2";
