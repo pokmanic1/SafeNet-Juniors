@@ -20,11 +20,10 @@
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png')">
 
     <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
-       <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
+        <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg"
-                    alt="SafeNet Junior">
+                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
 
             <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
@@ -215,8 +214,36 @@
     </script>
 
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
-</body>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
 
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            iconOpen.classList.toggle('hidden', open);
+            iconClose.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            setMenu(!isOpen);
+        });
+
+        // Închide meniul când se schimbă la desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMenu(false);
+        });
+
+        // Închide meniul când se apasă Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    </script>
+
+</body>
 
 
 </html>
