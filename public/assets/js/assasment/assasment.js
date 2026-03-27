@@ -40,6 +40,7 @@ let ArrJocuri = [
         descriere: 'Parcurge mai întâi documentația, apoi testează ce ai învățat! Tu decizi care afirmații sunt adevărate și care sunt false.',
         incercari: -1,
         media: 0,
+        ancora:'./game-page/true-false-game-page/documentatie-true-false-game.html',
         statut: 1
     },
     {
