@@ -151,7 +151,7 @@
             </div>
             <!-- --------10-------- -->
 
-      
+
             <div class="col-span-full flex items-center gap-3 my-6">
                 <span
                     class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
@@ -225,10 +225,10 @@
             </div>
             <!-- --------20-------- -->
 
-<div class="col-span-full flex items-center gap-3 my-6">
+            <div class="col-span-full flex items-center gap-3 my-6">
                 <span
                     class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
-                        Nivel 3 — Avansat
+                    Nivel 3 — Avansat
                 </span>
                 <div class="flex-1 h-px bg-gray-200"></div>
                 <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
@@ -294,10 +294,10 @@
             </div>
             <!-- --------30-------- -->
 
-<div class="col-span-full flex items-center gap-3 my-6">
+            <div class="col-span-full flex items-center gap-3 my-6">
                 <span
                     class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
-                        Nivel 4 — Expert
+                    Nivel 4 — Expert
                 </span>
                 <div class="flex-1 h-px bg-gray-200"></div>
                 <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
@@ -377,6 +377,36 @@
         }
     </script>
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
+
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            iconOpen.classList.toggle('hidden', open);
+            iconClose.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            setMenu(!isOpen);
+        });
+
+        // Închide meniul când se schimbă la desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMenu(false);
+        });
+
+        // Închide meniul când se apasă Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    </script>
+
 </body>
 
 
