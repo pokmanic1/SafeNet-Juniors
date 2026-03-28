@@ -74,7 +74,7 @@ let arrImaginea3 = [
     '../../../assets/img/img-shufle-game/ipLvl3.png',
 ];
 
-let arrText4 = ['Dnsmasq', 'Proxy Server', 'Date', 'reCAPTCHA', 'Criptare', 'Politică de Securitate', 'Tor Project', 'DuckDuckGo', 'macOS', 'Firewall'];
+let arrText4 = ['Dnsmasq', 'Proxy Server', 'Date', 're CAPTCHA', 'Criptare', 'Politică de Securitate', 'Tor Project', 'Duck DuckGo', 'macOS', 'Firewall'];
 let arrImaginea4 = [
     '../../../assets/img/img-shufle-game/dnsLvl4.png',
     '../../../assets/img/img-shufle-game/proxyLvl4.png',
