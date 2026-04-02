@@ -148,7 +148,7 @@
                         Resetează Tot
                     </button>
                 </div>
-                <p id="mesajEroare" class="text-red-500  hidden text-[14px] "></p>
+                <p id="mesajEroare" class="  hidden text-[14px] "></p>
             </div>
         </div>
     </div>
@@ -318,9 +318,10 @@
         let button = document.getElementById("btn");
         let mesajEroare = document.getElementById("mesajEroare");
 
-        function afiseazaEroare(text, timp = 2000) {
+        function afiseazaEroare(text, culoare, timp = 2000) {
             mesajEroare.innerText = text;
             mesajEroare.classList.remove("hidden");
+            mesajEroare.classList.add(culoare);
 
             setTimeout(() => {
                 mesajEroare.classList.add("hidden");
@@ -348,7 +349,7 @@
                 console.log("Joc început cu", numar, "condiții");
 
             } else {
-                afiseazaEroare("Introdu un număr de condiții dintre 1 și 10");
+                afiseazaEroare("Introdu un număr de condiții dintre 1 și 10",'text-red-500');
             }
 
         }
@@ -375,13 +376,13 @@
         button.addEventListener("click", () => {
             if (arrProfesori.length >= Number(nr_conditii.value)) {
 
-                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`);
+                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`,'text-red-500');
 
                 return;
             }
 
             if (conditie.value === "") {
-                afiseazaEroare("Alege o condiție!");
+                afiseazaEroare("Alege o condiție!",'text-red-500');
 
 
                 return;
@@ -395,24 +396,24 @@
                     if (conditie.value === "1") {
                         if (element.valoare === valoareNoua) {
 
-                            afiseazaEroare("Această condiție cu această valoare există deja!");
+                            afiseazaEroare("Această condiție cu această valoare există deja!",'text-red-500');
                             return true;
                         }
                     } else {
-                        afiseazaEroare("Această condiție a fost deja adăugată!");
+                        afiseazaEroare("Această condiție a fost deja adăugată!",'text-red-500');
                         return true;
                     }
                 }
 
                 if (textConditie === "Sa aiba lungime para" && element.conditie === "Sa aiba lungime impara") {
 
-                    afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!");
+                    afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!",'text-red-500');
 
                     return true;
                 }
                 if (textConditie === "Sa aiba lungime impara" && element.conditie === "Sa aiba lungime para") {
 
-                    afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!");
+                    afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!",'text-red-500');
 
                     return true;
                 }
@@ -431,7 +432,7 @@
 
             if (conditie.value === "1") {
                 if (!valoareNoua) {
-                    afiseazaEroare("Trebuie să introduci o valoare!");
+                    afiseazaEroare("Trebuie să introduci o valoare!",'text-red-500');
                     return;
                 }
                 obiect.valoare = valoareNoua;

@@ -32,13 +32,12 @@
 </head>
 
 <body>
-    
+
     <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
         <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg"
-                    alt="SafeNet Junior">
+                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
 
             <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
@@ -153,19 +152,20 @@
                         Reset
                     </button>
                 </div>
-
-                <p id="progres" class="mt-6 text-center text-gray-500 font-medium italic">Întrebări salvate: 0 / 0</p>
+                <p id="mesajEroare" class=" text-center  mt-6 text-[14px] hidden">aaaaaaaaaaaa  </p>
+                <p id="progres" class="mt-2 text-center text-gray-500 font-medium italic">Întrebări salvate: 0 / 0</p>
+                
             </div>
         </div>
     </div>
 
 
-    
+
     <section class="subsol bg-white">
         <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
-            
+
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
-                
+
                 <div class="md:w-1/3">
                     <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
                     <p class="text-gray-600 mt-3 leading-relaxed">
@@ -176,9 +176,9 @@
                     </p>
                 </div>
 
-                
+
                 <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Navigare</h2>
                         <ul class="mt-3 space-y-2 text-gray-600">
@@ -190,7 +190,7 @@
                         </ul>
                     </div>
 
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Contact</h2>
                         <div class="mt-3 space-y-2 text-gray-600">
@@ -207,7 +207,7 @@
                         </div>
                     </div>
 
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Social</h2>
                         <div class="mt-3 space-y-2 text-gray-600">
@@ -228,7 +228,7 @@
                 </div>
             </div>
 
-            
+
             <div class="mt-12">
                 <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
                 <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
@@ -240,7 +240,7 @@
                 </div>
             </div>
 
-            
+
             <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
                 <p class="leading-relaxed">
                     Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de
@@ -276,7 +276,7 @@
                 pasul2.classList.remove("hidden");
                 actualizeazaInterfata();
             } else {
-                alert("Introdu un număr valid de întrebări!");
+                afiseazaEroare("Introdu un număr valid de întrebări!", "text-red-500");
             }
         });
 
@@ -288,14 +288,26 @@
             const v1 = document.getElementById("v1").value.trim();
             const v2 = document.getElementById("v2").value.trim();
             const v3 = document.getElementById("v3").value.trim();
+            let mesajEroare = document.getElementById("mesajEroare");
+
+            function afiseazaEroare(text, culoare, timp = 2000) {
+                mesajEroare.innerText = text;
+                mesajEroare.classList.remove("hidden");
+                mesajEroare.classList.add(culoare);
+
+                setTimeout(() => {
+                    mesajEroare.classList.add("hidden");
+                    mesajEroare.innerText = "";
+                }, timp);
+            }
 
             if (!textIntrebare || !v0 || !v1 || !v2 || !v3) {
-                alert("Te rugăm să completezi toate câmpurile!");
+                afiseazaEroare("Te rugăm să completezi toate câmpurile!", "text-red-500");
                 return;
             }
 
             if (!radioCorect) {
-                alert("Te rugăm să bifezi varianta corectă!");
+                afiseazaEroare("Te rugăm să bifezi varianta corectă!", "text-red-500");
                 return;
             }
 
@@ -325,7 +337,7 @@
             if (arrIntrebariVariante.length < numarTotal) {
                 actualizeazaInterfata();
             } else {
-                alert("Toate întrebările au fost salvate cu succes!");
+                afiseazaEroare("Toate întrebările au fost salvate cu succes!", "text-green-500");
                 btnAdauga.disabled = true;
                 btnAdauga.classList.add("opacity-50", "cursor-not-allowed");
             }

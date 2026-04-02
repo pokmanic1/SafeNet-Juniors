@@ -271,12 +271,13 @@
     const titluPas = document.getElementById("titlu_pas");
     const progresText = document.getElementById("progres");
 
-    function afiseazaMesajTF(text, timp = 2000) {
+    function afiseazaMesajTF(text,culoare, timp = 2000) {
 
       const mesaj = document.getElementById("mesajEroareTF");
 
       mesaj.innerText = text;
       mesaj.classList.remove("hidden");
+      mesaj.classList.add(culoare);
 
       setTimeout(() => {
         mesaj.classList.add("hidden");
@@ -293,7 +294,7 @@
         pasul2.classList.remove("hidden");
         actualizeazaInterfata();
       } else {
-        afiseazaMesajTF("Te rugăm să introduci un număr între 1 și 10.");
+        afiseazaMesajTF("Te rugăm să introduci un număr între 1 și 10.",'text-red-500');
       }
     });
 
@@ -302,12 +303,12 @@
       const raspunsValue = inputRaspuns.value;
 
       if (!textValue) {
-        afiseazaMesajTF("Te rugăm să scrii textul întrebării!");
+        afiseazaMesajTF("Te rugăm să scrii textul întrebării!",'text-red-500');
 
         return;
       }
       if (!raspunsValue) {
-        afiseazaMesajTF("Te rugăm să alegi dacă este Adevărat sau Fals!");
+        afiseazaMesajTF("Te rugăm să alegi dacă este Adevărat sau Fals!",'text-red-500');
 
         return;
       }
@@ -320,7 +321,7 @@
       const duplicat = arrIntrebariProfesor.some(q => q.text.toLowerCase() === textValue.toLowerCase());
       if (duplicat) {
 
-        afiseazaMesajTF("Această întrebare a fost deja adăugată!");
+        afiseazaMesajTF("Această întrebare a fost deja adăugată!",'text-red-500');
 
         return;
       }
@@ -335,8 +336,8 @@
       if (arrIntrebariProfesor.length < numarTotal) {
         actualizeazaInterfata();
       } else {
-        
-           afiseazaMesajTF("Felicitări! Ai configurat toate întrebările. Acum poți merge la joc.");
+
+           afiseazaMesajTF("Felicitări! Ai configurat toate întrebările. Acum poți merge la joc.",'text-green-500');
         btnAdauga.disabled = true;
         btnAdauga.classList.add("opacity-50", "cursor-not-allowed");
       }

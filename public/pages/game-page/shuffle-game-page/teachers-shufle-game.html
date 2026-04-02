@@ -139,7 +139,7 @@
 
       </div>
 
-      <p id="mesajEroareShuffle" class="text-red-500 font-semibold text-center mt-6 hidden"></p>
+      <p id="mesajEroareShuffle" class=" font-semibold text-center mt-6 hidden"></p>
 
     </div>
 
@@ -251,12 +251,13 @@
   <script>
     document.getElementById('btn_salveaza_shuffle').addEventListener('click', async () => {
       
-      function afiseazaMesajShuffle(text, timp = 2000) {
+      function afiseazaMesajShuffle(text,culoare, timp = 2000) {
 
         const mesaj = document.getElementById("mesajEroareShuffle");
 
         mesaj.innerText = text;
         mesaj.classList.remove("hidden");
+        mesaj.classList.add(culoare);
 
         setTimeout(() => {
           mesaj.classList.add("hidden");
@@ -272,7 +273,7 @@
         const fileInput = document.getElementById(`imagine-${i}`).files[0];
 
         if (!cuvant || !fileInput) {
-          afiseazaMesajShuffle(`Te rugăm să completezi perechea ${i}!`);
+          afiseazaMesajShuffle(`Te rugăm să completezi perechea ${i}!`,'text-red-500');
           return;
         }
 
