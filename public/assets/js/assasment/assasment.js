@@ -30,6 +30,7 @@ let ArrJocuri = [
         media: contor_assasment_incercari_shuffle === 0
             ? 0
             : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/shuffle-game-page/shuffle-game.html',
+        ancora: './game-page/shuffle-game-page/shuffle-game.html',
         statut: 0
     },
 
@@ -73,6 +74,7 @@ let ArrJocuri = [
         media: contor_assasment_incercari_shuffle === 0
             ? 0
             : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/password-game-page/password-game.html',
+        ancora: './game-page/password-game-page/password-game.html',
         statut: 0
     },
 
@@ -94,10 +96,10 @@ let ArrJocuri = [
         media: Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
         media: contor_assasment_incercari_shuffle === 0
             ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), statut: 0
-    
-        },
-
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), statut: 0,
+        ancora: './game-page/variante-game-page/variante-game.html',
+        statut: 0
+    },
 ]
 
 function schimbarea_statut(i) {
