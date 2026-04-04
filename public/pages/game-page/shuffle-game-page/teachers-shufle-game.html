@@ -32,39 +32,38 @@
 </head>
 
 <body>
-  
+
   <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
-     <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
+    <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
-            <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg"
-                    alt="SafeNet Junior">
-            </a>
+      <a href="../../../index.html" class="flex items-center gap-3">
+        <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
+      </a>
 
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
-                <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
-                <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
-            </nav>
+      <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+        <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
+        <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
+      </nav>
 
-            <div class="hidden md:flex items-center gap-10 font-semibold">
-                <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
-                <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
-            </div>
+      <div class="hidden md:flex items-center gap-10 font-semibold">
+        <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
+        <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
+      </div>
 
-            <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
-                aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+      <button id="menuBtn"
+        class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+        aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
 
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
     <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
       <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
@@ -87,13 +86,20 @@
   <div class="w-full min-h-screen flex flex-col justify-center items-center bg-slate-100 py-16 px-6">
 
     <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
+      <div class="flex w-full flex-col items-center ">
+        <div class="text-center mb-10">
+          <h1 class="text-4xl font-bold text-slate-900">Configurare Joc Shuffle</h1>
+          <p class="text-slate-500 mt-2">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
+        </div>
 
-      <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold text-slate-900">Configurare Joc Shuffle</h1>
-        <p class="text-slate-500 mt-2">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
+        <div class="w-full max-w-sm">
+          <input id="nume_joc" type="text" placeholder="Numele jocului"
+            class="w-full border-2 border-slate-700 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+        </div>
       </div>
 
-      <div id="formular-perechi" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div id="formular-perechi" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[30px]" >
 
         <script>
           for (let i = 1; i <= 8; i++) {
@@ -156,12 +162,12 @@
   </div> -->
   </div>
 
-  
+
   <section class="subsol bg-white mt-10">
     <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
-      
+
       <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
-        
+
         <div class="md:w-1/3">
           <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
           <p class="text-gray-600 mt-3 leading-relaxed">
@@ -172,9 +178,9 @@
           </p>
         </div>
 
-        
+
         <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          
+
           <div>
             <h2 class="font-semibold text-gray-900">Navigare</h2>
             <ul class="mt-3 space-y-2 text-gray-600">
@@ -186,7 +192,7 @@
             </ul>
           </div>
 
-          
+
           <div>
             <h2 class="font-semibold text-gray-900">Contact</h2>
             <div class="mt-3 space-y-2 text-gray-600">
@@ -203,7 +209,7 @@
             </div>
           </div>
 
-          
+
           <div>
             <h2 class="font-semibold text-gray-900">Social</h2>
             <div class="mt-3 space-y-2 text-gray-600">
@@ -221,7 +227,7 @@
         </div>
       </div>
 
-      
+
       <div class="mt-12">
         <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
         <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
@@ -233,7 +239,7 @@
         </div>
       </div>
 
-      
+
       <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
         <p class="leading-relaxed">
           Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de proiectul
@@ -248,10 +254,13 @@
 
 
 
-  <script>
+  <script type="module">
+        let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocShuffle")) || [];
+
+    const nume_joc = document.getElementById("nume_joc");
     document.getElementById('btn_salveaza_shuffle').addEventListener('click', async () => {
-      
-      function afiseazaMesajShuffle(text,culoare, timp = 2000) {
+
+      function afiseazaMesajShuffle(text, culoare, timp = 2000) {
 
         const mesaj = document.getElementById("mesajEroareShuffle");
 
@@ -273,7 +282,7 @@
         const fileInput = document.getElementById(`imagine-${i}`).files[0];
 
         if (!cuvant || !fileInput) {
-          afiseazaMesajShuffle(`Te rugăm să completezi perechea ${i}!`,'text-red-500');
+          afiseazaMesajShuffle(`Te rugăm să completezi perechea ${i}!`, 'text-red-500');
           return;
         }
 
@@ -298,7 +307,19 @@
       localStorage.setItem("shuffleGameData", JSON.stringify(finalArray));
 
       console.log(finalArray);
-    });
+      
+        const joc = {
+          nume: nume_joc.value,
+          tip: "shuffle",
+          date: finalArray
+        };
+        toateIntrebarile.push(joc);
+        localStorage.setItem("toate_jocShuffle", JSON.stringify(toateIntrebarile));
+            console.log("------------------------------------------");
+            console.log("------------------------------------------");
+            console.log("------------------------------------------");
+          console.log(toateIntrebarile);
+      });
 
     function convertBase64(file) {
       return new Promise((resolve, reject) => {
@@ -311,8 +332,6 @@
   </script>
 
 
-
-  </script>
 
 
 
@@ -347,7 +366,7 @@
   </script>
 
 
-  <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
+  <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
 </html>

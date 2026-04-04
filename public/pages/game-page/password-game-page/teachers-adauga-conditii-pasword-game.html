@@ -12,6 +12,7 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .container {
             display: flex;
             gap: 5px;
@@ -31,13 +32,12 @@
 </head>
 
 <body>
-    
+
     <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
         <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg"
-                    alt="SafeNet Junior">
+                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
 
             <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
@@ -65,7 +65,7 @@
             </button>
         </div>
 
-        
+
         <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
             <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
 
@@ -88,7 +88,7 @@
 
 
 
-    
+
 
     <div class="min-h-screen flex flex-col justify-center items-center px-4 py-20">
         <div
@@ -104,9 +104,13 @@
 
             <div class="flex flex-col items-center space-y-6">
                 <div class="w-full max-w-sm">
+                    <input id="nume_joc" type="text" placeholder="Numele jocului"
+                        class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+                </div>
+                <div class="w-full max-w-sm">
                     <input id="nr_conditii" type="number" min="1" max="10" step="1"
                         placeholder="Câte condiții vrei? (1-10)"
-                        class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+                        class="w-[80%] border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
                 </div>
 
                 <button id="btn_incepe"
@@ -140,9 +144,9 @@
                         class="hidden bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
                         Adaugă Regula
                     </button>
-                    
 
-                    
+
+
                     <button id="btn_restart"
                         class="hidden bg-white text-rose-500 border-2 border-rose-100 px-8 py-4 rounded-2xl font-bold hover:bg-rose-50 transition-all">
                         Resetează Tot
@@ -181,12 +185,12 @@
 
 
 
-    
+
     <section class="subsol bg-white mt-[900px]">
         <div class="max-w-6xl mx-auto px-6 md:px-[100px] py-16">
-            
+
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
-                
+
                 <div class="md:w-1/3">
                     <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
                     <p class="text-gray-600 mt-3 leading-relaxed">
@@ -197,9 +201,9 @@
                     </p>
                 </div>
 
-                
+
                 <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Navigare</h2>
                         <ul class="mt-3 space-y-2 text-gray-600">
@@ -211,7 +215,7 @@
                         </ul>
                     </div>
 
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Contact</h2>
                         <div class="mt-3 space-y-2 text-gray-600">
@@ -228,7 +232,7 @@
                         </div>
                     </div>
 
-                    
+
                     <div>
                         <h2 class="font-semibold text-gray-900">Social</h2>
                         <div class="mt-3 space-y-2 text-gray-600">
@@ -249,7 +253,7 @@
                 </div>
             </div>
 
-            
+
             <div class="mt-12">
                 <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
                 <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
@@ -261,7 +265,7 @@
                 </div>
             </div>
 
-            
+
             <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
                 <p class="leading-relaxed">
                     Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de
@@ -307,9 +311,11 @@
 
 
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
-    
+
     <script type="module">
         let arrProfesori = [];
+        let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocPassword")) || [];
+        const nume_joc = document.getElementById("nume_joc");
         let nr_conditii = document.getElementById("nr_conditii");
         let btn_incepe = document.getElementById("btn_incepe");
         let adev = true;
@@ -345,11 +351,12 @@
 
                 nr_conditii.classList.add("hidden");
                 btn_incepe.classList.add("hidden");
+                nume_joc.classList.add("hidden");
 
                 console.log("Joc început cu", numar, "condiții");
 
             } else {
-                afiseazaEroare("Introdu un număr de condiții dintre 1 și 10",'text-red-500');
+                afiseazaEroare("Introdu un număr de condiții dintre 1 și 10", 'text-red-500');
             }
 
         }
@@ -376,13 +383,13 @@
         button.addEventListener("click", () => {
             if (arrProfesori.length >= Number(nr_conditii.value)) {
 
-                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`,'text-red-500');
+                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`, 'text-red-500');
 
                 return;
             }
 
             if (conditie.value === "") {
-                afiseazaEroare("Alege o condiție!",'text-red-500');
+                afiseazaEroare("Alege o condiție!", 'text-red-500');
 
 
                 return;
@@ -396,24 +403,24 @@
                     if (conditie.value === "1") {
                         if (element.valoare === valoareNoua) {
 
-                            afiseazaEroare("Această condiție cu această valoare există deja!",'text-red-500');
+                            afiseazaEroare("Această condiție cu această valoare există deja!", 'text-red-500');
                             return true;
                         }
                     } else {
-                        afiseazaEroare("Această condiție a fost deja adăugată!",'text-red-500');
+                        afiseazaEroare("Această condiție a fost deja adăugată!", 'text-red-500');
                         return true;
                     }
                 }
 
                 if (textConditie === "Sa aiba lungime para" && element.conditie === "Sa aiba lungime impara") {
 
-                    afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!",'text-red-500');
+                    afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!", 'text-red-500');
 
                     return true;
                 }
                 if (textConditie === "Sa aiba lungime impara" && element.conditie === "Sa aiba lungime para") {
 
-                    afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!",'text-red-500');
+                    afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!", 'text-red-500');
 
                     return true;
                 }
@@ -421,7 +428,6 @@
                 return false;
             });
 
-            // Dacă some() a returnat true, oprim execuția
             if (conflictGasit) return;
 
             // --- De aici încolo codul tău de adăugare rămâne la fel ---
@@ -432,7 +438,7 @@
 
             if (conditie.value === "1") {
                 if (!valoareNoua) {
-                    afiseazaEroare("Trebuie să introduci o valoare!",'text-red-500');
+                    afiseazaEroare("Trebuie să introduci o valoare!", 'text-red-500');
                     return;
                 }
                 obiect.valoare = valoareNoua;
@@ -440,6 +446,19 @@
 
             arrProfesori.push(obiect);
             localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
+            let joc = {
+                nume: nume_joc.value ,
+                tip: "password",
+                reguli: [...arrProfesori]
+            };
+            toateIntrebarile.push(joc);
+            localStorage.setItem("toate_jocPassword", JSON.stringify(toateIntrebarile));
+            
+            console.log("------------------------------------------");
+              console.log("------------------------------------------");
+              console.log("------------------------------------------");
+          console.log(toateIntrebarile);
+
 
             valoareExtra.value = "";
             console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
@@ -464,6 +483,7 @@
 
             nr_conditii.classList.remove("hidden");
             btn_incepe.classList.remove("hidden");
+            nume_joc.classList.remove("hidden");
             alegereaNumarului();
         });
 

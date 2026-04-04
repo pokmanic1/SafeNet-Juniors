@@ -137,7 +137,7 @@
               Adaugă Întrebarea
             </button>
             <button id="btn_restart"
-              class="bg-white text-rose-500 border-2 border-rose-100 px-8 py-4 rounded-2xl font-bold hover:bg-rose-50 transition-all">
+              class="bg-red-500 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
               Restartează Tot
             </button>
           </div>
@@ -351,6 +351,7 @@
 
         const joc = {
           nume: nume_joc.value,
+          tip: "true-false",
           intrebari: [...arrIntrebariProfesor]
         };
               console.log("------------------------------------------");
@@ -359,7 +360,8 @@
           toateIntrebarile.push(joc);
           console.log(toateIntrebarile);
           localStorage.setItem("toate_jocTrueFalse", JSON.stringify(toateIntrebarile));
-      }
+          localStorage.removeItem("toate_jocTrueFalse");
+        }
     });
 
     btnRestart.addEventListener("click", () => {

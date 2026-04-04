@@ -94,8 +94,13 @@
 
             <div id="pasul1" class="flex flex-col items-center">
                 <label class="mb-2 font-medium text-gray-700">Câte întrebări dorești să creezi?</label>
+                <div class="w-full max-w-sm  ">
+                    <input id="nume_joc" type="text" placeholder="Numele jocului"
+                        class="w-full border-2 border-slate-800 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+                </div> 
+
                 <input id="nr_intrebari" type="number" min="1" max="20" placeholder="Maxim 20"
-                    class="border-2 border-blue-100 w-full p-3 mb-6 rounded-xl focus:border-blue-500 outline-none transition">
+                    class="border-2 border-blue-100 w-full p-3 mb-6 mt-[20px] rounded-xl focus:border-blue-500 outline-none transition">
                 <button id="btn_incepe"
                     class="group relative bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
                     Începe configurarea
@@ -152,9 +157,9 @@
                         Reset
                     </button>
                 </div>
-                <p id="mesajEroare" class=" text-center  mt-6 text-[14px] hidden">aaaaaaaaaaaa  </p>
+                <p id="mesajEroare" class=" text-center  mt-6 text-[14px] hidden">aaaaaaaaaaaa </p>
                 <p id="progres" class="mt-2 text-center text-gray-500 font-medium italic">Întrebări salvate: 0 / 0</p>
-                
+
             </div>
         </div>
     </div>
@@ -257,7 +262,8 @@
     <script type="module">
         let arrIntrebariVariante = [];
         let numarTotal = 0;
-
+        let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocVariante")) || [];
+        const nume_joc = document.getElementById("nume_joc");
         const inputNr = document.getElementById("nr_intrebari");
         const btnIncepe = document.getElementById("btn_incepe");
         const pasul1 = document.getElementById("pasul1");
@@ -326,6 +332,20 @@
             arrIntrebariVariante.push(obiectIntrebare);
 
             localStorage.setItem("jocVarianteCustom", JSON.stringify(arrIntrebariVariante));
+
+            let joc={
+                nume:nume_joc.value,
+                tip:'variante',
+                intrebari:[...arrIntrebariVariante]
+            }
+            toateIntrebarile.push(joc);
+            localStorage.setItem("toate_jocVariante", JSON.stringify(toateIntrebarile));
+
+             console.log("------------------------------------------");
+              console.log("------------------------------------------");
+              console.log("------------------------------------------");
+          console.log(toateIntrebarile);
+
 
             inputText.value = "";
             document.getElementById("v0").value = "";
