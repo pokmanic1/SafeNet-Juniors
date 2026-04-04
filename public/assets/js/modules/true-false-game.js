@@ -32,7 +32,6 @@ let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasme
 
 
 
-
 let dateSalvate = JSON.parse(localStorage.getItem("intrebariTrueFalse")) || [];
 
 
