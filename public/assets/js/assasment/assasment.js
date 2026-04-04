@@ -162,7 +162,7 @@ ArrJocuri.forEach((item) => {
 
                 <!-- --------- -->
                 <div
-                    class="card-sus w-full max-w-[1000px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6" >
+                    class="card-sus border-[1px] border-gray-400 w-full max-w-[1000px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6" >
                     <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0"> <img
                             src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="w-full h-auto"></div>
                     <div class="text text-black flex items-center text-[17px] sm:text-[17px] md:text-[18px] lg:text-[19px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate">${item.nume}</div>
@@ -171,7 +171,7 @@ ArrJocuri.forEach((item) => {
                 </button>
                 <!-- -------- -->
                 <div
-                    class="card-jos flex overflow-hidden bg-[#EEEEEE] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px]" style="display:none">
+                    class="card-jos border-[1px] border-gray-400 flex overflow-hidden bg-[#EEEEEE] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px]" style="display:none">
                     <div class="w-[80%]">
                         <h2 class="mt-[70px] text-black w-full sm:w-[380px] lg:w-[550px] h-[50px] text-[15px] sm:text-[16px] lg:text-[17px] leading-snug">${item.descriere}</h2>
                     </div>
@@ -190,7 +190,7 @@ ArrJocuri.forEach((item) => {
 
                 <!-- --------- -->
                 <div
-                    class="card-sus w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
+                    class="card-sus border-[1px] border-gray-400  w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
                     <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0"> <img
                             src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="w-full h-auto"></div>
                     <div class="text text-black flex items-center text-[17px] sm:text-[18px] md:text-[19px] lg:text-[20px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate">${item.nume}</div>
@@ -199,7 +199,7 @@ ArrJocuri.forEach((item) => {
                 </button>
                 <!-- -------- -->
                 <div
-                    class="card-jos flex overflow-hidden bg-[#EEEEEE] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] 
+                    class="card-jos border-[1px] border-gray-400 flex overflow-hidden bg-[#EEEEEE] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] 
                     absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px]" style="display:none">
                     
                     <div class="w-[80%]">
