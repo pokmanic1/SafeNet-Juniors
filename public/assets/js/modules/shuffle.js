@@ -32,65 +32,88 @@ console.log(dateSalvate);
 
 
 
-let arrText1 = ['Parolă', 'Mesaj', 'Cont', 'Cod PIN', 'Spam', 'Virus', 'Eroare', 'Coș de Gunoiv', 'WWW', 'Internet'];
-let arrImaginea1 = [
-    '../../../assets/img/img-shufle-game/parolaLvl1.png',
-    '../../../assets/img/img-shufle-game/mesajLvl1.png',
-    '../../../assets/img/img-shufle-game/contLvl1.png',
-    '../../../assets/img/img-shufle-game/codPinLvl1.png',
-    '../../../assets/img/img-shufle-game/spamLvl1.png',
-    '../../../assets/img/img-shufle-game/virusLvl1.png',
-    '../../../assets/img/img-shufle-game/eroareLvl.1.png',
-    '../../../assets/img/img-shufle-game/cosGunoiLvl1.png',
-    '../../../assets/img/img-shufle-game/wwwLvl1.png',
-    '../../../assets/img/img-shufle-game/intrenetLvl1.png',
-];
+// let arrText1 = ['Parolă', 'Mesaj', 'Cont', 'Cod PIN', 'Spam', 'Virus', 'Eroare', 'Coș de Gunoiv', 'WWW', 'Internet'];
+// let arrImaginea1 = [
+//     '../../../assets/img/img-shufle-game/parolaLvl1.png',
+//     '../../../assets/img/img-shufle-game/mesajLvl1.png',
+//     '../../../assets/img/img-shufle-game/contLvl1.png',
+//     '../../../assets/img/img-shufle-game/codPinLvl1.png',
+//     '../../../assets/img/img-shufle-game/spamLvl1.png',
+//     '../../../assets/img/img-shufle-game/virusLvl1.png',
+//     '../../../assets/img/img-shufle-game/eroareLvl.1.png',
+//     '../../../assets/img/img-shufle-game/cosGunoiLvl1.png',
+//     '../../../assets/img/img-shufle-game/wwwLvl1.png',
+//     '../../../assets/img/img-shufle-game/intrenetLvl1.png',
+// ];
 
-let arrText2 = ['Phishing', 'Identitate', 'Hacker', 'Confidențialitate', 'Securitate', 'Scanare', 'Alertă de Securitate', 'Siguranță', 'Furt de date', 'Monitorizare'];
-let arrImaginea2 = [
-    '../../../assets/img/img-shufle-game/phishingLvl2.png',
-    '../../../assets/img/img-shufle-game/identitateLvl2.png',
-    '../../../assets/img/img-shufle-game/hackerLvl2.png',
-    '../../../assets/img/img-shufle-game/confidentialitateLvl2.png',
-    '../../../assets/img/img-shufle-game/securitateLvl2.png',
-    '../../../assets/img/img-shufle-game/scanareLvl2.png',
-    '../../../assets/img/img-shufle-game/alertaSecLvl2.png',
-    '../../../assets/img/img-shufle-game/sigurantaLvl2.png',
-    '../../../assets/img/img-shufle-game/furtDateLvl2.png',
-    '../../../assets/img/img-shufle-game/monitorizareLvl2.png',
-];
+// let arrText2 = ['Phishing', 'Identitate', 'Hacker', 'Confidențialitate', 'Securitate', 'Scanare', 'Alertă de Securitate', 'Siguranță', 'Furt de date', 'Monitorizare'];
+// let arrImaginea2 = [
+//     '../../../assets/img/img-shufle-game/phishingLvl2.png',
+//     '../../../assets/img/img-shufle-game/identitateLvl2.png',
+//     '../../../assets/img/img-shufle-game/hackerLvl2.png',
+//     '../../../assets/img/img-shufle-game/confidentialitateLvl2.png',
+//     '../../../assets/img/img-shufle-game/securitateLvl2.png',
+//     '../../../assets/img/img-shufle-game/scanareLvl2.png',
+//     '../../../assets/img/img-shufle-game/alertaSecLvl2.png',
+//     '../../../assets/img/img-shufle-game/sigurantaLvl2.png',
+//     '../../../assets/img/img-shufle-game/furtDateLvl2.png',
+//     '../../../assets/img/img-shufle-game/monitorizareLvl2.png',
+// ];
 
-let arrText3 = ['Cache', 'Cookies', 'Riscuri', 'Fraudă', 'Atac cibernetic', 'VPN', 'HTTPS', 'Windows Defender', 'Cloud', 'IP Address'];
-let arrImaginea3 = [
-    '../../../assets/img/img-shufle-game/cacheLvl3.png',
-    '../../../assets/img/img-shufle-game/cookiesLvl3.png',
-    '../../../assets/img/img-shufle-game/riscuriLvl3.png',
-    '../../../assets/img/img-shufle-game/FraudaLvl3.png',
-    '../../../assets/img/img-shufle-game/atacCiberneticLvl3.png',
-    '../../../assets/img/img-shufle-game/vpnLvl3.png',
-    '../../../assets/img/img-shufle-game/httpsLvl3.png',
-    '../../../assets/img/img-shufle-game/windowsDefenderLvl3.png',
-    '../../../assets/img/img-shufle-game/cloudLvl3.png',
-    '../../../assets/img/img-shufle-game/ipLvl3.png',
-];
+// let arrText3 = ['Cache', 'Cookies', 'Riscuri', 'Fraudă', 'Atac cibernetic', 'VPN', 'HTTPS', 'Windows Defender', 'Cloud', 'IP Address'];
+// let arrImaginea3 = [
+//     '../../../assets/img/img-shufle-game/cacheLvl3.png',
+//     '../../../assets/img/img-shufle-game/cookiesLvl3.png',
+//     '../../../assets/img/img-shufle-game/riscuriLvl3.png',
+//     '../../../assets/img/img-shufle-game/FraudaLvl3.png',
+//     '../../../assets/img/img-shufle-game/atacCiberneticLvl3.png',
+//     '../../../assets/img/img-shufle-game/vpnLvl3.png',
+//     '../../../assets/img/img-shufle-game/httpsLvl3.png',
+//     '../../../assets/img/img-shufle-game/windowsDefenderLvl3.png',
+//     '../../../assets/img/img-shufle-game/cloudLvl3.png',
+//     '../../../assets/img/img-shufle-game/ipLvl3.png',
+// ];
 
-let arrText4 = ['Dnsmasq', 'Proxy Server', 'Date', 're CAPTCHA', 'Criptare', 'Politică de Securitate', 'Tor Project', 'Duck DuckGo', 'macOS', 'Firewall'];
-let arrImaginea4 = [
-    '../../../assets/img/img-shufle-game/dnsLvl4.png',
-    '../../../assets/img/img-shufle-game/proxyLvl4.png',
-    '../../../assets/img/img-shufle-game/dateLvl4.png',
-    '../../../assets/img/img-shufle-game/captchaLvl4.png',
-    '../../../assets/img/img-shufle-game/criptareLvl4.png',
-    '../../../assets/img/img-shufle-game/politicaSecuritateLvl4.png',
-    '../../../assets/img/img-shufle-game/torLvl4.png',
-    '../../../assets/img/img-shufle-game/duckLvl4.png',
-    '../../../assets/img/img-shufle-game/osLvl4.png',
-    '../../../assets/img/img-shufle-game/firewallLvl4.png',
-];
+// let arrText4 = ['Dnsmasq', 'Proxy Server', 'Date', 're CAPTCHA', 'Criptare', 'Politică de Securitate', 'Tor Project', 'Duck DuckGo', 'macOS', 'Firewall'];
+// let arrImaginea4 = [
+//     '../../../assets/img/img-shufle-game/dnsLvl4.png',
+//     '../../../assets/img/img-shufle-game/proxyLvl4.png',
+//     '../../../assets/img/img-shufle-game/dateLvl4.png',
+//     '../../../assets/img/img-shufle-game/captchaLvl4.png',
+//     '../../../assets/img/img-shufle-game/criptareLvl4.png',
+//     '../../../assets/img/img-shufle-game/politicaSecuritateLvl4.png',
+//     '../../../assets/img/img-shufle-game/torLvl4.png',
+//     '../../../assets/img/img-shufle-game/duckLvl4.png',
+//     '../../../assets/img/img-shufle-game/osLvl4.png',
+//     '../../../assets/img/img-shufle-game/firewallLvl4.png',
+// ];
 
+let arrText1 = [], arrImaginea1 = [];
+let arrText2 = [], arrImaginea2 = [];
+let arrText3 = [], arrImaginea3 = [];
+let arrText4 = [], arrImaginea4 = [];
 
-let arrText = [...arrText1];
-let arrImaginea = [...arrImaginea1];
+let arrText = [];
+let arrImaginea = [];
+
+fetch('../../../assets/js/modules/date-jocuri/shuffle.json')
+    .then(response => response.json())
+    .then(data => {
+        arrText1 = data.arrText1;
+        arrImaginea1 = data.arrImaginea1;
+        arrText2 = data.arrText2;
+        arrImaginea2 = data.arrImaginea2;
+        arrText3 = data.arrText3;
+        arrImaginea3 = data.arrImaginea3;
+        arrText4 = data.arrText4;
+        arrImaginea4 = data.arrImaginea4;
+
+        arrText = [...arrText1];
+        arrImaginea = [...arrImaginea1];
+
+        initializare(); 
+    });
+
 let nivelul = 1;
 let totalSecondsElapsed = 0;
 
@@ -340,7 +363,6 @@ document.querySelector('.restart1').addEventListener('click', function () {
 let contorPerechi = 0;
 
 jocul.addEventListener('click', Click);
-initializare();
 
 
 
