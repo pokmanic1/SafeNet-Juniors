@@ -190,7 +190,7 @@ ArrJocuri.forEach((item) => {
 
                 <!-- --------- -->
                 <div
-                    class="card-sus border-[1px] border-gray-400  w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
+                    class="card-sus border-[1px] border-gray-300  w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
                     <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0"> <img
                             src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="w-full h-auto"></div>
                     <div class="text text-black flex items-center text-[17px] sm:text-[18px] md:text-[19px] lg:text-[20px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate">${item.nume}</div>

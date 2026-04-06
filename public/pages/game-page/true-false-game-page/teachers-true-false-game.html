@@ -173,7 +173,9 @@
 
 
 
-  <script type="module"> 
+  <script type="module">
+    import { salveazaJocTrueFalse } from "../../../assets/js/game-service/teachers-create-game-tuefalse.js";
+
     let arrIntrebariProfesor = [];
     let numarTotal = 0;
     let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocTrueFalse")) || [];
@@ -218,7 +220,7 @@
       }
     });
 
-    btnAdauga.addEventListener("click", () => {
+    btnAdauga.addEventListener("click", async() => {
       const textValue = inputText.value.trim();
       const raspunsValue = inputRaspuns.value;
 
@@ -268,13 +270,10 @@
           tip: "true-false",
           intrebari: [...arrIntrebariProfesor]
         };
-              console.log("------------------------------------------");
-              console.log("------------------------------------------");
-              console.log("------------------------------------------");
-          toateIntrebarile.push(joc);
-          console.log(toateIntrebarile);
-          localStorage.setItem("toate_jocTrueFalse", JSON.stringify(toateIntrebarile));
-        }
+        await salveazaJocTrueFalse(joc);
+        console.log("Joc salvat:", joc);
+
+      }
     });
 
     btnRestart.addEventListener("click", () => {
@@ -319,7 +318,7 @@
   </script>
 
 
-
+  <script type="module" src="../../../assets/js/game-service/teachers-create-game-tuefalse.js"></script>
   <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
