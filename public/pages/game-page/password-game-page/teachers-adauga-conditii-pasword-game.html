@@ -218,9 +218,8 @@
 
 
 
-    <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
-
     <script type="module">
+        import { salveazaJocPassword } from '../../../assets/js/game-service/teachers-create-game-password.js'
         let arrProfesori = [];
         let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocPassword")) || [];
         const nume_joc = document.getElementById("nume_joc");
@@ -288,7 +287,7 @@
         });
 
 
-        button.addEventListener("click", () => {
+        button.addEventListener("click", async() => {
             if (arrProfesori.length >= Number(nr_conditii.value)) {
 
                 afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`, 'text-red-500');
@@ -355,17 +354,13 @@
             arrProfesori.push(obiect);
             localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
             let joc = {
-                nume: nume_joc.value ,
+                nume: nume_joc.value,
                 tip: "password",
                 reguli: [...arrProfesori]
             };
             toateIntrebarile.push(joc);
-            localStorage.setItem("toate_jocPassword", JSON.stringify(toateIntrebarile));
-            
-            console.log("------------------------------------------");
-              console.log("------------------------------------------");
-              console.log("------------------------------------------");
-          console.log(toateIntrebarile);
+            await salveazaJocPassword(joc);
+            console.log("Joc salvat:", joc);
 
 
             valoareExtra.value = "";
@@ -400,6 +395,10 @@
         localStorage.setItem("conditii", JSON.stringify(arrProfesori));
 
     </script>
+
+    <script type="module" src="../../../assets/js/game-service/teachers-create-game-password.js"></script>
+    <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
+
 </body>
 
 </html>
