@@ -99,7 +99,7 @@
       </div>
 
 
-      <div id="formular-perechi" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[30px]" >
+      <div id="formular-perechi" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[30px]">
 
         <script>
           for (let i = 1; i <= 8; i++) {
@@ -168,7 +168,9 @@
 
 
   <script type="module">
-        let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocShuffle")) || [];
+    import { salveazaJocShufle } from '../../../assets/js/game-service/teachers-create-game-shufle.js'
+
+    let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocShuffle")) || [];
 
     const nume_joc = document.getElementById("nume_joc");
     document.getElementById('btn_salveaza_shuffle').addEventListener('click', async () => {
@@ -220,19 +222,17 @@
       localStorage.setItem("shuffleGameData", JSON.stringify(finalArray));
 
       console.log(finalArray);
+
+      const joc = {
+        nume: nume_joc.value,
+        tip: "shuffle",
+        date: finalArray
+      };
       
-        const joc = {
-          nume: nume_joc.value,
-          tip: "shuffle",
-          date: finalArray
-        };
-        toateIntrebarile.push(joc);
-        localStorage.setItem("toate_jocShuffle", JSON.stringify(toateIntrebarile));
-            console.log("------------------------------------------");
-            console.log("------------------------------------------");
-            console.log("------------------------------------------");
-          console.log(toateIntrebarile);
-      });
+      toateIntrebarile.push(joc);
+      await salveazaJocShufle(joc);
+      console.log("Joc salvat:", joc);
+    });
 
     function convertBase64(file) {
       return new Promise((resolve, reject) => {
@@ -278,7 +278,7 @@
     });
   </script>
 
-
+  <script type="module" src="../../../assets/js/game-service/teachers-create-game-shufle.js"></script>
   <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
