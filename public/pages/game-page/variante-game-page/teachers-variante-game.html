@@ -97,7 +97,7 @@
                 <div class="w-full max-w-sm  ">
                     <input id="nume_joc" type="text" placeholder="Numele jocului"
                         class="w-full border-2 border-slate-800 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
-                </div> 
+                </div>
 
                 <input id="nr_intrebari" type="number" min="1" max="20" placeholder="Maxim 20"
                     class="border-2 border-blue-100 w-full p-3 mb-6 mt-[20px] rounded-xl focus:border-blue-500 outline-none transition">
@@ -169,6 +169,7 @@
 
 
     <script type="module">
+        import { salveazaJocVariante } from "../../../assets/js/game-service/teachers-create-game-variante.js";
         let arrIntrebariVariante = [];
         let numarTotal = 0;
         let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocVariante")) || [];
@@ -195,7 +196,7 @@
             }
         });
 
-        btnAdauga.addEventListener("click", () => {
+        btnAdauga.addEventListener("click", async() => {
             const textIntrebare = inputText.value.trim();
             const radioCorect = document.querySelector('input[name="raspuns_corect"]:checked');
 
@@ -242,18 +243,13 @@
 
             localStorage.setItem("jocVarianteCustom", JSON.stringify(arrIntrebariVariante));
 
-            let joc={
-                nume:nume_joc.value,
-                tip:'variante',
-                intrebari:[...arrIntrebariVariante]
+            let joc = {
+                nume: nume_joc.value,
+                tip: 'variante',
+                intrebari: [...arrIntrebariVariante]
             }
-            toateIntrebarile.push(joc);
-            localStorage.setItem("toate_jocVariante", JSON.stringify(toateIntrebarile));
-
-             console.log("------------------------------------------");
-              console.log("------------------------------------------");
-              console.log("------------------------------------------");
-          console.log(toateIntrebarile);
+            await salveazaJocVariante(joc);
+            console.log("Joc salvat:", joc);
 
 
             inputText.value = "";
@@ -288,23 +284,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -334,7 +313,7 @@
         });
     </script>
 
-
+    <script type="module" src="../../../assets/js/game-service/teachers-create-game-variante.js"></script>
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
