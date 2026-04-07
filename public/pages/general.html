@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="../assets/css/app.css">
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
+
 </head>
 
 <body>
-  <header class="w-full">
+  <header class="w-full ">
     <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
 
 
@@ -70,34 +70,73 @@
   </header>
 
 
-  <SECtion class=" py-[500px] border-[1px] border-black mx-auto flex justify-center items-center  flex-col">
+  <section class=" py-[100px] border-[1px] border-black mx-auto flex justify-center items-center  flex-col">
     <div id="containerJocuri"></div>
+
+    <div class="patratParinte grid grid-cols-2 min-w-[800px] h-[800px] border-[1px] border-black gap-[50px]">
+      <div class="patratJocShufle w-full h-full border-[1px] border-black bg-gray-500 "></div>
+      <div class="patratJocTrueFalse w-full h-full border-[1px] border-black bg-gray-500 "></div>
+      <div class="patratJocPassword w-full h-full border-[1px] border-black bg-gray-500 "></div>
+      <div class="patratJocVariante w-full h-full border-[1px] border-black bg-gray-500 "></div>
+    </div>
 
   </section>
   <script type="module">
 
-  import { getToateJocurileTrueFalse } from "../assets/js/game-service/teachers-create-game-tuefalse.js";
-import { auth } from "../assets/js/fierbase/firebase-init.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getToateJocurileTrueFalse } from "../assets/js/game-service/teachers-create-game-tuefalse.js";
+    import { getToateJocurileShufle } from "../assets/js/game-service/teachers-create-game-shufle.js";
+    import { getToateJocurilePassword } from "../assets/js/game-service/teachers-create-game-password.js";
+    import { getToateJocurileVariante } from "../assets/js/game-service/teachers-create-game-variante.js";
 
-const container = document.getElementById("containerJocuri");
+    import { auth } from "../assets/js/fierbase/firebase-init.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-onAuthStateChanged(auth, async (user) => {
-    if (!user) {
+    const container = document.getElementById("containerJocuri");
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
         console.log("Nu ești autentificat!");
         return;
-    }
+      }
 
-    // Acum userul e sigur autentificat
-    const jocuri = await getToateJocurileTrueFalse();
-    console.log("Jocuri:", jocuri);
+      const blockShufle = document.querySelector('.patratJocShufle');
+      const blockTrueFalse= document.querySelector('.patratJocTrueFalse');
+      const blockPassword= document.querySelector('.patratJocPassword');
+      const blockVariante= document.querySelector('.patratJocVariante');
+      
 
-    if (jocuri.length === 0) {
+
+
+      const jocuriShufle = await getToateJocurileShufle();
+      const jocuriTrueFlase = await getToateJocurileTruxeFalse();
+      const jocuriPassword = await getToateJocurilePassword();
+      const jocuriVariante = await getToateVariante();
+
+      
+
+      if (jocuriShufle.length === 0) {
         container.innerHTML = "<p>Nu există jocuri salvate.</p>";
         return;
-    }
+      }
+      if (jocuriTrueFlase.length === 0) {
+        container.innerHTML = "<p>Nu există jocuri salvate.</p>";
+        return;
+      }
+      if (jocuriPassword.length === 0) {
+        container.innerHTML = "<p>Nu există jocuri salvate.</p>";
+        return;
+      }
+      if (jocuriVariante.length === 0) {
+        container.innerHTML = "<p>Nu există jocuri salvate.</p>";
+        return;
+      }
 
-    jocuri.forEach(joc => {
+      jocuriShufle.forEach(joc =>{
+          blockShufle=`<h2>${joc.nume}</h2>
+                <div>`
+      })
+
+      jocuri.forEach(joc => {
         const card = document.createElement("div");
         card.innerHTML = `
             <div class="joc-card">
@@ -114,8 +153,8 @@ onAuthStateChanged(auth, async (user) => {
             </div>
         `;
         container.appendChild(card);
+      });
     });
-});
   </script>
 
 
