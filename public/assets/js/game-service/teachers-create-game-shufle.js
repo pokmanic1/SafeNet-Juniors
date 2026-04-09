@@ -6,6 +6,15 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../../../index.html";
+
+    }
+});
+
+
 export const salveazaJocShufle = async (joc) => {
     const user = auth.currentUser;
     if (!user) {

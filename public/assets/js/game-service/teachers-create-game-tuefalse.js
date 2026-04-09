@@ -9,6 +9,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../../../index.html";
+
+    }
+});
+
+
+
 export const salveazaJocTrueFalse = async (joc) => {
     const user = auth.currentUser;
     if (!user) {
@@ -35,12 +44,17 @@ export const getToateJocurileTrueFalse = async () => {
     try {
         const jocuriRef = collection(db, "users", user.uid, "jocuri_true_false");
         const snapshot = await getDocs(jocuriRef);
+
+        console.log(snapshot.docs.map(doc => doc.data()));
+
         return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     } catch (error) {
         console.error("Eroare la citire:", error);
         return [];
     }
 };
+
+
 export const stergeJocTrueFalse = async (jocId) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -51,7 +65,7 @@ export const stergeJocTrueFalse = async (jocId) => {
 };
 
 const container = document.getElementById("containerJocuri");
-
+let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
     if (jocuri.length === 0) {
         container.innerHTML = `<p class="text-white text-center">Niciun joc salvat.</p>`;
@@ -72,11 +86,17 @@ function genereazaHTML(jocuri) {
                     <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
                         ${joc.nume || 'Fără nume'} — ${(joc.intrebari || []).length} întrebări
                     </h2>
-                    <button 
+                    <div class="flex gap-2">
+                    <button data-id="${joc.id}"
+                        class="btn-joaca bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all  ">
+                        Joacă acum
+                    </button>
+                    <button
                         class="btn-sterge bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition"
                         data-id="${joc.id}">
                         Șterge joc
                     </button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -95,23 +115,46 @@ function genereazaHTML(jocuri) {
         </div>
     `).join('');
 
-    container.addEventListener('click', async (e) => {
-        const btn = e.target.closest('.btn-sterge');
-        if (!btn) return;
 
-        const jocId = btn.dataset.id;
-       
-
-        await stergeJocTrueFalse(jocId);
-
-        btn.closest('.mb-6').remove();
-    });
 }
+
+
+container.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.btn-sterge');
+    if (!btn) return;
+
+    const jocId = btn.dataset.id;
+
+
+    await stergeJocTrueFalse(jocId);
+
+    btn.closest('.mb-6').remove();
+});
+
+container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-joaca');
+    if (!btn) return;
+
+    const jocId = btn.dataset.id;
+
+    const joc = listaJocuriGlobal.find(j => j.id === jocId);
+    if (joc) {
+        console.log('Întrebări:', joc.intrebari);
+        localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
+        window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
+    } else {
+        console.log('Jocul nu a fost găsit.');
+    }
+});
+
+
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
-    const jocuri = await getToateJocurileTrueFalse();
-    genereazaHTML(jocuri);
+    listaJocuriGlobal = await getToateJocurileTrueFalse();
+
+    console.log('Toate jocurile încărcate:', listaJocuriGlobal);
+    genereazaHTML(listaJocuriGlobal);
 });
 
 
