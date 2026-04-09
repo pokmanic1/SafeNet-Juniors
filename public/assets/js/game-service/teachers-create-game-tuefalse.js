@@ -116,7 +116,6 @@ function genereazaHTML(jocuri) {
     `).join('');
 
 
-}
 
 
 container.addEventListener('click', async (e) => {
@@ -148,6 +147,7 @@ container.addEventListener('click', (e) => {
 });
 
 
+}   
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;

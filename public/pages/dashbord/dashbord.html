@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="../../assets/css/app.css">
     <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
 
     <style>
         body {
@@ -92,7 +93,7 @@
         </div>
     </header>
 
-        <section
+    <section
         class=" flex justify-center items-center flex-col  py-[50px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
         style=" background-image: url('../../assets/img/backgrounds/background-alb6..png');">
 
@@ -100,9 +101,9 @@
 
 
 
- <div class="istoric_jocuri_profesori grid grid-cols-2 md:grid-cols-4 w-[92%] gap-[20px]">
+        <div class="istoric_jocuri_profesori grid grid-cols-2 md:grid-cols-4 w-[92%] gap-[20px]">
 
-        <!-- <div class="max-w-[400px] min-w-[200px] min-h-[300px] p-[14px] bg-white rounded-2xl shadow-md flex flex-col gap-2">
+            <!-- <div class="max-w-[400px] min-w-[200px] min-h-[300px] p-[14px] bg-white rounded-2xl shadow-md flex flex-col gap-2">
             <img src="" class="w-full h-[180px] object-cover rounded-xl bg-amber-400" alt="">
             <p class="font-bold text-[15px] mt-1">Jocul: Potrivește Perechile</p>
             <p class="text-[13px] text-gray-600">Nivelul: Nivel5</p>
@@ -134,39 +135,39 @@
             <a href="" class="mt-auto mx-auto px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white text-[13px] font-medium rounded-full transition-colors">Joacă-te</a>
         </div> -->
 
-        <script>
-            let arr=[
-                {
-                    titlu:'Jocul Potriveste Perechi',
-                    jocuri:1,
-                    img:'../../assets/img/backgrounds/shufle-game-bg1.png',
-                    ancora:''
-                },
-                {
-                    titlu:'Jocul True False ',
-                    jocuri:1,
-                    img:'../../assets/img/backgrounds/adevarat-fals-game-bg1.png',
-                    ancora:''
-                },
-                {
-                    titlu:'Jocul Password',
-                    jocuri:1,
-                    img:'../../assets/img/backgrounds/password-game-bg1.png',
-                    ancora:''
-                },
-                {
-                    titlu:'Jocul Variante',
-                    jocuri:1,
-                    img:'../../assets/img/backgrounds/variante-game-bg8.png',
-                    ancora:''
-                }
-            ]
+            <script>
+                let arr = [
+                    {
+                        titlu: 'Jocul Potriveste Perechi',
+                        jocuri: 1,
+                        img: '../../assets/img/backgrounds/shufle-game-bg1.png',
+                        ancora: ''
+                    },
+                    {
+                        titlu: 'Jocul True False ',
+                        jocuri: 1,
+                        img: '../../assets/img/backgrounds/adevarat-fals-game-bg1.png',
+                        ancora: ''
+                    },
+                    {
+                        titlu: 'Jocul Password',
+                        jocuri: 1,
+                        img: '../../assets/img/backgrounds/password-game-bg1.png',
+                        ancora: ''
+                    },
+                    {
+                        titlu: 'Jocul Variante',
+                        jocuri: 1,
+                        img: '../../assets/img/backgrounds/variante-game-bg8.png',
+                        ancora: ''
+                    }
+                ]
 
 
-            let a = document.querySelector('.istoric_jocuri_profesori');
-            let generare=``;
-            arr.forEach((item)=>{
-                generare+=`
+                let a = document.querySelector('.istoric_jocuri_profesori');
+                let generare = ``;
+                arr.forEach((item) => {
+                    generare += `
                     <div class="w-full max-w-[400px] mx-auto min-h-[320px] p-[14px] bg-[#30302E] rounded-2xl shadow-md flex flex-col gap-2 transition-transform hover:scale-[1.02]">
         
                                 <div class="w-full h-[180px] overflow-hidden rounded-xl">
@@ -192,20 +193,20 @@
                                 </div>
                         </div>
                 `
-            });
-            a.innerHTML=generare;
-        </script>
+                });
+                a.innerHTML = generare;
+            </script>
 
 
 
-    </div>
+        </div>
 
 
 
 
 
-            
-        </section>
+
+    </section>
 
     <section class="subsol bg-white flex flex-col justify-center items-center">
         <div class="max-w-7xl mx-auto px-2 md:px-[100px] py-16 mr-10">
@@ -292,7 +293,7 @@
             </div>
         </div>
     </section>
-
+    
 
     <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
