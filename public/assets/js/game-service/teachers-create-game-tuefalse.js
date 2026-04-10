@@ -64,6 +64,8 @@ export const stergeJocTrueFalse = async (jocId) => {
     } catch (error) { console.error("Eroare la ștergere:", error); }
 };
 
+let contorTrueFalseCreateGame = 0;
+
 const container = document.getElementById("containerJocuri");
 let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
@@ -114,40 +116,40 @@ function genereazaHTML(jocuri) {
             </div>
         </div>
     `).join('');
+    contorTrueFalseCreateGame = jocuri.length + 1;
 
 
 
+    container.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.btn-sterge');
+        if (!btn) return;
 
-container.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.btn-sterge');
-    if (!btn) return;
-
-    const jocId = btn.dataset.id;
-
-
-    await stergeJocTrueFalse(jocId);
-
-    btn.closest('.mb-6').remove();
-});
-
-container.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-joaca');
-    if (!btn) return;
-
-    const jocId = btn.dataset.id;
-
-    const joc = listaJocuriGlobal.find(j => j.id === jocId);
-    if (joc) {
-        console.log('Întrebări:', joc.intrebari);
-        localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
-        window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
-    } else {
-        console.log('Jocul nu a fost găsit.');
-    }
-});
+        const jocId = btn.dataset.id;
 
 
-}   
+        await stergeJocTrueFalse(jocId);
+
+        btn.closest('.mb-6').remove();
+    });
+
+    container.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-joaca');
+        if (!btn) return;
+
+        const jocId = btn.dataset.id;
+
+        const joc = listaJocuriGlobal.find(j => j.id === jocId);
+        if (joc) {
+            console.log('Întrebări:', joc.intrebari);
+            localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
+            window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
+        } else {
+            console.log('Jocul nu a fost găsit.');
+        }
+    });
+
+
+}
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
@@ -157,7 +159,7 @@ onAuthStateChanged(auth, async (user) => {
     genereazaHTML(listaJocuriGlobal);
 });
 
-
+export { contorTrueFalseCreateGame };
 
 
 

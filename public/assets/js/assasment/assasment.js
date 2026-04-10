@@ -8,8 +8,8 @@ let contor_assasment_incercari_truefalse = JSON.parse(localStorage.getItem('cont
 let contor_assasment_corecte_password = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
 let contor_assasment_incercari_password = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
 // -------------------------------
-let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
-let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
+let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
+let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
 
 
 let ArrJocuri = [
@@ -51,7 +51,7 @@ let ArrJocuri = [
         incercari: contor_assasment_incercari_truefalse,
         media: contor_assasment_incercari_shuffle === 0
             ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+            : Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
         ancora: './game-page/true-false-game-page/true-false-game.html',
         statut: 0
     },
@@ -71,9 +71,9 @@ let ArrJocuri = [
         nume: 'Creează Parola',
         descriere: 'Construiește o parolă cât mai puternică! Respectă regulile afișate și creează o combinație care să reziste oricărui atac!',
         incercari: contor_assasment_incercari_password || 0,
-        media: contor_assasment_incercari_shuffle === 0
+        media: contor_assasment_incercari_password === 0
             ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/password-game-page/password-game.html',
+            : Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100), ancora: './game-page/password-game-page/password-game.html',
         ancora: './game-page/password-game-page/password-game.html',
         statut: 0
     },
@@ -93,10 +93,9 @@ let ArrJocuri = [
         nume: 'Răspunde Corect',
         descriere: 'Câte știi despre securitatea online? Răspunde rapid la întrebări și acumulează puncte. Fiecare secundă contează!',
         incercari: contor_assasment_incercari_variante || 0,
-        media: Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
-        media: contor_assasment_incercari_shuffle === 0
+        media: contor_assasment_incercari_variante  === 0
             ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), statut: 0,
+            : Math.round((contor_assasment_corecte_variante  / contor_assasment_incercari_variante) * 100), statut: 0,
         ancora: './game-page/variante-game-page/variante-game.html',
         statut: 0
     },
