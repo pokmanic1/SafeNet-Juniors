@@ -91,7 +91,7 @@ function genereazaHTML(jocuri) {
         <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-6xl min-h-[200px] shadow-2xl mb-6">
 
             <div class="md:w-1/4 w-full h-48 md:h-auto">
-                <img src="../../assets/img/backgrounds/shuffle-game-bg.png" 
+                <img src="../../assets/img/backgrounds/shufle-game-bg2.png" src='../../img/backgrounds/shufle-game-bg2.png'  alt="Imagine joc"
                     class="w-full h-full object-cover">
             </div>
 
@@ -159,7 +159,6 @@ function genereazaHTML(jocuri) {
     });
 }
 
-// LOAD
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
 
