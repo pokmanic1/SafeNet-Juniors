@@ -267,17 +267,18 @@ function afisareConditii() {
         const div = document.createElement("div");
 
         div.id = "conditie-" + index;
-
+        
         div.className = `
             py-[16px]
             //border-2
             //border-black
             rounded-xl
-            bg-[#FF0000]
+            bg-[#1156EA]
             text-center
             font-semibold
             transition
             text-white
+            
         `;
 
         div.textContent = conditie.text;
@@ -297,16 +298,16 @@ function verificaParola(password) {
 
         if (conditie.validate(password)) {
 
-            element.classList.remove("bg-[#FF0000]");
-            element.classList.add("bg-[#52994E]");
-
+            element.classList.remove("bg-[#1156EA]");
+            element.classList.add("bg-[#22C55E]");
+            element.classList.add("shadow-[0_0_15px_#22C55E]");
             completate++;
 
-        } else {
+        } else {    
 
-            element.classList.remove("bg-[#52994E]");
-            element.classList.add("bg-[#FF0000]");
-
+            element.classList.remove("bg-[#22C55E]");
+            element.classList.add("bg-[#1156EA]");
+            element.classList.remove("shadow-[0_0_15px_#22C55E]");
         }
 
     });
