@@ -46,54 +46,58 @@ dateSalvate.forEach(element => {
         text: element.valoare ? `${element.conditie}: ${element.valoare}` : element.conditie,
         validate: null
     };
-
+    console.log("-----------------------------------------------");
+    console.log("-----------------------------------------------");
+    console.log("-----------------------------------------------");
+    console.log("element încărcat:", element);
+    console.log("Condiție profesor încărcată:", element.conditie);
     switch (element.conditie) {
-        case "Să conțină un numar":
-            obj.validate = (password) => /\d/.test(password);
+        case "Să conțină un număr":
+            obj.validate = (password) => /\d/.test(password); console.log('a');
             break;
 
         case "Să conțină un cuvânt specific":
-            obj.validate = (password) => password.includes(element.valoare);
+            obj.validate = (password) => password.includes(element.valoare); console.log('a');
             break;
 
-        case "Sa aiba un numar minim de caractere":
-            obj.validate = (password) => password.length >= parseInt(element.valoare);
+        case "Să aibă un număr minim de caractere":
+            obj.validate = (password) => password.length >= parseInt(element.valoare); console.log('a');
             break;
 
-        case "Sa contina o litera mare":
-            obj.validate = (password) => /[A-Z]/.test(password);
+        case "Să conțină o literă mare":
+            obj.validate = (password) => /[A-Z]/.test(password); console.log('a');
             break;
 
-        case "Sa contina un caracter special":
-            obj.validate = (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        case "Să conțină un caracter special":
+            obj.validate = (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password); console.log('a');
             break;
 
-        case "Sa aiba un numar minim de cifre":
-            obj.validate = (password) => (password.match(/\d/g) || []).length >= parseInt(element.valoare);
+        case "Să aibă un număr minim de cifre":
+            obj.validate = (password) => (password.match(/\d/g) || []).length >= parseInt(element.valoare); console.log('a');
             break;
 
-        case "Sa nu contina spatii":
-            obj.validate = (password) => !password.includes(" ");
+        case "Să nu conțină spații":
+            obj.validate = (password) => !password.includes(" "); console.log('a');
             break;
 
-        case "Sa aiba lungime para":
-            obj.validate = (password) => password.length % 2 === 0;
+        case "Să aibă lungime pară":
+            obj.validate = (password) => password.length % 2 === 0; console.log('a');
             break;
 
-        case "Sa aiba lungime impara":
-            obj.validate = (password) => password.length % 2 !== 0;
+        case "Să aibă lungime impară":
+            obj.validate = (password) => password.length % 2 !== 0; console.log('a');
             break;
 
-        case "Sa contine un numar specifica": 
-            obj.validate = (password) => password.includes(element.valoare);
+        case "Să conțină un număr specific": 
+            obj.validate = (password) => password.includes(element.valoare); console.log('a');
             break;
 
         case "Sa contine o litera specifica":
-            obj.validate = (password) => password.includes(element.valoare);
+            obj.validate = (password) => password.includes(element.valoare); console.log('a');
             break;
 
         default:
-            obj.validate = (password) => true;
+            obj.validate = (password) => true; console.log('b');
     }
 
     newArrConditii1.push(obj);
