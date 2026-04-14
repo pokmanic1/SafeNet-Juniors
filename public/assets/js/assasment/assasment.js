@@ -189,7 +189,7 @@ ArrJocuri.forEach((item) => {
                         
                         <div class="flex justify-end w-[80px] sm:w-[90px] px-1 lg:w-[110px] h-[40px] sm:h-[45px] lg:h-[50px] mt-[180px] md:mt-[200px] bg-black ml-[20px] sm:ml-[50px] lg:ml-[95px] 
                         rounded-[15px] sm:rounded-[20px] lg:rounded-[30px] transition-all duration-300 hover:scale-105 active:scale-95">
-                            <a class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
+                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
                                 Invata
                             </a>
                         </div>
@@ -241,7 +241,7 @@ ArrJocuri.forEach((item) => {
                     
                         <div class="flex justify-end w-[80px] sm:w-[90px] px-1 lg:w-[110px] h-[40px] sm:h-[45px] lg:h-[50px] mt-[180px] md:mt-[200px] bg-black ml-[20px] sm:ml-[50px] lg:ml-[95px] rounded-[15px] 
                         sm:rounded-[20px] lg:rounded-[30px] transition-all duration-300  hover:scale-105 active:scale-95">
-                            <a class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
+                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
                                 Joaca-te
                             </a>
                         </div>
