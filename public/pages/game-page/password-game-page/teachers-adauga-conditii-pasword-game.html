@@ -99,7 +99,7 @@
                     class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
                     Profesor</span>
                 <h1 class="text-3xl md:text-4xl font-bold mt-4 text-slate-900">Configurează provocarea</h1>
-                    <p  class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
+                <p class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
             </div>
 
             <div class="flex flex-col justify-center  items-center space-y-6">
@@ -115,7 +115,7 @@
 
                 <button id="btn_incepe"
                     class="group relative bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold font-bold text-lg hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
-                    Începe configurarea 
+                    Începe configurarea
                 </button>
 
                 <div class="w-full space-y-4">
@@ -138,21 +138,25 @@
                     <input type="text" id="valoareExtra" placeholder="Introdu valoarea aici..."
                         class="hidden w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-slate-50" />
                 </div>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                        <button id="btn"
+                            class="hidden bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                            Adaugă Regula
+                        </button>
 
-                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <button id="btn"
-                        class="hidden bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
-                        Adaugă Regula
-                    </button>
 
 
-
-                    <button id="btn_restart"
-                        class="hidden bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
-                        Resetează Tot
-                    </button>
+                        <button id="btn_restart"
+                            class="hidden bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+                            Resetează Tot
+                        </button>
+                    </div>
+                    <a href="./password-game.html" id="btn_mergilajoc"
+                        class="btnMergiLaJoc hidden bg-green-500 text-white  mt-4 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+                        Mergi la joc</a>
+                    <p id="mesajEroare" class=" font-semibold  text-center hidden mt-4 "></p>
                 </div>
-                <p id="mesajEroare" class="  hidden text-[14px] "></p>
             </div>
         </div>
     </div>
@@ -287,13 +291,8 @@
         });
 
 
-        button.addEventListener("click", async() => {
-            if (arrProfesori.length >= Number(nr_conditii.value)) {
+        button.addEventListener("click", async () => {
 
-                afiseazaEroare(`Ați introdus deja numărul maxim de ${nr_conditii.value} condiții.`, 'text-red-500');
-
-                return;
-            }
 
             if (conditie.value === "") {
                 afiseazaEroare("Alege o condiție!", 'text-red-500');
@@ -364,14 +363,22 @@
 
             valoareExtra.value = "";
             console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
-            button.classList.add("scale-110", "bg-green-500", "shadow-green-200");
-            button.innerText = "Adăugat! ";
+            // button.classList.add("scale-110", "bg-green-500", "shadow-green-200");
+            // button.innerText = "Adăugat! ";
 
-            setTimeout(() => {
-                button.classList.remove("scale-110", "bg-green-500", "shadow-green-200");
-                button.innerText = "Adaugă Regula";
-                button.disabl
-            }, 1000);
+            // setTimeout(() => {
+            //     button.classList.remove("scale-110", "bg-green-500", "shadow-green-200");
+            //     button.innerText = "Adaugă Regula";
+            //     button.disabl
+            // }, 1000);
+            if (arrProfesori.length === Number(nr_conditii.value)) {
+
+                afiseazaEroare(`Felicitări! Ai configurat toate întrebările. Acum poți merge la joc.`, 'text-green-500');
+                button.disabled = true;
+                button.classList.add("cursor-not-allowed", "opacity-50");
+                document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
+                return;
+            }
         });
 
 
@@ -382,6 +389,7 @@
             btn.classList.add("hidden");
             document.getElementById("btn_restart").classList.add("hidden");
             valoareExtra.classList.add("hidden");
+            document.querySelector(".btnMergiLaJoc").classList.add("hidden");
 
             nr_conditii.classList.remove("hidden");
             btn_incepe.classList.remove("hidden");
