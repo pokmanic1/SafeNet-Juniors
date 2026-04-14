@@ -166,22 +166,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="mt-12 flex flex-col md:flex-row justify-center gap-6">
+                        <button id="btn_adauga"
+                            class="flex bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                            Salvează Întrebarea
+                        </button>
 
-                <div class="mt-12 flex flex-col md:flex-row justify-center gap-6">
-                    <button id="btn_adauga"
-                        class="flex bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
-                        Salvează Întrebarea
-                    </button>
+                        <button id="btn_restart"
+                            class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+                            Restartează Tot
+                        </button>
 
-                    <button id="btn_restart"
-                        class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
-                        Restartează Tot
+                    </div>
+                    <a href="./variante-game.html" id="btn_mergilajoc"
+                        class="btnMergiLaJoc hidden bg-green-500 text-white  mt-4 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+                        Mergi la joc</a>
 
-                    </button>
+                    <p id="mesajEroare" class="text-center mt-6 hidden font-semibold"></p>
                 </div>
-
-                <p id="mesajEroare" class="text-center mt-6 text-[14px] hidden font-semibold"></p>
-
 
             </div>
         </div>
@@ -285,6 +288,8 @@
                 actualizeazaInterfata();
             } else {
                 afiseazaEroare("Toate întrebările au fost salvate cu succes!", "text-green-500");
+                                document.querySelector(".btnMergiLaJoc").classList.remove("hidden");   
+
                 btnAdauga.disabled = true;
                 btnAdauga.classList.add("opacity-50", "cursor-not-allowed");
             }

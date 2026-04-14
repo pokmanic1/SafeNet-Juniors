@@ -99,6 +99,11 @@ dateSalvate.forEach(element => {
     newArrConditii1.push(obj);
 });
 
+console.log("------------------------------------------------");
+console.log("------------------------------------------------");
+console.log("------------------------------------------------");
+console.log("------------------------------------------------");
+console.log("------------------------------------------------");
 console.log("Condiții profesor încărcate:", newArrConditii1);
 
 
