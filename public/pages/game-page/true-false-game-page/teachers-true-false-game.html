@@ -94,7 +94,7 @@
           class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
           Profesor</span>
         <h1 class="text-3xl md:text-4xl font-bold mt-4 text-slate-900">Configurare Joc True / False</h1>
-                    <p  class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
+        <p class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
       </div>
 
       <div id="pasul1" class="flex flex-col items-center space-y-6">
@@ -131,7 +131,7 @@
             <option value="false">Fals (False)</option>
           </select>
         </div>
-        <div>
+        <div class="flex flex-col items-center h-[200px]">
           <div class="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
             <button id="btn_adauga"
               class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
@@ -142,7 +142,11 @@
               Restartează Tot
             </button>
           </div>
-          <p id="mesajEroareTF" class="font-semibold text-center mt-4 hidden"></p>
+                <a href="./true-false-game.html" id="btn_restart"
+                  class="btnMergiLaJoc hidden bg-green-500 text-white  mt-4 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+                  Mergi la joc</a>
+              
+              <p id="mesajEroareTF" class="font-semibold text-center mt-4 hidden"></p>
         </div>
       </div>
     </div>
@@ -234,8 +238,8 @@
         return;
       }
       arrIntrebariProfesor.push(obiectIntrebare);
-      
-       
+
+
 
 
 
@@ -247,11 +251,12 @@
       } else {
 
         afiseazaMesajTF("Felicitări! Ai configurat toate întrebările. Acum poți merge la joc.", 'text-green-500');
-      console.log('-------------------------------------------------');
-       console.log('-------------------------------------------------');
-      console.log('-----------sssssssssssssssssssss-----------------');
-      console.log("Întrebări adăugate:", arrIntrebariProfesor);
-      localStorage.setItem("intrebariTrueFalse", JSON.stringify(arrIntrebariProfesor));
+        document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
+        console.log('-------------------------------------------------');
+        console.log('-------------------------------------------------');
+        console.log('-----------sssssssssssssssssssss-----------------');
+        console.log("Întrebări adăugate:", arrIntrebariProfesor);
+        localStorage.setItem("intrebariTrueFalse", JSON.stringify(arrIntrebariProfesor));
 
 
         btnAdauga.disabled = true;
