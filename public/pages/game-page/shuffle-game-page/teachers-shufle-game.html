@@ -89,8 +89,8 @@
       <div class="flex w-full flex-col items-center ">
         <div class="text-center mb-10">
           <span
-                    class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
-                    Profesor</span>
+            class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
+            Profesor</span>
           <h1 class="text-4xl font-bold mt-4 text-slate-900">Configurare Joc Shuffle</h1>
           <p class="text-slate-500 mt-2">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
         </div>
@@ -134,22 +134,25 @@
 
       </div>
 
-      <div class="mt-12 flex flex-col md:flex-row justify-center gap-6">
+      <div class="mt-12 flex flex-col justify-center items-center gap-6">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+          <button id="btn_salveaza_shuffle"
+            class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+            Salvează Jocul
+          </button>
 
-        <button id="btn_salveaza_shuffle"
-          class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
-          Salvează Jocul
-        </button>
+          <button onclick="location.reload()"
+            class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+            Resetează Tot
+          </button>
 
-        <button onclick="location.reload()"
-          class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
-          Resetează Tot
-        </button>
+        </div>
+        <a href="./shuffle-game.html" id="btn_restart"
+          class="btnMergiLaJoc hidden bg-green-500 text-white  mt-1 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+          Mergi la joc</a>
 
+        <p id="mesajEroareShuffle" class=" font-semibold text-center mt-6 hidden"></p>
       </div>
-
-      <p id="mesajEroareShuffle" class=" font-semibold text-center mt-6 hidden"></p>
-
     </div>
 
   </div>
@@ -223,7 +226,10 @@
       finalArray.sort(() => Math.random() - 0.5);
 
       localStorage.setItem("shuffleGameData", JSON.stringify(finalArray));
-
+      //
+      document.getElementById('btn_salveaza_shuffle').disabled = true;
+      document.getElementById('btn_salveaza_shuffle').classList.add("opacity-50", "cursor-not-allowed");;
+      document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
       console.log(finalArray);
 
       const joc = {
@@ -231,7 +237,7 @@
         tip: "shuffle",
         date: finalArray
       };
-      
+
       toateIntrebarile.push(joc);
       await salveazaJocShufle(joc);
       console.log("Joc salvat:", joc);
