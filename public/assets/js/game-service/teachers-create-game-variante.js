@@ -74,25 +74,37 @@ function genereazaHTML(jocuri) {
     }
 
     container.innerHTML = jocuri.map(joc => `
-        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-6xl min-h-[200px] shadow-2xl mb-6">
-            <div class="md:w-1/4 w-full h-48 md:h-auto">
-                <img src="../../assets/img/backgrounds/variante-game-bg1.png" alt="Game Background" class="w-full h-full object-cover">
+        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[98%] min-h-[100px] shadow-2xl mb-6">
+
+            <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
+                <img src="../../assets/img/backgrounds/variante-game-bg1.png" 
+                    alt="Game Background" class="w-full h-full object-cover">
             </div>
-            <div class="flex-1 p-6 flex flex-col justify-center gap-4">
-                <div class="flex items-center justify-between border-b border-gray-700 pb-3">
+
+            <div class="flex-1 pt-8 pb-5 px-6 flex flex-col justify-center gap-4">
+
+                <div class="ptborderb flex items-center justify-between pb-2">
+
+                    <img class="sageata cursor-pointer transition-transform duration-300 block w-[50px] h-[50px] mr-4" 
+                        src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
+
                     <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
                         ${joc.nume || 'Fără nume'} — ${(joc.intrebari || []).length} întrebări
                     </h2>
+
                     <div class="flex gap-2">
-                        <button data-id="${joc.id}" class="btn-joaca bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
+                        <button data-id="${joc.id}"
+                            class="btn-joaca hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
                             Joacă acum
                         </button>
-                        <button class="btn-sterge bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition" data-id="${joc.id}">
+                        <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition"
+                            data-id="${joc.id}">
                             Șterge joc
                         </button>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <div class="gridul-intrebari hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     ${(joc.intrebari || []).map((q, index) => {
                         const raspunsCorect = (q.variante || []).find(v => v.raspuns === true);
                         return `
@@ -100,36 +112,59 @@ function genereazaHTML(jocuri) {
                             <span class="text-xs text-gray-400 uppercase font-bold">Întrebarea ${index + 1}</span>
                             <p class="text-white font-medium mt-1">${q.intrebare}</p>
                             <span class="text-xs font-bold text-green-400">
-                                 ${raspunsCorect ? raspunsCorect.varianta : 'N/A'}
+                                ✓ ${raspunsCorect ? raspunsCorect.varianta : 'N/A'}
                             </span>
                         </div>`;
                     }).join('')}
                 </div>
+
             </div>
         </div>
     `).join('');
 
+    container.addEventListener('click', (e) => {
 
-container.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.btn-sterge');
-    if (!btn) return;
-    const jocId = btn.dataset.id;
-    await stergeJocVariante(jocId);
-    btn.closest('.mb-6').remove();
-});
+        const sageata = e.target.closest('.sageata');
+        if (sageata) {
+            const card = sageata.closest('.mb-6');
+            const grid = card.querySelector('.gridul-intrebari');
+            const btnJoaca = card.querySelector('.btn-joaca');
+            const btnSterge = card.querySelector('.btn-sterge');
+            const imaginea = card.querySelector('.imaginea');
+            const ptborderb = card.querySelector('.ptborderb');
 
-container.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-joaca');
-    if (!btn) return;
-    const jocId = btn.dataset.id;
-    const joc = listaJocuriGlobal.find(j => j.id === jocId);
-    if (joc) {
-        localStorage.setItem('jocVarianteCustom', JSON.stringify(joc.intrebari));
-        window.location.href = "../../pages/game-page/variante-game-page/variante-game.html";
-    } else {
-        console.log('Jocul nu a fost găsit.');
-    }
-});
+            const esteInchis = grid.classList.contains('hidden');
+
+            ptborderb.classList.toggle('border-b', esteInchis);
+            ptborderb.classList.toggle('border-gray-700', esteInchis);
+            grid.classList.toggle('hidden', !esteInchis);
+            btnJoaca.classList.toggle('hidden', !esteInchis);
+            btnSterge.classList.toggle('hidden', !esteInchis);
+            imaginea.classList.toggle('hidden', !esteInchis);
+
+            sageata.style.transform = esteInchis ? 'rotate(-90deg)' : 'rotate(0deg)';
+            return;
+        }
+
+        const btnSterge = e.target.closest('.btn-sterge');
+        if (btnSterge) {
+            const jocId = btnSterge.dataset.id;
+            stergeJocVariante(jocId);
+            btnSterge.closest('.mb-6').remove();
+            return;
+        }
+
+        const btnJoaca = e.target.closest('.btn-joaca');
+        if (btnJoaca) {
+            const jocId = btnJoaca.dataset.id;
+            const joc = listaJocuriGlobal.find(j => j.id === jocId);
+            if (joc) {
+                localStorage.setItem('jocVarianteCustom', JSON.stringify(joc.intrebari));
+                window.location.href = "../../pages/game-page/variante-game-page/variante-game.html";
+            }
+            return;
+        }
+    });
 }
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
