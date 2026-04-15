@@ -68,6 +68,7 @@ let contorTrueFalseCreateGame = 0;
 
 const container = document.getElementById("containerJocuri");
 let listaJocuriGlobal = [];
+
 function genereazaHTML(jocuri) {
     if (jocuri.length === 0) {
         container.innerHTML = `<p class="text-white text-center">Niciun joc salvat.</p>`;
@@ -75,33 +76,37 @@ function genereazaHTML(jocuri) {
     }
 
     container.innerHTML = jocuri.map(joc => `
-        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-6xl min-h-[200px] shadow-2xl mb-6">
+        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-7xl min-h-[200px] shadow-2xl mb-6">
 
-            <div class="md:w-1/4 w-full h-48 md:h-auto">
+            <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
                 <img src="../../assets/img/backgrounds/adevarat-fals-game-bg1.png" 
                     alt="Game Background" class="w-full h-full object-cover">
             </div>
 
             <div class="flex-1 p-6 flex flex-col justify-center gap-4">
-
+                
                 <div class="flex items-center justify-between border-b border-gray-700 pb-3">
+                    
+                    <img class="sageata cursor-pointer transition-transform duration-300 border-[1px] border-black block w-[50px] h-[50px] mr-4" 
+                        src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
+
                     <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
                         ${joc.nume || 'Fără nume'} — ${(joc.intrebari || []).length} întrebări
                     </h2>
+
                     <div class="flex gap-2">
-                    <button data-id="${joc.id}"
-                        class="btn-joaca bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all  ">
-                        Joacă acum
-                    </button>
-                    <button
-                        class="btn-sterge bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition"
-                        data-id="${joc.id}">
-                        Șterge joc
-                    </button>
+                        <button data-id="${joc.id}"
+                            class="btn-joaca hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
+                            Joacă acum
+                        </button>
+                        <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition"
+                            data-id="${joc.id}">
+                            Șterge joc
+                        </button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="gridul-intrebari hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     ${(joc.intrebari || []).map((q, index) => `
                         <div class="bg-[#3a3a38] p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
                             <span class="text-xs text-gray-400 uppercase font-bold">Întrebarea ${index + 1}</span>
@@ -116,40 +121,81 @@ function genereazaHTML(jocuri) {
             </div>
         </div>
     `).join('');
+
     contorTrueFalseCreateGame = jocuri.length + 1;
 
-
-
-    container.addEventListener('click', async (e) => {
-        const btn = e.target.closest('.btn-sterge');
-        if (!btn) return;
-
-        const jocId = btn.dataset.id;
-
-
-        await stergeJocTrueFalse(jocId);
-
-        btn.closest('.mb-6').remove();
-    });
-
     container.addEventListener('click', (e) => {
-        const btn = e.target.closest('.btn-joaca');
-        if (!btn) return;
 
-        const jocId = btn.dataset.id;
+        const sageata = e.target.closest('.sageata');
+        if (sageata) {
+            const card = sageata.closest('.mb-6');
+            const grid = card.querySelector('.gridul-intrebari');
+            const btnJoaca = card.querySelector('.btn-joaca');
+            const btnSterge = card.querySelector('.btn-sterge');
+            const imaginea = card.querySelector('.imaginea');
 
-        const joc = listaJocuriGlobal.find(j => j.id === jocId);
-        if (joc) {
-            console.log('Întrebări:', joc.intrebari);
-            localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
-            window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
-        } else {
-            console.log('Jocul nu a fost găsit.');
+            const esteInchis = grid.classList.contains('hidden');
+
+            grid.classList.toggle('hidden', !esteInchis);
+            btnJoaca.classList.toggle('hidden', !esteInchis);
+            btnSterge.classList.toggle('hidden', !esteInchis);
+            imaginea.classList.toggle('hidden', !esteInchis);
+
+            sageata.style.transform = esteInchis ? 'rotate(-90deg)' : 'rotate(0deg)';
+            return;
+        }
+
+        const btnSterge = e.target.closest('.btn-sterge');
+        if (btnSterge) {
+            const jocId = btnSterge.dataset.id;
+            stergeJocTrueFalse(jocId);
+            btnSterge.closest('.mb-6').remove();
+            return;
+        }
+
+        const btnJoaca = e.target.closest('.btn-joaca');
+        if (btnJoaca) {
+            const jocId = btnJoaca.dataset.id;
+            const joc = listaJocuriGlobal.find(j => j.id === jocId);
+            if (joc) {
+                localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
+                window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
+            }
+            return;
         }
     });
-
-
 }
+
+
+
+
+
+
+
+
+
+
+if(document.querySelector('.sageata')){
+let sageataElements = document.querySelector('.sageata');
+sageataElements.addEventListener('click', () => {
+    let  esteInchis=true;
+    if(esteInchis){
+        document.querySelector('.gridul-intrebari').classList.remove('hidden');
+        document.querySelector('.btn-joaca').classList.remove('hidden');
+        document.querySelector('.btn-sterge').classList.remove('hidden');
+        document.querySelector('.imaginea').classList.remove('hidden');
+        esteInchis=false;
+    }
+        else{
+        document.querySelector('.gridul-intrebari').classList.add('hidden');
+        document.querySelector('.btn-joaca').classList.add('hidden');
+        document.querySelector('.btn-sterge').classList.add('hidden');
+        document.querySelector('.imaginea').classList.add('hidden');
+    }   
+
+})
+}
+
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
