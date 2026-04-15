@@ -76,18 +76,18 @@ function genereazaHTML(jocuri) {
     }
 
     container.innerHTML = jocuri.map(joc => `
-        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-7xl min-h-[200px] shadow-2xl mb-6">
+        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[98%] min-h-[100px] shadow-2xl mb-6">
 
             <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
                 <img src="../../assets/img/backgrounds/adevarat-fals-game-bg1.png" 
                     alt="Game Background" class="w-full h-full object-cover">
             </div>
 
-            <div class="flex-1 p-6 flex flex-col justify-center gap-4">
+            <div class="flex-1 pt-8 pb-5 px-6 flex flex-col justify-center gap-4">
                 
-                <div class="flex items-center justify-between border-b border-gray-700 pb-3">
+                <div class="ptborderb flex items-center justify-between  pb-2">
                     
-                    <img class="sageata cursor-pointer transition-transform duration-300 border-[1px] border-black block w-[50px] h-[50px] mr-4" 
+                    <img class="sageata cursor-pointer transition-transform duration-300  block w-[50px] h-[50px] mr-4" 
                         src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
                     <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
@@ -133,9 +133,10 @@ function genereazaHTML(jocuri) {
             const btnJoaca = card.querySelector('.btn-joaca');
             const btnSterge = card.querySelector('.btn-sterge');
             const imaginea = card.querySelector('.imaginea');
-
+            const ptborderb = card.querySelector('.ptborderb');
             const esteInchis = grid.classList.contains('hidden');
-
+            ptborderb.classList.toggle('border-gray-700', esteInchis);
+            ptborderb.classList.toggle('border-b', esteInchis);
             grid.classList.toggle('hidden', !esteInchis);
             btnJoaca.classList.toggle('hidden', !esteInchis);
             btnSterge.classList.toggle('hidden', !esteInchis);
@@ -175,26 +176,7 @@ function genereazaHTML(jocuri) {
 
 
 
-if(document.querySelector('.sageata')){
-let sageataElements = document.querySelector('.sageata');
-sageataElements.addEventListener('click', () => {
-    let  esteInchis=true;
-    if(esteInchis){
-        document.querySelector('.gridul-intrebari').classList.remove('hidden');
-        document.querySelector('.btn-joaca').classList.remove('hidden');
-        document.querySelector('.btn-sterge').classList.remove('hidden');
-        document.querySelector('.imaginea').classList.remove('hidden');
-        esteInchis=false;
-    }
-        else{
-        document.querySelector('.gridul-intrebari').classList.add('hidden');
-        document.querySelector('.btn-joaca').classList.add('hidden');
-        document.querySelector('.btn-sterge').classList.add('hidden');
-        document.querySelector('.imaginea').classList.add('hidden');
-    }   
 
-})
-}
 
 
 onAuthStateChanged(auth, async (user) => {
