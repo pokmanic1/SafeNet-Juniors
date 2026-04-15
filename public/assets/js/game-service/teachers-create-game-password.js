@@ -67,46 +67,79 @@ let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
     if (!container) {
         console.warn("Anulare generare HTML: .containerJocuriPassword nu a fost găsit în această pagină.");
-        return; 
-    }   
+        return;
+    }
     if (jocuri.length === 0) {
         container.innerHTML = `<p class="text-white text-center">Niciun joc salvat.</p>`;
         return;
     }
+
+   container.innerHTML = jocuri.map(joc => `
+    <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[98%] min-h-[100px] shadow-2xl mb-6">
         
-    container.innerHTML = jocuri.map(joc => `
-        <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-6xl min-h-[200px] shadow-2xl mb-6">
-            <div class="md:w-1/4 w-full h-48 md:h-auto">
-                <img src="../../assets/img/backgrounds/password-game-bg1.png" alt="Game Background" class="w-full h-full object-cover">
-            </div>
-            <div class="flex-1 p-6 flex flex-col justify-center gap-4">
-                <div class="flex items-center justify-between border-b border-gray-700 pb-3">
-                    <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
-                        ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli
-                    </h2>
-                    <div class="flex gap-2">
-                        <button data-id="${joc.id}" class="btn-joaca bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
-                            Joacă acum
-                        </button>
-                        <button class="btn-sterge bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition" data-id="${joc.id}">
-                            Șterge joc
-                        </button>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    ${(joc.reguli || []).map((r, index) => `
-                        <div class="bg-[#3a3a38] p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
-                            <span class="text-xs text-gray-400 uppercase font-bold">Regula ${index + 1}</span>
-                            <p class="text-white font-medium mt-1">${r.conditie}</p>
-                            ${r.valoare ? `<span class="text-xs font-bold text-green-400">✓ ${r.valoare}</span>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
+        <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
+            <img src="../../assets/img/backgrounds/password-game-bg1.png" 
+                 alt="Game Background" class="w-full h-full object-cover">
         </div>
-    `).join('');
 
+        <div class="flex-1 pt-8 pb-5 px-6 flex flex-col justify-center gap-4">
+            
+            <div class="ptborderb flex items-center justify-between pb-2">
+                
+                <img class="sageata cursor-pointer transition-transform duration-300 block w-[50px] h-[50px] mr-4" 
+                    src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
+                <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
+                    ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli
+                </h2>
+
+                <div class="flex gap-2">
+                    <button data-id="${joc.id}" 
+                        class="btn-joaca hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
+                        Joacă acum
+                    </button>
+                    <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition" 
+                        data-id="${joc.id}">
+                        Șterge joc
+                    </button>
+                </div>
+            </div>
+
+            <div class="gridul-intrebari hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                ${(joc.reguli || []).map((r, index) => `
+                    <div class="bg-[#3a3a38] p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
+                        <span class="text-xs text-gray-400 uppercase font-bold">Regula ${index + 1}</span>
+                        <p class="text-white font-medium mt-1">${r.conditie}</p>
+                        ${r.valoare ? `<span class="text-xs font-bold text-green-400"> ${r.valoare}</span>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+
+        </div>
+    </div>
+`).join('');
+    container.addEventListener('click', (e) => {
+
+        const sageata = e.target.closest('.sageata');
+        if (sageata) {
+            const card = sageata.closest('.mb-6');
+            const grid = card.querySelector('.gridul-intrebari');
+            const btnJoaca = card.querySelector('.btn-joaca');
+            const btnSterge = card.querySelector('.btn-sterge');
+            const imaginea = card.querySelector('.imaginea');
+            const ptborderb = card.querySelector('.ptborderb');
+            const esteInchis = grid.classList.contains('hidden');
+            ptborderb.classList.toggle('border-gray-700', esteInchis);
+            ptborderb.classList.toggle('border-b', esteInchis);
+            grid.classList.toggle('hidden', !esteInchis);
+            btnJoaca.classList.toggle('hidden', !esteInchis);
+            btnSterge.classList.toggle('hidden', !esteInchis);
+            imaginea.classList.toggle('hidden', !esteInchis);
+
+            sageata.style.transform = esteInchis ? 'rotate(-90deg)' : 'rotate(0deg)';
+            return;
+        }
+    });
     container.addEventListener('click', async (e) => {
         const btn = e.target.closest('.btn-sterge');
         if (!btn) return;
@@ -126,7 +159,7 @@ function genereazaHTML(jocuri) {
         } else {
             console.log('Jocul nu a fost găsit.');
         }
-    }); 
+    });
 
 }
 onAuthStateChanged(auth, async (user) => {

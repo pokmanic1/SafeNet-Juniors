@@ -112,7 +112,7 @@ function genereazaHTML(jocuri) {
                             <span class="text-xs text-gray-400 uppercase font-bold">Întrebarea ${index + 1}</span>
                             <p class="text-white font-medium mt-1">${q.intrebare}</p>
                             <span class="text-xs font-bold text-green-400">
-                                ✓ ${raspunsCorect ? raspunsCorect.varianta : 'N/A'}
+                                ${raspunsCorect ? raspunsCorect.varianta : 'N/A'}
                             </span>
                         </div>`;
                     }).join('')}
