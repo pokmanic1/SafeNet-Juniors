@@ -6,6 +6,9 @@ const y = document.getElementById("InregistreazataID");
 
 const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
+let ancora = `/public/pages/dashbord/dashbord.elev.html`;
+
+
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
@@ -20,12 +23,15 @@ onAuthStateChanged(auth, async (user) => {
 
       if (data.role === "Profesor") {
         role = "Profesor";
-      }else{
+        ancora = "/public/pages/dashbord/dashbord.html";
+      } else {
         role = "Elev";
+        ancora = "/public/pages/dashbord/dashbord.elev.html";
       }
 
     }
     console.log("ROL:", role);
+    console.log("ancora:", ancora);
 
 
 
@@ -55,9 +61,9 @@ onAuthStateChanged(auth, async (user) => {
         <div class="flex justify-center items-center  flex-col mx-auto">
           <span id="numeUserMobile" class="text-[14px] font-semibold text-gray-900">...</span>
           <span id="emailUserMobile" class="text-[12px] mt-[5px]  text-gray-400">${user.email}</span>
-           <a href='/public/pages/dashbord/dashbord.html' id="dashboardLink" class="w-[150px] h-[34px] mt-[10px]  flex items-center justify-center px-4 bg-blue-600 text-white text-[13px] rounded-2xl hover:bg-red-600 transition"> <!-- ------------ -->
-            Clase
-        </a>
+            <a href='${ancora}' id="dashboardLink" class="w-[150px] h-[34px] mt-[10px]  flex items-center justify-center px-4 bg-blue-600 text-white text-[13px] rounded-2xl hover:bg-red-600 transition"> <!-- ------------ -->
+              Clase
+            </a>
           <button id="logoutBtnMobile"
             class="h-[34px] mt-[10px] w-[150px]   flex items-center justify-center px-4 bg-red-600 text-white text-[13px] rounded-2xl hover:bg-red-600 transition">
             Ieși din cont
@@ -85,52 +91,50 @@ onAuthStateChanged(auth, async (user) => {
     });
 
     console.log(`Bună ziua, ${user.email}`);
-  } else {
-    console.log("conectează-te");
-  }
-});
 
-async function toggleDashboard(user) {
-  const existing = document.getElementById("dashboardWrapper");
 
-  if (existing) {
-    existing.remove();
-    return;
-  }
 
-  const dashboardWrapper = document.createElement("div");
-  dashboardWrapper.id = "dashboardWrapper";
-  dashboardWrapper.style.cssText = `
+    async function toggleDashboard(user) {
+      const existing = document.getElementById("dashboardWrapper");
+
+      if (existing) {
+        existing.remove();
+        return;
+      }
+
+      const dashboardWrapper = document.createElement("div");
+      dashboardWrapper.id = "dashboardWrapper";
+      dashboardWrapper.style.cssText = `
     position: fixed;
     top: 70px;
     right: 20px;
     z-index: 9999;
   `;
 
-  dashboardWrapper.innerHTML = dashboard;
-  document.body.appendChild(dashboardWrapper);
+      dashboardWrapper.innerHTML = dashboard;
+      document.body.appendChild(dashboardWrapper);
 
-  const docRef = doc(db, "users", user.uid);
-  const docSnap = await getDoc(docRef);
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
 
-  if (docSnap.exists()) {
-    const data = docSnap.data();
+      if (docSnap.exists()) {
+        const data = docSnap.data();
 
-    document.getElementById("numeUser").textContent = data.usearname;
+        document.getElementById("numeUser").textContent = data.usearname;
 
-    document.getElementById("emailUser").textContent = user.email;
-  }
+        document.getElementById("emailUser").textContent = user.email;
+      }
 
-  document.getElementById("closeDashboard").addEventListener("click", () => {
-    dashboardWrapper.remove();
-  });
+      document.getElementById("closeDashboard").addEventListener("click", () => {
+        dashboardWrapper.remove();
+      });
 
-  document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.reload());
-  });
-}
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        signOut(auth).then(() => window.location.reload());
+      });
+    }
 
-let dashboard = `
+    let dashboard = `
 <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
     
     <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div> <!-- ------------ -->
@@ -145,7 +149,7 @@ let dashboard = `
         <h2  id="numeUser" class=" text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">John Doe</h2> <!-- ------------ -->
         <p id="emailUser" class="text-[13px] text-gray-400 mb-3">user@exemplu.com</p> <!-- ------------ -->
       <div class="flex flex-col items-center gap-2"> <!-- ------------ -->
-        <a href='/public/pages/dashbord/dashbord.html' id="dashboardLink" class="w-full h-[40px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
+        <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
             Clase
         </a>
         <button id="logoutBtn" class="w-full   h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
@@ -156,4 +160,10 @@ let dashboard = `
 
 </div>
 `;
+  }
+  else {
+    console.log("conectează-te");
+  }
 
+
+});
