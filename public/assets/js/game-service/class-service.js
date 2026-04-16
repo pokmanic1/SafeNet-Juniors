@@ -110,7 +110,7 @@ export function genereazaHTMLClase(clase, container) {
                 <span class="elevi-counter bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">
                     ${(clasa.elevi || []).length} elevi
                 </span>
-            </div>
+             </div>
             <p class="text-[#888] text-[13px]">Codul: <span class="font-mono font-bold text-white">${clasa.cod}</span></p>
             <div class="elevi-lista hidden mt-2 flex flex-col gap-1"></div>
             <div class="flex gap-2 mt-3">
