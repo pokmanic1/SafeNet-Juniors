@@ -91,6 +91,18 @@ export const eliminaElevDinClasa = async (clasaId, elevData) => {
     }
 };
 
+export const adaugaJocInClasa = async (clasaId, jocData) => {
+    // const user = auth.currentUser;
+    // if (!user) return;
+
+    // try {
+    //     const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
+    //     await updateDoc(clasaRef, { jocuri: arrayUnion(jocData) });
+    // } catch (err) {
+    //     console.error("Eroare la adaugare joc:", err);
+    // }
+};
+
 let listaClaseGlobal = [];
 
 // ─── Randare carduri clase ────────────────────────────────────────────────────
@@ -103,7 +115,7 @@ export function genereazaHTMLClase(clase, container) {
     clase.forEach(clasa => {
         const card = document.createElement("div");
         card.dataset.id = clasa.id;
-        card.className = "clasa-card border border-black bg-[#30302E] rounded-2xl p-[20px] flex flex-col gap-[8px] cursor-pointer transition-transform hover:scale-[1.02]";
+        card.className = "clasa-card border border-black bg-[#30302E] rounded-2xl py-[29px] xl:px-[20px] px-[10px] flex flex-col gap-[8px] cursor-pointer transition-transform hover:scale-[1.02]";
         card.innerHTML = `
             <div class="flex justify-between items-center">
                 <h2 class="text-white font-bold text-[18px]">${clasa.nume}</h2>
@@ -113,11 +125,20 @@ export function genereazaHTMLClase(clase, container) {
              </div>
             <p class="text-[#888] text-[13px]">Codul: <span class="font-mono font-bold text-white">${clasa.cod}</span></p>
             <div class="elevi-lista hidden mt-2 flex flex-col gap-1"></div>
-            <div class="flex gap-2 mt-3">
-                <button class="btn-vezi-elevi text-[11px] bg-[#3a3a38] text-[#ccc] px-3 py-1 rounded-full hover:bg-[#4a4a48] transition">
-                    Vezi elevi
-                </button>
-                <button class="btn-sterge-clasa text-[11px] bg-red-700 text-white px-3 py-1 rounded-full hover:bg-red-800 transition">
+            <div class="flex justify-between flex-row   gap-[1px]">
+                
+                    <button class="btn-vezi-elevi text-[14px] bg-[#3a3a38] text-[#ccc] py-1 lg:px-4  lg:text-[16px]  px-4 text-[14px] rounded-full hover:bg-[#4a4a48] transition">
+                        Vezi elevi
+                    </button>
+                    <select class="btn-adaug appearance-none text-[14px] bg-blue-700 text-white py-1 lg:px-4 text-center lg:text-[16px] px-4 rounded-full hover:bg-blue-800 transition cursor-pointer outline-none">
+                        <option value="" disabled selected>Adaugă</option>
+                        <option value="1" class="bg-blue-700 text-white py-1">Cartonase</option>
+                        <option value="2" class="bg-blue-700 text-white py-1">Adv-Fals</option>
+                        <option value="3" class="bg-blue-700 text-white py-1">Parola</option>
+                        <option value="4" class="bg-blue-700 text-white py-1">Variante</option>
+                    </select>
+
+                <button class="btn-sterge-clasa text-[14px] bg-red-700 text-white py-1 lg:px-5  lg:text-[16px]  px-4 text-[14px] rounded-full hover:bg-red-800 transition">
                     Sterge
                 </button>
             </div>
@@ -167,6 +188,15 @@ function atasazaEventuri(container) {
                 btnVezi.textContent = "Vezi elevi";
             }
             return;
+        }
+
+        const btnAdauga = e.target.closest(".btn-adaug");
+        if(btnAdauga) {
+           const valoare = btnAdauga.value;
+           if(valoare==1) { return;  } 
+           if(valoare==2) { return;  } 
+           if(valoare==3) { return;  } 
+           if(valoare==4) { return;  } 
         }
 
         const btnElimina = e.target.closest(".btn-elimina-elev");

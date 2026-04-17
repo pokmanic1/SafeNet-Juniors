@@ -234,7 +234,7 @@
                 </div>
 
                 <!-- Grid-ul claselor — JS-ul inserează cardurile ÎNAINTE de cardul Adaugă -->
-                <div id="grila-clase" class="w-[92%] mx-auto grid grid-cols-1 md:grid-cols-3 gap-[16px]">
+                <div id="grila-clase" class="w-[94%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-[10px]">
 
                     <!-- Cardul "Adaugă clasă" — rămâne mereu ultimul -->
                     <div id="card-adauga-clasa" class="border border-dashed border-gray-500 bg-[#30302E] rounded-2xl p-[20px]
@@ -460,33 +460,33 @@
     </section>
 
     <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
 
-    function setMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            iconOpen.classList.toggle('hidden', open);
+            iconClose.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      setMenu(!isOpen);
-    });
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            setMenu(!isOpen);
+        });
 
-    // Închide meniul când se schimbă la desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) setMenu(false);
-    });
+        // Închide meniul când se schimbă la desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMenu(false);
+        });
 
-    // Închide meniul când se apasă Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setMenu(false);
-    });
-  </script>
+        // Închide meniul când se apasă Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    </script>
 
     <script type="module" src="../../assets/js/game-service/class-service.js"></script>
     <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
