@@ -100,6 +100,53 @@
 
 
 
+        <div class="w-full flex flex-col p-[32px]">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+                Bun venit în dashboard-ul tău, elev!
+            </h1>
+            <p class="text-gray-700 text-lg md:text-xl text-center max-w-2xl mx-auto">
+                Aici poți accesa jocurile și testele create de profesori pentru a învăța cum să fii în siguranță online.
+                Explorează resursele
+                și distrează-te în timp ce înveți!
+            </p>
+        </div>
+
+
+
+
+        <div class="w-full flex flex-col p-[32px]">
+
+            <h2 class="text-2xl md:text-3xl font-semibold text-black mb-4 text-center">
+                Clasele tale
+            </h2>
+
+            <div class="w-full flex flex-col">
+
+                <div class="w-[92%] flex justify-start items-center mb-[20px] mx-auto">
+                    <h1 class="text-start font-semibold text-[24px]">Clasele Mele</h1>
+                </div>
+
+                <div id="grila-clase"
+                    class="w-[94%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-[10px]">
+
+                    <div id="card-adauga-clasa" class="border border-dashed border-gray-500 bg-[#30302E] rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38]">
+
+                        <p class="text-[#aaa] text-[16px] font-medium">Clasă nouă</p>
+                        <p class="text-[#aaa] text-[14px] font-medium">Introdu codul clasei</p>
+
+                        <input id="input-nume-clasa" type="text" placeholder="Ex: Clasa 4B" class="w-full border border-gray-600 bg-[#252523] px-3 py-2 rounded-xl text-white text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
+
+                        <button id="btn-adauga-clasa" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-semibold px-5 py-2 rounded-full transition active:scale-95">
+                            <span class="text-[18px] leading-none">+</span> Intra in clasa
+                        </button>
+
+                        <p id="msg-adauga-clasa" class="text-[12px] text-green-400 hidden"> </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </section>
 
@@ -191,35 +238,35 @@
     </section>
 
     <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
 
-    function setMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            iconOpen.classList.toggle('hidden', open);
+            iconClose.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      setMenu(!isOpen);
-    });
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            setMenu(!isOpen);
+        });
 
-    // Închide meniul când se schimbă la desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) setMenu(false);
-    });
+        // Închide meniul când se schimbă la desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMenu(false);
+        });
 
-    // Închide meniul când se apasă Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setMenu(false);
-    });
-  </script>
+        // Închide meniul când se apasă Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    </script>
 
-    <script type="module" src="../../assets/js/game-service/class-service.js"></script>
+    <script type="module" src="../../assets/js/game-service/class-elevi-service.js"></script>
     <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
