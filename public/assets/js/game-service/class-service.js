@@ -2,6 +2,7 @@ import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection,
     addDoc,
+    setDoc,
     getDocs,
     deleteDoc,
     doc,
@@ -32,14 +33,24 @@ export const adaugaClasa = async (numeClasa) => {
     const user = auth.currentUser;
     if (!user) return null;
     try {
+        const cod = genereazaCod(numeClasa);
         const claseRef = collection(db, "users", user.uid, "clase");
         const docRef = await addDoc(claseRef, {
             nume: numeClasa,
-            cod: genereazaCod(numeClasa),
+            cod,
             elevi: [],
             jocuri: [],
             creatLa: serverTimestamp()
         });
+
+        // Scriem si in colectia globala /clase_globale ca elevii sa poata cauta dupa cod
+        await setDoc(doc(db, "clase_globale", docRef.id), {
+            cod,
+            nume: numeClasa,
+            teacherUid: user.uid,
+            clasaId: docRef.id
+        });
+
         return docRef.id;
     } catch (err) {
         console.error("Eroare la adaugare clasa:", err);
@@ -65,6 +76,8 @@ export const stergeClasa = async (clasaId) => {
     if (!user) return;
     try {
         await deleteDoc(doc(db, "users", user.uid, "clase", clasaId));
+        // Stergem si din globala
+        await deleteDoc(doc(db, "clase_globale", clasaId));
     } catch (err) {
         console.error("Eroare la stergere clasa:", err);
     }
@@ -126,6 +139,7 @@ const adaugaJocInClasa = async (clasaId, jocData) => {
     try {
         const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
         await updateDoc(clasaRef, { jocuri: arrayUnion(jocData) });
+        await updateDoc(doc(db, "clase_globale", clasaId), { jocuri: arrayUnion(jocData) });
     } catch (err) {
         console.error("Eroare la adaugare joc in clasa:", err);
     }
@@ -137,6 +151,7 @@ const eliminaJocDinClasa = async (clasaId, jocData) => {
     try {
         const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
         await updateDoc(clasaRef, { jocuri: arrayRemove(jocData) });
+        await updateDoc(doc(db, "clase_globale", clasaId), { jocuri: arrayRemove(jocData) });
     } catch (err) {
         console.error("Eroare la eliminare joc:", err);
     }
@@ -190,17 +205,16 @@ function deschideModalJocuri(clasaId, tip, onJocAles) {
         lista.addEventListener("click", async (e) => {
             const btn = e.target.closest(".btn-alege-joc");
             if (!btn) return;
-
             btn.disabled = true;
             btn.textContent = "Se adauga...";
-
             const jocData = {
                 jocId: btn.dataset.jocId,
                 nume: btn.dataset.jocNume,
                 tip: parseInt(btn.dataset.tip),
-                tipNume: TIP_NUME[btn.dataset.tip]
+                tipNume: TIP_NUME[btn.dataset.tip],
+                colectie: TIP_COLECTIE[btn.dataset.tip],
+                teacherUid: auth.currentUser.uid
             };
-
             await adaugaJocInClasa(clasaId, jocData);
             onJocAles(jocData);
             modal.remove();
@@ -327,10 +341,8 @@ function atasazaEventuri(container) {
             const elevData = JSON.parse(btnElimina.dataset.elev);
             await eliminaElevDinClasa(clasaId, elevData);
             btnElimina.closest("div").remove();
-
             const clasa = listaClaseGlobal.find(c => c.id === clasaId);
             if (clasa) clasa.elevi = clasa.elevi.filter(e => e.uid !== elevData.uid);
-
             const card = document.querySelector(`[data-id="${clasaId}"]`);
             if (card) {
                 const counter = card.querySelector(".elevi-counter");
@@ -345,13 +357,10 @@ function atasazaEventuri(container) {
     container.addEventListener("change", (e) => {
         const select = e.target.closest(".btn-adaug-joc");
         if (!select) return;
-
         const tip = select.value;
         const card = select.closest(".clasa-card");
         const clasaId = card.dataset.id;
-
         select.value = "";
-
         deschideModalJocuri(clasaId, tip, (jocData) => {
             const clasa = listaClaseGlobal.find(c => c.id === clasaId);
             if (clasa) {
@@ -389,7 +398,6 @@ async function initDashboard() {
         if (newId) {
             const claseActualizate = await getToateClasele();
             genereazaHTMLClase(claseActualizate, container);
-
             if (msgAdauga) {
                 msgAdauga.classList.remove("hidden");
                 setTimeout(() => msgAdauga.classList.add("hidden"), 2500);
