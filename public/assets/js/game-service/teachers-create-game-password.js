@@ -75,21 +75,21 @@ function genereazaHTML(jocuri) {
     }
 
    container.innerHTML = jocuri.map(joc => `
-    <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[98%] min-h-[100px] shadow-2xl mb-6">
+    <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
         
         <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
             <img src="../../assets/img/backgrounds/password-game-bg1.png" 
                  alt="Game Background" class="w-full h-full object-cover">
         </div>
 
-        <div class="flex-1 pt-8 pb-5 px-6 flex flex-col justify-center gap-4">
+        <div class="flex-1 pt-[8px] pb-[5px] px-[6px] flex flex-col justify-center gap-4">
             
-            <div class="ptborderb flex items-center justify-between pb-2">
+            <div class="ptborderb flex items-center justify-between pb-[2px]">
                 
-                <img class="sageata cursor-pointer transition-transform duration-300 block w-[50px] h-[50px] mr-4" 
+                <img class="sageata cursor-pointer transition-transform duration-300 block w-[30px] h-[30px] mr-[20px] my-auto" 
                     src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
-                <h2 class="text-2xl font-bold text-yellow-500 uppercase tracking-wider">
+                <h2 class="lg:text-[18px] md:text-[16px] sm:text-[14px] text-[12px] font-bold text-yellow-500 uppercase tracking-wider">
                     ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli
                 </h2>
 

@@ -100,7 +100,7 @@ function creeazaCard(clasa) {
                         </div>
                         <button class="btn-joaca bg-green-600 hover:bg-green-700 active:scale-95 text-white text-[11px] font-bold px-3 py-1.5 rounded-full transition"
                             data-joc-id="${j.jocId}" data-tip="${j.tip}" data-colectie="${j.colectie}" data-teacher="${j.teacherUid}">
-                            ▶ Joacă
+                            Joacă
                         </button>
                     </div>
                 `).join("")
@@ -190,7 +190,7 @@ function initInput() {
         const clasaFresh = await getClasaFresh(clasaId) || clasa;
         container.insertBefore(creeazaCard(clasaFresh), cardAdauga);
 
-        afiseazaMesaj(`✓ Ai intrat în clasa ${clasa.nume}!`, "text-green-400");
+        afiseazaMesaj(`Ai intrat în clasa ${clasa.nume}!`, "text-green-400");
         input.value = "";
     };
 

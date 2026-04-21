@@ -121,7 +121,7 @@
       }
     }
 
-    .carousel-3d {
+    /* .carousel-3d {
       transform-style: preserve-3d;
       animation: rotate3d 20s linear infinite;
     }
@@ -135,6 +135,27 @@
 
     .carousel-item span {
       display: block;
+    } */
+
+    .carousel-3d {
+      transform-style: preserve-3d;
+      animation: rotate 20s linear infinite;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: perspective(1000px) rotateY(0deg);
+      }
+
+      to {
+        transform: perspective(1000px) rotateY(360deg);
+      }
     }
   </style>
 
@@ -385,8 +406,87 @@
     </div>
   </section>
 
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+
+  <section class="bg-white min-h-[100dvh] py-[120px] px-[20px] flex items-center justify-center">
+
+    <div class="relative 
+              w-[120px] h-[10px] 
+              sm:w-[140px] sm:h-[170px]
+              md:w-[150px] md:h-[200px]
+              lg:w-[180px] lg:h-[230px]
+
+              carousel-3d
+
+              [--tz:220px] 
+              sm:[--tz:260px] 
+              md:[--tz:320px] 
+              lg:[--tz:400px]">
+
+      <div class="carousel-item" style="--i:0; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/shufle-game-bg2.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:1; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/adevarat-fals-game-bg1.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:2; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/password-game-bg1.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:3; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/variante-game-bg8.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:4; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/shufle-game-bg2.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:5; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/adevarat-fals-game-bg1.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:6; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/password-game-bg1.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+      <div class="carousel-item" style="--i:7; transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--tz));">
+        <span class="block w-full h-full rounded-[20px] overflow-hidden shadow-xl">
+          <img src="./assets/img/backgrounds/variante-game-bg8.png" class="w-full h-full object-cover" />
+        </span>
+      </div>
+
+    </div>
+
+  </section>
 
 
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
 
 
   <section
@@ -395,49 +495,57 @@
     <div class="relative w-[200px] h-[250px] carousel-3d">
 
       <div class="carousel-item" style="--i:0; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/shufle-game-bg2.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:1; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/adevarat-fals-game-bg1.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:2; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/password-game-bg1.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:3; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/variante-game-bg8.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:4; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/shufle-game-bg2.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:5; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/adevarat-fals-game-bg1.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:6; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/password-game-bg1.png" class="w-full h-full object-cover" />
         </span>
       </div>
 
       <div class="carousel-item" style="--i:7; transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);">
-        <span class="block w-[180px] h-[200px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+        <span
+          class="block lg:w-[180px] lg:h-[200px] md:w-[160px] md:h-[180px] sm:w-[140px] sm:h-[160px] w-[120px] h-[140px] rounded-[24px] overflow-hidden shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
           <img src="./assets/img/backgrounds/variante-game-bg8.png" class="w-full h-full object-cover" />
         </span>
       </div>
