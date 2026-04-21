@@ -1,3 +1,8 @@
+// ============================================================
+// class-service.js  —  v2 (fix eliminare elev dupa uid)
+// Locatie: public/assets/js/game-service/class-service.js
+// ============================================================
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection,
@@ -6,19 +11,20 @@ import {
     getDocs,
     deleteDoc,
     doc,
+    getDoc,
     updateDoc,
     arrayUnion,
-    arrayRemove,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-        window.location.href = "../../index.html";
-        return;
-    }
-    await initDashboard();
+//statistici 
+let claseActive=0;
+let eleviInscrisi=0;
+let jocuriPublicate=0;
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) window.location.href = "../../../index.html";
 });
 
 function genereazaCod(numeClasa) {
@@ -27,7 +33,7 @@ function genereazaCod(numeClasa) {
     return `${prefix}-${rand}`;
 }
 
-// ─── CRUD Clase ───────────────────────────────────────────────────────────────
+// ─── CRUD Clase ───────────────────────────────────────────────
 
 export const adaugaClasa = async (numeClasa) => {
     const user = auth.currentUser;
@@ -36,24 +42,19 @@ export const adaugaClasa = async (numeClasa) => {
         const cod = genereazaCod(numeClasa);
         const claseRef = collection(db, "users", user.uid, "clase");
         const docRef = await addDoc(claseRef, {
-            nume: numeClasa,
-            cod,
-            elevi: [],
-            jocuri: [],
+            nume: numeClasa, cod,
+            elevi: [], jocuri: [],
             creatLa: serverTimestamp()
         });
-
-        // Scriem si in colectia globala /clase_globale ca elevii sa poata cauta dupa cod
         await setDoc(doc(db, "clase_globale", docRef.id), {
-            cod,
-            nume: numeClasa,
+            cod, nume: numeClasa,
             teacherUid: user.uid,
-            clasaId: docRef.id
+            clasaId: docRef.id,
+            jocuri: []
         });
-
         return docRef.id;
     } catch (err) {
-        console.error("Eroare la adaugare clasa:", err);
+        console.error("Eroare adaugare clasa:", err);
         return null;
     }
 };
@@ -62,13 +63,13 @@ export const getToateClasele = async () => {
     const user = auth.currentUser;
     if (!user) return [];
     try {
-        const claseRef = collection(db, "users", user.uid, "clase");
-        const snapshot = await getDocs(claseRef);
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        const snap = await getDocs(collection(db, "users", user.uid, "clase"));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }) );
     } catch (err) {
-        console.error("Eroare la citire clase:", err);
+        console.error("Eroare citire clase:", err);
         return [];
     }
+    console.log("Clasele au fost citite cu succes.");
 };
 
 export const stergeClasa = async (clasaId) => {
@@ -76,46 +77,49 @@ export const stergeClasa = async (clasaId) => {
     if (!user) return;
     try {
         await deleteDoc(doc(db, "users", user.uid, "clase", clasaId));
-        // Stergem si din globala
         await deleteDoc(doc(db, "clase_globale", clasaId));
     } catch (err) {
-        console.error("Eroare la stergere clasa:", err);
+        console.error("Eroare stergere clasa:", err);
     }
 };
 
-export const eliminaElevDinClasa = async (clasaId, elevData) => {
+export const eliminaElevDinClasa = async (clasaId, elevUid) => {
     const user = auth.currentUser;
     if (!user) return;
     try {
         const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
-        await updateDoc(clasaRef, { elevi: arrayRemove(elevData) });
+        const snap = await getDoc(clasaRef);
+        if (!snap.exists()) return;
+
+        const eleviFiltrati = (snap.data().elevi || []).filter(e => e.uid !== elevUid);
+        await updateDoc(clasaRef, { elevi: eleviFiltrati });
+
+        try {
+            await deleteDoc(doc(db, "users", elevUid, "clase_elev", clasaId));
+        } catch (_) { }
+
     } catch (err) {
-        console.error("Eroare la eliminare elev:", err);
+        console.error("Eroare eliminare elev:", err);
     }
 };
 
 export const adaugaElevInClasa = async (teacherUid, clasaId, elevData) => {
     try {
-        const clasaRef = doc(db, "users", teacherUid, "clase", clasaId);
-        await updateDoc(clasaRef, { elevi: arrayUnion(elevData) });
+        await updateDoc(doc(db, "users", teacherUid, "clase", clasaId), {
+            elevi: arrayUnion(elevData)
+        });
     } catch (err) {
-        console.error("Eroare la adaugare elev:", err);
+        console.error("Eroare adaugare elev:", err);
     }
 };
 
-
 const TIP_COLECTIE = {
-    "1": "jocuri_shufle",
-    "2": "jocuri_true_false",
-    "3": "jocuri_password",
-    "4": "jocuri_variante"
+    "1": "jocuri_shufle", "2": "jocuri_true_false",
+    "3": "jocuri_password", "4": "jocuri_variante"
 };
-
 const TIP_NUME = {
-    "1": "Cartonase",
-    "2": "Adevarat-Fals",
-    "3": "Parola",
-    "4": "Variante"
+    "1": "Cartonase", "2": "Adevarat-Fals",
+    "3": "Parola", "4": "Variante"
 };
 
 const getJocuriDeTip = async (tip) => {
@@ -124,25 +128,22 @@ const getJocuriDeTip = async (tip) => {
     const colectie = TIP_COLECTIE[tip];
     if (!colectie) return [];
     try {
-        const ref = collection(db, "users", user.uid, colectie);
-        const snapshot = await getDocs(ref);
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-    } catch (err) {
-        console.error("Eroare la citire jocuri:", err);
-        return [];
-    }
+        const snap = await getDocs(collection(db, "users", user.uid, colectie));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    } catch (err) { return []; }
 };
 
 const adaugaJocInClasa = async (clasaId, jocData) => {
     const user = auth.currentUser;
     if (!user) return;
     try {
-        const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
-        await updateDoc(clasaRef, { jocuri: arrayUnion(jocData) });
-        await updateDoc(doc(db, "clase_globale", clasaId), { jocuri: arrayUnion(jocData) });
-    } catch (err) {
-        console.error("Eroare la adaugare joc in clasa:", err);
-    }
+        await updateDoc(doc(db, "users", user.uid, "clase", clasaId), {
+            jocuri: arrayUnion(jocData)
+        });
+        await updateDoc(doc(db, "clase_globale", clasaId), {
+            jocuri: arrayUnion(jocData)
+        });
+    } catch (err) { console.error("Eroare adaugare joc:", err); }
 };
 
 const eliminaJocDinClasa = async (clasaId, jocData) => {
@@ -150,17 +151,16 @@ const eliminaJocDinClasa = async (clasaId, jocData) => {
     if (!user) return;
     try {
         const clasaRef = doc(db, "users", user.uid, "clase", clasaId);
-        await updateDoc(clasaRef, { jocuri: arrayRemove(jocData) });
-        await updateDoc(doc(db, "clase_globale", clasaId), { jocuri: arrayRemove(jocData) });
-    } catch (err) {
-        console.error("Eroare la eliminare joc:", err);
-    }
+        const snap = await getDoc(clasaRef);
+        if (!snap.exists()) return;
+        const jocuriFiltrate = (snap.data().jocuri || []).filter(j => j.jocId !== jocData.jocId);
+        await updateDoc(clasaRef, { jocuri: jocuriFiltrate });
+        await updateDoc(doc(db, "clase_globale", clasaId), { jocuri: jocuriFiltrate });
+    } catch (err) { console.error("Eroare eliminare joc:", err); }
 };
 
-
 function deschideModalJocuri(clasaId, tip, onJocAles) {
-    const existing = document.querySelector("#modal-selectare-joc");
-    if (existing) existing.remove();
+    document.querySelector("#modal-selectare-joc")?.remove();
 
     const modal = document.createElement("div");
     modal.id = "modal-selectare-joc";
@@ -177,14 +177,13 @@ function deschideModalJocuri(clasaId, tip, onJocAles) {
         </div>
     `;
     document.body.appendChild(modal);
-
     modal.querySelector("#modal-inchide").addEventListener("click", () => modal.remove());
     modal.addEventListener("click", (e) => { if (e.target === modal) modal.remove(); });
 
     getJocuriDeTip(tip).then(jocuri => {
         const lista = modal.querySelector("#modal-lista-jocuri");
-        if (jocuri.length === 0) {
-            lista.innerHTML = `<p class="text-gray-400 text-[13px] text-center py-4">Nu ai niciun joc de acest tip creat inca.</p>`;
+        if (!jocuri.length) {
+            lista.innerHTML = `<p class="text-gray-400 text-[13px] text-center py-4">Nu ai niciun joc de acest tip.</p>`;
             return;
         }
         lista.innerHTML = jocuri.map(joc => `
@@ -197,7 +196,7 @@ function deschideModalJocuri(clasaId, tip, onJocAles) {
                     data-joc-id="${joc.id}"
                     data-joc-nume="${joc.nume || "Fara nume"}"
                     data-tip="${tip}">
-                    Adauga
+                    Adaugă
                 </button>
             </div>
         `).join("");
@@ -206,7 +205,7 @@ function deschideModalJocuri(clasaId, tip, onJocAles) {
             const btn = e.target.closest(".btn-alege-joc");
             if (!btn) return;
             btn.disabled = true;
-            btn.textContent = "Se adauga...";
+            btn.textContent = "Se adaugă...";
             const jocData = {
                 jocId: btn.dataset.jocId,
                 nume: btn.dataset.jocNume,
@@ -226,7 +225,6 @@ let listaClaseGlobal = [];
 
 export function genereazaHTMLClase(clase, container) {
     listaClaseGlobal = clase;
-
     const cardAdauga = document.querySelector("#card-adauga-clasa");
     container.innerHTML = "";
 
@@ -266,7 +264,7 @@ export function genereazaHTMLClase(clase, container) {
                     Vezi elevi
                 </button>
                 <select class="btn-adaug-joc appearance-none text-[14px] bg-blue-700 text-white py-1 lg:px-4 text-center lg:text-[16px] px-4 rounded-full hover:bg-blue-800 transition cursor-pointer outline-none">
-                    <option value="" disabled selected>Adauga joc</option>
+                    <option value="" disabled selected>Adaugă joc</option>
                     <option value="1">Cartonase</option>
                     <option value="2">Adv-Fals</option>
                     <option value="3">Parola</option>
@@ -283,7 +281,7 @@ export function genereazaHTMLClase(clase, container) {
     if (cardAdauga) container.appendChild(cardAdauga);
 }
 
-function atasazaEventuri(container) {
+export function atasazaEventuri(container) {
     container.addEventListener("click", async (e) => {
 
         const btnSterge = e.target.closest(".btn-sterge-clasa");
@@ -291,8 +289,8 @@ function atasazaEventuri(container) {
             const card = btnSterge.closest(".clasa-card");
             const clasaId = card.dataset.id;
             await stergeClasa(clasaId);
-            card.remove();
             listaClaseGlobal = listaClaseGlobal.filter(c => c.id !== clasaId);
+            card.remove();
             return;
         }
 
@@ -300,27 +298,54 @@ function atasazaEventuri(container) {
         if (btnVezi) {
             const card = btnVezi.closest(".clasa-card");
             const clasaId = card.dataset.id;
-            const clasa = listaClaseGlobal.find(c => c.id === clasaId);
             const listaEl = card.querySelector(".elevi-lista");
 
             if (listaEl.classList.contains("hidden")) {
-                const elevi = clasa?.elevi || [];
+                const snap = await getDoc(doc(db, "users", auth.currentUser.uid, "clase", clasaId));
+                const elevi = snap.exists() ? (snap.data().elevi || []) : [];
+
+                const clasa = listaClaseGlobal.find(c => c.id === clasaId);
+                if (clasa) clasa.elevi = elevi;
+
                 listaEl.innerHTML = elevi.length === 0
                     ? `<p class="text-[#666] text-[12px]">Niciun elev inscris inca.</p>`
                     : elevi.map(el => `
                         <div class="flex items-center justify-between bg-[#3a3a38] rounded-lg px-3 py-1.5">
-                            <span class="text-white text-[13px]">${el.nume || el.email}</span>
-                            <button class="btn-elimina-elev text-red-400 text-[11px] hover:text-red-300"
+                            <span class="text-white text-[13px]">${el.nume || el.email || "—"}</span>
+                            <button class="btn-elimina-elev text-red-400 text-[11px] hover:text-red-300 transition"
                                 data-clasa="${clasaId}"
-                                data-elev='${JSON.stringify(el)}'>✕</button>
+                                data-uid="${el.uid}"
+                                data-nume="${el.nume || el.email || ""}">
+                                ✕
+                            </button>
                         </div>
                     `).join("");
+
                 listaEl.classList.remove("hidden");
                 btnVezi.textContent = "Ascunde";
             } else {
                 listaEl.classList.add("hidden");
                 btnVezi.textContent = "Vezi elevi";
             }
+            return;
+        }
+
+        const btnElimina = e.target.closest(".btn-elimina-elev");
+        if (btnElimina) {
+            const clasaId  = btnElimina.dataset.clasa;
+            const elevUid  = btnElimina.dataset.uid;   
+
+            await eliminaElevDinClasa(clasaId, elevUid);  
+
+            btnElimina.closest("div").remove();
+
+            const clasa = listaClaseGlobal.find(c => c.id === clasaId);
+            if (clasa) clasa.elevi = (clasa.elevi || []).filter(e => e.uid !== elevUid);
+
+            const card = document.querySelector(`[data-id="${clasaId}"]`);
+            const counter = card?.querySelector(".elevi-counter");
+            if (counter && clasa) counter.textContent = `${(clasa.elevi || []).length} elevi`;
+
             return;
         }
 
@@ -333,24 +358,6 @@ function atasazaEventuri(container) {
             const clasa = listaClaseGlobal.find(c => c.id === clasaId);
             if (clasa) clasa.jocuri = (clasa.jocuri || []).filter(j => j.jocId !== jocData.jocId);
             return;
-        }
-
-        const btnElimina = e.target.closest(".btn-elimina-elev");
-        if (btnElimina) {
-            const clasaId = btnElimina.dataset.clasa;
-            const elevData = JSON.parse(btnElimina.dataset.elev);
-            await eliminaElevDinClasa(clasaId, elevData);
-            btnElimina.closest("div").remove();
-            const clasa = listaClaseGlobal.find(c => c.id === clasaId);
-            if (clasa) clasa.elevi = clasa.elevi.filter(e => e.uid !== elevData.uid);
-            const card = document.querySelector(`[data-id="${clasaId}"]`);
-            if (card) {
-                const counter = card.querySelector(".elevi-counter");
-                const clazaActualizata = listaClaseGlobal.find(c => c.id === clasaId);
-                if (counter && clazaActualizata) {
-                    counter.textContent = `${(clazaActualizata.elevi || []).length} elevi`;
-                }
-            }
         }
     });
 
@@ -368,11 +375,12 @@ function atasazaEventuri(container) {
                 clasa.jocuri.push(jocData);
             }
             genereazaHTMLClase(listaClaseGlobal, container);
+            atasazaEventuri(container);
         });
     });
 }
 
-async function initDashboard() {
+export async function initDashboard() {
     const container = document.querySelector("#grila-clase");
     if (!container) return;
 
@@ -383,10 +391,9 @@ async function initDashboard() {
     const btnAdauga = document.querySelector("#btn-adauga-clasa");
     const inputNume = document.querySelector("#input-nume-clasa");
     const msgAdauga = document.querySelector("#msg-adauga-clasa");
-
     if (!btnAdauga || !inputNume) return;
 
-    btnAdauga.addEventListener("click", async () => {
+    const executa = async () => {
         const numeClasa = inputNume.value.trim();
         if (!numeClasa) { inputNume.focus(); return; }
 
@@ -394,10 +401,10 @@ async function initDashboard() {
         btnAdauga.textContent = "Se adauga...";
 
         const newId = await adaugaClasa(numeClasa);
-
         if (newId) {
             const claseActualizate = await getToateClasele();
             genereazaHTMLClase(claseActualizate, container);
+            atasazaEventuri(container);
             if (msgAdauga) {
                 msgAdauga.classList.remove("hidden");
                 setTimeout(() => msgAdauga.classList.add("hidden"), 2500);
@@ -406,10 +413,14 @@ async function initDashboard() {
         }
 
         btnAdauga.disabled = false;
-        btnAdauga.innerHTML = `<span class="text-[18px] leading-none">+</span> Adauga clasa`;
-    });
+        btnAdauga.innerHTML = `<span class="text-[18px] leading-none">+</span> Adaugă clasă`;
+    };
 
-    inputNume.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") btnAdauga.click();
-    });
+    btnAdauga.addEventListener("click", executa);
+    inputNume.addEventListener("keydown", (e) => { if (e.key === "Enter") executa(); });
 }
+
+onAuthStateChanged(auth, async (user) => {
+    if (!user) return;
+    await initDashboard();
+});

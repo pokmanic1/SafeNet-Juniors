@@ -117,7 +117,7 @@ function creeazaCard(clasa) {
         btn.addEventListener("click", async () => {
             const tip = parseInt(btn.dataset.tip);
             const dateJoc = await getDateJoc(btn.dataset.teacher, btn.dataset.colectie, btn.dataset.jocId);
-            if (!dateJoc) { alert("Jocul nu a putut fi încărcat."); return; }
+            if (!dateJoc) { console.log("Jocul nu a putut fi încărcat."); return; }
             const cheie = LOCALSTORAGE_KEY[tip];
             if (tip === 1) localStorage.setItem(cheie, JSON.stringify(dateJoc.date));
             if (tip === 2) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
@@ -179,7 +179,7 @@ function initInput() {
         const cardAdauga = document.querySelector("#card-adauga-clasa");
 
         if (container.querySelector(`[data-id="${clasaId}"]`)) {
-            afiseazaMesaj("ℹ️ Ești deja în această clasă!", "text-yellow-400");
+            afiseazaMesaj(" Ești deja în această clasă!", "text-yellow-400");
             input.value = "";
             return;
         }
