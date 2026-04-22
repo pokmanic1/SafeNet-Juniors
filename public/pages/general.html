@@ -8,42 +8,43 @@
   <link rel="stylesheet" href="../assets/css/app.css">
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
 
 <body>
   <header class="w-full ">
-    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
 
 
       <a href="../index.html" class="flex items-center gap-3">
-        <img class="w-32 object-contain" src="../assets/img/Logo.svg" alt="SafeNet Junior">
+        <img class="object-contain w-32" src="../assets/img/Logo.svg" alt="SafeNet Junior">
       </a>
 
 
-      <nav class="hidden md:flex items-center gap-12 font-semibold">
+      <nav class="items-center hidden gap-12 font-semibold md:flex">
         <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
         <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
       </nav>
 
 
-      <div class="hidden md:flex items-center gap-10 font-semibold">
+      <div class="items-center hidden gap-10 font-semibold md:flex">
         <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
         <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
       </div>
 
 
       <button id="menuBtn"
-        class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+        class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
         aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
 
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
 
 
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -51,13 +52,13 @@
     </div>
 
 
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-      <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+      <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
         <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
         <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
 
-        <div class="h-px bg-gray-200 my-2"></div>
+        <div class="h-px my-2 bg-gray-200"></div>
 
         <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
           Înregistrare
@@ -71,15 +72,97 @@
 
 
 
-<div class="w-full flex justify-center items-center h-[400px] border-[1px] border-black py-[100px]">
-
-  <img class="border-[1px] border-black block w-[50px] h-[50px]" src="" alt="">
-</div>
 
 
 
+  <div class="w-full flex justify-center items-center h-[400px] border border-black py-[100px]">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="my-2 sliderul">
+      <label
+        class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
+
+        <input id="checkbox" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
+
+        <span
+          class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
+
+          <div
+            class="star star_1 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.5em] top-[0.5em] transition-all duration-300">
+          </div>
+          <div
+            class="star star_2 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.2em] top-[1.2em] transition-all duration-300">
+          </div>
+          <div
+            class="star star_3 absolute bg-white rounded-full w-[5px] h-[5px] left-[3em] top-[0.9em] transition-all duration-300">
+          </div>
+
+          <svg viewBox="0 0 16 16"
+            class="cloud absolute w-[3.5em] -bottom-[1.4em] -left-[1.1em] opacity-0 transition-all duration-300">
+            <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff"
+              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925">
+            </path>
+          </svg>
+
+        </span>
+      </label>
+
+      <style>
+        /* Keep only what Tailwind can't replace */
+
+        .slider::before {
+          position: absolute;
+          content: "";
+          height: 1.2em;
+          width: 1.2em;
+          border-radius: 20px;
+          left: 0.5em;
+          bottom: 0.5em;
+          transition: 0.4s;
+          transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+          box-shadow: inset 8px -4px 0px 0px #fff;
+        }
+
+        /* checked state */
+        input:checked+.slider {
+          background-color: #00a6ff;
+        }
+
+        input:checked+.slider::before {
+          transform: translateX(1.8em);
+          box-shadow: inset 15px -4px 0px 15px #ffcf48;
+        }
+
+        input:checked~.slider .star {
+          opacity: 0;
+        }
+
+        input:checked~.slider .cloud {
+          opacity: 1;
+        }
+      </style>
+    </div>
 
 
+
+
+
+
+
+
+
+
+
+  </div>
 
 
 
@@ -108,7 +191,7 @@
       <div class="patratJocPassword w-full h-full border-[1px] border-black bg-gray-500 "></div>
       <div class="patratJocVariante w-full h-full border-[1px] border-black bg-gray-500 "></div>
     </div>
-<div></div>
+    <div></div>
   </section>
   <!-- <script type="module">
 
@@ -199,23 +282,23 @@
 
 
 
- 
-    <section class="subsol bg-white flex flex-col justify-center items-center w-full">
-        <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
+
+  <section class="flex flex-col items-center justify-center w-full bg-white subsol">
+    <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
+      <div class="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">
 
         <div class="md:w-1/3">
-          <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
-          <p class="text-gray-600 mt-3 leading-relaxed">
+          <h1 class="text-2xl font-semibold">SafeNet Junior</h1>
+          <p class="mt-3 leading-relaxed text-gray-600">
             Platformă educațională pentru siguranța online, dedicată elevilor din ciclul primar.
           </p>
-          <p class="text-gray-600 mt-3 leading-relaxed">
+          <p class="mt-3 leading-relaxed text-gray-600">
             Instituție vizată: <span class="font-medium">Școala Primară „Alexandru Donici”, Cahul</span>
           </p>
         </div>
 
 
-        <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 gap-10 md:w-2/3 sm:grid-cols-2 lg:grid-cols-3">
 
           <div>
             <h2 class="font-semibold text-gray-900">Navigare</h2>
@@ -235,7 +318,7 @@
               <p><span class="font-medium text-gray-900">Telefon:</span> +373 (79) 000 000</p>
               <p>
                 <span class="font-medium text-gray-900">Email:</span>
-                <a class="hover:text-gray-900 underline"
+                <a class="underline hover:text-gray-900"
                   href="mailto:contact@safenetjunior.md">contact@safenetjunior.md</a>
               </p>
               <p>
@@ -249,13 +332,13 @@
           <div>
             <h2 class="font-semibold text-gray-900">Social</h2>
             <div class="mt-3 space-y-2 text-gray-600">
-              <a class="block hover:text-gray-900 underline" href="https://www.facebook.com/tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.facebook.com/tekwillinfiecarescoala"
                 target="_blank" rel="noopener">Facebook</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.instagram.com/tekwillinfiecarescoala/"
+              <a class="block underline hover:text-gray-900" href="https://www.instagram.com/tekwillinfiecarescoala/"
                 target="_blank" rel="noopener">Instagram</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.tiktok.com/@tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.tiktok.com/@tekwillinfiecarescoala"
                 target="_blank" rel="noopener">TikTok</a>
-              <a class="block hover:text-gray-900 underline"
+              <a class="block underline hover:text-gray-900"
                 href="https://www.linkedin.com/company/tekwill-in-every-school/" target="_blank"
                 rel="noopener">LinkedIn</a>
             </div>
@@ -265,8 +348,8 @@
 
 
       <div class="mt-12">
-        <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
-        <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
+        <h2 class="mb-3 font-semibold text-gray-900">Locație</h2>
+        <div class="w-full overflow-hidden border border-gray-200 rounded-2xl">
           <iframe title="Harta - Școala Primară Alexandru Donici, Cahul"
             src="https://www.google.com/maps?q=%C8%98coala%20Primar%C4%83%20Alexandru%20Donici%20Cahul&output=embed"
             width="100%" height="280" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -276,7 +359,7 @@
       </div>
 
 
-      <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
+      <div class="pt-6 mt-10 text-sm text-gray-600 border-t border-gray-200">
         <p class="leading-relaxed">
           Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de proiectul
           „Tekwill în Fiecare Școală” și nu reflectă neapărat opinia proiectului.
