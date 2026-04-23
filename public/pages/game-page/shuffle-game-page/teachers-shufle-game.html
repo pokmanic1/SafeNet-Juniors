@@ -37,41 +37,41 @@
     <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
       <a href="../../../index.html" class="flex items-center gap-3">
-        <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
+        <img class="object-contain w-20" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
       </a>
 
-      <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+      <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
         <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
         <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
       </nav>
 
-      <div class="hidden md:flex items-center gap-10 font-semibold">
+      <div class="items-center hidden gap-10 font-semibold md:flex">
         <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
         <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
       </div>
 
       <button id="menuBtn"
-        class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+        class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
         aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
 
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-      <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+      <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
         <a class="block py-2 hover:text-gray-700" href="../../games.html">Jocuri</a>
         <a class="block py-2 hover:text-gray-700" href="../../assessment.html">Teste</a>
 
-        <div class="h-px bg-gray-200 my-2"></div>
+        <div class="h-px my-2 bg-gray-200"></div>
 
         <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="../../inregistreazate.html">
           Înregistrare
@@ -83,21 +83,21 @@
     </div>
   </header>
 
-  <div class="w-full min-h-screen flex flex-col justify-center items-center bg-slate-100 border-slate-300 py-16 px-6">
+  <div class="flex flex-col items-center justify-center w-full min-h-screen px-6 py-16 bg-slate-100 border-slate-300">
 
-    <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
-      <div class="flex w-full flex-col items-center ">
-        <div class="text-center mb-10">
+    <div class="w-full max-w-6xl p-10 bg-white border shadow-xl rounded-3xl border-slate-200">
+      <div class="flex flex-col items-center w-full ">
+        <div class="mb-10 text-center">
           <span
             class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
             Profesor</span>
-          <h1 class="text-4xl font-bold mt-4 text-slate-900">Configurare Joc Shuffle</h1>
-          <p class="text-slate-500 mt-2">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
+          <h1 class="mt-4 text-4xl font-bold text-slate-900">Configurare Joc Shuffle</h1>
+          <p class="mt-2 text-slate-500">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
         </div>
 
         <div class="w-full max-w-sm">
           <input id="nume_joc" type="text" placeholder="Numele jocului"
-            class="w-full border-2 shadow-xl border-slate-300 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+            class="w-full px-6 py-4 text-lg font-medium text-center transition-all border-2 shadow-xl outline-none border-slate-300 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
         </div>
       </div>
 
@@ -107,9 +107,9 @@
         <script>
           for (let i = 1; i <= 8; i++) {
             document.write(`
-                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                        <div class="p-6 transition border shadow-sm bg-slate-50 border-slate-200 rounded-2xl hover:shadow-md">
 
-                            <label class="font-bold text-slate-800 mb-3 block">
+                            <label class="block mb-3 font-bold text-slate-800">
                                 Perechea ${i}
                             </label>
 
@@ -117,14 +117,14 @@
                                 type="text" 
                                 id="cuvant-${i}" 
                                 placeholder="Introdu cuvântul..."
-                                class="w-full border-2 border-slate-200 rounded-xl px-4 py-3 mb-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-200 outline-none transition"
+                                class="w-full px-4 py-3 mb-4 transition border-2 outline-none border-slate-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-200"
                             >
 
                             <input 
                                 type="file" 
                                 id="imagine-${i}" 
                                 accept="image/*"
-                                class="w-full text-sm file:bg-blue-600 file:text-white file:px-4 file:py-2 file:rounded-lg file:border-none hover:file:bg-blue-700 cursor-pointer"
+                                class="w-full text-sm cursor-pointer file:bg-blue-600 file:text-white file:px-4 file:py-2 file:rounded-lg file:border-none hover:file:bg-blue-700"
                             >
 
                         </div>
@@ -134,35 +134,35 @@
 
       </div>
 
-      <div class="mt-12 flex flex-col justify-center items-center gap-6">
-        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+      <div class="flex flex-col items-center justify-center gap-6 mt-12">
+        <div class="flex flex-col items-center justify-center gap-6 md:flex-row">
           <button id="btn_salveaza_shuffle"
-            class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+            class="px-8 py-4 font-bold text-white transition-all bg-blue-600 shadow-lg rounded-2xl hover:bg-blue-700 shadow-blue-200">
             Salvează Jocul
           </button>
 
           <button onclick="location.reload()"
-            class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+            class="px-8 py-4 text-lg font-bold text-white transition bg-red-500 shadow-lg rounded-xl hover:bg-red-600 shadow-red-200">
             Resetează Tot
           </button>
 
         </div>
         <a href="./shuffle-game.html" id="btn_mergilajoc"
-          class="btnMergiLaJoc hidden bg-green-500 text-white  mt-1 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+          class="hidden px-8 py-4 mt-1 text-lg font-bold text-white transition bg-green-500 shadow-lg btnMergiLaJoc rounded-xl hover:bg-green-600 shadow-green-200">
           Mergi la joc</a>
 
-        <p id="mesajEroareShuffle" class=" font-semibold text-center mt-6 hidden"></p>
+        <p id="mesajEroareShuffle" class="hidden mt-6 font-semibold text-center "></p>
       </div>
     </div>
 
   </div>
 
-  <!-- <div class="mt-8 flex gap-4">
+  <!-- <div class="flex gap-4 mt-8">
     <button id="btn_salveaza_shuffle"
-      class="bg-green-600 text-white px-10 py-3 rounded-lg font-bold hover:bg-green-700">
+      class="px-10 py-3 font-bold text-white bg-green-600 rounded-lg hover:bg-green-700">
       Salvează Jocul
     </button>
-    <button onclick="location.reload()" class="bg-red-500 text-white px-10 py-3 rounded-lg font-bold">
+    <button onclick="location.reload()" class="px-10 py-3 font-bold text-white bg-red-500 rounded-lg">
       Resetează Tot
     </button>
   </div> -->
@@ -258,34 +258,7 @@
 
 
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
-
-    function setMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      setMenu(!isOpen);
-    });
-
-    // Închide meniul când se schimbă la desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) setMenu(false);
-    });
-
-    // Închide meniul când se apasă Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setMenu(false);
-    });
-  </script>
+  
 
   <script type="module" src="../../../assets/js/game-service/teachers-create-game-shufle.js"></script>
   <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>

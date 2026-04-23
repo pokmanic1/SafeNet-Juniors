@@ -271,4 +271,32 @@ const sliderul = `
         }
       </style>
     </div>
-`
+`;
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      setMenu(!isOpen);
+    });
+
+    // Închide meniul când se schimbă la desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) setMenu(false);
+    });
+
+    // Închide meniul când se apasă Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  

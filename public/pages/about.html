@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
         body {
@@ -28,18 +29,18 @@
 
 
             <a href="../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../assets/img/Logo.svg"
+                <img class="object-contain w-20" src="../assets/img/Logo.svg"
                     alt="SafeNet Junior">
             </a>
 
 
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+            <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
                 <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
                 <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
             </nav>
 
 
-            <div class="hidden md:flex items-center gap-10 font-semibold">
+            <div class="items-center hidden gap-10 font-semibold md:flex">
                 <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">
                     Conectare
                 </a>
@@ -50,52 +51,48 @@
 
 
             <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
                 aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
 
 
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
 
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
 
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 py-4 space-y-3 font-semibold">
+       
+    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+      <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
-                <a class="block py-2 hover:text-gray-700" href="./games.html">
-                    Jocuri
-                </a>
+        <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
+        <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
 
-                <a class="block py-2 hover:text-gray-700" href="./assessment.html">
-                    Teste
-                </a>
+        <div class="h-px my-2 bg-gray-200"></div>
 
-                <div class="h-px bg-gray-200 my-2"></div>
-
-                <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
-                    Conectare
-                </a>
-
-                <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
-                    Înregistrare
-                </a>
-
-            </div>
-        </div>
+        <a id="InregistreazataID_M" id="InregistreazataID" class="block py-2 hover:text-gray-700"
+          href="./inregistreazate.html">
+          Înregistrare
+        </a>
+        <a id="ConecteazataID_M" id="ConecteazataID" class="block py-2 hover:text-gray-700"
+          href="./conecteazate.html">
+          Conectare
+        </a>
+      </div>
+    </div>
     </header>
 
 
     <section class="h-[70dvh] flex flex-col items-center justify-center"
         style=" background-image: url('../assets/img/backgrounds/background-alb5..png');">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6  text-center">
+        <div class="max-w-5xl px-4 mx-auto text-center sm:px-6">
             <h1 class="text-2xl sm:text-3xl ">
                 Despre Proiectul <span class="font-bold">SafeNet Junior</span>
             </h1>
@@ -117,7 +114,7 @@
         class=" max-w-6xl mx-auto px-4 sm:px-6 mt-16 sm:mt-24 lg:mt-[220px] grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         <div>
-            <h2 class="text-2xl sm:text-3xl sm:text-center md:text-start font-semibold mb-4 sm:mb-6">
+            <h2 class="mb-4 text-2xl font-semibold sm:text-3xl sm:text-center md:text-start sm:mb-6">
                 Cui se adresează platforma?
             </h2>
 
@@ -137,7 +134,7 @@
 
         <div
             class="bg-white mr-[20px] ml-[20px] h-48 sm:h-56 md:h-[300px] rounded-3xl shadow-2xl w-[full] sm:mx-auto md:mx-[20px]">
-            <img class="w-full  h-full shadow-2xl object-cover rounded-xl"
+            <img class="object-cover w-full h-full shadow-2xl rounded-xl"
                 src="../assets/img/img-pagina-despre-noi/poza1-copii.jpg" alt="">
 
         </div>
@@ -146,9 +143,9 @@
 
 
     <section
-        class="max-w-6xl mx-auto px-4 sm:px-6 mt-16 sm:mt-24 lg:mt-40 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 sm:mb-32">
+        class="grid items-center max-w-6xl grid-cols-1 gap-10 px-4 mx-auto mt-16 mb-20 sm:px-6 sm:mt-24 lg:mt-40 md:grid-cols-2 lg:gap-16 sm:mb-32">
 
-        <div class="shadow-xl rounded-3xl overflow-hidden">
+        <div class="overflow-hidden shadow-xl rounded-3xl">
             <iframe class="w-full h-72 sm:h-80 md:h-[400px] shadow-xl shadow-black"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2776.5582593298373!2d28.185403686661225!3d45.90014729652778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65d046fb8f057%3A0xe97c76a3e820572d!2sAlexandru%20Donici%20%2C%20%C8%99coala%20primar%C4%83%20Cahul!5e0!3m2!1sen!2s!4v1771058313723!5m2!1sen!2s"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -158,11 +155,11 @@
 
 
         <div class="w-full md:w-auto md:ml-0 lg:ml-[70px] max-w-none md:max-w-[450px]">
-            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
+            <h2 class="mb-4 text-2xl font-semibold sm:text-3xl sm:mb-6">
                 Instituția Beneficiară
             </h2>
 
-            <p class="leading-relaxed text-base sm:text-lg">
+            <p class="text-base leading-relaxed sm:text-lg">
                 Proiectul este realizat pentru Școala Primară Alexandru Donici,
                 o instituție de învățământ care deservește elevi din ciclul primar.
                 În prezent, școala nu dispune de o platformă digitală dedicată exclusiv
@@ -179,7 +176,7 @@
         <div
             class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row w-full justify-center items-start gap-8 md:gap-[40px]">
             <div class="w-full md:w-1/2 mt-0 sm:mt-[20px] md:mt-[40px]  sm:ml-10 md:ml-14 lg:ml-0 ">
-                <h1 class="text-2xl sm:text-3xl font-semibold">De ce a fost creat acest proiect?</h1>
+                <h1 class="text-2xl font-semibold sm:text-3xl">De ce a fost creat acest proiect?</h1>
                 <p class="sm:mt-6 md:mt-[30px] text-base sm:text-[16px] md:text-[17px] lg:text-[18px]">Copiii folosesc
                     zilnic internetul, jocurile online și aplicațiile digitale,
                     însă nu pot identifica
@@ -192,33 +189,33 @@
             </div>
             <div
                 class="max-w-[400px] md:max-w-[500px] h-56 sm:h-72 md:h-[350px] shadow-2xl rounded-xl sm:ml-32 md:ml-12  lg:mt-0  md:mt-12 mx-auto">
-                <img class="w-full  h-full shadow-2xl object-cover rounded-xl object-right"
+                <img class="object-cover object-right w-full h-full shadow-2xl rounded-xl"
                     src="../assets/img/img-pagina-despre-noi/boyAboutUs.jpg" alt="">
             </div>
         </div>
     </section>
    
-    <section class="subsol bg-white flex flex-col justify-center items-center w-full">
+    <section class="flex flex-col items-center justify-center w-full bg-white subsol">
         <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
 
-      <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
+      <div class="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">
 
         <div class="md:w-[40%]">
-          <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
-          <p class="text-gray-600 mt-3 leading-relaxed">
+          <h1 class="text-2xl font-semibold">SafeNet Junior</h1>
+          <p class="mt-3 leading-relaxed text-gray-600">
             Platformă educațională pentru siguranța online, dedicată elevilor din ciclul primar.
           </p>
-          <p class="text-gray-600 mt-3 leading-relaxed">
+          <p class="mt-3 leading-relaxed text-gray-600">
             Instituție vizată: <span class="font-medium">Școala Primară „Alexandru Donici”, Cahul</span>
           </p>
         </div>
 
 
-        <div class=" grid grid-cols-1 sm:grid-cols-2   ">
+        <div class="grid grid-cols-1 sm:grid-cols-2">
 
           <div>
             <h2 class="font-semibold text-gray-900">Navigare</h2>
-            <ul class="mt-3 space-y-2  text-gray-600">
+            <ul class="mt-3 space-y-2 text-gray-600">
               <li><a class="hover:text-gray-900" href="../index.html">Acasă</a></li>
               <li><a class="hover:text-gray-900" href="../pages/assessment.html">Teste</a></li>
               <li><a class="hover:text-gray-900" href="../pages/games.html">Jocuri</a></li>
@@ -232,7 +229,7 @@
             <div class="mt-3 space-y-2 text-gray-600">
               <p>
                 <span class="font-medium text-gray-900">Email:</span>
-                <a class="hover:text-gray-900 underline"
+                <a class="underline hover:text-gray-900"
                   href="mailto:scoalaprimaradonici@gmail.com">scoalaprimaradonici@gmail.com</a>
               </p>
               <p>
@@ -246,13 +243,13 @@
           <!-- <div>
             <h2 class="font-semibold text-gray-900">Social</h2>
             <div class="mt-3 space-y-2 text-gray-600">
-              <a class="block hover:text-gray-900 underline" href="https://www.facebook.com/tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.facebook.com/tekwillinfiecarescoala"
                 target="_blank" rel="noopener">Facebook</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.instagram.com/tekwillinfiecarescoala/"
+              <a class="block underline hover:text-gray-900" href="https://www.instagram.com/tekwillinfiecarescoala/"
                 target="_blank" rel="noopener">Instagram</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.tiktok.com/@tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.tiktok.com/@tekwillinfiecarescoala"
                 target="_blank" rel="noopener">TikTok</a>
-              <a class="block hover:text-gray-900 underline"
+              <a class="block underline hover:text-gray-900"
                 href="https://www.linkedin.com/company/tekwill-in-every-school/" target="_blank"
                 rel="noopener">LinkedIn</a>
             </div>
@@ -262,8 +259,8 @@
 
 
       <div class="mt-12">
-        <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
-        <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
+        <h2 class="mb-3 font-semibold text-gray-900">Locație</h2>
+        <div class="w-full overflow-hidden border border-gray-200 rounded-2xl">
           <iframe title="Harta - Școala Primară Alexandru Donici, Cahul"
             src="https://www.google.com/maps?q=%C8%98coala%20Primar%C4%83%20Alexandru%20Donici%20Cahul&output=embed"
             width="100%" height="280" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -273,7 +270,7 @@
       </div>
 
 
-      <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
+      <div class="pt-6 mt-10 text-sm text-gray-600 border-t border-gray-200">
         <p class="leading-relaxed">
           Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de proiectul
           „Tekwill în Fiecare Școală” și nu reflectă neapărat opinia proiectului.
@@ -283,7 +280,7 @@
     </div>
   </section>
 
-
+ 
     <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 

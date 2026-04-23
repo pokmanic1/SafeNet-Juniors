@@ -23,12 +23,12 @@
 
 
 
-    <div id="dacaNuSaConectat" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-white border border-gray-200 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
 
-            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <img src="../../../assets/img/Vector.svg" alt="Shield" class="w-14 h-auto">
+            <div class="flex items-center justify-center mx-auto mb-6 w-14 h-14 bg-blue-50 rounded-2xl">
+                <img src="../../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
             </div>
 
             <h2 class="text-[22px] font-semibold text-gray-900 mb-2 tracking-tight">Înainte să începi…</h2>
@@ -50,7 +50,7 @@
 
 
 
-    <div id="dacaNuACititDocum" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div id="dacaNuACititDocum" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
 
         <div class=" relative bg-[#7AB5D3] rounded-2xl border border-blue-700 shadow-lg p-10 w-[450px] text-center">
@@ -59,11 +59,11 @@
                 ×
             </button>
             <div class="flex justify-center mb-5">
-                <img src="../../../assets/img/Vector.svg" alt="Shield" class="w-14 h-auto">
+                <img src="../../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
             </div>
 
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">Înainte să începi ...</h2>
-            <p class="text-sm text-gray-500 mb-6">Citește cu atenție Documentația</p>
+            <h2 class="mb-2 text-xl font-semibold text-gray-900">Înainte să începi ...</h2>
+            <p class="mb-6 text-sm text-gray-500">Citește cu atenție Documentația</p>
 
             <a href="./documentatie-variante-game.html"
                 class="inline-flex items-center justify-center gap-2 w-[200px] bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-6 py-2.5 rounded-xl transition">
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div id="finalModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div id="finalModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-[#7AB5D3] rounded-[20px] p-7 w-[380px] relative text-center">
 
@@ -131,42 +131,42 @@
         <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/image-removebg-preview (5).png"
+                <img class="object-contain w-20" src="../../../assets/img/image-removebg-preview (5).png"
                     alt="SafeNet Junior">
             </a>
 
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+            <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
                 <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
                 <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
             </nav>
 
-            <div class="hidden md:flex items-center gap-10 font-semibold">
+            <div class="items-center hidden gap-10 font-semibold md:flex">
                 <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
                 <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
             </div>
 
             <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
                 aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
 
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+            <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
                 <a class="block py-2 hover:text-gray-700" href="../../games.html">Jocuri</a>
                 <a class="block py-2 hover:text-gray-700" href="../../assessment.html">Teste</a>
 
-                <div class="h-px bg-gray-200 my-2"></div>
+                <div class="h-px my-2 bg-gray-200"></div>
 
                 <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="../../inregistreazate.html">
                     Înregistrare
@@ -210,11 +210,11 @@
             
             <div
                 class="mt-10 lg:mx-0 lg:ml-[170px] px-[12px] py-[8px] w-[150px] bg-blue-300 rounded-[20px] self-center -translate-x-1/2">
-                <h1 class="textIntrebare text-center">Intrebarea:1</h1>
+                <h1 class="text-center textIntrebare">Intrebarea:1</h1>
             </div>
 
             <div class="mx-auto py-7 sm:py-9 lg:py-10 px-5 sm:px-7 lg:px-8 w-[90vw] sm:w-[650px] bg-blue-300 rounded-[40px] mt-4">
-                <h1 class="intrebarea1 text-lg sm:text-xl lg:text-2xl font-medium">Intrebarile</h1>
+                <h1 class="text-lg font-medium intrebarea1 sm:text-xl lg:text-2xl">Intrebarile</h1>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(2,450px)] gap-3 lg:gap-7 mt-10">
@@ -270,34 +270,6 @@
 
 
 
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const iconOpen = document.getElementById('iconOpen');
-        const iconClose = document.getElementById('iconClose');
-
-        function setMenu(open) {
-            mobileMenu.classList.toggle('hidden', !open);
-            iconOpen.classList.toggle('hidden', open);
-            iconClose.classList.toggle('hidden', !open);
-            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        menuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            setMenu(!isOpen);
-        });
-
-        // Închide meniul când se schimbă la desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) setMenu(false);
-        });
-
-        // Închide meniul când se apasă Escape
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') setMenu(false);
-        });
-    </script>
 
 
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>

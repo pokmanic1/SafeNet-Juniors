@@ -23,41 +23,41 @@
         <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
             <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
+                <img class="object-contain w-20" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
 
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+            <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
                 <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
                 <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
             </nav>
 
-            <div class="hidden md:flex items-center gap-10 font-semibold">
+            <div class="items-center hidden gap-10 font-semibold md:flex">
                 <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
                 <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
             </div>
 
             <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
                 aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
 
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+            <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
                 <a class="block py-2 hover:text-gray-700" href="../../games.html">Jocuri</a>
                 <a class="block py-2 hover:text-gray-700" href="../../assessment.html">Teste</a>
 
-                <div class="h-px bg-gray-200 my-2"></div>
+                <div class="h-px my-2 bg-gray-200"></div>
 
                 <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="../../inregistreazate.html">
                     Înregistrare
@@ -74,17 +74,17 @@
         <h1 class="text-5xl font-bold text-center">Documentația - Răspunde Corect</h1>
     </div>
 
-    <main class="max-w-7xl mx-auto px-6 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <main class="px-6 pb-20 mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 
-            <div class="bg-white/80 backdrop-blur-sm border border-indigo-100 rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden border border-indigo-100 shadow-xl bg-white/80 backdrop-blur-sm rounded-3xl">
                 <div class="bg-[#1D4ED8] px-6 py-4 flex justify-between items-center">
-                    <h2 class="text-white font-bold text-xl uppercase tracking-wider">Nivelul 1 - Începător</h2>
+                    <h2 class="text-xl font-bold tracking-wider text-white uppercase">Nivelul 1 - Începător</h2>
                     <span
-                        class="bg-indigo-400/30 text-white text-xs px-3 py-1 rounded-full border border-indigo-300">Bazele
+                        class="px-3 py-1 text-xs text-white border border-indigo-300 rounded-full bg-indigo-400/30">Bazele
                         Siguranței</span>
                 </div>
-                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 gap-4 p-6 sm:grid-cols-2">
                     <div class="space-y-3">
                         <p class="text-sm text-gray-700"><strong>1. Parola:</strong> Este o cheie secretă pentru
                             conturi. Ea trebuie păstrată secretă (nu se spune prietenilor).</p>
@@ -95,7 +95,7 @@
                         <p class="text-sm text-gray-700"><strong>4. Ajutor:</strong> Dacă vezi ceva ciudat pe net, spune
                             imediat unui adult!</p>
                     </div>
-                    <div class="space-y-3 border-l border-indigo-50 pl-4">
+                    <div class="pl-4 space-y-3 border-l border-indigo-50">
                         <p class="text-sm text-gray-700"><strong>5. Internetul:</strong> Este o rețea uriașă de
                             calculatoare conectate între ele.</p>
                         <p class="text-sm text-gray-700"><strong>6. Comunicare:</strong> Este sigur să vorbești online
@@ -108,14 +108,14 @@
                 </div>
             </div>
 
-            <div class="bg-white/80 backdrop-blur-sm border border-teal-100 rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden border border-teal-100 shadow-xl bg-white/80 backdrop-blur-sm rounded-3xl">
                 <div class="bg-[#1D4ED8] px-6 py-4 flex justify-between items-center">
-                    <h2 class="text-white font-bold text-xl uppercase tracking-wider">Nivelul 2 - Intermediar</h2>
+                    <h2 class="text-xl font-bold tracking-wider text-white uppercase">Nivelul 2 - Intermediar</h2>
                     <span
-                        class="bg-indigo-400/30 text-white text-xs px-3 py-1 rounded-full border border-indigo-300">Cunoștințe
+                        class="px-3 py-1 text-xs text-white border border-indigo-300 rounded-full bg-indigo-400/30">Cunoștințe
                         Medii</span>
                 </div>
-                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 gap-4 p-6 sm:grid-cols-2">
                     <div class="space-y-3">
                         <p class="text-sm text-gray-700"><strong>1. Regula Parolei:</strong> O parolă sigură are minimum
                             8 caractere și conține litere și cifre.</p>
@@ -126,7 +126,7 @@
                         <p class="text-sm text-gray-700"><strong>4. Descărcări:</strong> Verifică cu un adult înainte de
                             a descărca orice aplicație.</p>
                     </div>
-                    <div class="space-y-3 border-l border-teal-50 pl-4">
+                    <div class="pl-4 space-y-3 border-l border-teal-50">
                         <p class="text-sm text-gray-700"><strong>5. Cont Online:</strong> Reprezintă profilul tău
                             personal pe un site sau o aplicație.</p>
                         <p class="text-sm text-gray-700"><strong>6. Phishing:</strong> O metodă de fraudă prin care
@@ -139,14 +139,14 @@
                 </div>
             </div>
 
-            <div class="bg-white/80 backdrop-blur-sm border border-rose-100 rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden border shadow-xl bg-white/80 backdrop-blur-sm border-rose-100 rounded-3xl">
                 <div class="bg-[#1D4ED8] px-6 py-4 flex justify-between items-center">
-                    <h2 class="text-white font-bold text-xl uppercase tracking-wider">Nivelul 3 - Avansat</h2>
+                    <h2 class="text-xl font-bold tracking-wider text-white uppercase">Nivelul 3 - Avansat</h2>
                     <span
-                        class="bg-indigo-400/30 text-white text-xs px-3 py-1 rounded-full border border-indigo-300">Securitate
+                        class="px-3 py-1 text-xs text-white border border-indigo-300 rounded-full bg-indigo-400/30">Securitate
                         Pro</span>
                 </div>
-                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 gap-4 p-6 sm:grid-cols-2">
                     <div class="space-y-3">
                         <p class="text-sm text-gray-700"><strong>1. Cyberbullying:</strong> Reprezintă hărțuirea sau
                             comportamentul agresiv pe internet.</p>
@@ -157,7 +157,7 @@
                         <p class="text-sm text-gray-700"><strong>4. Hacker:</strong> Persoană care încearcă să intre în
                             sisteme fără permisiune.</p>
                     </div>
-                    <div class="space-y-3 border-l border-rose-50 pl-4">
+                    <div class="pl-4 space-y-3 border-l border-rose-50">
                         <p class="text-sm text-gray-700"><strong>5. Adresa IP:</strong> Un număr unic care identifică un
                             dispozitiv pe internet.</p>
                         <p class="text-sm text-gray-700"><strong>6. VPN:</strong> Creează o conexiune securizată și
@@ -170,14 +170,14 @@
                 </div>
             </div>
 
-            <div class="bg-white/80 backdrop-blur-sm border border-amber-100 rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden border shadow-xl bg-white/80 backdrop-blur-sm border-amber-100 rounded-3xl">
                 <div class="bg-[#1D4ED8] px-6 py-4 flex justify-between items-center">
-                    <h2 class="text-white font-bold text-xl uppercase tracking-wider">Nivelul 4 - Expert</h2>
+                    <h2 class="text-xl font-bold tracking-wider text-white uppercase">Nivelul 4 - Expert</h2>
                     <span
-                        class="bg-indigo-400/30 text-white text-xs px-3 py-1 rounded-full border border-indigo-300">Securitate
+                        class="px-3 py-1 text-xs text-white border border-indigo-300 rounded-full bg-indigo-400/30">Securitate
                         Cibernetică</span>
                 </div>
-                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 gap-4 p-6 sm:grid-cols-2">
                     <div class="space-y-3">
                         <p class="text-sm text-gray-700"><strong>1. Protocoale:</strong> HTTPS indică o conexiune web
                             securizată (spre deosebire de HTTP).</p>
@@ -188,27 +188,22 @@
                         <p class="text-sm text-gray-700"><strong>4. Sisteme:</strong> macOS este sistemul de operare
                             dezvoltat de Apple.</p>
                     </div>
-                    <div class="space-y-3 border-l border-amber-50 pl-4">
+                    <div class="pl-4 space-y-3 border-l border-amber-50">
                         <p class="text-sm text-gray-700"><strong>5. DuckDuckGo:</strong> Un motor de căutare axat pe
                             protejarea confidențialității.</p>
                         <p class="text-sm text-gray-700"><strong>6. Tor Project:</strong> O rețea specială creată pentru
                             navigare complet anonimă.</p>
                         <p class="text-sm text-gray-700"><strong>7. Monitorizare:</strong> Procesul de observare a
                             activității sistemelor pentru siguranță.</p>
-                        <p class="text-sm text-indigo-800 font-bold italic">Sfat: Folosește mereu parole puternice
+                        <p class="text-sm italic font-bold text-indigo-800">Sfat: Folosește mereu parole puternice
                             pentru a proteja orice cont!</p>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="w-full flex items-center justify-center ">
-            <a href="./variante-game.html" class="mt-10 mx-auto inline-flex items-center justify-center px-8 py-3 rounded-2xl 
-            bg-blue-700 hover:bg-blue-800 
-            text-white text-base font-semibold 
-            shadow-lg hover:shadow-xl 
-            hover:scale-105 active:scale-95 
-            transition-all duration-300">
+        <div class="flex items-center justify-center w-full ">
+            <a href="./variante-game.html" class="inline-flex items-center justify-center px-8 py-3 mx-auto mt-10 text-base font-semibold text-white transition-all duration-300 bg-blue-700 shadow-lg rounded-2xl hover:bg-blue-800 hover:shadow-xl hover:scale-105 active:scale-95">
                 Joacă-te
             </a>
         </div>
@@ -225,34 +220,6 @@
 
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const iconOpen = document.getElementById('iconOpen');
-        const iconClose = document.getElementById('iconClose');
-
-        function setMenu(open) {
-            mobileMenu.classList.toggle('hidden', !open);
-            iconOpen.classList.toggle('hidden', open);
-            iconClose.classList.toggle('hidden', !open);
-            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        menuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            setMenu(!isOpen);
-        });
-
-        // Închide meniul când se schimbă la desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) setMenu(false);
-        });
-
-        // Închide meniul când se apasă Escape
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') setMenu(false);
-        });
-    </script>
 
 </body>
 

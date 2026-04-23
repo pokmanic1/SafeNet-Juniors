@@ -37,41 +37,41 @@
     <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
 
       <a href="../../../index.html" class="flex items-center gap-3">
-        <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
+        <img class="object-contain w-20" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
       </a>
 
-      <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+      <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
         <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
         <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
       </nav>
 
-      <div class="hidden md:flex items-center gap-10 font-semibold">
+      <div class="items-center hidden gap-10 font-semibold md:flex">
         <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
         <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
       </div>
 
       <button id="menuBtn"
-        class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+        class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
         aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
 
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-      <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+      <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
         <a class="block py-2 hover:text-gray-700" href="../../games.html">Jocuri</a>
         <a class="block py-2 hover:text-gray-700" href="../../assessment.html">Teste</a>
 
-        <div class="h-px bg-gray-200 my-2"></div>
+        <div class="h-px my-2 bg-gray-200"></div>
 
         <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="../../inregistreazate.html">
           Înregistrare
@@ -87,20 +87,20 @@
 
   <div class="min-h-[90dvh] flex flex-col justify-center items-center px-4 py-12">
     <div
-      class="w-full max-w-2xl bg-white rounded-3xl card-shadow p-8 md:p-12 border border-slate-300 text-center shadow-xl">
+      class="w-full max-w-2xl p-8 text-center bg-white border shadow-xl rounded-3xl card-shadow md:p-12 border-slate-300">
 
       <div class="mb-10">
         <span
           class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
           Profesor</span>
-        <h1 class="text-3xl md:text-4xl font-bold mt-4 text-slate-900">Configurare Joc True / False</h1>
-        <p class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
+        <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900">Configurare Joc True / False</h1>
+        <p class="mt-0 italic text-slate-500">Stabilește numele si numărul de întrebări pentru elevi</p>
       </div>
 
       <div id="pasul1" class="flex flex-col items-center space-y-6">
         <div class="w-full max-w-sm">
           <input id="nume_joc" type="text" placeholder="Numele jocului"
-            class="w-full border-2  border-slate-100 rounded-2xl px-6 py-4 shadow-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+            class="w-full px-6 py-4 text-lg font-medium text-center transition-all border-2 shadow-xl outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
         </div>
         <div class="w-full max-w-sm">
           <input id="nr_intrebari" type="number" min="1" max="10" placeholder="Câte întrebări dorești? (1-10)"
@@ -108,45 +108,45 @@
         </div>
 
         <button id="btn_incepe"
-          class="group relative bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
+          class="relative px-10 py-4 text-lg font-bold text-white transition-all group bg-slate-900 rounded-2xl hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
           Începe configurarea
         </button>
       </div>
 
-      <div id="pasul2" class="hidden flex flex-col items-center space-y-6">
+      <div id="pasul2" class="flex flex-col items-center hidden space-y-6">
 
-        <h2 id="titlu_pas" class="text-xl font-semibold text-blue-800 bg-blue-50 px-6 py-2 rounded-full">Configurează
+        <h2 id="titlu_pas" class="px-6 py-2 text-xl font-semibold text-blue-800 rounded-full bg-blue-50">Configurează
           întrebarea 1</h2>
 
         <div class="w-full space-y-4 text-left">
-          <label class="text-sm font-bold text-slate-400 ml-2 uppercase">Afirmația</label>
+          <label class="ml-2 text-sm font-bold uppercase text-slate-400">Afirmația</label>
           <input type="text" id="text_intrebare" placeholder="Scrie aici afirmația..."
-            class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-slate-50">
+            class="w-full px-6 py-4 transition-all border-2 outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
 
-          <label class="text-sm font-bold text-slate-400 ml-2 uppercase">Răspunsul Corect</label>
+          <label class="ml-2 text-sm font-bold uppercase text-slate-400">Răspunsul Corect</label>
           <select id="raspuns_corect"
-            class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-slate-50 font-medium appearance-none">
+            class="w-full px-6 py-4 font-medium transition-all border-2 outline-none appearance-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
             <option value="" disabled selected>Alege răspunsul...</option>
             <option value="true">Adevărat (True)</option>
             <option value="false">Fals (False)</option>
           </select>
         </div>
         <div class="flex flex-col items-center ">
-          <div class="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
+          <div class="flex flex-col justify-center w-full gap-4 pt-4 sm:flex-row">
             <button id="btn_adauga"
-              class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+              class="px-8 py-4 font-bold text-white transition-all bg-blue-600 shadow-lg rounded-2xl hover:bg-blue-700 shadow-blue-200">
               Adaugă Întrebarea
             </button>
             <button id="btn_restart"
-              class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+              class="px-8 py-4 text-lg font-bold text-white transition bg-red-500 shadow-lg rounded-xl hover:bg-red-600 shadow-red-200">
               Restartează Tot
             </button>
           </div>
                 <a href="./true-false-game.html" id="btn_mergilajoc"
-                  class="btnMergiLaJoc hidden bg-green-500 text-white  mt-4 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+                  class="hidden px-8 py-4 mt-4 text-lg font-bold text-white transition bg-green-500 shadow-lg btnMergiLaJoc rounded-xl hover:bg-green-600 shadow-green-200">
                   Mergi la joc</a>
               
-              <p id="mesajEroareTF" class="font-semibold text-center mt-4 hidden"></p>
+              <p id="mesajEroareTF" class="hidden mt-4 font-semibold text-center"></p>
         </div>
       </div>
     </div>
@@ -285,34 +285,6 @@
     }
   </script>
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
-
-    function setMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      setMenu(!isOpen);
-    });
-
-    // Închide meniul când se schimbă la desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) setMenu(false);
-    });
-
-    // Închide meniul când se apasă Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setMenu(false);
-    });
-  </script>
 
 
   <script type="module" src="../../../assets/js/game-service/teachers-create-game-tuefalse.js"></script>
