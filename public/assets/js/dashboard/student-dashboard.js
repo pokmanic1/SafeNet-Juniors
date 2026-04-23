@@ -7,7 +7,7 @@ const y = document.getElementById("InregistreazataID");
 const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
-
+let stareaInterfetei = "light";
 
 
 onAuthStateChanged(auth, async (user) => {
@@ -136,7 +136,26 @@ onAuthStateChanged(auth, async (user) => {
         signOut(auth).then(() => window.location.reload());
       });
     }
+    
+document.addEventListener("change", (e) => {
+  if (e.target.classList.contains("checkbox-toggle")) {
+    console.log("state:", e.target.checked);
+    
+    if (e.target.checked) {
+      stareaInterfetei = "light";  
+        console.log("stare interfață:", stareaInterfetei);
 
+      // document.documentElement.classList.remove("dark");
+    } else {
+      // document.documentElement.classList.add("dark");
+      stareaInterfetei = "dark"; 
+      console.log("stare interfață:", stareaInterfetei);
+
+    }
+  }
+});
+
+    
     let dashboard = `
 <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
     
@@ -165,6 +184,8 @@ onAuthStateChanged(auth, async (user) => {
 
 </div>
 `;
+
+
   }
   else {
     console.log("conectează-te");
@@ -172,6 +193,17 @@ onAuthStateChanged(auth, async (user) => {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
 const sliderul = `
 
   
@@ -179,7 +211,7 @@ const sliderul = `
       <label
         class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
 
-        <input id="checkbox" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
+       <input class="checkbox-toggle" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
 
         <span
           class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
