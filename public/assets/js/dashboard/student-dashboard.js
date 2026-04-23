@@ -11,7 +11,138 @@ let stareaInterfetei = "light";
 
 
 onAuthStateChanged(auth, async (user) => {
+
+  function buildDashboard(ancora) {
+    return `
+    <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden">
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div>
+
+        <div class="flex justify-end -mt-2 -mr-2 relative z-10">
+            <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center shadow-sm">
+                ✕
+            </button>
+        </div>
+
+        <div class="relative z-10">
+            <h2 id="numeUser" class="text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">...</h2>
+            <p id="emailUser" class="text-[13px] text-gray-400 mb-3">...</p>
+                
+            ${sliderul}
+            <div class="flex flex-col items-center gap-2">
+            <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
+                Clase
+            </a>
+            <button id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
+                Ieși din cont
+            </button>
+        </div>
+        </div>
+
+    </div>
+  `;
+  }
+  const sliderul = `
+
+  
+    <div class="my-2 sliderul">
+      <label
+        class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
+
+       <input class="checkbox-toggle" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
+
+        <span
+          class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
+
+          <div
+            class="star star_1 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.5em] top-[0.5em] transition-all duration-300">
+          </div>
+          <div
+            class="star star_2 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.2em] top-[1.2em] transition-all duration-300">
+          </div>
+          <div
+            class="star star_3 absolute bg-white rounded-full w-[5px] h-[5px] left-[3em] top-[0.9em] transition-all duration-300">
+          </div>
+
+          <svg viewBox="0 0 16 16"
+            class="cloud absolute w-[3.5em] -bottom-[1.4em] -left-[1.1em] opacity-0 transition-all duration-300">
+            <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff"
+              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925">
+            </path>
+          </svg>
+
+        </span>
+      </label>
+
+      <style>
+        /* Keep only what Tailwind can't replace */
+
+        .slider::before {
+          position: absolute;
+          content: "";
+          height: 1.2em;
+          width: 1.2em;
+          border-radius: 20px;
+          left: 0.5em;
+          bottom: 0.5em;
+          transition: 0.4s;
+          transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+          box-shadow: inset 8px -4px 0px 0px #fff;
+        }
+
+        /* checked state */
+        input:checked+.slider {
+          background-color: #00a6ff;
+        }
+
+        input:checked+.slider::before {
+          transform: translateX(1.8em);
+          box-shadow: inset 15px -4px 0px 15px #ffcf48;
+        }
+
+        input:checked~.slider .star {
+          opacity: 0;
+        }
+
+        input:checked~.slider .cloud {
+          opacity: 1;
+        }
+      </style>
+    </div>
+`;
+  let dashboard = `
+          <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
+              
+              <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div> <!-- ------------ -->
+          
+              <div class="flex justify-end -mt-2 -mr-2 relative z-10"> <!-- ------------ -->
+                  <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center shadow-sm"> <!-- ------------ -->
+                      ✕
+                  </button>
+              </div>
+          
+              <div class="relative z-10"> <!-- ------------ -->
+                  <h2  id="numeUser" class=" text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">John Doe</h2> <!-- ------------ -->
+                  <p id="emailUser" class="text-[13px] text-gray-400 mb-3">user@exemplu.com</p> <!-- ------------ -->
+                      
+                  ${sliderul}
+                  <div class="flex flex-col items-center gap-2"> <!-- ------------ -->
+                  <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
+                      Clase
+                  </a>
+                  <button id="logoutBtn" class="w-full   h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
+                      Ieși din cont
+                  </button>
+              </div>
+              </div>
+          
+          </div>
+          `;
+
+
+
   if (user) {
+
     let role;
 
     const userRef = doc(db, "users", user.uid);
@@ -99,7 +230,6 @@ onAuthStateChanged(auth, async (user) => {
 
     async function toggleDashboard(user) {
       const existing = document.getElementById("dashboardWrapper");
-
       if (existing) {
         existing.remove();
         return;
@@ -114,19 +244,26 @@ onAuthStateChanged(auth, async (user) => {
     z-index: 9999;
   `;
 
-      dashboardWrapper.innerHTML = dashboard;
-      document.body.appendChild(dashboardWrapper);
-
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
 
+      let username = "";
+      let role = "Elev";
+
       if (docSnap.exists()) {
         const data = docSnap.data();
-
-        document.getElementById("numeUser").textContent = data.usearname;
-
-        document.getElementById("emailUser").textContent = user.email;
+        username = data.usearname;
+        role = data.role;
+        ancora = role === "Profesor"
+          ? "/public/pages/dashbord/dashbord.html"
+          : "/public/pages/dashbord/dashbord.elev.html";
       }
+
+      dashboardWrapper.innerHTML = buildDashboard(ancora);
+      document.body.appendChild(dashboardWrapper);
+
+      document.getElementById("numeUser").textContent = username;
+      document.getElementById("emailUser").textContent = user.email;
 
       document.getElementById("closeDashboard").addEventListener("click", () => {
         dashboardWrapper.remove();
@@ -136,54 +273,26 @@ onAuthStateChanged(auth, async (user) => {
         signOut(auth).then(() => window.location.reload());
       });
     }
-    
-document.addEventListener("change", (e) => {
-  if (e.target.classList.contains("checkbox-toggle")) {
-    console.log("state:", e.target.checked);
-    
-    if (e.target.checked) {
-      stareaInterfetei = "light";  
-        console.log("stare interfață:", stareaInterfetei);
 
-      // document.documentElement.classList.remove("dark");
-    } else {
-      // document.documentElement.classList.add("dark");
-      stareaInterfetei = "dark"; 
-      console.log("stare interfață:", stareaInterfetei);
+    document.addEventListener("change", (e) => {
+      if (e.target.classList.contains("checkbox-toggle")) {
+        console.log("state:", e.target.checked);
 
-    }
-  }
-});
+        if (e.target.checked) {
+          stareaInterfetei = "light";
+          console.log("stare interfață:", stareaInterfetei);
 
-    
-    let dashboard = `
-<div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
-    
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div> <!-- ------------ -->
+          // document.documentElement.classList.remove("dark");
+        } else {
+          // document.documentElement.classList.add("dark");
+          stareaInterfetei = "dark";
+          console.log("stare interfață:", stareaInterfetei);
 
-    <div class="flex justify-end -mt-2 -mr-2 relative z-10"> <!-- ------------ -->
-        <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center shadow-sm"> <!-- ------------ -->
-            ✕
-        </button>
-    </div>
+        }
+      }
+    });
 
-    <div class="relative z-10"> <!-- ------------ -->
-        <h2  id="numeUser" class=" text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">John Doe</h2> <!-- ------------ -->
-        <p id="emailUser" class="text-[13px] text-gray-400 mb-3">user@exemplu.com</p> <!-- ------------ -->
-            
-        ${sliderul}
-        <div class="flex flex-col items-center gap-2"> <!-- ------------ -->
-        <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
-            Clase
-        </a>
-        <button id="logoutBtn" class="w-full   h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
-            Ieși din cont
-        </button>
-    </div>
-    </div>
 
-</div>
-`;
 
 
   }
@@ -200,103 +309,29 @@ document.addEventListener("change", (e) => {
 
 
 
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const iconOpen = document.getElementById('iconOpen');
+const iconClose = document.getElementById('iconClose');
 
+function setMenu(open) {
+  mobileMenu.classList.toggle('hidden', !open);
+  iconOpen.classList.toggle('hidden', open);
+  iconClose.classList.toggle('hidden', !open);
+  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
 
+menuBtn.addEventListener('click', () => {
+  const isOpen = !mobileMenu.classList.contains('hidden');
+  setMenu(!isOpen);
+});
 
+// Închide meniul când se schimbă la desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) setMenu(false);
+});
 
-const sliderul = `
-
-  
-    <div class="my-2 sliderul">
-      <label
-        class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
-
-       <input class="checkbox-toggle" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
-
-        <span
-          class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
-
-          <div
-            class="star star_1 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.5em] top-[0.5em] transition-all duration-300">
-          </div>
-          <div
-            class="star star_2 absolute bg-white rounded-full w-[5px] h-[5px] left-[2.2em] top-[1.2em] transition-all duration-300">
-          </div>
-          <div
-            class="star star_3 absolute bg-white rounded-full w-[5px] h-[5px] left-[3em] top-[0.9em] transition-all duration-300">
-          </div>
-
-          <svg viewBox="0 0 16 16"
-            class="cloud absolute w-[3.5em] -bottom-[1.4em] -left-[1.1em] opacity-0 transition-all duration-300">
-            <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff"
-              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925">
-            </path>
-          </svg>
-
-        </span>
-      </label>
-
-      <style>
-        /* Keep only what Tailwind can't replace */
-
-        .slider::before {
-          position: absolute;
-          content: "";
-          height: 1.2em;
-          width: 1.2em;
-          border-radius: 20px;
-          left: 0.5em;
-          bottom: 0.5em;
-          transition: 0.4s;
-          transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
-          box-shadow: inset 8px -4px 0px 0px #fff;
-        }
-
-        /* checked state */
-        input:checked+.slider {
-          background-color: #00a6ff;
-        }
-
-        input:checked+.slider::before {
-          transform: translateX(1.8em);
-          box-shadow: inset 15px -4px 0px 15px #ffcf48;
-        }
-
-        input:checked~.slider .star {
-          opacity: 0;
-        }
-
-        input:checked~.slider .cloud {
-          opacity: 1;
-        }
-      </style>
-    </div>
-`;
-
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
-
-    function setMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      setMenu(!isOpen);
-    });
-
-    // Închide meniul când se schimbă la desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) setMenu(false);
-    });
-
-    // Închide meniul când se apasă Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setMenu(false);
-    });
-  
+// Închide meniul când se apasă Escape
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenu(false);
+});
