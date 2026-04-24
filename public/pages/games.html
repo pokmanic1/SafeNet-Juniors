@@ -44,17 +44,17 @@
 
 
             <a href="../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../assets/img/Logo.svg" alt="SafeNet Junior">
+                <img class="object-contain w-20" src="../assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
 
 
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+            <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
                 <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
                 <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
             </nav>
 
 
-            <div class="hidden md:flex items-center gap-10 font-semibold">
+            <div class="items-center hidden gap-10 font-semibold md:flex">
                 <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">
                     Conectare
                 </a>
@@ -65,17 +65,17 @@
 
 
             <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
+                class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
                 aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
 
 
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
 
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -83,13 +83,13 @@
         </div>
 
 
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
+            <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
 
                 <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
                 <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
 
-                <div class="h-px bg-gray-200 my-2"></div>
+                <div class="h-px my-2 bg-gray-200"></div>
 
                 <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
                     Înregistrare
@@ -121,18 +121,18 @@
                 min-w-[160px] min-h-[160px]
                 max-w-[400px] max-h-[220px] lg:max-h-[260px]
                 ">
-                <img src="../assets/img/backgrounds/shufle-game-bg1.png" class="w-full h-full object-cover"
+                <img src="../assets/img/backgrounds/shufle-game-bg1.png" class="object-cover w-full h-full"
                     alt="Shuffle Game">
                 <div
                     class="plus hidden w-[50px] h-[50px] ml-auto mb-auto absolute top-4 right-4 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
                     <a href="./game-page/shuffle-game-page/teachers-shufle-game.html" class="block w-full h-full">
-                        <img src="../assets/img/backgrounds/semn-plus.png" class="w-full h-full block" alt="">
+                        <img src="../assets/img/backgrounds/semn-plus.png" class="block w-full h-full" alt="">
                     </a>
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white flex flex-col gap-2  lg:group-hover:opacity-100   lg:opacity-0   transition-opacity transition-all duration-300">
+                    class="absolute bottom-0 left-0 flex flex-col w-full gap-2 text-white transition-all transition-opacity duration-300 bg-gradient-to-t from-black/60 to-transparent lg:group-hover:opacity-100 lg:opacity-0">
 
-                    <div class="bg-black/55 backdrop-blur-sm mx-3 rounded-xl px-4 py-3">
+                    <div class="px-4 py-3 mx-3 bg-black/55 backdrop-blur-sm rounded-xl">
                         <a href="../pages/game-page/shuffle-game-page/shuffle-game.html">
                             <h2 class="text-[15px] font-bold text-center drop-shadow-md">Potrivește Perechile</h2>
                             <p class="text-[10px] opacity-90 text-center drop-shadow-md">Găsește perechile corecte</p>
@@ -159,19 +159,19 @@
                 max-w-[400px] max-h-[220px] lg:max-h-[260px]">
 
 
-                <img src="../assets/img/backgrounds/adevarat-fals-game-bg1.png" class="w-full h-full object-cover"
+                <img src="../assets/img/backgrounds/adevarat-fals-game-bg1.png" class="object-cover w-full h-full"
                     alt="True False">
 
                 <div
                     class="plus hidden w-[50px] h-[50px] ml-auto mb-auto absolute top-4 right-4 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
                     <a href="./game-page/true-false-game-page/teachers-true-false-game.html"
                         class="block w-full h-full">
-                        <img src="../assets/img/backgrounds/semn-plus.png" class="w-full h-full block" alt="">
+                        <img src="../assets/img/backgrounds/semn-plus.png" class="block w-full h-full" alt="">
                     </a>
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white flex flex-col gap-2 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
-                    <div class="bg-black/55 backdrop-blur-sm mx-3 rounded-xl px-4 py-3">
+                    class="absolute bottom-0 left-0 flex flex-col w-full gap-2 text-white transition-all duration-300 opacity-100 bg-gradient-to-t from-black/60 to-transparent lg:group-hover:opacity-100 lg:opacity-0">
+                    <div class="px-4 py-3 mx-3 bg-black/55 backdrop-blur-sm rounded-xl">
                         <a href="./game-page/true-false-game-page/true-false-game.html">
                             <h2 class="text-[15px] font-bold text-center drop-shadow-md">Adevărat sau Fals</h2>
                             <p class="text-[10px] opacity-90 text-center drop-shadow-md">Răspunde corect la întrebări
@@ -197,19 +197,19 @@
                 max-w-[400px] max-h-[220px] lg:max-h-[260px]">
 
 
-                <img src="../assets/img/backgrounds/password-game-bg1.png" class="w-full h-full object-cover"
+                <img src="../assets/img/backgrounds/password-game-bg1.png" class="object-cover w-full h-full"
                     alt="Password Game">
 
                 <div
                     class="plus hidden w-[50px] h-[50px] ml-auto mb-auto absolute top-4 right-4 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
                     <a href="./game-page/password-game-page/teachers-adauga-conditii-pasword-game.html"
                         class="block w-full h-full">
-                        <img src="../assets/img/backgrounds/semn-plus.png" class="w-full h-full block" alt="">
+                        <img src="../assets/img/backgrounds/semn-plus.png" class="block w-full h-full" alt="">
                     </a>
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white flex flex-col gap-2 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
-                    <div class="bg-black/55 backdrop-blur-sm mx-3 rounded-xl px-4 py-3">
+                    class="absolute bottom-0 left-0 flex flex-col w-full gap-2 text-white transition-all duration-300 opacity-100 bg-gradient-to-t from-black/60 to-transparent lg:group-hover:opacity-100 lg:opacity-0">
+                    <div class="px-4 py-3 mx-3 bg-black/55 backdrop-blur-sm rounded-xl">
                         <a href="./game-page/password-game-page/password-game.html">
                             <h2 class="text-[15px] font-bold text-center drop-shadow-md">Creează Parola</h2>
                             <p class="text-[10px] opacity-90 text-center drop-shadow-md">Creează parola perfectă</p>
@@ -234,18 +234,18 @@
                 max-w-[400px] max-h-[220px] lg:max-h-[260px]
                 ">
 
-                <img src="../assets/img/backgrounds/variante-game-bg1.png" class="w-full h-full object-cover"
+                <img src="../assets/img/backgrounds/variante-game-bg1.png" class="object-cover w-full h-full"
                     alt="Password Game">
                 <div
                     class="plus hidden w-[50px] h-[50px] ml-auto mb-auto absolute top-4 right-4 opacity-100 lg:group-hover:opacity-100 lg:opacity-0  transition-all duration-300">
                     <a href="./game-page/variante-game-page/teachers-variante-game.html"
                         class="block w-full h-full">
-                        <img src="../assets/img/backgrounds/semn-plus.png" class="w-full h-full block" alt="">
+                        <img src="../assets/img/backgrounds/semn-plus.png" class="block w-full h-full" alt="">
                     </a>
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white flex flex-col gap-2 opacity-100 lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-300">
-                    <div class="bg-black/55 backdrop-blur-sm mx-3 rounded-xl px-4 py-3">
+                    class="absolute bottom-0 left-0 flex flex-col w-full gap-2 text-white transition-all duration-300 opacity-100 bg-gradient-to-t from-black/60 to-transparent lg:group-hover:opacity-100 lg:opacity-0">
+                    <div class="px-4 py-3 mx-3 bg-black/55 backdrop-blur-sm rounded-xl">
                         <a href="./game-page/variante-game-page/variante-game.html">
                             <h2 class="text-[15px] font-bold text-center drop-shadow-md">Răspunde Corect</h2>
                             <p class="text-[10px] opacity-90 text-center drop-shadow-md">Alege varianta corecta</p>
@@ -269,27 +269,27 @@
 
 
 
-    <section class="subsol bg-white flex flex-col justify-center items-center w-full">
+    <section class="flex flex-col items-center justify-center w-full bg-white subsol">
         <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
 
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
+            <div class="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">
 
                 <div class="md:w-[40%]">
-                    <h1 class="font-semibold text-2xl">SafeNet Junior</h1>
-                    <p class="text-gray-600 mt-3 leading-relaxed">
+                    <h1 class="text-2xl font-semibold">SafeNet Junior</h1>
+                    <p class="mt-3 leading-relaxed text-gray-600">
                         Platformă educațională pentru siguranța online, dedicată elevilor din ciclul primar.
                     </p>
-                    <p class="text-gray-600 mt-3 leading-relaxed">
+                    <p class="mt-3 leading-relaxed text-gray-600">
                         Instituție vizată: <span class="font-medium">Școala Primară „Alexandru Donici”, Cahul</span>
                     </p>
                 </div>
 
 
-                <div class=" grid grid-cols-1 sm:grid-cols-2   ">
+                <div class="grid grid-cols-1  sm:grid-cols-2">
 
                     <div>
                         <h2 class="font-semibold text-gray-900">Navigare</h2>
-                        <ul class="mt-3 space-y-2  text-gray-600">
+                        <ul class="mt-3 space-y-2 text-gray-600">
                             <li><a class="hover:text-gray-900" href="../index.html">Acasă</a></li>
                             <li><a class="hover:text-gray-900" href="../pages/assessment.html">Teste</a></li>
                             <li><a class="hover:text-gray-900" href="../pages/games.html">Jocuri</a></li>
@@ -303,7 +303,7 @@
                         <div class="mt-3 space-y-2 text-gray-600">
                             <p>
                                 <span class="font-medium text-gray-900">Email:</span>
-                                <a class="hover:text-gray-900 underline"
+                                <a class="underline hover:text-gray-900"
                                     href="mailto:scoalaprimaradonici@gmail.com">scoalaprimaradonici@gmail.com</a>
                             </p>
                             <p>
@@ -317,13 +317,13 @@
                     <!-- <div>
             <h2 class="font-semibold text-gray-900">Social</h2>
             <div class="mt-3 space-y-2 text-gray-600">
-              <a class="block hover:text-gray-900 underline" href="https://www.facebook.com/tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.facebook.com/tekwillinfiecarescoala"
                 target="_blank" rel="noopener">Facebook</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.instagram.com/tekwillinfiecarescoala/"
+              <a class="block underline hover:text-gray-900" href="https://www.instagram.com/tekwillinfiecarescoala/"
                 target="_blank" rel="noopener">Instagram</a>
-              <a class="block hover:text-gray-900 underline" href="https://www.tiktok.com/@tekwillinfiecarescoala"
+              <a class="block underline hover:text-gray-900" href="https://www.tiktok.com/@tekwillinfiecarescoala"
                 target="_blank" rel="noopener">TikTok</a>
-              <a class="block hover:text-gray-900 underline"
+              <a class="block underline hover:text-gray-900"
                 href="https://www.linkedin.com/company/tekwill-in-every-school/" target="_blank"
                 rel="noopener">LinkedIn</a>
             </div>
@@ -333,8 +333,8 @@
 
 
             <div class="mt-12">
-                <h2 class="font-semibold text-gray-900 mb-3">Locație</h2>
-                <div class="w-full overflow-hidden rounded-2xl border border-gray-200">
+                <h2 class="mb-3 font-semibold text-gray-900">Locație</h2>
+                <div class="w-full overflow-hidden border border-gray-200 rounded-2xl">
                     <iframe title="Harta - Școala Primară Alexandru Donici, Cahul"
                         src="https://www.google.com/maps?q=%C8%98coala%20Primar%C4%83%20Alexandru%20Donici%20Cahul&output=embed"
                         width="100%" height="280" style="border:0;" loading="lazy"
@@ -344,7 +344,7 @@
             </div>
 
 
-            <div class="mt-10 pt-6 border-t border-gray-200 text-sm text-gray-600">
+            <div class="pt-6 mt-10 text-sm text-gray-600 border-t border-gray-200">
                 <p class="leading-relaxed">
                     Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors” organizată de
                     proiectul

@@ -1,6 +1,7 @@
 import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getToateDatele } from "../fierbase/auth.js";
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
@@ -8,8 +9,16 @@ const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
 let stareaInterfetei = "light";
-
-
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+console.log("_____________________________________________________________")
+let date=getToateDatele();
+console.log(date);
 onAuthStateChanged(auth, async (user) => {
 
   function buildDashboard(ancora) {
