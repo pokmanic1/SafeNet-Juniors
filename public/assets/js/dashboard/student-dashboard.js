@@ -9,16 +9,9 @@ const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
 let stareaInterfetei = "light";
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-console.log("_____________________________________________________________")
-let date=getToateDatele();
-console.log(date);
+
+let date = getToateDatele();
+
 onAuthStateChanged(auth, async (user) => {
 
   function buildDashboard(ancora) {
@@ -39,10 +32,10 @@ onAuthStateChanged(auth, async (user) => {
                 
             ${sliderul}
             <div class="flex flex-col items-center gap-2">
-            <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
+            <a href='${ancora}' id="dashboardLink" class="w-full h-[30px] bg-slate-900 text-sm text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
                 Clase
             </a>
-            <button id="logoutBtn" class="w-full h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
+            <button id="logoutBtn" class="w-full h-[30px] bg-slate-900 text-sm text-center  flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]">
                 Ieși din cont
             </button>
         </div>
@@ -136,7 +129,7 @@ onAuthStateChanged(auth, async (user) => {
                       
                   ${sliderul}
                   <div class="flex flex-col items-center gap-2"> <!-- ------------ -->
-                  <a href='${ancora}' id="dashboardLink" class="w-full h-[40px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
+                  <a href='${ancora}' id="dashboardLink" class="w-full h-[20px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
                       Clase
                   </a>
                   <button id="logoutBtn" class="w-full   h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
@@ -247,11 +240,11 @@ onAuthStateChanged(auth, async (user) => {
       const dashboardWrapper = document.createElement("div");
       dashboardWrapper.id = "dashboardWrapper";
       dashboardWrapper.style.cssText = `
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    z-index: 9999;
-  `;
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        z-index: 9999;
+      `;
 
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
@@ -283,24 +276,23 @@ onAuthStateChanged(auth, async (user) => {
       });
     }
 
-    document.addEventListener("change", (e) => {
-      if (e.target.classList.contains("checkbox-toggle")) {
+document.addEventListener("change", (e) => {
+    if (e.target.classList.contains("checkbox-toggle")) {
         console.log("state:", e.target.checked);
 
         if (e.target.checked) {
-          stareaInterfetei = "light";
-          console.log("stare interfață:", stareaInterfetei);
-
-          // document.documentElement.classList.remove("dark");
+            stareaInterfetei = "light";
+            document.body.classList.remove("dark");
+            
         } else {
-          // document.documentElement.classList.add("dark");
-          stareaInterfetei = "dark";
-          console.log("stare interfață:", stareaInterfetei);
-
+            stareaInterfetei = "dark";
+            document.body.classList.add("dark");
+            
         }
-      }
-    });
-
+        console.log("stare interfață:", stareaInterfetei);
+    }
+}); 
+ 
 
 
 
