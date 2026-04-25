@@ -32,88 +32,46 @@
 </head>
 
 <body>
-
-    <header class="sticky top-0 left-0 z-10 bg-white border-[1px] border-b border-gray-300">
-        <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
-
-            <a href="../../../index.html" class="flex items-center gap-3">
-                <img class="w-20 object-contain" src="../../../assets/img/Logo.svg" alt="SafeNet Junior">
-            </a>
-
-            <nav class="hidden md:flex items-center gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
-                <a class="hover:text-gray-700" href="../../games.html">Jocuri</a>
-                <a class="hover:text-gray-700" href="../../assessment.html">Teste</a>
-            </nav>
-
-            <div class="hidden md:flex items-center gap-10 font-semibold">
-                <a id="InregistreazataID" class="hover:text-gray-700" href="../../inregistreazate.html">Înregistrare</a>
-                <a id="ConecteazataID" class="hover:text-gray-700" href="../../conecteazate.html">Conectare</a>
-            </div>
-
-            <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-900 hover:bg-gray-100 transition"
-                aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-                <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-
-                <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="mx-auto max-w-7xl px-6 py-4 space-y-3 font-semibold">
-
-                <a class="block py-2 hover:text-gray-700" href="../../games.html">Jocuri</a>
-                <a class="block py-2 hover:text-gray-700" href="../../assessment.html">Teste</a>
-
-                <div class="h-px bg-gray-200 my-2"></div>
-
-                <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="../../inregistreazate.html">
-                    Înregistrare
-                </a>
-                <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="../../conecteazate.html">
-                    Conectare
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
+    <div class="sticky top-0 left-0 z-10 header"></div>
+
+
+
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
 
     <div class="w-full min-h-[90dvh] flex flex-col justify-center items-center px-4 py-12">
 
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-300 w-full max-w-2xl text-center">
+        <div class="w-full max-w-2xl p-8 text-center bg-white border shadow-xl md:p-12 rounded-3xl border-slate-300">
             <span
                 class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
                 Profesor</span>
-            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-slate-900 mt-4">
+            <h1 class="mt-4 mb-8 text-3xl font-bold md:text-4xl text-slate-900">
                 Configurare Joc Variante
             </h1>
 
             <div id="pasul1" class="flex flex-col items-center space-y-6">
-                <p class="text-slate-500 mt-0 italic">Stabilește numele si numărul de întrebări pentru elevi</p>
+                <p class="mt-0 italic text-slate-500">Stabilește numele si numărul de întrebări pentru elevi</p>
 
 
                 <div class="w-full max-w-sm">
-                    <input id="nume_joc" type="text" placeholder="Numele jocului" class="w-full border-2 border-slate-100 rounded-2xl px-6 py-4 
-                    focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10  shadow-xl
-                    outline-none transition-all text-center text-lg font-medium bg-slate-50">
+                    <input id="nume_joc" type="text" placeholder="Numele jocului"
+                        class="w-full px-6 py-4 text-lg font-medium text-center transition-all border-2 shadow-xl outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
                 </div>
 
                 <input id="nr_intrebari" type="number" min="1" max="20" placeholder="Maxim 20" class="w-[70%] max-w-sm border-2 border-slate-100 rounded-2xl px-6 py-4 
                 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10  shadow-xl
                 outline-none transition-all text-center text-lg font-medium bg-slate-50">
 
-                <button id="btn_incepe" class=" group relative bg-slate-900 text-white px-10 py-4 rounded-2xl 
-                font-bold text-lg hover:bg-blue-600 transition-all 
-                hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
+                <button id="btn_incepe"
+                    class="relative px-10 py-4 text-lg font-bold text-white transition-all group bg-slate-900 rounded-2xl hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
                     Începe configurarea
                 </button>
             </div>
@@ -123,67 +81,66 @@
                     class="text-xl font-semibold text-blue-800 bg-blue-50 px-6 py-2 rounded-full w-[60%] mx-auto">
                     Întrebarea 1
                 </h2>
-                <p id="progres" class="mt-4 text-center text-slate-500 font-medium italic">
+                <p id="progres" class="mt-4 italic font-medium text-center text-slate-500">
                     Întrebări salvate: 0 / 0
                 </p>
                 <div class="space-y-5 text-left">
                     <div>
-                        <label class="text-sm font-bold text-slate-400 ml-2 uppercase">
+                        <label class="ml-2 text-sm font-bold uppercase text-slate-400">
                             Afirmatia
                         </label>
-                        <input type="text" id="text_intrebare" placeholder="Scrie întrebarea aici..." class="w-full mt-2 border-2 border-slate-100 rounded-2xl px-6 py-4 
-                        focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 
-                        outline-none transition-all bg-slate-50">
+                        <input type="text" id="text_intrebare" placeholder="Scrie întrebarea aici..."
+                            class="w-full px-6 py-4 mt-2 transition-all border-2 outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
                     </div>
 
                     <div class="grid grid-cols-1 gap-4">
-                        <label class="text-sm font-bold text-slate-400 ml-2 uppercase">
+                        <label class="ml-2 text-sm font-bold uppercase text-slate-400">
                             Variante de răspuns
                         </label>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border-2 border-slate-100">
+                        <div class="flex items-center gap-3 p-4 border-2 bg-slate-50 rounded-2xl border-slate-100">
                             <input type="radio" name="raspuns_corect" value="0" class="w-5 h-5 cursor-pointer">
                             <input type="text" id="v0" placeholder="Varianta 1"
-                                class="flex-1 bg-transparent outline-none font-medium">
+                                class="flex-1 font-medium bg-transparent outline-none">
                         </div>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border-2 border-slate-100">
+                        <div class="flex items-center gap-3 p-4 border-2 bg-slate-50 rounded-2xl border-slate-100">
                             <input type="radio" name="raspuns_corect" value="1" class="w-5 h-5 cursor-pointer">
                             <input type="text" id="v1" placeholder="Varianta 2"
-                                class="flex-1 bg-transparent outline-none font-medium">
+                                class="flex-1 font-medium bg-transparent outline-none">
                         </div>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border-2 border-slate-100">
+                        <div class="flex items-center gap-3 p-4 border-2 bg-slate-50 rounded-2xl border-slate-100">
                             <input type="radio" name="raspuns_corect" value="2" class="w-5 h-5 cursor-pointer">
                             <input type="text" id="v2" placeholder="Varianta 3"
-                                class="flex-1 bg-transparent outline-none font-medium">
+                                class="flex-1 font-medium bg-transparent outline-none">
                         </div>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border-2 border-slate-100">
+                        <div class="flex items-center gap-3 p-4 border-2 bg-slate-50 rounded-2xl border-slate-100">
                             <input type="radio" name="raspuns_corect" value="3" class="w-5 h-5 cursor-pointer">
                             <input type="text" id="v3" placeholder="Varianta 4"
-                                class="flex-1 bg-transparent outline-none font-medium">
+                                class="flex-1 font-medium bg-transparent outline-none">
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-center justify-center">
-                    <div class="mt-12 flex flex-col md:flex-row justify-center gap-6">
+                    <div class="flex flex-col justify-center gap-6 mt-12 md:flex-row">
                         <button id="btn_adauga"
-                            class="flex bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                            class="flex px-8 py-4 font-bold text-white transition-all bg-blue-600 shadow-lg rounded-2xl hover:bg-blue-700 shadow-blue-200">
                             Salvează Întrebarea
                         </button>
 
                         <button id="btn_restart"
-                            class="bg-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition shadow-lg shadow-red-200">
+                            class="px-8 py-4 text-lg font-bold text-white transition bg-red-500 shadow-lg rounded-xl hover:bg-red-600 shadow-red-200">
                             Restartează Tot
                         </button>
 
                     </div>
                     <a href="./variante-game.html" id="btn_mergilajoc"
-                        class="btnMergiLaJoc hidden bg-green-500 text-white  mt-4 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-green-200">
+                        class="hidden px-8 py-4 mt-4 text-lg font-bold text-white transition bg-green-500 shadow-lg btnMergiLaJoc rounded-xl hover:bg-green-600 shadow-green-200">
                         Mergi la joc</a>
 
-                    <p id="mesajEroare" class="text-center mt-6 hidden font-semibold"></p>
+                    <p id="mesajEroare" class="hidden mt-6 font-semibold text-center"></p>
                 </div>
 
             </div>
@@ -191,6 +148,10 @@
     </div>
 
 
+
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
     <script type="module">
@@ -288,7 +249,7 @@
                 actualizeazaInterfata();
             } else {
                 afiseazaEroare("Toate întrebările au fost salvate cu succes!", "text-green-500");
-                                document.querySelector(".btnMergiLaJoc").classList.remove("hidden");   
+                document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
 
                 btnAdauga.disabled = true;
                 btnAdauga.classList.add("opacity-50", "cursor-not-allowed");
@@ -310,9 +271,23 @@
 
 
 
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+
 
 
     <script type="module" src="../../../assets/js/game-service/teachers-create-game-variante.js"></script>
+
+
+
+
+
+    <!-- ---------------header / footer-------------- -->
+    <script src="../../../assets/js/materialHTML/materialHTML.js"></script>
+
+
+    <!-- ---------------dashboard-------------- -->
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
 

@@ -1,7 +1,8 @@
- function buildHeader() {
-    const headerStr = `
-    <header class="w-full sticky top-0 left-0 z-10 bg-white dark:bg-neutral-900 border-b border-gray-300 dark:border-neutral-800">
-        <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
+function buildHeader() {
+  // nu e stiky
+  const headerStr = `
+
+<header class="w-full bg-white dark:bg-neutral-900 border-b border-gray-300 dark:border-neutral-800">        <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
             <a href="/public/index.html" class="flex items-center gap-3">
                 <img class="object-contain w-20 dark:brightness-110" src="/public/assets/img/Logo.svg" alt="SafeNet Junior">
             </a>
