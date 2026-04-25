@@ -9,7 +9,7 @@
     <link rel="icon" href="../../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
 
 </head>
 
@@ -17,11 +17,18 @@
 <body class="h-[100dvh] w-full bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png');">
 
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
 
 
+    <div class="container">
+
+    </div>
+
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- file3 -->
+
+    <!-- 
     <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-white border border-gray-200 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
@@ -45,15 +52,15 @@
 
 
         </div>
-    </div>
+    </div> -->
 
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
-    
 
+    <!-- 
     <div id="dacaNuACititDocum" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
 
@@ -74,17 +81,17 @@
                 Documentație
             </a>
         </div>
-    </div>
+    </div> -->
 
-      <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-
-
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
 
-    
+
+
+    <!--     
     <div id="finalModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-[#7AB5D3] rounded-[20px] p-7 w-[380px] relative text-center">
@@ -137,22 +144,22 @@
         </div>
 
 
-    </div>
+    </div> -->
 
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-
-
-
-
-  <div class="sticky top-0 left-0 z-10 header"></div>
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
 
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
+
+    <div class="sticky top-0 left-0 z-10 header"></div>
+
+
+
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
 
 
 
@@ -186,13 +193,14 @@
                 </button>
 
             </div>
-            
+
             <div
                 class="mt-10 lg:mx-0 lg:ml-[170px] px-[12px] py-[8px] w-[150px] bg-blue-300 rounded-[20px] self-center -translate-x-1/2">
                 <h1 class="text-center textIntrebare">Intrebarea:1</h1>
             </div>
 
-            <div class="mx-auto py-7 sm:py-9 lg:py-10 px-5 sm:px-7 lg:px-8 w-[90vw] sm:w-[650px] bg-blue-300 rounded-[40px] mt-4">
+            <div
+                class="mx-auto py-7 sm:py-9 lg:py-10 px-5 sm:px-7 lg:px-8 w-[90vw] sm:w-[650px] bg-blue-300 rounded-[40px] mt-4">
                 <h1 class="text-lg font-medium intrebarea1 sm:text-xl lg:text-2xl">Intrebarile</h1>
             </div>
 
@@ -254,7 +262,13 @@
     <!-- ---------------dashboard-------------- -->
 
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
-    <script type="module" src="../../../assets/js/modules/variante.js"></script>
+   
+
+        <script type="module">
+        import { buildModals } from "../../../assets/js/materialHTML/inserturi-games.js";
+        buildModals("./documentatie-variante-game.html");
+    </script>
+ <script type="module" src="../../../assets/js/modules/variante.js"></script>
 </body>
 
 </html>

@@ -35,41 +35,41 @@ function buildHeader() {
             </div>
         </div>
     </header>`;
-  
-    const container = document.querySelector('.header');
-    container.innerHTML = headerStr;
 
-    // Logica meniului mobil
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+  const container = document.querySelector('.header');
+  container.innerHTML = headerStr;
 
-    function setMenu(open) {
-        mobileMenu.classList.toggle('hidden', !open);
-        iconOpen.classList.toggle('hidden', open);
-        iconClose.classList.toggle('hidden', !open);
-        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
+  // Logica meniului mobil
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
 
-    menuBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        setMenu(!isOpen);
-    });
+  function setMenu(open) {
+    mobileMenu.classList.toggle('hidden', !open);
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) setMenu(false);
-    });
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    setMenu(!isOpen);
+  });
 
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setMenu(false);
-    });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) setMenu(false);
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
 }
 
 
 
-function buildFooter(){
-    const footer=`
+function buildFooter() {
+  const footer = `
           <section
     class="flex flex-col items-center justify-center w-full bg-white border-t dark:bg-neutral-900 subsol dark:border-neutral-800">
     <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
@@ -142,8 +142,9 @@ function buildFooter(){
     </div>
   </section>
     `;
-
-    document.querySelector('.footer').innerHTML=footer;
+  if (document.querySelector('.footer')) {
+    document.querySelector('.footer').innerHTML = footer;
+  }
 
 }
 

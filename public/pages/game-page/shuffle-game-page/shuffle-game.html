@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../../../assets/css/app.css">
     <link rel="icon" href="../../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-          <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
 
-  
+
 
 
 
@@ -18,13 +18,21 @@
 
 <body class="h-[100dvh] bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png')">
+
+
+ 
+    <div class="container">
+
+    </div>
+
+
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
+    <!-- file1 -->
 
 
-
-    <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
+    <!-- <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-white border border-gray-200 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
 
@@ -47,14 +55,14 @@
 
 
         </div>
-    </div>
+    </div> -->
 
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
 
 
-    <div id="dacaNuACititDocum" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
+    <!-- <div id="dacaNuACititDocum" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class=" relative bg-[#7AB5D3] rounded-2xl border border-blue-700 shadow-lg p-10 w-[450px] text-center">
             <button onclick="document.getElementById('dacaNuACititDocum').classList.add('hidden')"
@@ -73,13 +81,13 @@
                 Documentație
             </a>
         </div>
-    </div>
+    </div> -->
 
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
 
-
+    <!-- 
     <div id="finalModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
 
         <div class="bg-[#7AB5D3] rounded-[20px] p-7 w-[380px] relative text-center">
@@ -130,7 +138,7 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
@@ -193,9 +201,13 @@
 
     <!-- ---------------dashboard-------------- -->
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
+
+
+   <script type="module">
+        import { buildModals } from "../../../assets/js/materialHTML/inserturi-games.js";
+buildModals("./documentatie-shuffle-game.html", "Perechi corecte");
+    </script>
     <script type="module" src="../../../assets/js/modules/shuffle.js"></script>
-
-
 
 </body>
 
