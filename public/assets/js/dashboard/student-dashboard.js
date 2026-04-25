@@ -2,6 +2,10 @@ import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth
 import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getToateDatele } from "../fierbase/auth.js";
+
+
+
+
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
@@ -310,29 +314,29 @@ document.addEventListener("change", (e) => {
 
 
 
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const iconOpen = document.getElementById('iconOpen');
-const iconClose = document.getElementById('iconClose');
+// const menuBtn = document.getElementById('menuBtn');
+// const mobileMenu = document.getElementById('mobileMenu');
+// const iconOpen = document.getElementById('iconOpen');
+// const iconClose = document.getElementById('iconClose');
 
-function setMenu(open) {
-  mobileMenu.classList.toggle('hidden', !open);
-  iconOpen.classList.toggle('hidden', open);
-  iconClose.classList.toggle('hidden', !open);
-  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-}
+// function setMenu(open) {
+//   mobileMenu.classList.toggle('hidden', !open);
+//   iconOpen.classList.toggle('hidden', open);
+//   iconClose.classList.toggle('hidden', !open);
+//   menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+// }
 
-menuBtn.addEventListener('click', () => {
-  const isOpen = !mobileMenu.classList.contains('hidden');
-  setMenu(!isOpen);
-});
+// menuBtn.addEventListener('click', () => {
+//   const isOpen = !mobileMenu.classList.contains('hidden');
+//   setMenu(!isOpen);
+// });
 
-// Închide meniul când se schimbă la desktop
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) setMenu(false);
-});
+// // Închide meniul când se schimbă la desktop
+// window.addEventListener('resize', () => {
+//   if (window.innerWidth >= 768) setMenu(false);
+// });
 
-// Închide meniul când se apasă Escape
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') setMenu(false);
-});
+// // Închide meniul când se apasă Escape
+// window.addEventListener('keydown', (e) => {
+//   if (e.key === 'Escape') setMenu(false);
+// });

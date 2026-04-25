@@ -13,62 +13,11 @@
 </head>
 
 <body>
-  <header class="w-full dark:bg-black">
-    <div class="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
-
-
-      <a href="../index.html" class="flex items-center gap-3">
-        <img class="object-contain w-32" src="../assets/img/Logo.svg" alt="SafeNet Junior">
-      </a>
-
-
-      <nav class="items-center hidden gap-12 font-semibold md:flex">
-        <a class="hover:text-gray-700" href="./games.html">Jocuri</a>
-        <a class="hover:text-gray-700" href="./assessment.html">Teste</a>
-      </nav>
-
-
-      <div class="items-center hidden gap-10 font-semibold md:flex">
-        <a id="InregistreazataID" class="hover:text-gray-700" href="./inregistreazate.html">Înregistrare</a>
-        <a id="ConecteazataID" class="hover:text-gray-700" href="./conecteazate.html">Conectare</a>
-      </div>
-
-
-      <button id="menuBtn"
-        class="inline-flex items-center justify-center p-2 text-gray-900 transition md:hidden rounded-xl hover:bg-gray-100"
-        aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">
-
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-
-
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-
-    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
-      <div class="px-6 py-4 mx-auto space-y-3 font-semibold max-w-7xl">
-
-        <a class="block py-2 hover:text-gray-700" href="./games.html">Jocuri</a>
-        <a class="block py-2 hover:text-gray-700" href="./assessment.html">Teste</a>
-
-        <div class="h-px my-2 bg-gray-200"></div>
-
-        <a id="InregistreazataID_M" class="block py-2 hover:text-gray-700" href="./inregistreazate.html">
-          Înregistrare
-        </a>
-        <a id="ConecteazataID_M" class="block py-2 hover:text-gray-700" href="./conecteazate.html">
-          Conectare
-        </a>
-      </div>
-    </div>
-  </header>
+     <script type="module">
+       import {buildHeader} from '../assets/js/materialHTML/materialHTML.js'
+       buildHeader('../index.html','../index.html','../index.html','../index.html','../index.html') 
+    </script>
+  <div class="header"></div>
 
 
 
