@@ -55,7 +55,7 @@ onAuthStateChanged(auth, async (user) => {
       <label
         class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
 
-       <input class="checkbox-toggle" type="checkbox" checked class="w-0 h-0 opacity-0 peer" />
+      <input class="checkbox-toggle w-0 h-0 opacity-0" type="checkbox" />
 
         <span
           class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
@@ -116,34 +116,6 @@ onAuthStateChanged(auth, async (user) => {
       </style>
     </div>
 `;
-  let dashboard = `
-          <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden"> <!-- ------------ -->
-              
-              <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div> <!-- ------------ -->
-          
-              <div class="flex justify-end -mt-2 -mr-2 relative z-10"> <!-- ------------ -->
-                  <button id="closeDashboard" class="w-8 h-8 rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition flex items-center justify-center shadow-sm"> <!-- ------------ -->
-                      ✕
-                  </button>
-              </div>
-          
-              <div class="relative z-10"> <!-- ------------ -->
-                  <h2  id="numeUser" class=" text-[22px] font-semibold text-gray-900 mb-1 tracking-wide">John Doe</h2> <!-- ------------ -->
-                  <p id="emailUser" class="text-[13px] text-gray-400 mb-3">user@exemplu.com</p> <!-- ------------ -->
-                      
-                  ${sliderul}
-                  <div class="flex flex-col items-center gap-2"> <!-- ------------ -->
-                  <a href='${ancora}' id="dashboardLink" class="w-full h-[20px] bg-slate-900  text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-blue-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
-                      Clase
-                  </a>
-                  <button id="logoutBtn" class="w-full   h-[40px] bg-slate-900 text-center flex items-center justify-center px-4 text-white rounded-2xl hover:bg-red-600 transition shadow-md hover:shadow-lg active:scale-[0.98]"> <!-- ------------ -->
-                      Ieși din cont
-                  </button>
-              </div>
-              </div>
-          
-          </div>
-          `;
 
 
 
@@ -173,7 +145,7 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
+    let iconSRC;
     if (x) x.style.display = "none";
     if (y) y.style.display = "none";
     if (xM) xM.style.display = "none";
@@ -183,8 +155,8 @@ onAuthStateChanged(auth, async (user) => {
       userBtn.className = "flex items-center";
       userBtn.innerHTML = `
     <button type="button" id="butonProfil"
-      class="flex items-center justify-center w-10 h-10 rounded-full border-black border-[1px] bg-white overflow-hidden">
-      <img class="w-full h-full object-cover" src="../../../../public/assets/img/Icon.png" alt="Profil">
+      class="flex items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
+      <img class="w-full h-full object-cover" dark:src="../../../../public/assets/img/Icon.png"'  src="../../../../public/assets/img/Icon.png" alt="Profil">
     </button>
   `;
 
@@ -280,23 +252,25 @@ onAuthStateChanged(auth, async (user) => {
       });
     }
 
+const temaSalvata = localStorage.getItem("tema");
+if (temaSalvata === "dark") {
+    document.documentElement.classList.add("dark");
+} else {
+    document.documentElement.classList.remove("dark");
+}
+
 document.addEventListener("change", (e) => {
     if (e.target.classList.contains("checkbox-toggle")) {
-        console.log("state:", e.target.checked);
-
         if (e.target.checked) {
-            stareaInterfetei = "light";
-            document.body.classList.remove("dark");
-            
+            document.documentElement.classList.remove("dark"); 
+            localStorage.setItem("tema", "light");             
         } else {
-            stareaInterfetei = "dark";
-            document.body.classList.add("dark");
-            
+            document.documentElement.classList.add("dark");    
+            localStorage.setItem("tema", "dark");              
         }
-        console.log("stare interfață:", stareaInterfetei);
     }
-}); 
- 
+});
+
 
 
 
