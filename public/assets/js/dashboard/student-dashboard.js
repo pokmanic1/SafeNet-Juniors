@@ -48,15 +48,15 @@ onAuthStateChanged(auth, async (user) => {
     </div>
   `;
   }
+  const esteLight = localStorage.getItem("tema") !== "dark";
   const sliderul = `
 
   
     <div class="my-2 sliderul">
       <label
         class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">
-
-      <input class="checkbox-toggle w-0 h-0 opacity-0" type="checkbox" />
-
+        
+        <input class="checkbox-toggle w-0 h-0 opacity-0" type="checkbox" ${esteLight ? "checked" : ""} />
         <span
           class="slider absolute inset-0 cursor-pointer bg-[#2a2a2a] transition duration-300 rounded-[30px] overflow-hidden">
 
@@ -252,24 +252,11 @@ onAuthStateChanged(auth, async (user) => {
       });
     }
 
-const temaSalvata = localStorage.getItem("tema");
-if (temaSalvata === "dark") {
-    document.documentElement.classList.add("dark");
-} else {
-    document.documentElement.classList.remove("dark");
-}
 
-document.addEventListener("change", (e) => {
-    if (e.target.classList.contains("checkbox-toggle")) {
-        if (e.target.checked) {
-            document.documentElement.classList.remove("dark"); 
-            localStorage.setItem("tema", "light");             
-        } else {
-            document.documentElement.classList.add("dark");    
-            localStorage.setItem("tema", "dark");              
-        }
-    }
-});
+
+
+    // dark mode--------------------------
+
 
 
 
@@ -280,9 +267,35 @@ document.addEventListener("change", (e) => {
   }
 
 
+
+  
+
 });
 
-
+// ==============================================
+// DARK MODE 
+// ==============================================
+const temaSalvata = localStorage.getItem("tema");
+if (temaSalvata === "dark") {
+    document.documentElement.classList.add("dark");
+} else {
+    document.documentElement.classList.remove("dark");
+}
+ 
+document.addEventListener("change", (e) => {
+    if (e.target.classList.contains("checkbox-toggle")) {
+        if (e.target.checked) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("tema", "light");
+            console.log("light");
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("tema", "dark");
+            console.log("dark");
+        }
+    }
+});
+// ==============================================
 
 
 

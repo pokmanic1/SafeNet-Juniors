@@ -85,6 +85,8 @@ function finalModal(labelScor = "Întrebări corecte") {
     </div>`;
 }
 
+
+
 export function buildModals(linkDocumentatie, labelScor = "Întrebări corecte") {
     const container = document.querySelector(".container");
     container.innerHTML =

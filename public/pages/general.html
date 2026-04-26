@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
@@ -8,34 +8,65 @@
   <link rel="stylesheet" href="../assets/css/app.css">
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
 
 <body>
-     <script type="module">
-       import {buildHeader} from '../assets/js/materialHTML/materialHTML.js'
-       buildHeader('../index.html','../index.html','../index.html','../index.html','../index.html') 
-    </script>
-  <div class="header"></div>
-
-
-
-
-
 
   <div class="w-full flex justify-center items-center h-[400px] border border-black py-[100px]">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  </div>
+
+
+
+
+
+  <div class="w-full flex justify-center flex-col items-center h-[400px] border border-black py-[100px]">
+
+    <div
+      class="w-full flex justify-center flex-col items-center h-[400px] border border-black dark:border-white dark:bg-black py-[100px]">
+
+      <div class="w-[100px] h-[100px] bg-black dark:bg-white flex justify-center items-center">
+        <div class="w-[50px] h-[50px] border border-white dark:border-black bg-black dark:bg-white"></div>
+      </div>
+
+      <button id="toggleBtn"
+        class="w-[100px] p-4 text-white bg-black dark:text-black dark:bg-white rounded-xl mt-4 cursor-pointer transition-colors duration-300">
+        DRK
+      </button>
+
+    </div>
+
+    <script>
+      const tema = localStorage.getItem("tema");
+      if (tema === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      document.getElementById("toggleBtn").addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("tema", isDark ? "dark" : "light");
+        console.log("Tema:", isDark ? "dark" : "light");
+      });
+    </script>
+  </div>
+
+
+
+  <div class="dark w-full flex justify-center items-center h-[400px] border border-black py-[100px]">
+
+
+
+
+
+
+
+
+
+
+
     <div class="my-2 sliderul">
       <label
         class="relative inline-block text-[17px] w-[4em] h-[2.2em] rounded-[30px] shadow-[0_0_10px_rgba(0,0,0,0.1)]">

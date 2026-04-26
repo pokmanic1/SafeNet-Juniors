@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro" class="dark">
+<html lang="ro">
 
 <head>
   <meta charset="UTF-8">
@@ -10,16 +10,18 @@
   <link rel="stylesheet" href="../assets/css/app.css">
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    if (localStorage.getItem("tema") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
 </head>
 
-<body
-  class="w-full min-w-[375px] transition-colors duration-300 bg-white body dark dark:bg-neutral-900 dark:text-white ">
+<body class="w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-neutral-900 dark:text-white ">
 
- 
-<div class="sticky top-0 left-0 z-10 header"></div>
+
+  <div class="sticky top-0 left-0 z-10 header"></div>
 
   <!-- ----------------------------------------------- -->
   <!-- ----------------------------------------------- -->
@@ -155,16 +157,16 @@
 
 
   <div class="footer"></div>
-  
- 
+
+
 
   <!-- ---------------header / footer-------------- -->
   <script src="../assets/js/materialHTML/materialHTML.js"></script>
-  
-  
+
+
   <!-- ---------------dashboard-------------- -->
   <script type="module" src="../assets/js/dashboard/student-dashboard.js"></script>
-  
+
 </body>
 
 </html>
