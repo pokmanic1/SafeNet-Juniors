@@ -10,44 +10,38 @@
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
-
+  
+  <script>
+    if (localStorage.getItem("tema") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
 </head>
 
-<body class="bg-gray-100 ">
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-
-
+<body class="transition-colors duration-300 bg-gray-100 dark:bg-neutral-900">
   <div class="sticky top-0 left-0 z-10 header"></div>
   
-  
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-
-  <div class="flex flex-col justify-center min-h-screen px-4 md:flex-row sm:px-6 lg:px-8">
-
+  <div class="flex flex-col justify-center min-h-screen px-4 md:flex-row sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
 
     <div class="flex items-center justify-center w-full py-10 md:py-0">
 
       <div class="w-full max-w-xl ">
         <div class="flex justify-start">
-          <h1 class="mx-auto mb-5 text-3xl font-semibold text-center text-gray-800 sm:text-4xl ">
+          <h1 class="mx-auto mb-5 text-3xl font-semibold text-center text-gray-800 dark:text-white sm:text-4xl ">
             Creeaza un Cont
           </h1>
         </div>
 
         <div class="mb-4">
-          <label class="block mt-6 mb-1 text-sm text-gray-600">Nume</label>
+          <label class="block mt-6 mb-1 text-sm text-gray-600 dark:text-gray-400">Nume</label>
           <input type="text" id="username"
-            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 dark:shadow-none px-4 py-2 border border-gray-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
         </div>
 
         <div class="mb-4">
-          <label class="block mt-6 mb-1 text-sm text-gray-600">Rol</label>
+          <label class="block mt-6 mb-1 text-sm text-gray-600 dark:text-gray-400">Rol</label>
           <select id="role"
-            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 dark:shadow-none px-4 py-2 border border-gray-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
             <option>Selectează rol</option>
             <option>Elev</option>
             <option>Profesor</option>
@@ -55,33 +49,34 @@
         </div>
 
         <div class="mb-4">
-          <label class="block mt-6 mb-1 text-sm text-gray-600">Email</label>
+          <label class="block mt-6 mb-1 text-sm text-gray-600 dark:text-gray-400">Email</label>
           <input type="email" placeholder="Enter your email address" id="email"
-            class="shadow-lg shadow-gray-300 w-full md:w-[600px] h-[50px] px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+            class="shadow-lg shadow-gray-300 dark:shadow-none w-full md:w-[600px] h-[50px] px-4 py-2 border border-gray-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
         </div>
 
         <div class="mb-4">
-          <label class="block mt-6 mb-1 text-sm text-gray-600">Parolă</label>
+          <label class="block mt-6 mb-1 text-sm text-gray-600 dark:text-gray-400">Parolă</label>
           <input type="password" id="password"
-            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+            class="w-full md:w-[600px] h-[50px] shadow-lg shadow-gray-300 dark:shadow-none px-4 py-2 border border-gray-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400">
         </div>
-
 
         <div class="flex items-center gap-2 mt-6 mb-6 text-sm conectare_p ">
           <p class="w-full text-center"></p>
         </div>
 
         <div class="flex justify-center ">
-          <button id="registerBtn"
-            class="w-full sm:w-[450px] py-3 bg-gray-400 text-white rounded-full mt-3 font-medium ">
+          <button id="registerBtn" disabled
+            class="w-full sm:w-[450px] py-3 bg-gray-200 text-black border border-white   rounded-full mt-3 font-medium transition-all duration-300">
             Creează un Cont
           </button>
         </div>
+
         <script>
           const username = document.getElementById("username");
           const email = document.getElementById("email");
           const password = document.getElementById("password");
           const role = document.getElementById("role");
+          const registerBtn = document.getElementById("registerBtn");
 
           function checkInputs() {
             if (
@@ -90,11 +85,16 @@
               password.value.trim() !== "" &&
               role.value !== "Selectează rol"
             ) {
-              registerBtn.disabled = false; registerBtn.classList.remove('bg-gray-400'); registerBtn.classList.add('bg-gray-900');
+              registerBtn.disabled = false; 
+              registerBtn.classList.remove('bg-gray-200','text-black'); 
+              registerBtn.classList.add('bg-gray-900', 'text-white');
             } else {
               registerBtn.disabled = true;
+              registerBtn.classList.remove('bg-gray-900', 'text-white');
+              registerBtn.classList.add('bg-gray-200','text-black');
             }
           }
+          
           username.addEventListener("input", checkInputs);
           email.addEventListener("input", checkInputs);
           password.addEventListener("input", checkInputs);
@@ -105,41 +105,23 @@
     </div>
   </div>
 
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-  <!-- ----------------------------------------------- -->
-
-
-
   <div class="footer"></div>
 
-
-  <!-- ---------------header / footer-------------- -->
   <script src="../assets/js/materialHTML/materialHTML.js"></script>
-
   <script type="module" src='../assets/js/main.js'></script>
-  <script type="module" src='../assets/js/utilizatori.js'></script>
 
   <script>
     const inregistM = document.querySelector('#InregistreazataID_M');
     const inregist = document.querySelector('#InregistreazataID');
 
-
-    if (inregist  && inregistM) {
+    if (inregist && inregistM) {
       console.log("paginile de conectare sunt");
-
       inregist.classList.add('hidden');
       inregistM.classList.add('hidden');
-      
+    } else {
+      console.log("paginile de conectare NU sunt");
     }
-    else {
-      console.log("paginile de  conectare NU sunt");
-
-    }
-
-
   </script>
 
 </body>
-
 </html>

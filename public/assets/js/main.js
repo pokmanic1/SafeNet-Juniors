@@ -9,16 +9,16 @@ const registerBtn = document.getElementById("registerBtn");
 
 
 if (registerBtn) {
-        const username = document.getElementById("username");
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-        const role = document.getElementById("role");
-        // const checkbox=document.getElementById("checkbox");
-        registerBtn.addEventListener("input", x);
-        email.addEventListener("input", x);
-        password.addEventListener("input", x);
-        role.addEventListener("input", x);
-        
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const role = document.getElementById("role");
+    // const checkbox=document.getElementById("checkbox");
+    registerBtn.addEventListener("input", x);
+    email.addEventListener("input", x);
+    password.addEventListener("input", x);
+    role.addEventListener("input", x);
+
 
     registerBtn.addEventListener("click", () => {
         const username1 = username.value;
@@ -30,11 +30,16 @@ if (registerBtn) {
     });
 
     function x() {
-        if(username.value.trim() !== "" && email.value.trim() !== ""
-            && password.value.trim() !== "" && role.value.trim() !== "" ) {
-            registerBtn.style.backgroundColor = "black";
+        if (username.value.trim() !== "" && email.value.trim() !== ""
+            && password.value.trim() !== "" && role.value !== "Selectează rol") {
+            registerBtn.style.backgroundColor = "black";      
+
+        }
+        else {
+            registerBtn.style.backgroundColor = "rgb(229 231 235)";  
+
+        }
     }
-}
 
 }
 const loginBtn = document.getElementById("loginBtn");
@@ -47,7 +52,10 @@ if (loginBtn) {
     function x() {
         if (email1.value.trim() !== "" && password1.value.trim() !== "") {
             loginBtn.style.backgroundColor = "black";
-        } 
+        }
+        else {
+            loginBtn.style.backgroundColor = "rgb(229 231 235)";
+        }
     }
 
     email1.addEventListener("input", x);
@@ -59,14 +67,14 @@ if (loginBtn) {
 
         login(email, password);
     });
-    
+
 }
 
 
 
 export function checkAuthState() {
     onAuthStateChanged(auth, (user) => {
-        if (user) { 
+        if (user) {
             if (userData) {
                 console.log("User is authenticated:", userData);
             } else {
@@ -75,7 +83,7 @@ export function checkAuthState() {
         } else {
             console.log("User is not authenticated");
         }
-        
+
     });
 };
 
