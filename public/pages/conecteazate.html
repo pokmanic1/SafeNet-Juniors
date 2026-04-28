@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../assets/css/app.css">
   <link rel="icon" href="../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
   <script>
     if (localStorage.getItem("tema") === "dark") {
@@ -19,10 +19,19 @@
 </head>
 
 <body class="transition-colors duration-300 bg-gray-100 dark:bg-neutral-900">
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+
 
   <div class="sticky top-0 left-0 z-10 header"></div>
-  
-  <div class="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+
+
+  <div
+    class="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
 
     <div class="w-full py-10 mx-auto md:py-0">
 
@@ -51,7 +60,8 @@
         </div>
 
         <div class="flex justify-center ">
-          <button id="loginBtn" class="w-full sm:w-[450px] py-3 bg-gray-200 text-black border border-white rounded-full mt-3 font-medium transition-colors">
+          <button id="loginBtn"
+            class="w-full sm:w-[450px] py-3 bg-gray-200 text-black border border-white rounded-full mt-3 font-medium transition-colors">
             Conectare
           </button>
         </div>
@@ -63,14 +73,14 @@
 
           function checkInputs() {
             if (emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
-              loginBtn.disabled = false; 
-              loginBtn.classList.remove('bg-gray-200','text-black'); 
+              loginBtn.disabled = false;
+              loginBtn.classList.remove('bg-gray-200', 'text-black');
               loginBtn.classList.add('bg-gray-900', 'text-white');
             } else {
               loginBtn.disabled = true;
               loginBtn.classList.remove('bg-gray-900', 'text-white');
-              loginBtn.classList.add('bg-gray-200','text-black');
-              
+              loginBtn.classList.add('bg-gray-200', 'text-black');
+
             }
           }
 
@@ -80,8 +90,16 @@
       </div>
     </div>
   </div>
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+
 
   <div class="footer"></div>
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
+
 
   <script src="../assets/js/materialHTML/materialHTML.js"></script>
   <script type="module" src='../assets/js/main.js'></script>
@@ -98,6 +116,7 @@
       console.log("paginile de conectare NU sunt");
     }
   </script>
-  
+
 </body>
+
 </html>

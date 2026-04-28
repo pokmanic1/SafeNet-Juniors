@@ -13,7 +13,13 @@ const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
 let stareaInterfetei = "light";
-
+let dashIcon;
+if (localStorage.getItem("tema") === "dark") {
+  dashIcon = '/public/assets/img/dashIcon-darkMode.svg';
+}
+else {
+  dashIcon = '/public/assets/img/dashIcon.svg';
+}
 let date = getToateDatele();
 
 onAuthStateChanged(auth, async (user) => {
@@ -156,7 +162,7 @@ onAuthStateChanged(auth, async (user) => {
       userBtn.innerHTML = `
     <button type="button" id="butonProfil"
       class="flex items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
-      <img class="w-full h-full object-cover" dark:src="../../../../public/assets/img/Icon.png"'  src="../../../../public/assets/img/Icon.png" alt="Profil">
+      <img class="w-full h-full object-cover dashIcon"  src="${dashIcon}" alt="Profil">
     </button>
   `;
 
@@ -268,7 +274,7 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-  
+
 
 });
 
@@ -277,23 +283,32 @@ onAuthStateChanged(auth, async (user) => {
 // ==============================================
 const temaSalvata = localStorage.getItem("tema");
 if (temaSalvata === "dark") {
-    document.documentElement.classList.add("dark");
+  document.documentElement.classList.add("dark");
 } else {
-    document.documentElement.classList.remove("dark");
+  document.documentElement.classList.remove("dark");
 }
- 
+
 document.addEventListener("change", (e) => {
-    if (e.target.classList.contains("checkbox-toggle")) {
-        if (e.target.checked) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("tema", "light");
-            console.log("light");
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("tema", "dark");
-            console.log("dark");
-        }
+  if (e.target.classList.contains("checkbox-toggle")) {
+    if (e.target.checked) {
+      document.documentElement.classList.remove("dark");
+
+
+      localStorage.setItem("tema", "light");
+      console.log("light");
+
+      document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
+            document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
+
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("tema", "dark");
+      console.log("dark");
+      document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
+      document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
+     
     }
+  }
 });
 // ==============================================
 

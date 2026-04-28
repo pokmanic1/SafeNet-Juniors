@@ -13,11 +13,17 @@
       <link rel="stylesheet" href="../assets/css/style.css">
 
   <title>Teste</title>
+    <script>
+    if (localStorage.getItem("tema") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
 </head>
 
-<body>
+<body class="w-full min-w-[375px] transition-colors duration-300 dark bg-white body  dark:bg-[#31344D] dark:text-white ">
 
-  <div class="sticky top-0 left-0 z-10 header"></div>
+
+  <div class="sticky top-0 left-0 z-50 header"></div>
 
 
 
