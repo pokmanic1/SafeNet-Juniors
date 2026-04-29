@@ -308,10 +308,10 @@ export function atasazaEventuri(container) {
                 if (clasa) clasa.elevi = elevi;
 
                 listaEl.innerHTML = elevi.length === 0
-                    ? `<p class="text-[#666] text-[12px]">Niciun elev inscris inca.</p>`
+                    ? `<p class="text-[#666] dark:text-[#EBF6FF]/50 text-[12px]">Niciun elev inscris inca.</p>`
                     : elevi.map(el => `
-                        <div class="flex items-center justify-between bg-[#3a3a38] rounded-lg px-3 py-1.5">
-                            <span class="text-white text-[13px]">${el.nume || el.email || "—"}</span>
+                        <div class="flex items-center justify-between bg-[#3a3a38] dark:bg-[#454870] rounded-lg px-3 py-1.5">
+                            <span class="text-white dark:text-[#EBF6FF] text-[13px]">${el.nume || el.email || "—"}</span>
                             <button class="btn-elimina-elev text-red-400 text-[11px] hover:text-red-300 transition"
                                 data-clasa="${clasaId}"
                                 data-uid="${el.uid}"

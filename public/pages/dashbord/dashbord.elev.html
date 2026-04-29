@@ -7,17 +7,21 @@
     <meta name="description"
         content="Despre proiectul SafeNet Junior și scopul educațional pentru elevii claselor I–IV.">
     <meta name="keywords" content="SafeNet Junior, siguranță online, copii, proiect educațional, Cahul">
-    <title>dashboard - SafeNet Junior</title>
+    <title>dashboard Elevi - SafeNet Junior</title>
     <link rel="stylesheet" href="../../assets/css/app.css">
     <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-          <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
+    <script>
+        if (localStorage.getItem("tema") === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
 </head>
 
-<body class="w-full">
+<body class="w-full  min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
 
 
@@ -25,7 +29,7 @@
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
 
- <div class="sticky top-0 left-0 z-10 header"></div>
+    <div class="sticky top-0 left-0 z-10 header"></div>
 
 
     <!-- ----------------------------------------------- -->
@@ -69,14 +73,17 @@
                 <div id="grila-clase"
                     class="w-[94%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-[10px]">
 
-                    <div id="card-adauga-clasa" class="border border-dashed border-gray-500 bg-[#30302E] rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38]">
+                    <div id="card-adauga-clasa"
+                        class="border border-dashed border-gray-500 bg-[#30302E] rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38]">
 
                         <p class="text-[#aaa] text-[16px] font-medium">Clasă nouă</p>
                         <p class="text-[#aaa] text-[14px] font-medium">Introdu codul clasei</p>
 
-                        <input id="input-cod-clasa" type="text" placeholder="Ex: B-RS4H" class="w-full border border-gray-600 bg-[#252523] px-3 py-2 rounded-xl text-white text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
+                        <input id="input-cod-clasa" type="text" placeholder="Ex: B-RS4H"
+                            class="w-full border border-gray-600 bg-[#252523] px-3 py-2 rounded-xl text-white text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
 
-                        <button id="btn-adauga-clasa" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-semibold px-5 py-2 rounded-full transition active:scale-95">
+                        <button id="btn-adauga-clasa"
+                            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-semibold px-5 py-2 rounded-full transition active:scale-95">
                             <span class="text-[18px] ">+</span> Intra in clasa
                         </button>
 
@@ -96,7 +103,7 @@
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
 
-  <div class="footer"></div>
+    <div class="footer"></div>
 
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
@@ -105,9 +112,9 @@
 
 
     <script type="module" src="../../assets/js/game-service/class-elevi-service.js"></script>
-    
-    
-           
+
+
+
     <!-- ---------------header / footer-------------- -->
     <script src="../../assets/js/materialHTML/materialHTML.js"></script>
 

@@ -284,8 +284,66 @@ onAuthStateChanged(auth, async (user) => {
 const temaSalvata = localStorage.getItem("tema");
 if (temaSalvata === "dark") {
   document.documentElement.classList.add("dark");
+
 } else {
   document.documentElement.classList.remove("dark");
+}
+
+
+
+schimbăBackground();
+function schimbăBackground(){
+    const isDark = localStorage.getItem("tema") === "dark";
+
+  if (isDark) document.documentElement.classList.add("dark");  
+  // bg1
+    
+  if (document.querySelector('.background1')) {
+    const bg1 = document.querySelector('.background1');
+    bg1.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru1.png')"
+      : "url('/public/assets/img/backgrounds/background-alb1.png')";
+  }
+
+  // bg2
+  if (document.querySelector('.background2')) {
+    const bg2 = document.querySelector('.background2');
+    bg2.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru2.png')"
+      : "url('/public/assets/img/backgrounds/background-alb2..png')";
+  }
+
+  // bg3
+  if (document.querySelector('.background3')) {
+    const bg3 = document.querySelector('.background3');
+    bg3.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru3.png')"
+      : "url('/public/assets/img/backgrounds/background-alb3..png')";
+  }
+
+  // bg4
+  if (document.querySelector('.background4')) {
+    const bg4 = document.querySelector('.background4');
+    bg4.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru4.png')"
+      : "url('/public/assets/img/backgrounds/background-alb4..png')";
+  }
+
+  // bg5
+  if (document.querySelector('.background5')) {
+    const bg5 = document.querySelector('.background5');
+    bg5.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru5.png')"
+      : "url('/public/assets/img/backgrounds/background-alb5..png')";
+  }
+
+  // bg6
+  if (document.querySelector('.background6')) {
+    const bg6 = document.querySelector('.background6');
+    bg6.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-negru6.png')"
+      : "url('/public/assets/img/backgrounds/background-alb6..png')";
+  }
 }
 
 document.addEventListener("change", (e) => {
@@ -298,17 +356,21 @@ document.addEventListener("change", (e) => {
       console.log("light");
 
       document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
-            document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
+      document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
 
     } else {
+
       document.documentElement.classList.add("dark");
       localStorage.setItem("tema", "dark");
       console.log("dark");
       document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
       document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
-     
+
     }
   }
+
+  schimbăBackground();
+
 });
 // ==============================================
 
