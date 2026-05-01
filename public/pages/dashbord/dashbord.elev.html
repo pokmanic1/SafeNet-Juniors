@@ -38,17 +38,17 @@
 
 
     <section
-        class=" flex justify-center items-center flex-col pb-[150px]  pt-[80px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
-        style=" background-image: url('../../assets/img/backgrounds/background-alb6..png');">
+        class="background2 flex justify-center items-center flex-col pb-[150px]  pt-[80px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
+        style=" background-image: url('../../assets/img/backgrounds/background-alb2..png');">
 
 
 
 
         <div class="w-full flex flex-col p-[32px]">
-            <h1 class="mb-4 text-3xl font-bold text-center text-gray-900 md:text-4xl">
+            <h1 class="mb-4 text-3xl font-bold text-center text-gray-900 dark:text-[#EBF6FF] md:text-4xl">
                 Bun venit în dashboard-ul tău, elev!
             </h1>
-            <p class="max-w-2xl mx-auto text-lg text-center text-gray-700 md:text-xl">
+            <p class="max-w-2xl mx-auto text-lg text-center text-gray-700 dark:text-[#EBF6FF]/80 md:text-xl">
                 Aici poți accesa jocurile și testele create de profesori pentru a învăța cum să fii în siguranță online.
                 Explorează resursele
                 și distrează-te în timp ce înveți!
@@ -60,27 +60,27 @@
 
         <div class="w-full flex flex-col p-[32px]">
 
-            <h2 class="mb-4 text-2xl font-semibold text-center text-black md:text-3xl">
+            <h2 class="mb-4 text-2xl font-semibold text-center text-black dark:text-[#EBF6FF] md:text-3xl">
                 Clasele tale
             </h2>
 
             <div class="flex flex-col w-full">
 
                 <div class="w-[92%] flex justify-start items-center mb-[20px] mx-auto">
-                    <h1 class="text-start font-semibold text-[24px]">Clasele Mele</h1>
+                    <h1 class="text-start font-semibold text-[24px] dark:text-[#EBF6FF]">Clasele Mele</h1>
                 </div>
 
                 <div id="grila-clase"
                     class="w-[94%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-[10px]">
 
                     <div id="card-adauga-clasa"
-                        class="border border-dashed border-gray-500 bg-[#30302E] rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38]">
+                        class="border border-dashed border-gray-500 dark:border-[#EBF6FF]/10 bg-[#30302E] dark:bg-[#3d4060]/90 rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38] dark:hover:bg-[#3d4060]">
 
-                        <p class="text-[#aaa] text-[16px] font-medium">Clasă nouă</p>
-                        <p class="text-[#aaa] text-[14px] font-medium">Introdu codul clasei</p>
+                        <p class="text-[#aaa] dark:text-[#EBF6FF]/60 text-[16px] font-medium">Clasă nouă</p>
+                        <p class="text-[#aaa] dark:text-[#EBF6FF]/60 text-[14px] font-medium">Introdu codul clasei</p>
 
                         <input id="input-cod-clasa" type="text" placeholder="Ex: B-RS4H"
-                            class="w-full border border-gray-600 bg-[#252523] px-3 py-2 rounded-xl text-white text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
+                            class="w-full border border-gray-600 dark:border-[#EBF6FF]/10 bg-[#252523] dark:bg-[#2a2c3e] px-3 py-2 rounded-xl text-white dark:text-[#EBF6FF] text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
 
                         <button id="btn-adauga-clasa"
                             class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-semibold px-5 py-2 rounded-full transition active:scale-95">
