@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
 
   <!-- ----------------------------------------------- -->
@@ -29,24 +29,24 @@
 
   <div class="min-h-[90dvh] flex flex-col justify-center items-center px-4 py-12">
     <div
-      class="w-full max-w-2xl p-8 text-center bg-white border shadow-xl rounded-3xl card-shadow md:p-12 border-slate-300">
+      class="w-full max-w-2xl p-8 text-center bg-white dark:bg-[#3d4060]/90 border shadow-xl rounded-3xl card-shadow md:p-12 border-slate-300 dark:border-[#EBF6FF]/10">
 
       <div class="mb-10">
         <span
           class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
           Profesor</span>
-        <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900">Configurare Joc True / False</h1>
-        <p class="mt-0 italic text-slate-500">Stabilește numele si numărul de întrebări pentru elevi</p>
+        <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-[#EBF6FF]">Configurare Joc True / False</h1>
+        <p class="mt-0 italic text-slate-500 dark:text-[#EBF6FF]/80">Stabilește numele si numărul de întrebări pentru elevi</p>
       </div>
 
       <div id="pasul1" class="flex flex-col items-center space-y-6">
         <div class="w-full max-w-sm">
           <input id="nume_joc" type="text" placeholder="Numele jocului"
-            class="w-full px-6 py-4 text-lg font-medium text-center transition-all border-2 shadow-xl outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
+            class="w-full px-6 py-4 text-lg font-medium text-center transition-all border-2 shadow-xl outline-none border-slate-100 dark:border-[#EBF6FF]/10 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50 dark:bg-[#2a2c3e] dark:text-[#EBF6FF]">
         </div>
         <div class="w-full max-w-sm">
           <input id="nr_intrebari" type="number" min="1" max="10" placeholder="Câte întrebări dorești? (1-10)"
-            class="w-[80%] border-2 border-slate-100 rounded-2xl px-6 py-4 shadow-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50">
+            class="w-[80%] border-2 border-slate-100 dark:border-[#EBF6FF]/10 rounded-2xl px-6 py-4 shadow-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-center text-lg font-medium bg-slate-50 dark:bg-[#2a2c3e] dark:text-[#EBF6FF]">
         </div>
 
         <button id="btn_incepe"
@@ -57,17 +57,17 @@
 
       <div id="pasul2" class="flex flex-col items-center hidden space-y-6">
 
-        <h2 id="titlu_pas" class="px-6 py-2 text-xl font-semibold text-blue-800 rounded-full bg-blue-50">Configurează
+        <h2 id="titlu_pas" class="px-6 py-2 text-xl font-semibold text-blue-800 dark:text-blue-300 rounded-full bg-blue-50 dark:bg-[#2a2c3e]">Configurează
           întrebarea 1</h2>
 
         <div class="w-full space-y-4 text-left">
-          <label class="ml-2 text-sm font-bold uppercase text-slate-400">Afirmația</label>
+          <label class="ml-2 text-sm font-bold uppercase text-slate-400 dark:text-[#EBF6FF]/60">Afirmația</label>
           <input type="text" id="text_intrebare" placeholder="Scrie aici afirmația..."
-            class="w-full px-6 py-4 transition-all border-2 outline-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
+            class="w-full px-6 py-4 transition-all border-2 outline-none border-slate-100 dark:border-[#EBF6FF]/10 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50 dark:bg-[#2a2c3e] dark:text-[#EBF6FF]">
 
-          <label class="ml-2 text-sm font-bold uppercase text-slate-400">Răspunsul Corect</label>
+          <label class="ml-2 text-sm font-bold uppercase text-slate-400 dark:text-[#EBF6FF]/60">Răspunsul Corect</label>
           <select id="raspuns_corect"
-            class="w-full px-6 py-4 font-medium transition-all border-2 outline-none appearance-none border-slate-100 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50">
+            class="w-full px-6 py-4 font-medium transition-all border-2 outline-none appearance-none border-slate-100 dark:border-[#EBF6FF]/10 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50 dark:bg-[#2a2c3e] dark:text-[#EBF6FF]">
             <option value="" disabled selected>Alege răspunsul...</option>
             <option value="true">Adevărat (True)</option>
             <option value="false">Fals (False)</option>

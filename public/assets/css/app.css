@@ -4055,6 +4055,11 @@
       border-color: var(--color-white);
     }
   }
+  .dark\:bg-\[\#2a2c3e\] {
+    &:where(.dark, .dark *) {
+      background-color: #2a2c3e;
+    }
+  }
   .dark\:bg-\[\#3d4060\] {
     &:where(.dark, .dark *) {
       background-color: #3d4060;
@@ -4215,6 +4220,13 @@
   .dark\:text-white {
     &:where(.dark, .dark *) {
       color: var(--color-white);
+    }
+  }
+  .dark\:placeholder-\[\#EBF6FF\]\/40 {
+    &:where(.dark, .dark *) {
+      &::placeholder {
+        color: color-mix(in oklab, #EBF6FF 40%, transparent);
+      }
     }
   }
   .dark\:opacity-40 {
