@@ -9,362 +9,271 @@
     <link rel="icon" href="../../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/css/style.css">
-
-
+    <script>
+        if (localStorage.getItem("tema") === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
 </head>
 
-<body class="min-h-[100dvh]  bg-cover bg-center bg-no-repeat"
+<body class="min-h-[100dvh] min-w-[375px] bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png')">
-
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
-
-
 
     <div class="sticky top-0 left-0 z-10 header"></div>
 
-
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
-
+    <div class="fixed inset-0 -z-10 bg-black opacity-0 dark:opacity-40 pointer-events-none"></div>
 
     <div class="w-full mt-[90px] flex items-center justify-center mb-[60px]">
-        <h1 class="text-5xl font-bold text-center">Documentația - Potrivește Perechile</h1>
+        <h1 class="text-5xl font-bold text-center dark:text-[#EBF6FF]">Documentația - Potrivește Perechile</h1>
     </div>
-
-
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
 
     <section class="w-full sm:w-[90%] mx-auto p-6 mt-[40px]">
         <div class="grid grid-cols-3 gap-2 cartonase md:grid-cols-4 lg:grid-cols-5 sm:gap-3 md:gap-6">
 
             <!--Lvl1-->
             <div class="flex items-center gap-3 my-6 col-span-full">
-                <span
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-800 dark:text-blue-300 whitespace-nowrap">
                     Nivel 1 — Începător
                 </span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-[#EBF6FF]/20"></div>
+                <span class="text-xs text-gray-400 dark:text-[#EBF6FF]/50 whitespace-nowrap">10 termeni de bază</span>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/parolaLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Parolă</b> este un cod secret care te
-                    ajută să intri în conturile tale.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/parolaLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Parolă</b> este un cod secret care te ajută să intri în conturile tale.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/mesajLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Mesaj</b> este o informație trimisă sau
-                    primită pe internet.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/mesajLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Mesaj</b> este o informație trimisă sau primită pe internet.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/contLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Cont</b> este spațiul tău personal pe un
-                    site sau într-o aplicație.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/contLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Cont</b> este spațiul tău personal pe un site sau într-o aplicație.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/codPinLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Cod PIN</b> este un număr secret folosit
-                    pentru acces.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/codPinLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Cod PIN</b> este un număr secret folosit pentru acces.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/spamLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Spam</b> sunt mesaje nedorite pe
-                    internet.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/spamLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Spam</b> sunt mesaje nedorite pe internet.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="block object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/virusLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Virus</b> este un program rău care
-                    afectează calculatorul.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="block object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/virusLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Virus</b> este un program rău care afectează calculatorul.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/eroareLvl.1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Eroare</b> apare când un program nu
-                    funcționează corect.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/eroareLvl.1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Eroare</b> apare când un program nu funcționează corect.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/cosGunoiLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Coș de gunoi</b> locul unde ajung
-                    fișierele șterse.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/cosGunoiLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Coș de gunoi</b> locul unde ajung fișierele șterse.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/wwwLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>WWW</b> reprezintă paginile web de pe
-                    internet.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>WWW</b> reprezintă paginile web de pe internet.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/intrenetLvl1.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Internet</b> este rețeaua globală de
-                    calculatoare.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/intrenetLvl1.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Internet</b> este rețeaua globală de calculatoare.</p>
             </div>
 
             <!--Lvl2-->
             <div class="flex items-center gap-3 my-6 col-span-full">
-                <span
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-800 dark:text-blue-300 whitespace-nowrap">
                     Nivel 2 — Intermediar
                 </span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-[#EBF6FF]/20"></div>
+                <span class="text-xs text-gray-400 dark:text-[#EBF6FF]/50 whitespace-nowrap">10 termeni de bază</span>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/phishingLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Phishing</b> este o metodă de păcălire
-                    pentru a obține date.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/phishingLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Phishing</b> este o metodă de păcălire pentru a obține date.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/identitateLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Identitate</b> sunt informațiile care te
-                    reprezintă online.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/identitateLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Identitate</b> sunt informațiile care te reprezintă online.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/hackerLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Hacker</b> este o persoană care încearcă
-                    să intre în sisteme.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/hackerLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Hacker</b> este o persoană care încearcă să intre în sisteme.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/confidentialitateLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Confidențialitate</b> înseamnă protejarea
-                    datelor personale.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/confidentialitateLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Confidențialitate</b> înseamnă protejarea datelor personale.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/securitateLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Securitate</b> sunt metodele care
-                    protejează datele.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/securitateLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Securitate</b> sunt metodele care protejează datele.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/scanareLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Scanare</b> verificarea calculatorului
-                    pentru viruși.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/scanareLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Scanare</b> verificarea calculatorului pentru viruși.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/alertaSecLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Alertă de securitate</b> este un
-                    avertisment despre o problemă.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/alertaSecLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Alertă de securitate</b> este un avertisment despre o problemă.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/sigurantaLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Siguranță</b> folosirea internetului
-                    într-un mod protejat.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/sigurantaLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Siguranță</b> folosirea internetului într-un mod protejat.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/furtDateLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Furt de date</b> când cineva îți ia
-                    informațiile.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/furtDateLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Furt de date</b> când cineva îți ia informațiile.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/monitorizareLvl2.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Monitorizare</b> observarea activității
-                    unui sistem.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/monitorizareLvl2.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Monitorizare</b> observarea activității unui sistem.</p>
             </div>
 
             <!--Lvl3-->
             <div class="flex items-center gap-3 my-6 col-span-full">
-                <span
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-800 dark:text-blue-300 whitespace-nowrap">
                     Nivel 3 — Avansat
                 </span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-[#EBF6FF]/20"></div>
+                <span class="text-xs text-gray-400 dark:text-[#EBF6FF]/50 whitespace-nowrap">10 termeni de bază</span>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/cacheLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Cache</b> este o memorie temporară.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Cache</b> este o memorie temporară.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/cookiesLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Cookies</b> sunt fișiere mici salvate de
-                    site-uri.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/cookiesLvl3.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Cookies</b> sunt fișiere mici salvate de site-uri.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/riscuriLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Riscuri</b> reprezintă pericolele online.
-                </p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/riscuriLvl3.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Riscuri</b> reprezintă pericolele online.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/FraudaLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Fraudă</b> este o înșelătorie pentru bani
-                    sau date.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/FraudaLvl3.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Fraudă</b> este o înșelătorie pentru bani sau date.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/atacCiberneticLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Atac cibernetic</b> este o încercare de
-                    acces ilegal.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/atacCiberneticLvl3.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Atac cibernetic</b> este o încercare de acces ilegal.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/vpnLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>VPN</b> protejează conexiunea la
-                    internet.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>VPN</b> protejează conexiunea la internet.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/httpsLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>HTTPS</b> conexiune securizată pe
-                    site-uri.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>HTTPS</b> conexiune securizată pe site-uri.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/windowsDefenderLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Windows Defender</b> antivirus pentru
-                    Windows.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/windowsDefenderLvl3.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Windows Defender</b> antivirus pentru Windows.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/cloudLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Cloud</b> spațiu online pentru fișiere.
-                </p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Cloud</b> spațiu online pentru fișiere.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/ipLvl3.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>IP Address</b> adresa unui dispozitiv pe
-                    internet.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>IP Address</b> adresa unui dispozitiv pe internet.</p>
             </div>
 
             <!--Lvl4-->
             <div class="flex items-center gap-3 my-6 col-span-full">
-                <span
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-800 whitespace-nowrap">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-800 dark:text-blue-300 whitespace-nowrap">
                     Nivel 4 — Expert
                 </span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-xs text-gray-400 whitespace-nowrap">10 termeni de bază</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-[#EBF6FF]/20"></div>
+                <span class="text-xs text-gray-400 dark:text-[#EBF6FF]/50 whitespace-nowrap">10 termeni de bază</span>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/dnsLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Dnsmasq</b> program pentru gestionarea
-                    rețelei.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Dnsmasq</b> program pentru gestionarea rețelei.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/proxyLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Proxy Server</b> server intermediar
-                    pentru internet.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Proxy Server</b> server intermediar pentru internet.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/dateLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Date</b> informațiile stocate pe
-                    calculator.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Date</b> informațiile stocate pe calculator.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/captchaLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>reCAPTCHA</b> verifică dacă utilizatorul
-                    este om.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/captchaLvl4.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>reCAPTCHA</b> verifică dacă utilizatorul este om.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/criptareLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Criptare</b> transformă datele într-un
-                    cod secret.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/criptareLvl4.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Criptare</b> transformă datele într-un cod secret.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/politicaSecuritateLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Politică de securitate</b> reguli pentru
-                    protecția datelor.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/politicaSecuritateLvl4.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Politică de securitate</b> reguli pentru protecția datelor.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/torLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Tor Project</b> permite navigarea
-                    anonimă.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Tor Project</b> permite navigarea anonimă.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/duckLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>DuckDuckGo</b> motor de căutare privat.
-                </p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>DuckDuckGo</b> motor de căutare privat.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
                 <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/osLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>macOS</b> sistem de operare Apple.</p>
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>macOS</b> sistem de operare Apple.</p>
             </div>
 
-            <div class="bg-white p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
-                <img class="object-contain w-full h-16 sm:h-24"
-                    src="../../../assets/img/img-shufle-game/firewallLvl4.png">
-                <p class="text-[10px] sm:text-sm text-center leading-tight"><b>Firewall</b> protejează rețeaua de
-                    atacuri.</p>
+            <div class="bg-white dark:bg-[#3d4060] p-1.5 sm:p-3 rounded-xl shadow flex flex-col items-center gap-1 sm:gap-2 min-w-0">
+                <img class="object-contain w-full h-16 sm:h-24" src="../../../assets/img/img-shufle-game/firewallLvl4.png">
+                <p class="text-[10px] sm:text-sm text-center leading-tight dark:text-[#EBF6FF]/80"><b>Firewall</b> protejează rețeaua de atacuri.</p>
             </div>
 
         </div>
-        <div class="flex items-center justify-center w-full ">
+        <div class="flex items-center justify-center w-full">
             <a href="./shuffle-game.html"
                 class="inline-flex items-center justify-center px-8 py-3 mx-auto mt-10 text-base font-semibold text-white transition-all duration-300 bg-blue-700 shadow-lg rounded-2xl hover:bg-blue-800 hover:shadow-xl hover:scale-105 active:scale-95">
                 Joacă-te
             </a>
         </div>
     </section>
-
-
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
 
     <script>
         const key_shuffle_game = 'vizitat_shuffle_game';
@@ -376,18 +285,8 @@
         }
     </script>
 
-
-
-    <!-- ---------------header / footer-------------- -->
     <script src="../../../assets/js/materialHTML/materialHTML.js"></script>
-
-    <!-- ---------------dashboard-------------- -->
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 
-
-
 </body>
-
-
-
 </html>

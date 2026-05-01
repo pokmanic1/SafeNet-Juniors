@@ -4005,6 +4005,11 @@
       font-size: 70px;
     }
   }
+  .dark\:border-\[\#EBF6FF\]\/10 {
+    &:where(.dark, .dark *) {
+      border-color: color-mix(in oklab, #EBF6FF 10%, transparent);
+    }
+  }
   .dark\:border-\[\#EBF6FF\]\/20 {
     &:where(.dark, .dark *) {
       border-color: color-mix(in oklab, #EBF6FF 20%, transparent);
@@ -4060,6 +4065,11 @@
       background-color: color-mix(in oklab, #3d4060 80%, transparent);
     }
   }
+  .dark\:bg-\[\#3d4060\]\/90 {
+    &:where(.dark, .dark *) {
+      background-color: color-mix(in oklab, #3d4060 90%, transparent);
+    }
+  }
   .dark\:bg-\[\#1156ea\] {
     &:where(.dark, .dark *) {
       background-color: #1156ea;
@@ -4080,6 +4090,11 @@
       background-color: color-mix(in oklab, #EBF6FF 10%, transparent);
     }
   }
+  .dark\:bg-\[\#EBF6FF\]\/20 {
+    &:where(.dark, .dark *) {
+      background-color: color-mix(in oklab, #EBF6FF 20%, transparent);
+    }
+  }
   .dark\:bg-black {
     &:where(.dark, .dark *) {
       background-color: var(--color-black);
@@ -4090,6 +4105,14 @@
       background-color: color-mix(in srgb, oklch(28.2% 0.091 267.935) 40%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-blue-950) 40%, transparent);
+      }
+    }
+  }
+  .dark\:bg-blue-950\/50 {
+    &:where(.dark, .dark *) {
+      background-color: color-mix(in srgb, oklch(28.2% 0.091 267.935) 50%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-blue-950) 50%, transparent);
       }
     }
   }
