@@ -165,7 +165,7 @@ ArrJocuri.forEach((item) => {
                         class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1000px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
                         
                         <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0 transition-transform duration-300 hover:scale-110">
-                            <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="w-full h-auto dark:opacity-80">
+                            <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
                         </div>
                         
                         <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[17px] sm:text-[17px] md:text-[18px] lg:text-[19px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate transition-all duration-300">
@@ -173,7 +173,7 @@ ArrJocuri.forEach((item) => {
                         </div>
                         
                         <button class="sageata h-[60%] mt-[6px] w-[20px] sm:w-[20px] md:w-[30px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
-                            <img src=${sageata_stanga} alt="" class="w-full h-auto dark:opacity-80">
+                            <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
                         </button>
                     </div>
                     <!-- -------- -->
@@ -208,7 +208,7 @@ ArrJocuri.forEach((item) => {
                          absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
                         
                         <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
-                            <img src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="w-full h-auto dark:opacity-80">
+                            <img src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="Calendar_Check w-full h-auto dark:opacity-80">
                         </div>
                     
                         <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[17px] sm:text-[18px] md:text-[19px] lg:text-[20px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate transition-all duration-300">
@@ -216,7 +216,7 @@ ArrJocuri.forEach((item) => {
                         </div>
                     
                         <button class="sageata h-[60%] mt-[6px] w-[20px] sm:w-[20px] md:w-[30px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
-                            <img src=${sageata_stanga} alt="" class="w-full h-auto dark:opacity-80">
+                            <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
                         </button>
                     </div>
                     <!-- -------- -->

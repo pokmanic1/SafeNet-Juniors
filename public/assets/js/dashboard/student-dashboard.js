@@ -292,24 +292,61 @@ if (temaSalvata === "dark") {
 
 
 schimbăBackground();
-function schimbăBackground(){
-    const isDark = localStorage.getItem("tema") === "dark";
+function schimbăBackground() {
+  const isDark = localStorage.getItem("tema") === "dark";
 
-  if (isDark) document.documentElement.classList.add("dark");  
-    // logo
-    
-const logoIndex = document.querySelector('.logo-index');
-
-if (logoIndex) {
-    const logoSrc = isDark 
-        ? '/public/assets/img/DarkLogo.svg' 
-        : '/public/assets/img/Vector.svg';
-    
+  if (isDark) document.documentElement.classList.add("dark");
+ 
+ 
+  // logo
+  if (document.querySelector('.logo-index')) {
+    const logoIndex = document.querySelector('.logo-index');
+    const logoSrc = isDark
+      ? '/public/assets/img/DarkLogo.svg'
+      : '/public/assets/img/Vector.svg';
     logoIndex.setAttribute('src', logoSrc);
-}
+  }
+  // ------------------------------------------
+  // ------------------------------------------
+  // assasmenturii
 
+  //sageata
+  if (document.querySelector('.sageata_stanga')) {
+    const sageata_stanga = document.querySelectorAll('.sageata_stanga');
+    const a = isDark
+      ? '/public/assets/img/img-assasment/DarkSageata_stanga.svg'
+      : '/public/assets/img/img-assasment/Sageata_stanga.png';
+    sageata_stanga.forEach((item)=>{
+      item.setAttribute('src', a);
+    })
+  }
+  //calendar fara iconita
+  if (document.querySelector('.Calendar_fara_iconita')) {
+    const Calendar_fara_iconita = document.querySelectorAll('.Calendar_fara_iconita');
+    const a = isDark
+      ? '/public/assets/img/img-assasment/DarkCalendar_fara_iconita.svg'
+      : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
+    Calendar_fara_iconita.forEach((item)=>{
+      item.setAttribute('src', a);
+    })
+  }
+  //calendar fara iconita
+  if (document.querySelector('.Calendar_Check')) {
+    const Calendar_fara_iconita = document.querySelectorAll('.Calendar_Check');
+    const a = isDark
+      ? '/public/assets/img/img-assasment/DarkCalendar_Check.svg'
+      : '/public/assets/img/img-assasment/Calendar_Check.png';
+    Calendar_fara_iconita.forEach((item)=>{
+      item.setAttribute('src', a);
+    })
+  }
+
+
+  // ------------------------------------------
+  // ------------------------------------------
+  // backgrounduri
   // bg1
-    
+
   if (document.querySelector('.background1')) {
     const bg1 = document.querySelector('.background1');
     bg1.style.backgroundImage = isDark
