@@ -296,6 +296,18 @@ function schimbăBackground(){
     const isDark = localStorage.getItem("tema") === "dark";
 
   if (isDark) document.documentElement.classList.add("dark");  
+    // logo
+    
+const logoIndex = document.querySelector('.logo-index');
+
+if (logoIndex) {
+    const logoSrc = isDark 
+        ? '/public/assets/img/DarkLogo.svg' 
+        : '/public/assets/img/Vector.svg';
+    
+    logoIndex.setAttribute('src', logoSrc);
+}
+
   // bg1
     
   if (document.querySelector('.background1')) {
