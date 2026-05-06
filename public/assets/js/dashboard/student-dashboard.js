@@ -432,8 +432,8 @@ function schimbăBackground() {
   if (document.querySelector('.background-joc4')) {
     const bg_joc4 = document.querySelector('.background-joc4');
     bg_joc4.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-4.png')"
-      : "url('/public/assets/img/backgrounds/background-jocuri-galben-4.png')";
+      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+      : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
   }
 
 }
