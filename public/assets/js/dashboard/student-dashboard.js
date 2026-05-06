@@ -393,6 +393,41 @@ function schimbăBackground() {
       ? "url('/public/assets/img/backgrounds/background-negru6.png')"
       : "url('/public/assets/img/backgrounds/background-alb6..png')";
   }
+
+
+    // ------------------------------------------
+  // ------------------------------------------
+  // backgrounduri jocuri
+  // bg1
+  if (document.querySelector('.background-joc1')) {
+    const bg_joc1 = document.querySelector('.background-joc1');
+    bg_joc1.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-1.png')"
+      : "url('/public/assets/img/backgrounds/background-jocuri-galben-1.png')";
+  }
+
+  // bg2
+  if (document.querySelector('.background-joc2')) {
+    const bg_joc2 = document.querySelector('.background-joc2');
+    bg_joc2.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-2.png')"
+      : "url('/public/assets/img/backgrounds/background-jocuri-galben-2.png')";
+  }
+  // bg3
+  if (document.querySelector('.background-joc3')) {
+    const bg_joc3 = document.querySelector('.background-joc3');
+    bg_joc3.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+      : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
+  }
+  // bg4
+  if (document.querySelector('.background-joc4')) {
+    const bg_joc4 = document.querySelector('.background-joc4');
+    bg_joc4.style.backgroundImage = isDark
+      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-4.png')"
+      : "url('/public/assets/img/backgrounds/background-jocuri-galben-4.png')";
+  }
+
 }
 
 document.addEventListener("change", (e) => {
