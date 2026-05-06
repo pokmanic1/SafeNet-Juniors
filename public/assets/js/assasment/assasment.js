@@ -212,12 +212,12 @@ ArrJocuri.forEach((item) => {
                 <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
                     hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
                     <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                        <img src="${iconImg}" alt="" class="w-full h-auto dark:opacity-80">
+                        <img src="${iconImg}" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
                     </div>
                     <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
                         ${item.nume}
                     </span>
-                    <img src="${sageata_stanga}" alt="" class="sageata w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
+                    <img src="${sageata_stanga}" alt="" class="sageata_stanga w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
                 </button>
 
                 <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
@@ -248,12 +248,12 @@ ArrJocuri.forEach((item) => {
                 <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
                     hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
                     <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                        <img src="${iconImg}" alt="" class="w-full h-auto dark:opacity-80">
+                        <img src="${iconImg}" alt="" class="Calendar_Check w-full h-auto dark:opacity-80">
                     </div>
                     <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
                         ${item.nume}
                     </span>
-                    <img src="${sageata_stanga}" alt="" class="sageata w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
+                    <img src="${sageata_stanga}" alt="" class="sageata_stanga w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
                 </button>
 
                 <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
@@ -299,7 +299,7 @@ document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
 document.querySelectorAll('.card-total').forEach((card) => {
     const buton = card.querySelector('.card-sus');
     const cardJos = card.querySelector('.card-jos');
-    const sageata = card.querySelector('.sageata');
+    const sageata = card.querySelector('.sageata_stanga');
     let esteInchis = true;
 
     buton.addEventListener('click', () => {
