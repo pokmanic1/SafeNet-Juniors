@@ -29,11 +29,10 @@ let ArrJocuri = [
         incercari: contor_assasment_incercari_shuffle || 0,
         media: contor_assasment_incercari_shuffle === 0
             ? 0
-            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100), ancora: './game-page/shuffle-game-page/shuffle-game.html',
+            : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100),
         ancora: './game-page/shuffle-game-page/shuffle-game.html',
         statut: 0
     },
-
     // --------------------------
     {
         id: 2,
@@ -49,13 +48,12 @@ let ArrJocuri = [
         nume: 'Adevărat sau Fals',
         descriere: 'Ești suficient de atent? Citește fiecare afirmație despre securitatea online și decide dacă este adevărată sau falsă!',
         incercari: contor_assasment_incercari_truefalse,
-        media: contor_assasment_incercari_shuffle === 0
+        media: contor_assasment_incercari_truefalse === 0
             ? 0
-            : Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100), ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+            : Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100),
         ancora: './game-page/true-false-game-page/true-false-game.html',
         statut: 0
     },
-
     // ---------------------------------
     {
         id: 3,
@@ -73,11 +71,10 @@ let ArrJocuri = [
         incercari: contor_assasment_incercari_password || 0,
         media: contor_assasment_incercari_password === 0
             ? 0
-            : Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100), ancora: './game-page/password-game-page/password-game.html',
+            : Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100),
         ancora: './game-page/password-game-page/password-game.html',
         statut: 0
     },
-
     // ---------------------------------
     {
         id: 4,
@@ -95,12 +92,12 @@ let ArrJocuri = [
         incercari: contor_assasment_incercari_variante || 0,
         media: contor_assasment_incercari_variante === 0
             ? 0
-            : Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100), statut: 0,
-        
-            ancora: './game-page/variante-game-page/variante-game.html',
+            : Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
+        ancora: './game-page/variante-game-page/variante-game.html',
         statut: 0
     },
-]
+];
+
 
 function schimbarea_statut(i) {
     ArrJocuri.forEach((item) => {
@@ -108,169 +105,228 @@ function schimbarea_statut(i) {
             if (item.statut === 1) { item.statut = 0; }
             else { item.statut = 1; }
         }
-    })
+    });
 }
 
 function vizitare_paginilor() {
-
-    if (localStorage.getItem('vizitat_shuffle_game') === '1') {
-        console.log('a vizitat shuffle');
-        schimbarea_statut(1);
-    }
-    else {
-        console.log('NU a vizitat shuffle');
-    }
-    // ---------------------
-    if (localStorage.getItem('vizitat_truefalse_game') === '1') {
-        console.log('a vizitat true false');
-        schimbarea_statut(2);
-    } else { console.log('NU a vizitat true false') }
-    // --------------------
-    if (localStorage.getItem('vizitat_password_game') === '1') {
-        console.log('a vizitat password');
-        schimbarea_statut(3);
-    }
-    else {
-        console.log('NU a vizitat password');
-    }
-    // ---------------------
-    if (localStorage.getItem('vizitat_variante_game') === '1') {
-        console.log('a vizitat variante');
-        schimbarea_statut(4);
-    } else { console.log('NU a vizitat variante') }
+    if (localStorage.getItem('vizitat_shuffle_game') === '1') { schimbarea_statut(1); }
+    if (localStorage.getItem('vizitat_truefalse_game') === '1') { schimbarea_statut(2); }
+    if (localStorage.getItem('vizitat_password_game') === '1') { schimbarea_statut(3); }
+    if (localStorage.getItem('vizitat_variante_game') === '1') { schimbarea_statut(4); }
     console.log(ArrJocuri);
 }
-//localStorage.removeItem("vizitat_variante_game");
-// localStorage.removeItem("vizitat_truefalse_game");
-// localStorage.removeItem("vizitat_shuffle_game");
-// localStorage.removeItem("vizitat_password_game");
+
 vizitare_paginilor();
 
 
-let sageata_jos = "../assets/img/img-assasment/Sageata_jos.png";
+let totalJocuri = 0;
+for (let i = 0; i < ArrJocuri.length; i++) {
+    if (ArrJocuri[i].incercari !== -1) {
+        totalJocuri = totalJocuri + 1;
+    }
+}
+
+let completate = 0;
+for (let i = 0; i < ArrJocuri.length; i++) {
+    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+        completate = completate + 1;
+    }
+}
+
+let totalIncercari = 0;
+for (let i = 0; i < ArrJocuri.length; i++) {
+    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+        totalIncercari = totalIncercari + ArrJocuri[i].incercari;
+    }
+}
+
+let sumaScoruri = 0;
+let numarJocuriCuScor = 0;
+for (let i = 0; i < ArrJocuri.length; i++) {
+    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+        sumaScoruri = sumaScoruri + ArrJocuri[i].media;
+        numarJocuriCuScor = numarJocuriCuScor + 1;
+    }
+}
+let scorMediu = 0;
+if (numarJocuriCuScor > 0) {
+    scorMediu = Math.round(sumaScoruri / numarJocuriCuScor);
+}
+
+function culoareBara(procent) {
+    if (procent >= 75) {
+        return '#639922'; // verde
+    }
+    if (procent >= 45) {
+        return '#BA7517'; // portocaliu
+    }
+    return '#E24B4A'; // rosu
+}
+
+function culoareText(procent) {
+    if (procent >= 75) {
+        return 'text-green-700 dark:text-green-400';
+    }
+    if (procent >= 45) {
+        return 'text-amber-700 dark:text-amber-400';
+    }
+    return 'text-red-600 dark:text-red-400';
+}
+
+
+const statisticiHTML = `
+<div class="w-full max-w-[800px] mx-auto px-5 mb-6">
+    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Jocuri completate</p>
+            <p class="text-xl font-medium text-black dark:text-white">${completate} / ${totalJocuri}</p>
+        </div>
+        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Scor mediu</p>
+            <p class="text-xl font-medium text-black dark:text-white">${scorMediu}%</p>
+        </div>
+        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Total încercări</p>
+            <p class="text-xl font-medium text-black dark:text-white">${totalIncercari}</p>
+        </div>
+    </div>
+</div>`;
+
+
 let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
 
-let incercariGeneral = 5;
-let AssasmentHTML = ``;
+let AssasmentHTML = statisticiHTML;
+
 ArrJocuri.forEach((item) => {
-    if (item.statut === 1) {
-        if (item.incercari === -1) {
+    if (item.statut !== 1) return;
 
-            AssasmentHTML += `
-            <div class="container1 flex flex-col items-center justify-center mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] px-5 ">
-                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
-                        
-                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1000px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
-                        
-                        <div class="icon h-[55%] flex items-center w-[28px] sm:w-[36px] lg:w-[42px] flex-shrink-0">
-                            <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
-                        </div>
-                        
-                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] flex-1 mx-2 sm:mx-3 h-[60%] truncate">
-                            ${item.nume}
-                        </div>
-                        
-                        <button class="sageata h-[55%] mt-[4px] w-[16px] sm:w-[18px] md:w-[22px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
-                            <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
-                        </button>
+    const iconImg = item.incercari === -1
+        ? `../assets/img/img-assasment/Calendar_fara_iconita.png`
+        : `../assets/img/img-assasment/Calendar_Check.png`;
+
+    if (item.incercari === -1) {
+        AssasmentHTML += `
+        <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
+            <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
+
+                <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
+                    hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
+                    <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                        <img src="${iconImg}" alt="" class="w-full h-auto dark:opacity-80">
                     </div>
-                        
-                    <div class="card-jos border-[1px] border-gray-500 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[220px] sm:h-[240px] md:h-[260px] lg:h-[280px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] p-[12px] sm:p-[18px] lg:p-[24px] transition-all duration-500 ease-in-out">
-                        
-                        <div class="w-[80%]">
-                            <h2 class="mt-[60px] sm:mt-[65px] text-black dark:text-[#EBF6FF] w-full sm:w-[340px] lg:w-[500px] h-[50px] text-[11px] sm:text-[12px] lg:text-[14px] leading-snug">
-                                ${item.descriere}
-                            </h2>
-                        </div>
-                        <div class="flex w-full justify-end">
-                            <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
-                                <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[14px]">
-                                    Invata
-                                </a>
-                            </div>
+                    <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
+                        ${item.nume}
+                    </span>
+                    <img src="${sageata_stanga}" alt="" class="sageata w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
+                </button>
+
+                <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
+                    <div class="px-4 pt-3 pb-4">
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            ${item.descriere}
+                        </p>
+                        <div class="flex justify-end">
+                            <a href="${item.ancora}"
+                                class="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-xs sm:text-sm font-medium transition-colors duration-200">
+                                Învață
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>`
-        }
-        else {
-            AssasmentHTML += `
-            <div class="container1 flex flex-col items-center justify-center w-full  sm:mt-[15px] md:mt-[20px] lg:mt-[30px] px-5 ">
-                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
-                    
-                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1200px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060]
-                     rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
-                        
-                        <div class="icon h-[55%] flex items-center w-[28px] sm:w-[36px] lg:w-[42px] flex-shrink-0">
-                            <img src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="Calendar_Check w-full h-auto dark:opacity-80">
-                        </div>
-                    
-                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] flex-1 mx-2 sm:mx-3 h-[60%] truncate">
-                            ${item.nume}
-                        </div>
-                    
-                        <button class="sageata h-[55%] mt-[4px] w-[16px] sm:w-[18px] md:w-[22px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
-                            <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
-                        </button>
+
+            </div>
+        </div>`;
+
+    } else {
+        const culoare = culoareBara(item.media);
+        const clsText = culoareText(item.media);
+
+        AssasmentHTML += `
+        <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
+            <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
+
+                <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
+                    hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
+                    <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                        <img src="${iconImg}" alt="" class="w-full h-auto dark:opacity-80">
                     </div>
-                    
-                    <div class="card-jos border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[220px] sm:h-[240px] md:h-[260px] lg:h-[280px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] p-[12px] sm:p-[18px] lg:p-[24px] transition-all duration-500 ease-in-out">
-                        
-                        <div class="w-[80%]">
-                            <h2 class="mt-[60px] sm:mt-[65px] text-black dark:text-[#EBF6FF] w-full sm:w-[340px] lg:w-[500px] h-[50px] text-[11px] sm:text-[12px] lg:text-[14px] leading-snug">
-                                ${item.descriere}
-                            </h2>
-                    
-                            <h3 class="mt-[40px] sm:mt-[50px] md:mt-[70px] text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[11px] sm:text-[13px] lg:text-[14px]">
-                                Reușită: ${item.media} %
-                            </h3>
-                    
-                            <h3 class="text-black dark:text-[#EBF6FF] w-[200px] h-[30px]  text-[11px] sm:text-[13px] lg:text-[14px]">
-                                Încercări: ${item.incercari}
-                            </h3>
-                        </div>
-                         <div class="flex w-full justify-end">
-                            <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
-                                <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[13px]">
-                                    Joaca-te
-                                </a>
+                    <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
+                        ${item.nume}
+                    </span>
+                    <img src="${sageata_stanga}" alt="" class="sageata w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
+                </button>
+
+                <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
+                    <div class="px-4 pt-3 pb-4">
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                            ${item.descriere}
+                        </p>
+
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 w-14 flex-shrink-0">Reușită</span>
+                            <div class="flex-1 h-2 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full rounded-full w-0 transition-none"
+                                    style="background:${culoare};"
+                                    data-target="${item.media}">
+                                </div>
                             </div>
+                            <span class="text-[11px] font-medium w-8 text-right flex-shrink-0 ${clsText}">
+                                ${item.media}%
+                            </span>
+                        </div>
+
+                        <p class="text-[11px] text-gray-400 dark:text-gray-500 mb-3">
+                            Încercări: ${item.incercari}
+                        </p>
+
+                        <div class="flex justify-end">
+                            <a href="${item.ancora}"
+                                class="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-black dark:bg-blue-700 hover:bg-gray-800 dark:hover:bg-blue-800 text-white text-xs sm:text-sm font-medium transition-colors duration-200">
+                                Joacă-te
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>`
-        }
+
+            </div>
+        </div>`;
     }
-
-})
+});
 
 document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
 
 
-const carduri = document.querySelectorAll('.card-total');
-const carduri_jos = document.querySelectorAll('.card-jos')
-carduri.forEach((card) => {
-    const buton = card.querySelector('.sageata');
-    const imagineSageata = buton.querySelector('img');
+document.querySelectorAll('.card-total').forEach((card) => {
+    const buton = card.querySelector('.card-sus');
     const cardJos = card.querySelector('.card-jos');
+    const sageata = card.querySelector('.sageata');
     let esteInchis = true;
 
     buton.addEventListener('click', () => {
         if (esteInchis) {
-            buton.classList.add('rotate-[-90deg]');
-            buton.classList.remove('hover:rotate-[-90deg]');
-            buton.classList.add('hover:rotate-[0deg]');
+            cardJos.classList.remove('hidden');
+            sageata.style.transform = 'rotate(-90deg)';
 
-            cardJos.style.display = 'flex';
-            card.style.height = '300px';
+            const bar = cardJos.querySelector('.progress-fill');
+            if (bar) {
+                const target = bar.getAttribute('data-target');
+                requestAnimationFrame(() => {
+                    bar.style.transition = 'width 0.6s ease';
+                    bar.style.width = target + '%';
+                });
+            }
+
             esteInchis = false;
-
         } else {
-            buton.classList.remove('rotate-[-90deg]');
-            buton.classList.add('hover:rotate-[-90deg]');
-            buton.classList.remove('hover:rotate-[0deg]');
-            cardJos.style.display = 'none';
-            card.style.height = '80px';
+            cardJos.classList.add('hidden');
+            sageata.style.transform = 'rotate(0deg)';
+
+            const bar = cardJos.querySelector('.progress-fill');
+            if (bar) {
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+            }
+
             esteInchis = true;
         }
     });
@@ -278,11 +334,3 @@ carduri.forEach((card) => {
 
 
 localStorage.removeItem("");
-
-
-
-ArrJocuri.forEach((item) => {
-
-});
-
-
