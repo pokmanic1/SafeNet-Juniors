@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../../../assets/css/app.css">
     <link rel="icon" href="../../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-              <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
 
 </head>
 
-<body class="background2 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
+<body
+    class="background2 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
@@ -32,7 +33,7 @@
 
 
 
-    
+
 
     <div class="flex flex-col items-center justify-center min-h-screen px-4 py-10">
         <div
@@ -42,8 +43,10 @@
                 <span
                     class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
                     Profesor</span>
-                <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-[#EBF6FF]">Configurează provocarea</h1>
-                <p class="mt-0 italic text-slate-500 dark:text-[#EBF6FF]/80">Stabilește numele si numărul de întrebări pentru elevi</p>
+                <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-[#EBF6FF]">Configurează
+                    provocarea</h1>
+                <p class="mt-0 italic text-slate-500 dark:text-[#EBF6FF]/80">Stabilește numele si numărul de întrebări
+                    pentru elevi</p>
             </div>
 
             <div class="flex flex-col items-center justify-center space-y-6">
@@ -63,6 +66,10 @@
                 </button>
 
                 <div class="w-full space-y-4">
+                    <h2 id="titlu_pas"
+                        class="px-6 py-2 hidden text-xl font-semibold text-blue-800 dark:text-blue-300 rounded-full bg-blue-50 dark:bg-[#2a2c3e]">
+                        Configurează
+                        regula 1</h2>
                     <select id="conditie"
                         class="hidden w-full px-6 py-4 font-medium transition-all border-2 outline-none border-slate-100 dark:border-[#EBF6FF]/10 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 bg-slate-50 dark:bg-[#2a2c3e] dark:text-[#EBF6FF]">
                         <option value="" disabled selected>Alege o regulă pentru parolă...</option>
@@ -135,7 +142,7 @@
         let valoareExtra = document.getElementById("valoareExtra");
         let button = document.getElementById("btn");
         let mesajEroare = document.getElementById("mesajEroare");
-
+        const titluPas = document.getElementById("titlu_pas");
         function afiseazaEroare(text, culoare, timp = 2000) {
             mesajEroare.innerText = text;
             mesajEroare.classList.remove("hidden");
@@ -159,6 +166,7 @@
 
                 conditie.classList.remove("hidden");
                 button.classList.remove("hidden");
+                titluPas.classList.remove('hidden');
                 document.getElementById("btn_restart").classList.remove("hidden");
 
                 nr_conditii.classList.add("hidden");
@@ -251,6 +259,8 @@
             }
 
             arrProfesori.push(obiect);
+            titluPas.textContent = `Configurează regula ${arrProfesori.length + 1}`;
+
             localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
             let joc = {
                 nume: nume_joc.value,
@@ -291,7 +301,7 @@
             document.getElementById("btn_restart").classList.add("hidden");
             valoareExtra.classList.add("hidden");
             document.querySelector(".btnMergiLaJoc").classList.add("hidden");
-
+            titluPas.classList.add('hidden')
             nr_conditii.classList.remove("hidden");
             btn_incepe.classList.remove("hidden");
             nume_joc.classList.remove("hidden");

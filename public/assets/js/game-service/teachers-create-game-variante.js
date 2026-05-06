@@ -85,7 +85,7 @@ function genereazaHTML(jocuri) {
 
                 <div class="ptborderb flex items-center justify-between pb-[2px]">
 
-                    <img class="sageata cursor-pointer transition-transform duration-300 block  w-[30px] h-[30px] mr-[20px] my-auto" 
+                    <img class="sageata sageata_stanga cursor-pointer transition-transform duration-300 block  w-[30px] h-[30px] mr-[20px] my-auto" 
                         src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
                     <h2 class="lg:text-[18px] md:text-[16px] sm:text-[14px] text-[12px]  font-bold text-yellow-500 uppercase tracking-wider">
