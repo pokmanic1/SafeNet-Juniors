@@ -156,40 +156,34 @@ ArrJocuri.forEach((item) => {
         if (item.incercari === -1) {
 
             AssasmentHTML += `
-            <div class="container flex flex-col items-center justify-center mt-[10px] sm:mt-[20px] md:mt-[30px] lg:mt-[40px] px-4 sm:px-6">
-                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:80px">
+            <div class="container flex flex-col items-center justify-center mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] ">
+                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
                         
+                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1000px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
                         
-                    <!-- --------- -->
-                    <div
-                        class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1000px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
-                        
-                        <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                        <div class="icon h-[55%] flex items-center w-[28px] sm:w-[36px] lg:w-[42px] flex-shrink-0">
                             <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
                         </div>
                         
-                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[17px] sm:text-[17px] md:text-[18px] lg:text-[19px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate transition-all duration-300">
+                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] flex-1 mx-2 sm:mx-3 h-[60%] truncate">
                             ${item.nume}
                         </div>
                         
-                        <button class="sageata h-[60%] mt-[6px] w-[20px] sm:w-[20px] md:w-[30px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
+                        <button class="sageata h-[55%] mt-[4px] w-[16px] sm:w-[18px] md:w-[22px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
                             <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
                         </button>
                     </div>
-                    <!-- -------- -->
                         
-                    <div
-                        class="card-jos border-[1px] border-gray-500 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px] transition-all duration-500 ease-in-out">
+                    <div class="card-jos border-[1px] border-gray-500 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[220px] sm:h-[240px] md:h-[260px] lg:h-[280px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] p-[12px] sm:p-[18px] lg:p-[24px] transition-all duration-500 ease-in-out">
                         
                         <div class="w-[80%]">
-                            <h2 class="mt-[70px] text-black dark:text-[#EBF6FF] w-full sm:w-[380px] lg:w-[550px] h-[50px] text-[15px] sm:text-[16px] lg:text-[17px] leading-snug transition-all duration-300 hover:text-slate-700 dark:hover:text-[#EBF6FF]/70">
+                            <h2 class="mt-[60px] sm:mt-[65px] text-black dark:text-[#EBF6FF] w-full sm:w-[340px] lg:w-[500px] h-[50px] text-[11px] sm:text-[12px] lg:text-[14px] leading-snug">
                                 ${item.descriere}
                             </h2>
                         </div>
                         
-                        <div class="flex justify-end w-[80px] sm:w-[90px] px-1 lg:w-[110px] h-[40px] sm:h-[45px] lg:h-[50px] mt-[180px] md:mt-[200px] bg-black dark:bg-[#1156ea] ml-[20px] sm:ml-[50px] lg:ml-[95px] 
-                        rounded-[15px] sm:rounded-[20px] lg:rounded-[30px] transition-all duration-300 hover:scale-105 active:scale-95">
-                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
+                        <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
+                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[14px]">
                                 Invata
                             </a>
                         </div>
@@ -199,49 +193,42 @@ ArrJocuri.forEach((item) => {
         }
         else {
             AssasmentHTML += `
-            <div class="container flex flex-col items-center justify-center mt-[10px] sm:mt-[20px] md:mt-[30px] lg:mt-[40px] px-4 sm:px-6">
-                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:80px">
+            <div class="container flex flex-col items-center justify-center w-full mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] ">
+                <div class="card-total overflow-hidden relative w-full max-w-[1200px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
                     
-                    <!-- --------- -->
-                    <div
-                        class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1200px] h-[58px] sm:h-[66px] md:h-[74px] lg:h-[80px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px]
-                         absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
+                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1200px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
                         
-                        <div class="icon h-[60%] flex items-center w-[36px] sm:w-[44px] lg:w-[50px] flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                        <div class="icon h-[55%] flex items-center w-[28px] sm:w-[36px] lg:w-[42px] flex-shrink-0">
                             <img src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="Calendar_Check w-full h-auto dark:opacity-80">
                         </div>
                     
-                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[17px] sm:text-[18px] md:text-[19px] lg:text-[20px] flex-1 mx-2 sm:mx-3 lg:mx-4 h-[60%] truncate transition-all duration-300">
+                        <div class="text text-black dark:text-[#EBF6FF] flex items-center text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] flex-1 mx-2 sm:mx-3 h-[60%] truncate">
                             ${item.nume}
                         </div>
                     
-                        <button class="sageata h-[60%] mt-[6px] w-[20px] sm:w-[20px] md:w-[30px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
+                        <button class="sageata h-[55%] mt-[4px] w-[16px] sm:w-[18px] md:w-[22px] flex-shrink-0 transition-transform duration-300 hover:rotate-[-90deg]">
                             <img src=${sageata_stanga} alt="" class="sageata_stanga w-full h-auto dark:opacity-80">
                         </button>
                     </div>
-                    <!-- -------- -->
                     
-                    <div
-                        class="card-jos border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[250px] sm:h-[260px] md:h-[280px] lg:h-[300px] 
-                        absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px] transition-all duration-500 ease-in-out ">
+                    <div class="card-jos border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 flex hidden bg-[#EEEEEE] dark:bg-[#3d4060] w-full max-w-[800px] h-[220px] sm:h-[240px] md:h-[260px] lg:h-[280px] absolute top-0 left-0 z-0 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] p-[12px] sm:p-[18px] lg:p-[24px] transition-all duration-500 ease-in-out">
                         
                         <div class="w-[80%]">
-                            <h2 class="mt-[70px] text-black dark:text-[#EBF6FF] w-full sm:w-[380px] lg:w-[550px] h-[50px] text-[15px] sm:text-[16px] lg:text-[17px] leading-snug transition-all duration-300 hover:text-slate-700 dark:hover:text-[#EBF6FF]/70">
+                            <h2 class="mt-[60px] sm:mt-[65px] text-black dark:text-[#EBF6FF] w-full sm:w-[340px] lg:w-[500px] h-[50px] text-[11px] sm:text-[12px] lg:text-[14px] leading-snug">
                                 ${item.descriere}
                             </h2>
                     
-                            <h3 class="mt-[60px] md:mt-[80px] lg:mt-[85px] text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[15px] sm:text-[16px] lg:text-[17px] transition-all duration-300 hover:text-slate-700 dark:hover:text-[#EBF6FF]/70">
+                            <h3 class="mt-[55px] sm:mt-[65px] md:mt-[70px] text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[11px] sm:text-[13px] lg:text-[14px]">
                                 Reușită: ${item.media} %
                             </h3>
                     
-                            <h3 class="text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[15px] sm:text-[16px] lg:text-[17px] transition-all duration-300 hover:text-slate-700 dark:hover:text-[#EBF6FF]/70">
+                            <h3 class="text-black dark:text-[#EBF6FF] w-[200px] h-[30px]  text-[11px] sm:text-[13px] lg:text-[14px]">
                                 Încercări: ${item.incercari}
                             </h3>
                         </div>
                     
-                        <div class="flex justify-end w-[80px] sm:w-[90px] px-1 lg:w-[110px] h-[40px] sm:h-[45px] lg:h-[50px] mt-[180px] md:mt-[200px] bg-black dark:bg-[#1156ea] ml-[20px] sm:ml-[50px] lg:ml-[95px] rounded-[15px] 
-                        sm:rounded-[20px] lg:rounded-[30px] transition-all duration-300  hover:scale-105 active:scale-95">
-                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[13px] sm:text-[15px] lg:text-[16px] transition-all duration-300">
+                        <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
+                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[13px]">
                                 Joaca-te
                             </a>
                         </div>

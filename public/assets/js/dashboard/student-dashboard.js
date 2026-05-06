@@ -314,8 +314,8 @@ function schimbăBackground() {
   if (document.querySelector('.sageata_stanga')) {
     const sageata_stanga = document.querySelectorAll('.sageata_stanga');
     const a = isDark
-      ? '/public/assets/img/img-assasment/DarkSageata_stanga.svg'
-      : '/public/assets/img/img-assasment/Sageata_stanga.png';
+      ? '/public/assets/img/img-assasment/sageata-pt-darkmode.png'
+      : '/public/assets/img/img-assasment/sageata-pt-normalmode.png';
     sageata_stanga.forEach((item)=>{
       item.setAttribute('src', a);
     })
@@ -324,7 +324,7 @@ function schimbăBackground() {
   if (document.querySelector('.Calendar_fara_iconita')) {
     const Calendar_fara_iconita = document.querySelectorAll('.Calendar_fara_iconita');
     const a = isDark
-      ? '/public/assets/img/img-assasment/DarkCalendar_fara_iconita.svg'
+      ? '/public/assets/img/img-assasment/CalendarDark.png'
       : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
     Calendar_fara_iconita.forEach((item)=>{
       item.setAttribute('src', a);
@@ -334,7 +334,7 @@ function schimbăBackground() {
   if (document.querySelector('.Calendar_Check')) {
     const Calendar_fara_iconita = document.querySelectorAll('.Calendar_Check');
     const a = isDark
-      ? '/public/assets/img/img-assasment/DarkCalendar_Check.svg'
+      ? '/public/assets/img/img-assasment/Calendar_CheckDark.png'
       : '/public/assets/img/img-assasment/Calendar_Check.png';
     Calendar_fara_iconita.forEach((item)=>{
       item.setAttribute('src', a);
