@@ -9,11 +9,43 @@ import {
     setDoc,
     getDoc      
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
- 
+
+
+function mesajPentruEroare(error, context = "register") {
+    switch (error.code) {
+        case "auth/email-already-in-use":
+            return "Acest email este deja folosit. Încearcă să te conectezi.";
+        case "auth/invalid-email":
+            return "Adresa de email nu este validă.";
+        case "auth/weak-password":
+            return "Parola este prea slabă. Folosește cel puțin 6 caractere.";
+        case "auth/operation-not-allowed":
+            return "Înregistrarea este dezactivată momentan.";
+
+        case "auth/user-not-found":
+            return "Nu există niciun cont cu acest email.";
+        case "auth/wrong-password":
+            return "Parola introdusă este incorectă.";
+        case "auth/invalid-credential":
+            return "Email sau parolă incorectă. Verifică și încearcă din nou.";
+        case "auth/user-disabled":
+            return "Contul tău a fost dezactivat. Contactează un administrator.";
+        case "auth/too-many-requests":
+            return "Prea multe încercări. Așteaptă câteva minute și încearcă din nou.";
+
+        case "auth/network-request-failed":
+            return "Eroare de rețea. Verifică conexiunea la internet.";
+
+        default:
+            return context === "login"
+                ? "Conectare eșuată. Verifică datele și încearcă din nou."
+                : "Înregistrare eșuată. Încearcă din nou.";
+    }
+}
+
 
 export async function register(username, email, password, role) {
-    let conectare_p = document.querySelector('.conectare_p');
-    try {
+  try {
         const userCredential = await createUserWithEmailAndPassword(
             auth,
             email,
@@ -37,26 +69,30 @@ export async function register(username, email, password, role) {
             link.classList.remove('hidden');
         }
     } catch (error) {
-        afiseazaEroare("Inregistrare nereusita", "text-red-600");
-        console.error(error.message);
+
+        const mesaj = mesajPentruEroare(error, "register");
+        afiseazaEroare(mesaj, "text-red-600");
+        console.error("[register]", error.code, error.message);
     }
 }
 
 
 export async function login(email, password) {
-    let conectare_p = document.querySelector('.conectare_p');
+
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        
-        conectare_p.innerText = afiseazaEroare("Autentificat cu succes!", "text-green-600");
+
+        afiseazaEroare("Autentificat cu succes!", "text-green-600");
+
         window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
             link.style.display = 'block';
         }
     } catch (error) {
-        afiseazaEroare("Inregistrare nereusita", "text-red-600");
-        console.error(error.message);
+        const mesaj = mesajPentruEroare(error, "login");
+        afiseazaEroare(mesaj, "text-red-600");
+        console.error("[login]", error.code, error.message);
     }
 }
 
@@ -113,18 +149,17 @@ export async function getToateDatele() {
 }
 
 
-let mesajEroare = document.querySelectorAll('.conectare_p'); // ------------
+let mesajEroare = document.querySelectorAll('.conectare_p');
 
 function afiseazaEroare(text, culoare, timp = 5000) {
-
-    mesajEroare.forEach(el => { // ------------
+    mesajEroare.forEach(el => {
         el.innerText = text;
         el.classList.remove("hidden");
         el.classList.add(culoare);
     });
 
     setTimeout(() => {
-        mesajEroare.forEach(el => { // ------------
+        mesajEroare.forEach(el => {
             el.classList.add("hidden");
             el.innerText = "";
         });
