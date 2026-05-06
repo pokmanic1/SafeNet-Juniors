@@ -4097,6 +4097,11 @@
       background-color: #2a2c3e;
     }
   }
+  .dark\:bg-\[\#2d4a5e\] {
+    &:where(.dark, .dark *) {
+      background-color: #2d4a5e;
+    }
+  }
   .dark\:bg-\[\#2d3050\] {
     &:where(.dark, .dark *) {
       background-color: #2d3050;
@@ -4170,6 +4175,11 @@
   .dark\:bg-black {
     &:where(.dark, .dark *) {
       background-color: var(--color-black);
+    }
+  }
+  .dark\:bg-blue-700 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-blue-700);
     }
   }
   .dark\:bg-blue-950\/40 {
