@@ -483,6 +483,9 @@
   .mt-\[30px\] {
     margin-top: 30px;
   }
+  .mt-\[35px\] {
+    margin-top: 35px;
+  }
   .mt-\[40px\] {
     margin-top: 40px;
   }
@@ -2776,6 +2779,26 @@
   .sm\:mt-\[35px\] {
     @media (width >= 40rem) {
       margin-top: 35px;
+    }
+  }
+  .sm\:mt-\[50px\] {
+    @media (width >= 40rem) {
+      margin-top: 50px;
+    }
+  }
+  .sm\:mt-\[54px\] {
+    @media (width >= 40rem) {
+      margin-top: 54px;
+    }
+  }
+  .sm\:mt-\[55px\] {
+    @media (width >= 40rem) {
+      margin-top: 55px;
+    }
+  }
+  .sm\:mt-\[60px\] {
+    @media (width >= 40rem) {
+      margin-top: 60px;
     }
   }
   .sm\:mt-\[65px\] {

@@ -96,7 +96,8 @@ let ArrJocuri = [
         media: contor_assasment_incercari_variante === 0
             ? 0
             : Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100), statut: 0,
-        ancora: './game-page/variante-game-page/variante-game.html',
+        
+            ancora: './game-page/variante-game-page/variante-game.html',
         statut: 0
     },
 ]
@@ -156,7 +157,7 @@ ArrJocuri.forEach((item) => {
         if (item.incercari === -1) {
 
             AssasmentHTML += `
-            <div class="container flex flex-col items-center justify-center mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] ">
+            <div class="container1 flex flex-col items-center justify-center mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] px-5 ">
                 <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
                         
                     <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1000px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
@@ -181,11 +182,12 @@ ArrJocuri.forEach((item) => {
                                 ${item.descriere}
                             </h2>
                         </div>
-                        
-                        <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
-                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[14px]">
-                                Invata
-                            </a>
+                        <div class="flex w-full justify-end">
+                            <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
+                                <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[14px]">
+                                    Invata
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,10 +195,11 @@ ArrJocuri.forEach((item) => {
         }
         else {
             AssasmentHTML += `
-            <div class="container flex flex-col items-center justify-center w-full mt-[8px] sm:mt-[15px] md:mt-[20px] lg:mt-[30px] ">
-                <div class="card-total overflow-hidden relative w-full max-w-[1200px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
+            <div class="container1 flex flex-col items-center justify-center w-full  sm:mt-[15px] md:mt-[20px] lg:mt-[30px] px-5 ">
+                <div class="card-total overflow-hidden relative w-full max-w-[800px] flex items-center justify-center transition-all duration-300 hover:scale-[1.01]" style="height:70px">
                     
-                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1200px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060] rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
+                    <div class="card-sus border-[1px] border-gray-400 dark:border-[#EBF6FF]/20 w-full max-w-[1200px] h-[52px] sm:h-[60px] md:h-[66px] lg:h-[70px] bg-[#DADADA] dark:bg-[#3d4060]
+                     rounded-[10px] sm:rounded-[20px] lg:rounded-[25px] absolute top-0 left-0 z-10 flex items-center justify-between px-2 sm:px-4 lg:px-5 transition-all duration-300 hover:bg-[#cfcfcf] dark:hover:bg-[#454870] hover:shadow-lg cursor-pointer">
                         
                         <div class="icon h-[55%] flex items-center w-[28px] sm:w-[36px] lg:w-[42px] flex-shrink-0">
                             <img src="../assets/img/img-assasment/Calendar_Check.png" alt="" class="Calendar_Check w-full h-auto dark:opacity-80">
@@ -218,7 +221,7 @@ ArrJocuri.forEach((item) => {
                                 ${item.descriere}
                             </h2>
                     
-                            <h3 class="mt-[55px] sm:mt-[65px] md:mt-[70px] text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[11px] sm:text-[13px] lg:text-[14px]">
+                            <h3 class="mt-[40px] sm:mt-[50px] md:mt-[70px] text-black dark:text-[#EBF6FF] w-[200px] h-[30px] text-[11px] sm:text-[13px] lg:text-[14px]">
                                 Reușită: ${item.media} %
                             </h3>
                     
@@ -226,11 +229,12 @@ ArrJocuri.forEach((item) => {
                                 Încercări: ${item.incercari}
                             </h3>
                         </div>
-                    
-                        <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
-                            <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[13px]">
-                                Joaca-te
-                            </a>
+                         <div class="flex w-full justify-end">
+                            <div class="flex justify-end w-[70px] sm:w-[80px] px-1 lg:w-[95px] h-[36px] sm:h-[40px] lg:h-[44px] mt-[160px] sm:mt-[175px] md:mt-[185px] bg-black dark:bg-[#1156ea] ml-[10px] sm:ml-[40px] lg:ml-[80px] rounded-[12px] sm:rounded-[16px] lg:rounded-[22px]">
+                                <a href="${item.ancora}" class="flex items-center justify-center w-full h-full text-white text-[11px] sm:text-[12px] lg:text-[13px]">
+                                    Joaca-te
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
