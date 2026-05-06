@@ -306,6 +306,14 @@ function schimbăBackground() {
       : '/public/assets/img/Vector.svg';
     logoIndex.setAttribute('src', logoSrc);
   }
+  // logo
+  if (document.querySelector('.User_Add')) {
+    const logoIndex = document.querySelector('.User_Add');
+    const logoSrc = isDark
+      ? '/public/assets/img/img-pt-index/User_Add-darkMode.svg'
+      : '/public/assets/img/img-pt-index/User_Add-normalMode.svg';
+    logoIndex.setAttribute('src', logoSrc);
+  }
   // ------------------------------------------
   // ------------------------------------------
   // assasmenturii

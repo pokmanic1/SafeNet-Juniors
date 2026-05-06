@@ -664,6 +664,9 @@
   .h-\[5px\] {
     height: 5px;
   }
+  .h-\[10px\] {
+    height: 10px;
+  }
   .h-\[30px\] {
     height: 30px;
   }
@@ -741,6 +744,9 @@
   }
   .h-\[260px\] {
     height: 260px;
+  }
+  .h-\[300px\] {
+    height: 300px;
   }
   .h-\[400px\] {
     height: 400px;
@@ -859,11 +865,17 @@
   .w-\[16px\] {
     width: 16px;
   }
+  .w-\[20\%\] {
+    width: 20%;
+  }
   .w-\[20px\] {
     width: 20px;
   }
   .w-\[28px\] {
     width: 28px;
+  }
+  .w-\[30\%\] {
+    width: 30%;
   }
   .w-\[30px\] {
     width: 30px;
@@ -877,6 +889,9 @@
   .w-\[38px\] {
     width: 38px;
   }
+  .w-\[40\%\] {
+    width: 40%;
+  }
   .w-\[40px\] {
     width: 40px;
   }
@@ -885,6 +900,12 @@
   }
   .w-\[45\%\] {
     width: 45%;
+  }
+  .w-\[50\%\] {
+    width: 50%;
+  }
+  .w-\[50\] {
+    width: 50;
   }
   .w-\[50px\] {
     width: 50px;
@@ -1286,8 +1307,20 @@
   .rounded-\[32px\] {
     border-radius: 32px;
   }
+  .rounded-\[40\%\] {
+    border-radius: 40%;
+  }
+  .rounded-\[40\] {
+    border-radius: 40;
+  }
+  .rounded-\[40p\] {
+    border-radius: 40p;
+  }
   .rounded-\[40px\] {
     border-radius: 40px;
+  }
+  .rounded-\[60px\] {
+    border-radius: 60px;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -1488,6 +1521,9 @@
   .bg-\[\#DADADA\] {
     background-color: #DADADA;
   }
+  .bg-\[\#DBE7EA\] {
+    background-color: #DBE7EA;
+  }
   .bg-\[\#EEEEEE\] {
     background-color: #EEEEEE;
   }
@@ -1687,6 +1723,9 @@
   }
   .object-cover {
     object-fit: cover;
+  }
+  .object-center {
+    object-position: center;
   }
   .object-right {
     object-position: right;
@@ -2185,6 +2224,9 @@
   }
   .opacity-0 {
     opacity: 0%;
+  }
+  .opacity-8 {
+    opacity: 8%;
   }
   .opacity-30 {
     opacity: 30%;
@@ -4404,6 +4446,11 @@
       background-color: color-mix(in oklab, #3d4060 90%, transparent);
     }
   }
+  .dark\:bg-\[\#4f5455\] {
+    &:where(.dark, .dark *) {
+      background-color: #4f5455;
+    }
+  }
   .dark\:bg-\[\#1156ea\] {
     &:where(.dark, .dark *) {
       background-color: #1156ea;
@@ -4427,6 +4474,16 @@
   .dark\:bg-\[\#842929\] {
     &:where(.dark, .dark *) {
       background-color: #842929;
+    }
+  }
+  .dark\:bg-\[\#DBE7EA\] {
+    &:where(.dark, .dark *) {
+      background-color: #DBE7EA;
+    }
+  }
+  .dark\:bg-\[\#D\] {
+    &:where(.dark, .dark *) {
+      background-color: #D;
     }
   }
   .dark\:bg-\[\#EBF6FF\]\/10 {
