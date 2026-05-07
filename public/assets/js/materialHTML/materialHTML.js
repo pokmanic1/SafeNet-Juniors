@@ -10,7 +10,7 @@ else{
 
 function buildHeader() {
   const headerStr = `
-      <header class="w-full bg-white dark:bg-neutral-900 border-b border-gray-300 dark:border-neutral-800 z-50">  
+      <header class="w-full bg-white dark:bg-[#1A1C26] border-b border-gray-300 dark:border-[#4C5074] z-50">  
             <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
             <a href="/public/index.html" class="flex items-center gap-3">
                 <img class="logo object-contain w-20 dark:brightness-110" src="${logo}" alt="SafeNet Junior">
