@@ -1659,6 +1659,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .object-fill {
+    object-fit: fill;
+  }
   .object-center {
     object-position: center;
   }

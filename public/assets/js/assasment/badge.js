@@ -272,6 +272,15 @@ let arrTitluri = ['Joc Shuffle-Jocuri completate', 'Joc Shuffle-Jocuri castigate
     'Password-Jocuri completate', 'Password-Jocuri castigate',
     'Variante-Jocuri completate', 'Variante-Jocuri castigate'];
 
+let Bronze='/public/assets/img/img-assasment/badge/bronze 1.svg';
+let Silver='/public/assets/img/img-assasment/badge/silver 1.svg';
+let Gold='/public/assets/img/img-assasment/badge/gold 1.svg';
+let Diamond='/public/assets/img/img-assasment/badge/diamond 1.svg';
+let Legend='/public/assets/img/img-assasment/badge/legend 1.svg';
+let Shadow='/public/assets/img/img-assasment/badge/shadow 1.svg';
+let SuperShadow='/public/assets/img/img-assasment/badge/super 1.svg';
+
+
 const container = document.getElementById('badge-section');
 
 let badguriHTML = '';
@@ -282,10 +291,12 @@ arrTitluri.forEach((titlu, i) => {
 
     arrBadge[i].forEach((badge) => {
         badgeItemsHTML += `
-            <div class="badge w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] border border-blue-500 bg-gray-300 mx-auto flex items-center justify-center text-xs text-center"
+            <button class="badge w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] border
+             border-blue-500 bg-gray-300 mx-auto flex items-center justify-center text-xs text-center objrct-cover object-center "
                  title="${badge.cerinta}">
-                ${badge.rank}
-            </div>
+                <img class="block w-[70%]" src="/public/assets/img/img-assasment/badge/shadow 1.svg" alt="">
+
+            </button>
         `;
     });
 
