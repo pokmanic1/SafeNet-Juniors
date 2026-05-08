@@ -232,9 +232,9 @@ let arrBadge = [
             cerinta: 'Completează jocul Variante de 50 de ori',
             descriere: 'Ai completat jocul Variante de 50 de ori',
         },
-        ],
-        // ---------------- VARIANTE - CÂȘTIGAT ----------------
-        [
+    ],
+    // ---------------- VARIANTE - CÂȘTIGAT ----------------
+    [
         {
             tip: 'Variante',
             rank: 'Bronze',
@@ -272,13 +272,13 @@ let arrTitluri = ['Joc Shuffle-Jocuri completate', 'Joc Shuffle-Jocuri castigate
     'Password-Jocuri completate', 'Password-Jocuri castigate',
     'Variante-Jocuri completate', 'Variante-Jocuri castigate'];
 
-let Bronze='/public/assets/img/img-assasment/badge/bronze 1.svg';
-let Silver='/public/assets/img/img-assasment/badge/silver 1.svg';
-let Gold='/public/assets/img/img-assasment/badge/gold 1.svg';
-let Diamond='/public/assets/img/img-assasment/badge/diamond 1.svg';
-let Legend='/public/assets/img/img-assasment/badge/legend 1.svg';
-let Shadow='/public/assets/img/img-assasment/badge/shadow 1.svg';
-let SuperShadow='/public/assets/img/img-assasment/badge/super 1.svg';
+let Bronze = '/public/assets/img/img-assasment/badge/bronze 1.svg';
+let Silver = '/public/assets/img/img-assasment/badge/silver 1.svg';
+let Gold = '/public/assets/img/img-assasment/badge/gold 1.svg';
+let Diamond = '/public/assets/img/img-assasment/badge/diamond 1.svg';
+let Legend = '/public/assets/img/img-assasment/badge/legend 1.svg';
+let Shadow = '/public/assets/img/img-assasment/badge/shadow 1.svg';
+let SuperShadow = '/public/assets/img/img-assasment/badge/super 1.svg';
 
 
 const container = document.getElementById('badge-section');
@@ -312,3 +312,18 @@ arrTitluri.forEach((titlu, i) => {
 });
 
 container.innerHTML = badguriHTML;
+
+
+
+
+
+document.querySelectorAll('.badge').forEach((badge) => {
+    badge.addEventListener('click', () => {
+        const title = badge.getAttribute('title');
+        alert(title);
+    });
+});
+
+
+
+

@@ -139,14 +139,47 @@
         </div>
     </div>
 
-    <script>
-        const key_TrueFalse_game = 'vizitat_truefalse_game';
-        if (!localStorage.getItem(key_TrueFalse_game)) {
-            localStorage.setItem(key_TrueFalse_game, '1');
-            console.log('Vizitator nou la true/false');
-        } else {
-            console.log('A mai fost la true/false');
-        }
+    <script type="module">
+
+        import { db, auth } from "../../../assets/js/fierbase/firebase-init.js";
+
+        import {
+            doc,
+            setDoc
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        import {
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+
+
+        onAuthStateChanged(auth, async (user) => {
+
+            if (!user) return;
+
+            try {
+
+                await setDoc(
+                    doc(db, "users", user.uid),
+                    {
+                        documentationVisits: {
+                            true_false: true
+                        }
+                    },
+                    { merge: true }
+                );
+
+                console.log("A vizitat documentația true false");
+
+            } catch (err) {
+
+                console.error("Eroare:", err);
+
+            }
+
+        });
+
     </script>
 
     <script src="../../../assets/js/materialHTML/materialHTML.js"></script>
