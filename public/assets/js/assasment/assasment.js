@@ -1,15 +1,98 @@
-// -------------------------------
-let contor_assasment_corecte_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
-let contor_assasment_incercari_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
-//--------------------------------------------------
-let contor_assasment_corecte_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
-let contor_assasment_incercari_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
-// -------------------------------
-let contor_assasment_corecte_password = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
-let contor_assasment_incercari_password = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
-// -------------------------------
-let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
-let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
+import { db, auth } from "../fierbase/firebase-init.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+// // -------------------------------
+// let contor_assasment_corecte_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
+// let contor_assasment_incercari_shuffle = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
+// //--------------------------------------------------
+// let contor_assasment_corecte_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
+// let contor_assasment_incercari_truefalse = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
+// // -------------------------------
+// let contor_assasment_corecte_password = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
+// let contor_assasment_incercari_password = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
+// // -------------------------------
+// let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
+// let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
+async function incarcaDateFirebase(user) {
+
+    const userRef = doc(db, "users", user.uid);
+
+    const snap = await getDoc(userRef);
+
+    if (!snap.exists()) {
+        console.log("Nu există date.");
+        return;
+    }
+
+    const data = snap.data();
+
+    // =========================
+    // SHUFFLE
+    // =========================
+
+    if (data.documentationVisits?.shuffle) {
+        vizitat_shuffle_game = 1;
+    } else {
+        vizitat_shuffle_game = 0;
+    }
+
+    // =========================
+    // TRUE FALSE
+    // =========================
+
+    if (data.documentationVisits?.true_false) {
+        vizitat_truefalse_game = 1;
+    } else {
+        vizitat_truefalse_game = 0;
+    }
+
+    // =========================
+    // PASSWORD
+    // =========================
+
+    if (data.documentationVisits?.password) {
+        vizitat_password_game = 1;
+    } else {
+        vizitat_password_game = 0;
+    }
+
+    // =========================
+    // VARIANTE
+    // =========================
+
+    if (data.documentationVisits?.variante) {
+        vizitat_variante_game = 1;
+    } else {
+        vizitat_variante_game = 0;
+    }
+
+}
+let contor_assasment_corecte_shuffle = 0;
+let contor_assasment_incercari_shuffle = 0;
+
+let contor_assasment_corecte_truefalse = 0;
+let contor_assasment_incercari_truefalse = 0;
+
+let contor_assasment_corecte_password = 0;
+let contor_assasment_incercari_password = 0;
+
+let contor_assasment_corecte_variante = 0;
+let contor_assasment_incercari_variante = 0;
+// ==========================
+// DOCUMENTATII VIZITATE
+// ==========================
+
+let vizitat_shuffle_game = 0;
+let vizitat_truefalse_game = 0;
+let vizitat_password_game = 0;
+let vizitat_variante_game = 0;
 
 
 let ArrJocuri = [
@@ -98,83 +181,95 @@ let ArrJocuri = [
     },
 ];
 
+onAuthStateChanged(auth, async (user) => {
 
-function schimbarea_statut(i) {
-    ArrJocuri.forEach((item) => {
-        if (i == item.id) {
-            if (item.statut === 1) { item.statut = 0; }
-            else { item.statut = 1; }
+    if (!user) return;
+    await incarcaDateFirebase(user);
+    document.querySelector('.tabele_assasment').innerHTML = '';
+    console.log("Datele au fost încărcate din Firebase.");
+    console.log(vizitat_shuffle_game, vizitat_truefalse_game, vizitat_password_game, vizitat_variante_game);
+
+    initAssasment();
+});
+
+initAssasment();
+function initAssasment() {
+    function schimbarea_statut(i) {
+        ArrJocuri.forEach((item) => {
+            if (i == item.id) {
+                if (item.statut === 1) { item.statut = 0; }
+                else { item.statut = 1; }
+            }
+        });
+    }
+
+    function vizitare_paginilor() {
+        if (vizitat_shuffle_game === 1) { schimbarea_statut(1); }
+        if (vizitat_truefalse_game === 1) { schimbarea_statut(2); }
+        if (vizitat_password_game === 1) { schimbarea_statut(3); }
+        if (vizitat_variante_game === 1) { schimbarea_statut(4); }
+        console.log(ArrJocuri);
+    }
+
+    vizitare_paginilor();
+
+
+    let totalJocuri = 0;
+    for (let i = 0; i < ArrJocuri.length; i++) {
+        if (ArrJocuri[i].incercari !== -1) {
+            totalJocuri = totalJocuri + 1;
         }
-    });
-}
-
-function vizitare_paginilor() {
-    if (localStorage.getItem('vizitat_shuffle_game') === '1') { schimbarea_statut(1); }
-    if (localStorage.getItem('vizitat_truefalse_game') === '1') { schimbarea_statut(2); }
-    if (localStorage.getItem('vizitat_password_game') === '1') { schimbarea_statut(3); }
-    if (localStorage.getItem('vizitat_variante_game') === '1') { schimbarea_statut(4); }
-    console.log(ArrJocuri);
-}
-
-vizitare_paginilor();
-
-
-let totalJocuri = 0;
-for (let i = 0; i < ArrJocuri.length; i++) {
-    if (ArrJocuri[i].incercari !== -1) {
-        totalJocuri = totalJocuri + 1;
     }
-}
 
-let completate = 0;
-for (let i = 0; i < ArrJocuri.length; i++) {
-    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
-        completate = completate + 1;
+    let completate = 0;
+    for (let i = 0; i < ArrJocuri.length; i++) {
+        if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+            completate = completate + 1;
+        }
     }
-}
 
-let totalIncercari = 0;
-for (let i = 0; i < ArrJocuri.length; i++) {
-    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
-        totalIncercari = totalIncercari + ArrJocuri[i].incercari;
+    let totalIncercari = 0;
+    for (let i = 0; i < ArrJocuri.length; i++) {
+        if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+            totalIncercari = totalIncercari + ArrJocuri[i].incercari;
+        }
     }
-}
 
-let sumaScoruri = 0;
-let numarJocuriCuScor = 0;
-for (let i = 0; i < ArrJocuri.length; i++) {
-    if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
-        sumaScoruri = sumaScoruri + ArrJocuri[i].media;
-        numarJocuriCuScor = numarJocuriCuScor + 1;
+    let sumaScoruri = 0;
+    let numarJocuriCuScor = 0;
+    for (let i = 0; i < ArrJocuri.length; i++) {
+        if (ArrJocuri[i].statut === 1 && ArrJocuri[i].incercari > 0) {
+            sumaScoruri = sumaScoruri + ArrJocuri[i].media;
+            numarJocuriCuScor = numarJocuriCuScor + 1;
+        }
     }
-}
-let scorMediu = 0;
-if (numarJocuriCuScor > 0) {
-    scorMediu = Math.round(sumaScoruri / numarJocuriCuScor);
-}
+    let scorMediu = 0;
+    if (numarJocuriCuScor > 0) {
+        scorMediu = Math.round(sumaScoruri / numarJocuriCuScor);
+    }
 
-function culoareBara(procent) {
-    if (procent >= 75) {
-        return '#639922'; // verde
+    function culoareBara(procent) {
+        if (procent >= 75) {
+            return '#639922'; // verde
+        }
+        if (procent >= 45) {
+            return '#BA7517'; // portocaliu
+        }
+        return '#E24B4A'; // rosu
     }
-    if (procent >= 45) {
-        return '#BA7517'; // portocaliu
-    }
-    return '#E24B4A'; // rosu
-}
 
-function culoareText(procent) {
-    if (procent >= 75) {
-        return 'text-green-700 dark:text-green-400';
+    function culoareText(procent) {
+        if (procent >= 75) {
+            return 'text-green-700 dark:text-green-400';
+        }
+        if (procent >= 45) {
+            return 'text-amber-700 dark:text-amber-400';
+        }
+        return 'text-red-600 dark:text-red-400';
     }
-    if (procent >= 45) {
-        return 'text-amber-700 dark:text-amber-400';
-    }
-    return 'text-red-600 dark:text-red-400';
-}
 
 
-const statisticiHTML = `
+    const statisticiHTML = `
 <div class="w-full max-w-[800px] mx-auto px-5 mb-6">
     <div class="grid grid-cols-3 gap-2 sm:gap-3">
         <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
@@ -193,19 +288,19 @@ const statisticiHTML = `
 </div>`;
 
 
-let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
+    let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
 
-let AssasmentHTML = statisticiHTML;
+    let AssasmentHTML = statisticiHTML;
 
-ArrJocuri.forEach((item) => {
-    if (item.statut !== 1) return;
+    ArrJocuri.forEach((item) => {
+        if (item.statut !== 1) return;
 
-    const iconImg = item.incercari === -1
-        ? `../assets/img/img-assasment/Calendar_fara_iconita.png`
-        : `../assets/img/img-assasment/Calendar_Check.png`;
+        const iconImg = item.incercari === -1
+            ? `../assets/img/img-assasment/Calendar_fara_iconita.png`
+            : `../assets/img/img-assasment/Calendar_Check.png`;
 
-    if (item.incercari === -1) {
-        AssasmentHTML += `
+        if (item.incercari === -1) {
+            AssasmentHTML += `
         <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
             <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
 
@@ -237,11 +332,11 @@ ArrJocuri.forEach((item) => {
             </div>
         </div>`;
 
-    } else {
-        const culoare = culoareBara(item.media);
-        const clsText = culoareText(item.media);
+        } else {
+            const culoare = culoareBara(item.media);
+            const clsText = culoareText(item.media);
 
-        AssasmentHTML += `
+            AssasmentHTML += `
         <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
             <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
 
@@ -290,47 +385,47 @@ ArrJocuri.forEach((item) => {
 
             </div>
         </div>`;
-    }
-});
-
-document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
-
-
-document.querySelectorAll('.card-total').forEach((card) => {
-    const buton = card.querySelector('.card-sus');
-    const cardJos = card.querySelector('.card-jos');
-    const sageata = card.querySelector('.sageata_stanga');
-    let esteInchis = true;
-
-    buton.addEventListener('click', () => {
-        if (esteInchis) {
-            cardJos.classList.remove('hidden');
-            sageata.style.transform = 'rotate(-90deg)';
-
-            const bar = cardJos.querySelector('.progress-fill');
-            if (bar) {
-                const target = bar.getAttribute('data-target');
-                requestAnimationFrame(() => {
-                    bar.style.transition = 'width 0.6s ease';
-                    bar.style.width = target + '%';
-                });
-            }
-
-            esteInchis = false;
-        } else {
-            cardJos.classList.add('hidden');
-            sageata.style.transform = 'rotate(0deg)';
-
-            const bar = cardJos.querySelector('.progress-fill');
-            if (bar) {
-                bar.style.transition = 'none';
-                bar.style.width = '0%';
-            }
-
-            esteInchis = true;
         }
     });
-});
+
+    document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
 
 
-localStorage.removeItem("");
+    document.querySelectorAll('.card-total').forEach((card) => {
+        const buton = card.querySelector('.card-sus');
+        const cardJos = card.querySelector('.card-jos');
+        const sageata = card.querySelector('.sageata_stanga');
+        let esteInchis = true;
+
+        buton.addEventListener('click', () => {
+            if (esteInchis) {
+                cardJos.classList.remove('hidden');
+                sageata.style.transform = 'rotate(-90deg)';
+
+                const bar = cardJos.querySelector('.progress-fill');
+                if (bar) {
+                    const target = bar.getAttribute('data-target');
+                    requestAnimationFrame(() => {
+                        bar.style.transition = 'width 0.6s ease';
+                        bar.style.width = target + '%';
+                    });
+                }
+
+                esteInchis = false;
+            } else {
+                cardJos.classList.add('hidden');
+                sageata.style.transform = 'rotate(0deg)';
+
+                const bar = cardJos.querySelector('.progress-fill');
+                if (bar) {
+                    bar.style.transition = 'none';
+                    bar.style.width = '0%';
+                }
+
+                esteInchis = true;
+            }
+        });
+    });
+
+
+}
