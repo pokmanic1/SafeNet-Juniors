@@ -32,8 +32,10 @@ let arrBadge = [
             cerinta: 'Completează jocul Shuffle de 50 de ori',
             descriere: 'Ai completat jocul Shuffle de 50 de ori',
         },
+    ],
 
-        // ---------------- SHUFFLE - CÂȘTIGAT ----------------
+    // ---------------- SHUFFLE - CÂȘTIGAT ----------------
+    [
         {
             tip: 'Joc Shuffle',
             rank: 'Bronze',
@@ -97,8 +99,9 @@ let arrBadge = [
             cerinta: 'Completează jocul True sau False de 50 de ori',
             descriere: 'Ai completat jocul True sau False de 50 de ori',
         },
-
-        // ---------------- TRUE OR FALSE - CÂȘTIGAT ----------------
+    ],
+    // ---------------- TRUE OR FALSE - CÂȘTIGAT ----------------
+    [
         {
             tip: 'True sau False',
             rank: 'Bronze',
@@ -163,8 +166,9 @@ let arrBadge = [
             cerinta: 'Completează jocul Password de 50 de ori',
             descriere: 'Ai completat jocul Password de 50 de ori',
         },
-
-        // ---------------- PASSWORD - CÂȘTIGAT ----------------
+    ],
+    // ---------------- PASSWORD - CÂȘTIGAT ----------------
+    [
         {
             tip: 'Password',
             rank: 'Bronze',
@@ -228,8 +232,9 @@ let arrBadge = [
             cerinta: 'Completează jocul Variante de 50 de ori',
             descriere: 'Ai completat jocul Variante de 50 de ori',
         },
-
+        ],
         // ---------------- VARIANTE - CÂȘTIGAT ----------------
+        [
         {
             tip: 'Variante',
             rank: 'Bronze',
@@ -262,41 +267,37 @@ let arrBadge = [
         },
     ]
 ];
+let arrTitluri = ['Joc Shuffle-Jocuri completate', 'Joc Shuffle-Jocuri castigate',
+    'True sau False-Jocuri completate', 'True sau False-Jocuri castigate',
+    'Password-Jocuri completate', 'Password-Jocuri castigate',
+    'Variante-Jocuri completate', 'Variante-Jocuri castigate'];
 
-let arrTitluri = ['Joc Shuffle', 'True sau False', 'Password', 'Variante'];
-    console.log(arrBadge[0]);
- console.log('--------------------------------');
-  console.log('--------------------------------');
-   console.log('--------------------------------');
- console.log('--------------------------------');
-  console.log('--------------------------------');
-   console.log('--------------------------------');
+const container = document.getElementById('badge-section');
 
-arrTitluri.forEach((titlu) =>{
-    
-    console.log(titlu);
+let badguriHTML = '';
 
-    arrBadge.forEach((item) =>{
-        console.log(item[i]);
+arrTitluri.forEach((titlu, i) => {
+
+    let badgeItemsHTML = '';
+
+    arrBadge[i].forEach((badge) => {
+        badgeItemsHTML += `
+            <div class="badge w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] border border-blue-500 bg-gray-300 mx-auto flex items-center justify-center text-xs text-center"
+                 title="${badge.cerinta}">
+                ${badge.rank}
+            </div>
+        `;
     });
-    i++;
+
+    badguriHTML += `
+        <div class="w-[90%] h-auto mt-4 mx-auto flex flex-col items-center justify-center">
+            <h2 class="block w-[80%] text-[20px] text-start font-bold mt-4">${titlu}</h2>
+            <div class="w-[80%] h-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[20px] py-[20px]">
+                ${badgeItemsHTML}
+            </div>
+        </div>
+    `;
+
 });
 
-
-
- console.log('--------------------------------');
-  console.log('--------------------------------');
-   console.log('--------------------------------');
-   console.log('--------------------------------');
-   console.log('--------------------------------');
-   console.log('--------------------------------');
-console.log(arrBadge[0]);
-console.log(arrBadge[0]);
-
-let badgeHTML = '';
-
-
-
-
-
-
+container.innerHTML = badguriHTML;
