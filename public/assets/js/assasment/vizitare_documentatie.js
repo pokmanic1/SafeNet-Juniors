@@ -5,8 +5,6 @@ import {
 import { db } from "../fierbase/firebase-init.js";
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 
-// Exportam un OBIECT (by reference) in loc de primitive
-// Asa cand assasment.js citeste vizite.shuffle, vede mereu valoarea curenta
 export const vizite = {
     shuffle: 0,
     truefalse: 0,
@@ -31,15 +29,9 @@ export async function incarcaDateFirebase(user) {
 
     const data = snap.data();
 
-    // Modificam proprietatile obiectului exportat (nu reasignam variabila)
     vizite.shuffle   = data.documentationVisits?.shuffle    ? 1 : 0;
     vizite.truefalse = data.documentationVisits?.true_false ? 1 : 0;
     vizite.password  = data.documentationVisits?.password   ? 1 : 0;
     vizite.variante  = data.documentationVisits?.variante   ? 1 : 0;
 
-    console.log(" vizitare_documentatie.js — date incarcate din Firebase:");
-    console.log("  Shuffle:",    vizite.shuffle);
-    console.log("  True/False:", vizite.truefalse);
-    console.log("  Password:",   vizite.password);
-    console.log("  Variante:",   vizite.variante);
 }

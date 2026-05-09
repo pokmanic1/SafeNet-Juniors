@@ -108,8 +108,8 @@ export async function getToateDatele() {
                 return;
             }
 
-            console.log("[getToateDatele] UID Auth:", user.uid);
-            console.log("[getToateDatele] Email:", user.email);
+            // console.log("[getToateDatele] UID Auth:", user.uid);
+            // console.log("[getToateDatele] Email:", user.email);
 
             try {
                 const snap = await getDoc(doc(db, "users", user.uid));
@@ -129,7 +129,7 @@ export async function getToateDatele() {
                             : "/public/pages/dashbord/dashbord.elev.html"
                     };
 
-                    console.log("[getToateDatele] userData final:", userData);
+                    // console.log("[getToateDatele] userData final:", userData);
                     resolve(userData);
 
                 } else {

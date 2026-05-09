@@ -15,7 +15,6 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Contoare – citite din Firebase
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -588,7 +587,6 @@ function genereazaHTML() {
         document.getElementById("nivelFinal").innerText = nivelul;
         document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
 
-        // Salvam in Firebase
         if (_currentUser) {
             const userRef = doc(db, "users", _currentUser.uid);
             const updateObj = { "gameCounters.variante_incercari": increment(1) };

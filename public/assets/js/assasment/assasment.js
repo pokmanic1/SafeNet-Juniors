@@ -10,10 +10,6 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-
-// =====================================================
-// CONTOARE — citite din Firebase (nu din localStorage)
-// =====================================================
 let contor_assasment_corecte_shuffle = 0;
 let contor_assasment_incercari_shuffle = 0;
 
@@ -26,10 +22,6 @@ let contor_assasment_incercari_password = 0;
 let contor_assasment_corecte_variante = 0;
 let contor_assasment_incercari_variante = 0;
 
-// =====================================================
-// Functie care construieste ArrJocuri cu datele curente
-// Apelata DUPA ce Firebase a raspuns
-// =====================================================
 function buildArrJocuri() {
     return [
         {
@@ -115,21 +107,13 @@ function buildArrJocuri() {
     ];
 }
 
-// =====================================================
-// La incarcare — afisam scheletul gol (fara date)
-// =====================================================
 initAssasment([]);
 
-// =====================================================
-// onAuthStateChanged — incarcare date Firebase
-// =====================================================
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
 
-    // 1. Incarcam vizitele documentatiei (modifica obiectul `vizite`)
     await incarcaDateFirebase(user);
 
-    // 2. Incarcam contoarele jocurilor din Firebase
     const userRef = doc(db, "users", user.uid);
     const snap = await getDoc(userRef);
 
@@ -150,27 +134,23 @@ onAuthStateChanged(auth, async (user) => {
         contor_assasment_incercari_variante  = counters.variante_incercari || 0;
     }
 
-    console.log("✅ assasment.js — vizite dupa Firebase:");
-    console.log("  shuffle:",    vizite.shuffle);
-    console.log("  truefalse:",  vizite.truefalse);
-    console.log("  password:",   vizite.password);
-    console.log("  variante:",   vizite.variante);
-    console.log("✅ assasment.js — contoare dupa Firebase:");
-    console.log("  shuffle incercari:", contor_assasment_incercari_shuffle, "corecte:", contor_assasment_corecte_shuffle);
-    console.log("  truefalse incercari:", contor_assasment_incercari_truefalse, "corecte:", contor_assasment_corecte_truefalse);
-    console.log("  password incercari:", contor_assasment_incercari_password, "corecte:", contor_assasment_corecte_password);
-    console.log("  variante incercari:", contor_assasment_incercari_variante, "corecte:", contor_assasment_corecte_variante);
+    // console.log(" assasment.js — vizite dupa Firebase:");
+    // console.log("  shuffle:",    vizite.shuffle);
+    // console.log("  truefalse:",  vizite.truefalse);
+    // console.log("  password:",   vizite.password);
+    // console.log("  variante:",   vizite.variante);
+    // console.log(" assasment.js — contoare dupa Firebase:");
+    // console.log("  shuffle incercari:", contor_assasment_incercari_shuffle, "corecte:", contor_assasment_corecte_shuffle);
+    // console.log("  truefalse incercari:", contor_assasment_incercari_truefalse, "corecte:", contor_assasment_corecte_truefalse);
+    // console.log("  password incercari:", contor_assasment_incercari_password, "corecte:", contor_assasment_corecte_password);
+    // console.log("  variante incercari:", contor_assasment_incercari_variante, "corecte:", contor_assasment_corecte_variante);
 
-    // 3. Construim ArrJocuri cu datele reale si re-randam pagina
     const ArrJocuri = buildArrJocuri();
     document.querySelector('.tabele_assasment').innerHTML = '';
     initAssasment(ArrJocuri);
 });
 
 
-// =====================================================
-// INIT — randeaza pagina cu un ArrJocuri dat
-// =====================================================
 function initAssasment(ArrJocuri) {
 
     function schimbarea_statut(i) {
