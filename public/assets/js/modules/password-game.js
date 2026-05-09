@@ -49,9 +49,6 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
-
-
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
 
@@ -346,8 +343,16 @@ function verificaParola(password) {
             document.getElementById("scorFinal").innerText = `${newArrConditii.length} / ${newArrConditii.length}`;
             document.getElementById("nivelFinal").innerText = nivelul;
             document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
-            localStorage.setItem('contor_assasment_password_corecte', JSON.stringify(contor_assasment_corecte));
-            localStorage.setItem('contor_assasment_password_incercari', JSON.stringify(contor_assasment_incercari));
+
+            // Salvam in Firebase (nu localStorage)
+            if (_currentUser) {
+                const userRef = doc(db, "users", _currentUser.uid);
+                const updateObj = { "gameCounters.password_incercari": increment(1) };
+                if (totalSecondsElapsed < 60) {
+                    updateObj["gameCounters.password_corecte"] = increment(1);
+                }
+                updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase password:", err));
+            }
 
 
 

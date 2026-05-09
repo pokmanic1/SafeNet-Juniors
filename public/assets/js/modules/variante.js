@@ -15,6 +15,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// Contoare – citite din Firebase
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -40,13 +41,6 @@ onAuthStateChanged(auth, async (user) => {
         }
     }
 });
-
-
-
-
-
-// let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
-// let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
 
 
 
@@ -594,9 +588,15 @@ function genereazaHTML() {
         document.getElementById("nivelFinal").innerText = nivelul;
         document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
 
-
-        localStorage.setItem('contor_assasment_variante_corecte', JSON.stringify(contor_assasment_corecte));
-        localStorage.setItem('contor_assasment_variante_incercari', JSON.stringify(contor_assasment_incercari));
+        // Salvam in Firebase
+        if (_currentUser) {
+            const userRef = doc(db, "users", _currentUser.uid);
+            const updateObj = { "gameCounters.variante_incercari": increment(1) };
+            if (contorScor > 7) {
+                updateObj["gameCounters.variante_corecte"] = increment(1);
+            }
+            updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase variante:", err));
+        }
 
     }
 }

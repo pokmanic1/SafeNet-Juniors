@@ -42,6 +42,7 @@ onAuthStateChanged(auth, async (user) => {
     }
 });
 
+
 // let arr1 = [
 
 //     {
@@ -528,9 +529,15 @@ function genereazaHTML() {
             contor_assasment_incercari++;
         }
 
-
-        localStorage.setItem('contor_assasment_true-false_corecte', JSON.stringify(contor_assasment_corecte));
-        localStorage.setItem('contor_assasment_true-false_incercari', JSON.stringify(contor_assasment_incercari));
+        // Salvam in Firebase
+        if (_currentUser) {
+            const userRef = doc(db, "users", _currentUser.uid);
+            const updateObj = { "gameCounters.truefalse_incercari": increment(1) };
+            if (contorCorect > 6) {
+                updateObj["gameCounters.truefalse_corecte"] = increment(1);
+            }
+            updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase truefalse:", err));
+        }
 
 
         const modal = document.getElementById("finalModal");

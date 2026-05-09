@@ -1,9 +1,57 @@
+// import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+// import { db } from "../fierbase/firebase-init.js";
+
+// import {
+//     doc,
+//     getDoc
+// } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// onAuthStateChanged(auth, (user) => {
+//     if (!user) {
+//         // window.location.href = "../../../pages/conecteazate.html";
+//         const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
+//         DacaNuSaConectat.classList.remove("hidden");
+//     }
+// });
+// onAuthStateChanged(auth, async (user) => {
+//     if (user) {
+//         const userRef = doc(db, "users", user.uid);
+
+//         const snap = await getDoc(userRef);
+//         let vizitat_shuffle_game;
+
+//         if (!snap.exists()) {
+//             console.log("Nu există date.");
+//             return;
+//         }
+//         const data = snap.data();
+//         vizitat_shuffle_game = data.documentationVisits?.shuffle;
+
+//         console.log("Datele utilizatorului:", vizitat_shuffle_game);
+        
+//         if (!vizitat_shuffle_game) {
+//                  // window.location.href = "../../../pages/assessment.html";
+//             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
+//             DacaNuAVizitatDocu.classList.remove("hidden");
+//         }
+   
+//     }
+// });
+
+
+
+
+// let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
+// let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
+
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
 
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc,
+    increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 onAuthStateChanged(auth, (user) => {
@@ -13,36 +61,38 @@ onAuthStateChanged(auth, (user) => {
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
+// Contoare – citite din Firebase
+let contor_assasment_corecte = 0;
+let contor_assasment_incercari = 0;
+let _currentUser = null;
+
 onAuthStateChanged(auth, async (user) => {
     if (user) {
+        _currentUser = user;
         const userRef = doc(db, "users", user.uid);
-
         const snap = await getDoc(userRef);
-        let vizitat_shuffle_game;
 
         if (!snap.exists()) {
             console.log("Nu există date.");
             return;
         }
         const data = snap.data();
-        vizitat_shuffle_game = data.documentationVisits?.shuffle;
+        const vizitat_shuffle_game = data.documentationVisits?.shuffle;
+        const counters = data.gameCounters || {};
 
-        console.log("Datele utilizatorului:", vizitat_shuffle_game);
-        
+        // Citim contoarele din Firebase
+        contor_assasment_corecte  = counters.shuffle_corecte  || 0;
+        contor_assasment_incercari = counters.shuffle_incercari || 0;
+
+        console.log("Datele utilizatorului vizitat_shuffle_game:", vizitat_shuffle_game);
+
         if (!vizitat_shuffle_game) {
-                 // window.location.href = "../../../pages/assessment.html";
+            // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
         }
-   
     }
 });
-
-
-
-
-let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_shuffle_corecte')) || 0;
-let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_shuffle_incercari')) || 0;
 
 
 
@@ -298,11 +348,15 @@ function match() {
             contor_assasment_incercari++;
         }
 
-
-
-
-        localStorage.setItem('contor_assasment_shuffle_corecte', JSON.stringify(contor_assasment_corecte));
-        localStorage.setItem('contor_assasment_shuffle_incercari', JSON.stringify(contor_assasment_incercari));
+        // Salvam contoarele in Firebase
+        if (_currentUser) {
+            const userRef = doc(db, "users", _currentUser.uid);
+            const updateObj = { "gameCounters.shuffle_incercari": increment(1) };
+            if (totalSecondsElapsed < 90) {
+                updateObj["gameCounters.shuffle_corecte"] = increment(1);
+            }
+            updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase shuffle:", err));
+        }
 
 
         const modal = document.getElementById("finalModal");
@@ -384,6 +438,9 @@ document.querySelector('.restart1').addEventListener('click', function () {
 let contorPerechi = 0;
 
 jocul.addEventListener('click', Click);
+
+
+
 
 
 
