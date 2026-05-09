@@ -116,7 +116,7 @@ export async function getToateDatele() {
 
                 if (snap.exists()) {
                     const raw = snap.data();
-                    console.log("[getToateDatele] Date gasite:", JSON.stringify(raw));
+                    //console.log("[getToateDatele] Date gasite:", JSON.stringify(raw));
 
                     userData = {
                         uid: user.uid,

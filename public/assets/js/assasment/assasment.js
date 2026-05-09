@@ -1,6 +1,6 @@
 import { db, auth } from "../fierbase/firebase-init.js";
 import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
-
+import { incarcaContoareFirebase , contoare_jocuri } from "./contoarele_pentru_jocuri.js";
 import {
     doc,
     getDoc
@@ -111,28 +111,22 @@ initAssasment([]);
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
-
     await incarcaDateFirebase(user);
 
-    const userRef = doc(db, "users", user.uid);
-    const snap = await getDoc(userRef);
 
-    if (snap.exists()) {
-        const data = snap.data();
-        const counters = data.gameCounters || {};
 
-        contor_assasment_corecte_shuffle   = counters.shuffle_corecte   || 0;
-        contor_assasment_incercari_shuffle  = counters.shuffle_incercari || 0;
+        contor_assasment_corecte_shuffle   = contoare_jocuri.contor_assasment_corecte_shuffle   || 0;
+        contor_assasment_incercari_shuffle  = contoare_jocuri.contor_assasment_incercari_shuffle || 0;
 
-        contor_assasment_corecte_truefalse   = counters.truefalse_corecte   || 0;
-        contor_assasment_incercari_truefalse  = counters.truefalse_incercari || 0;
+        contor_assasment_corecte_truefalse   = contoare_jocuri.contor_assasment_corecte_truefalse   || 0;
+        contor_assasment_incercari_truefalse  = contoare_jocuri.contor_assasment_incercari_truefalse || 0;
 
-        contor_assasment_corecte_password   = counters.password_corecte   || 0;
-        contor_assasment_incercari_password  = counters.password_incercari || 0;
+        contor_assasment_corecte_password   = contoare_jocuri.contor_assasment_corecte_password   || 0;
+        contor_assasment_incercari_password  = contoare_jocuri.contor_assasment_incercari_password || 0;
 
-        contor_assasment_corecte_variante   = counters.variante_corecte   || 0;
-        contor_assasment_incercari_variante  = counters.variante_incercari || 0;
-    }
+        contor_assasment_corecte_variante   = contoare_jocuri.contor_assasment_corecte_variante   || 0;
+        contor_assasment_incercari_variante  = contoare_jocuri.contor_assasment_incercari_variante || 0;
+
 
     // console.log(" assasment.js — vizite dupa Firebase:");
     // console.log("  shuffle:",    vizite.shuffle);

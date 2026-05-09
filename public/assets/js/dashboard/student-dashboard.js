@@ -146,7 +146,7 @@ onAuthStateChanged(auth, async (user) => {
 
     }
     console.log("ROL:", role);
-    console.log("ancora:", ancora);
+
 
 
 
