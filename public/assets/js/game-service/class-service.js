@@ -261,7 +261,7 @@ export function genereazaHTMLClase(clase, container) {
 
             <div class="flex justify-between flex-row gap-[1px] mt-2">
                 <button class="btn-vezi-elevi text-[14px] bg-[#3a3a38] text-[#ccc] py-1 lg:px-4 lg:text-[16px] px-4 rounded-full hover:bg-[#4a4a48] transition">
-                    Vezi elevi
+                    Elevi
                 </button>
                 <select class="btn-adaug-joc appearance-none text-[14px] bg-blue-700 text-white py-1 lg:px-4 text-center lg:text-[16px] px-4 rounded-full hover:bg-blue-800 transition cursor-pointer outline-none">
                     <option value="" disabled selected>Adaugă joc</option>
