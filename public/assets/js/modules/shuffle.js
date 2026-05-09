@@ -1,4 +1,10 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { db } from "../fierbase/firebase-init.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -7,13 +13,28 @@ onAuthStateChanged(auth, (user) => {
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-        if (localStorage.getItem('vizitat_shuffle_game') !== '1') {
-            // window.location.href = "../../../pages/assessment.html";
+        const userRef = doc(db, "users", user.uid);
+
+        const snap = await getDoc(userRef);
+        let vizitat_shuffle_game;
+
+        if (!snap.exists()) {
+            console.log("Nu există date.");
+            return;
+        }
+        const data = snap.data();
+        vizitat_shuffle_game = data.documentationVisits?.shuffle;
+
+        console.log("Datele utilizatorului:", vizitat_shuffle_game);
+        
+        if (!vizitat_shuffle_game) {
+                 // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
         }
+   
     }
 });
 
@@ -111,7 +132,7 @@ fetch('../../../assets/js/modules/date-jocuri/shuffle.json')
         arrText = [...arrText1];
         arrImaginea = [...arrImaginea1];
 
-        initializare(); 
+        initializare();
     });
 
 let nivelul = 1;
@@ -217,8 +238,8 @@ function createCard(item) {
         back.style.alignItems = "center";
         back.style.fontSize = "16px";
         back.style.fontWeight = "bold";
-        back.style.textAlign="center"
-        
+        back.style.textAlign = "center"
+
     }
 
     card.appendChild(front);

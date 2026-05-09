@@ -1,5 +1,10 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-
+import { db } from "../fierbase/firebase-init.js";
+import { vizitat_truefalse_game } from "../assasment/assasment.js";
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
@@ -8,12 +13,17 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-        if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
-            // window.location.href = "../../../pages/assessment.html";
+        console.log("Utilizator autentificat:", vizitat_truefalse_game);
+        if (!vizitat_truefalse_game) {
+                // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
+        }
+        if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
+        
+
         }
     }
 });

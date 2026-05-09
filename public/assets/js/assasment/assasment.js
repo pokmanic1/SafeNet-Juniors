@@ -74,6 +74,7 @@ async function incarcaDateFirebase(user) {
     }
 
 }
+
 let contor_assasment_corecte_shuffle = 0;
 let contor_assasment_incercari_shuffle = 0;
 
@@ -429,3 +430,4 @@ function initAssasment() {
 
 
 }
+export { vizitat_shuffle_game, vizitat_truefalse_game, vizitat_password_game, vizitat_variante_game };
