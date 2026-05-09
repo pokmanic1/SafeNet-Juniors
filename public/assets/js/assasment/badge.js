@@ -78,7 +78,6 @@ let arrBadge = [
     ],
 ];
 
-// ── Titlurile sectiunilor — ordinea corespunde cu indexul din arrBadge ──
 let arrTitluri = [
     'Joc Shuffle — Jocuri completate',
     'Joc Shuffle — Jocuri câștigate',
@@ -90,8 +89,6 @@ let arrTitluri = [
     'Variante — Jocuri câștigate',
 ];
 
-// ── Contorul corespunzator fiecarei sectiuni ──────────────────
-// index 0 → shuffle incercari, index 1 → shuffle corecte, etc.
 function getContorPentruSectiune(indexSectiune) {
     if (indexSectiune === 0) return contoare_jocuri.contor_assasment_incercari_shuffle;
     if (indexSectiune === 1) return contoare_jocuri.contor_assasment_corecte_shuffle;
@@ -126,11 +123,11 @@ function genereazaBadgeHTML() {
             }
 
             badgeItemsHTML += `
-                <div class="flex flex-col items-center gap-1 mx-auto" title="${badge.cerinta}">
+                <div class="flex flex-col items-center gap-1 mx-auto" >
                     <img
                         src="${badge.rankImg}"
                         alt="${badge.rank}"
-                        class="w-[60px] sm:w-[70px] md:w-[80px] lg:w-[90px] h-auto object-contain transition-all duration-300"
+                        class="w-[40px] sm:w-[60px] md:w-[65px] lg:w-[70px] h-auto object-contain transition-all duration-300"
                         style="${stilImg}"
                     >
                     
