@@ -1,4 +1,12 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { db } from "../fierbase/firebase-init.js";
+import {
+    doc,
+    getDoc,
+    updateDoc,
+    increment
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
@@ -6,31 +14,37 @@ onAuthStateChanged(auth, (user) => {
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
-onAuthStateChanged(auth, (user) => {
+
+// Contoare – citite din Firebase
+let contor_assasment_corecte = 0;
+let contor_assasment_incercari = 0;
+let _currentUser = null;
+
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-       if (localStorage.getItem('vizitat_password_game') !== '1') {
-        //window.location.href = "../../../pages/assessment.html";
-        
-        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
-        DacaNuAVizitatDocu.classList.remove("hidden");
-    }
+        _currentUser = user;
+        const userRef = doc(db, "users", user.uid);
+        const snap = await getDoc(userRef);
+        if (!snap.exists()) return;
+
+        const data = snap.data();
+        const vizitat_password_game = data.documentationVisits?.password;
+        const counters = data.gameCounters || {};
+
+        contor_assasment_corecte  = counters.password_corecte  || 0;
+        contor_assasment_incercari = counters.password_incercari || 0;
+
+        if (!vizitat_password_game) {
+            // window.location.href = "../../../pages/assessment.html";
+            const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+            DacaNuAVizitatDocu.classList.remove("hidden");
+        }
     }
 });
-
-
-if (localStorage.getItem('vizitat_password_game') !== '1') {
-        //window.location.href = "../../../pages/assessment.html";
-        
-        const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
-        DacaNuAVizitatDocu.classList.remove("hidden");
-    }
-
-
-
-
-    let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_password_corecte')) || 0;
-    let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_password_incercari')) || 0;
     
+
+
+
 
 
 

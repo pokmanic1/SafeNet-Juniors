@@ -1,9 +1,5 @@
 import { db, auth } from "../fierbase/firebase-init.js";
-
-import {
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { incarcaDateFirebase, vizitat_password_game, vizitat_shuffle_game, vizitat_truefalse_game, vizitat_variante_game } from "./vizitare_documentatie.js";
 
 import {
     onAuthStateChanged
@@ -20,60 +16,8 @@ import {
 // // -------------------------------
 // let contor_assasment_corecte_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
 // let contor_assasment_incercari_variante = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
-async function incarcaDateFirebase(user) {
 
-    const userRef = doc(db, "users", user.uid);
 
-    const snap = await getDoc(userRef);
-
-    if (!snap.exists()) {
-        console.log("Nu există date.");
-        return;
-    }
-
-    const data = snap.data();
-
-    // =========================
-    // SHUFFLE
-    // =========================
-
-    if (data.documentationVisits?.shuffle) {
-        vizitat_shuffle_game = 1;
-    } else {
-        vizitat_shuffle_game = 0;
-    }
-
-    // =========================
-    // TRUE FALSE
-    // =========================
-
-    if (data.documentationVisits?.true_false) {
-        vizitat_truefalse_game = 1;
-    } else {
-        vizitat_truefalse_game = 0;
-    }
-
-    // =========================
-    // PASSWORD
-    // =========================
-
-    if (data.documentationVisits?.password) {
-        vizitat_password_game = 1;
-    } else {
-        vizitat_password_game = 0;
-    }
-
-    // =========================
-    // VARIANTE
-    // =========================
-
-    if (data.documentationVisits?.variante) {
-        vizitat_variante_game = 1;
-    } else {
-        vizitat_variante_game = 0;
-    }
-
-}
 
 let contor_assasment_corecte_shuffle = 0;
 let contor_assasment_incercari_shuffle = 0;
@@ -90,10 +34,6 @@ let contor_assasment_incercari_variante = 0;
 // DOCUMENTATII VIZITATE
 // ==========================
 
-let vizitat_shuffle_game = 0;
-let vizitat_truefalse_game = 0;
-let vizitat_password_game = 0;
-let vizitat_variante_game = 0;
 
 
 let ArrJocuri = [
@@ -430,4 +370,3 @@ function initAssasment() {
 
 
 }
-export { vizitat_shuffle_game, vizitat_truefalse_game, vizitat_password_game, vizitat_variante_game };

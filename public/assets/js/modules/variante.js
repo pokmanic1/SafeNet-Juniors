@@ -1,4 +1,11 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { db } from "../fierbase/firebase-init.js";
+import {
+    doc,
+    getDoc,
+    updateDoc,
+    increment
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -8,9 +15,25 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-onAuthStateChanged(auth, (user) => {
+let contor_assasment_corecte = 0;
+let contor_assasment_incercari = 0;
+let _currentUser = null;
+
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-        if (localStorage.getItem('vizitat_variante_game') !== '1') {
+        _currentUser = user;
+        const userRef = doc(db, "users", user.uid);
+        const snap = await getDoc(userRef);
+        if (!snap.exists()) return;
+
+        const data = snap.data();
+        const vizitat_variante_game = data.documentationVisits?.variante;
+        const counters = data.gameCounters || {};
+
+        contor_assasment_corecte  = counters.variante_corecte  || 0;
+        contor_assasment_incercari = counters.variante_incercari || 0;
+
+        if (!vizitat_variante_game) {
             // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
@@ -21,8 +44,9 @@ onAuthStateChanged(auth, (user) => {
 
 
 
-let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
-let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
+
+// let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_variante_corecte')) || 0;
+// let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_variante_incercari')) || 0;
 
 
 

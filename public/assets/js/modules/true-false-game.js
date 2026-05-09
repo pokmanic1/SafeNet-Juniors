@@ -1,9 +1,10 @@
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
-import { vizitat_truefalse_game } from "../assasment/assasment.js";
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc,
+    increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -13,27 +14,33 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// Contoare – citite din Firebase
+let contor_assasment_corecte = 0;
+let contor_assasment_incercari = 0;
+let _currentUser = null;
+
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        console.log("Utilizator autentificat:", vizitat_truefalse_game);
+        _currentUser = user;
+        const userRef = doc(db, "users", user.uid);
+        const snap = await getDoc(userRef);
+        if (!snap.exists()) return;
+
+        const data = snap.data();
+        const vizitat_truefalse_game = data.documentationVisits?.true_false;
+        const counters = data.gameCounters || {};
+
+        contor_assasment_corecte  = counters.truefalse_corecte  || 0;
+        contor_assasment_incercari = counters.truefalse_incercari || 0;
+
+        console.log("Utilizator autentificat, vizitat_truefalse_game:", vizitat_truefalse_game);
         if (!vizitat_truefalse_game) {
-                // window.location.href = "../../../pages/assessment.html";
+            // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
         }
-        if (localStorage.getItem('vizitat_truefalse_game') !== '1') {
-        
-
-        }
     }
 });
-
-
-
-
-let contor_assasment_corecte = JSON.parse(localStorage.getItem('contor_assasment_true-false_corecte')) || 0;
-let contor_assasment_incercari = JSON.parse(localStorage.getItem('contor_assasment_true-false_incercari')) || 0;
-
 
 // let arr1 = [
 
