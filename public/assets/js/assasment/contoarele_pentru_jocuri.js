@@ -56,15 +56,15 @@ export async function incarcaContoareFirebase(user) {
     contoare_jocuri.contor_assasment_corecte_variante = data.variante_corecte || 0;
     contoare_jocuri.contor_assasment_incercari_variante = data.variante_incercari || 0;
 
-    // console.log(" contoarele_pentru_jocuri.js — contoare incarcate:");
-    // console.log("  Shuffle corecte:", contoare_jocuri.contor_assasment_corecte_shuffle);
-    // console.log("  Shuffle incercari:", contoare_jocuri.contor_assasment_incercari_shuffle);
-    // console.log("  True/False corecte:", contoare_jocuri.contor_assasment_corecte_truefalse);
-    // console.log("  True/False incercari:", contoare_jocuri.contor_assasment_incercari_truefalse);
-    // console.log("  Password corecte:", contoare_jocuri.contor_assasment_corecte_password);
-    // console.log("  Password incercari:", contoare_jocuri.contor_assasment_incercari_password);
-    // console.log("  Variante corecte:", contoare_jocuri.contor_assasment_corecte_variante);
-    // console.log("  Variante incercari:", contoare_jocuri.contor_assasment_incercari_variante);
+    console.log(" contoarele_pentru_jocuri.js — contoare incarcate:");
+    console.log("  Shuffle corecte:", contoare_jocuri.contor_assasment_corecte_shuffle);
+    console.log("  Shuffle incercari:", contoare_jocuri.contor_assasment_incercari_shuffle);
+    console.log("  True/False corecte:", contoare_jocuri.contor_assasment_corecte_truefalse);
+    console.log("  True/False incercari:", contoare_jocuri.contor_assasment_incercari_truefalse);
+    console.log("  Password corecte:", contoare_jocuri.contor_assasment_corecte_password);
+    console.log("  Password incercari:", contoare_jocuri.contor_assasment_incercari_password);
+    console.log("  Variante corecte:", contoare_jocuri.contor_assasment_corecte_variante);
+    console.log("  Variante incercari:", contoare_jocuri.contor_assasment_incercari_variante);
 
 
 }

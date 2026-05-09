@@ -344,7 +344,6 @@ function verificaParola(password) {
             document.getElementById("nivelFinal").innerText = nivelul;
             document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
 
-            // Salvam in Firebase (nu localStorage)
             if (_currentUser) {
                 const userRef = doc(db, "users", _currentUser.uid);
                 const updateObj = { "gameCounters.password_incercari": increment(1) };
