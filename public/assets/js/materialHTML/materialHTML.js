@@ -18,7 +18,7 @@ function buildHeader() {
 
             <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">
                 <a class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/games.html">Jocuri</a>
-                <a class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/assessment.html">Teste</a>
+                <a class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/assessment/assessment.html">Teste</a>
             </nav>
 
             <div class="items-center hidden gap-10 font-semibold md:flex">
@@ -39,7 +39,7 @@ function buildHeader() {
         <div id="mobileMenu" class="hidden bg-white dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-800 md:hidden">
             <div class="px-6 py-4 space-y-3 font-semibold">
                 <a class="block py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/games.html">Jocuri</a>
-                <a class="block py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/assessment.html">Teste</a>
+                <a class="block py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/assessment/assessment.html">Teste</a>
                 <div class="h-px bg-gray-200 dark:bg-neutral-800"></div>
                 <a id="InregistreazataID_M" class="block py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/inregistreazate.html">Înregistrare</a>
                 <a id="ConecteazataID_M" class="block py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" href="/public/pages/conecteazate.html">Conectare</a>
@@ -105,7 +105,7 @@ function buildFooter() {
             <h2 class="font-semibold text-gray-900 dark:text-white">Navigare</h2>
             <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400">
               <li><a class="hover:text-gray-900 dark:hover:text-white" href="/public/index.html">Acasă</a></li>
-              <li><a class="hover:text-gray-900 dark:hover:text-white" href="/public/pages/assessment.html">Teste</a></li>
+              <li><a class="hover:text-gray-900 dark:hover:text-white" href="/public/pages/assessment/assessment.html">Teste</a></li>
               <li><a class="hover:text-gray-900 dark:hover:text-white" href="/public/pages/games.html">Jocuri</a></li>
               <li><a class="hover:text-gray-900 dark:hover:text-white" href="/public/pages/about.html">Despre noi</a></li>
             </ul>

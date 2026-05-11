@@ -30,7 +30,7 @@ function buildArrJocuri() {
             descriere: 'Înainte de a începe, citește documentația pentru a învăța termenii. Apoi potrivește fiecare imagine cu perechea sa!',
             incercari: -1,
             media: 0,
-            ancora: './game-page/shuffle-game-page/documentatie-shuffle-game.html',
+            ancora: '/public/pages/game-page/shuffle-game-page/documentatie-shuffle-game.html',
             statut: 1
         },
         {
@@ -41,7 +41,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_shuffle === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100),
-            ancora: './game-page/shuffle-game-page/shuffle-game.html',
+            ancora: '/public/pages/game-page/shuffle-game-page/shuffle-game.html',
             statut: 0
         },
         {
@@ -50,7 +50,7 @@ function buildArrJocuri() {
             descriere: 'Parcurge mai întâi documentația, apoi testează ce ai învățat! Tu decizi care afirmații sunt adevărate și care sunt false.',
             incercari: -1,
             media: 0,
-            ancora: './game-page/true-false-game-page/documentatie-true-false-game.html',
+            ancora: '/public/pages/game-page/true-false-game-page/documentatie-true-false-game.html',
             statut: 1
         },
         {
@@ -61,7 +61,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_truefalse === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100),
-            ancora: './game-page/true-false-game-page/true-false-game.html',
+            ancora: '/public/pages/game-page/true-false-game-page/true-false-game.html',
             statut: 0
         },
         {
@@ -70,7 +70,7 @@ function buildArrJocuri() {
             descriere: 'Știi ce face o parolă sigură? Citește mai întâi documentația, apoi pune în practică ce ai învățat!',
             incercari: -1,
             media: 0,
-            ancora: './game-page/password-game-page/documentatie-password-game.html',
+            ancora: '/public/pages/game-page/password-game-page/documentatie-password-game.html',
             statut: 1
         },
         {
@@ -81,7 +81,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_password === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100),
-            ancora: './game-page/password-game-page/password-game.html',
+            ancora: '/public/pages/game-page/password-game-page/password-game.html',
             statut: 0
         },
         {
@@ -90,7 +90,7 @@ function buildArrJocuri() {
             descriere: 'Pregătește-te bine! Citește documentația înainte de a intra în quiz. Cel mai bine pregătit câștigă!',
             incercari: -1,
             media: 0,
-            ancora: './game-page/variante-game-page/documentatie-variante-game.html',
+            ancora: '/public/pages/game-page/variante-game-page/documentatie-variante-game.html',
             statut: 1
         },
         {
@@ -101,7 +101,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_variante === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
-            ancora: './game-page/variante-game-page/variante-game.html',
+            ancora: '/public/pages/game-page/variante-game-page/variante-game.html',
             statut: 0
         },
     ];
@@ -229,15 +229,15 @@ function initAssasment(ArrJocuri) {
     </div>
 </div>`;
 
-    let sageata_stanga = "../assets/img/img-assasment/Sageata_stanga.png";
+    let sageata_stanga = "/public/assets/img/img-assasment/Sageata_stanga.png";
     let AssasmentHTML = statisticiHTML;
 
     ArrJocuri.forEach((item) => {
         if (item.statut !== 1) return;
 
         const iconImg = item.incercari === -1
-            ? `../assets/img/img-assasment/Calendar_fara_iconita.png`
-            : `../assets/img/img-assasment/Calendar_Check.png`;
+            ? `/public/assets/img/img-assasment/Calendar_fara_iconita.png`
+            : `/public/assets/img/img-assasment/Calendar_Check.png`;
 
         if (item.incercari === -1) {
             AssasmentHTML += `

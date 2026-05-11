@@ -181,8 +181,8 @@
 
     <div class="relative min-h-[520px] md:min-h-[620px] flex items-center w-full">
       <div class="max-w-5xl px-6 py-16 mx-auto text-center">
-        <img class="logo-index xl:w-[150px] lg:w-[140px] md:w-[125px] w-[110px]  block mx-auto" src="./assets/img/Vector.svg"
-          alt="logo">
+        <img class="logo-index xl:w-[150px] lg:w-[140px] md:w-[125px] w-[110px]  block mx-auto"
+          src="./assets/img/Vector.svg" alt="logo">
 
         <h1
           class="animate-title md:text-6xl mt-[15px] font-extrabold tracking-tight text-gray-900 dark:text-[#EBF6FF] xl:text-[70px] lg:text-[64px] text-[48px]"
@@ -301,7 +301,7 @@
     <div
       class="   pt-[10px] sm:pt-[20px] md:pt-[30px] lg:pt-[60px]  pb-[20px] sm:pb-[30px] md:pb-[40px] lg:pb-[50px]   bg-gray-200 dark:bg-[#3d4060]  border-[4px] border-blue-600 rounded-3xl w-full gap-[30px] md:gap-[35px] lg:gap-[40px]  flex flex-col items-center justify-center">
       <div
-        class="grup1 grid grid-cols-2 md:grid-cols-3 w-[90%] h-full gap-[20px] sm:gap-[30px]  md:gap-[10px] lg:gap-[50px] items-center animate-[slide_10s_linear_infinite] ">
+        class="grup1 animate-[slide_linear_infinite] kinear grid grid-cols-2 md:grid-cols-3 w-[90%] h-full gap-[20px] sm:gap-[30px]  md:gap-[10px] lg:gap-[50px] items-center animate-[slide_10s_linear_infinite] ">
 
         <div class="md:flex hidden  w-[full] h-[200px]  cardurile"></div>
         <div class="flex w-[full] h-[200px]  cardurile"></div>
@@ -335,11 +335,11 @@
           const index = (start + i) % arr.length;
 
           card.innerHTML = `
-      <img
-        class="w-full h-full object-cover rounded-[20px] border-[4px] border-blue-600"
-        src="${arr[index].calea}"
-      />
-    `;
+            <img
+              class="w-full h-full object-cover rounded-[20px] border-[4px] border-blue-600"
+              src="${arr[index].calea}"
+            />
+          `;
         });
       }
 
@@ -393,7 +393,7 @@
           </div>
 
           <div class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm text-center">
-            Alătură-te 
+            Alătură-te
           </div>
 
         </div>
@@ -497,7 +497,7 @@
               Începe activitățile din Jocuri
             </a>
 
-            <a href="./pages/assessment.html" class="inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold
+            <a href="./pages/assessment/assessment.html" class="inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold
                     border border-[gray-300] dark:border-[#EBF6FF]/30 bg-white dark:bg-[#3d4060] text-gray-900 dark:text-[#EBF6FF]
                     hover:bg-gray-50 dark:hover:bg-[#454870] transition
                     focus:outline-none focus:ring-4 focus:ring-gray-200">
