@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="../../assets/css/app.css">
   <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
   <title>Teste</title>
-    <script>
+  <script>
     if (localStorage.getItem("tema") === "dark") {
       document.documentElement.classList.add("dark");
     }
@@ -31,53 +31,78 @@
   <!-- ----------------------------------------------- -->
 
 
-
   <section
-    class="background2 tabele_assasment flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
-    style=" background-image: url('../assets/img/backgrounds/background-alb2..png');">
-    <div class="container1 flex flex-col items-center justify-center mt-[10px] sm:mt-[15px] lg:mt-[1px] px-4 sm:px-6">
-      <div class="card-total relative w-full max-w-[800px] h-[80px] flex items-center justify-center">
+    class="background2 w-full flex justify-center items-center flex-col min-h-[100dvh]  bg-cover bg-center bg-no-repeat">
 
 
-        <div
-          class="card-sus w-full max-w-[800px] h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
-          <div class="icon h-[60%] mt-[11px] w-[35px] sm:w-[45px] lg:w-[50px]">
-            <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="">
-          </div>
+    <div class=" tabele_assasment flex justify-center items-center flex-col pb-[30px] w-full mx-auto ">
+      <div class="container1 flex flex-col items-center justify-center mt-[10px] sm:mt-[15px] lg:mt-[1px] px-4 sm:px-6">
+        <div class="card-total relative w-full max-w-[800px] h-[80px] flex items-center justify-center">
+
+
           <div
-            class="text text-black mt-[23px] text-sm sm:text-base lg:text-xl w-[160px] sm:w-[220px] lg:w-[300px] h-[60%]">
-            Testul Ghicește Parola
+            class="card-sus w-full max-w-[800px] h-[80px] bg-[#DADADA] rounded-[10px] sm:rounded-[25px] lg:rounded-[30px] absolute top-0 left-0 z-10 flex items-center justify-between px-3 sm:px-5 lg:px-6">
+            <div class="icon h-[60%] mt-[11px] w-[35px] sm:w-[45px] lg:w-[50px]">
+              <img src="../assets/img/img-assasment/Calendar_fara_iconita.png" alt="">
+            </div>
+            <div
+              class="text text-black mt-[23px] text-sm sm:text-base lg:text-xl w-[160px] sm:w-[220px] lg:w-[300px] h-[60%]">
+              Testul Ghicește Parola
+            </div>
+            <button
+              class="sageata h-[60%] mt-[21px] w-[35px] sm:w-[45px] lg:w-[50px] ml-[20px] sm:ml-[80px] lg:ml-[210px]">
+              <img src="../assets/img/img-assasment/Sageata_jos.png" alt="">
+            </button>
           </div>
-          <button
-            class="sageata h-[60%] mt-[21px] w-[35px] sm:w-[45px] lg:w-[50px] ml-[20px] sm:ml-[80px] lg:ml-[210px]">
-            <img src="../assets/img/img-assasment/Sageata_jos.png" alt="">
-          </button>
-        </div>
 
-        <div
-          class="card-jos flex bg-[#EEEEEE] w-full max-w-[800px] h-[80px] absolute top-0 left-0 z-0 rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px]"
-          style="display:none">
-          <div class="w-70%">
-            <h2 class="mt-[70px] text-black w-full sm:w-[380px] lg:w-[550px] h-[50px] text-sm sm:text-base">
-              Ce caractere trebuie incluse pentru a creea o parolă cat mai bună?<br>
-              Câte caractere trebuie să includă parola?
-            </h2>
-            <h3 class="mt-[60px] sm:mt-[75px] lg:mt-[85px] text-black w-[200px] h-[30px] text-sm sm:text-base">
-              Reușită: 75%
-            </h3>
-            <h3 class="text-black w-[200px] h-[30px] text-sm sm:text-base">Încercări: 1/5</h3>
-          </div>
           <div
-            class="w-[80px] sm:w-[90px] lg:w-[100px] h-[50px] mt-[200px] bg-black ml-[30px] sm:ml-[60px] lg:ml-[95px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px]">
-            <a class="flex items-center justify-center w-full h-full text-sm text-white sm:text-base" href="">
-              Joaca-te
-            </a>
+            class="card-jos flex bg-[#EEEEEE] w-full max-w-[800px] h-[80px] absolute top-0 left-0 z-0 rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] p-[15px] sm:p-[20px] lg:p-[30px]"
+            style="display:none">
+            <div class="w-70%">
+              <h2 class="mt-[70px] text-black w-full sm:w-[380px] lg:w-[550px] h-[50px] text-sm sm:text-base">
+                Ce caractere trebuie incluse pentru a creea o parolă cat mai bună?<br>
+                Câte caractere trebuie să includă parola?
+              </h2>
+              <h3 class="mt-[60px] sm:mt-[75px] lg:mt-[85px] text-black w-[200px] h-[30px] text-sm sm:text-base">
+                Reușită: 75%
+              </h3>
+              <h3 class="text-black w-[200px] h-[30px] text-sm sm:text-base">Încercări: 1/5</h3>
+            </div>
+            <div
+              class="w-[80px] sm:w-[90px] lg:w-[100px] h-[50px] mt-[200px] bg-black ml-[30px] sm:ml-[60px] lg:ml-[95px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px]">
+              <a class="flex items-center justify-center w-full h-full text-sm text-white sm:text-base" href="">
+                Joaca-te
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
+    <div class="w-full mt-[20px] mb-[20px] flex justify-center items-center px-4">
+      <div class="flex flex-col sm:flex-row gap-4 p-4 rounded-2xl  transition-all">
+
+        <a href="/public//pages/assessment/quest.html" class="
+          inline-flex items-center justify-center 
+          px-[70px] py-2 rounded-2xl font-semibold text-[14px] text-white
+          bg-gradient-to-r from-[#1156ea] to-[#4b86f7]
+          hover:opacity-90 shadow-md transition duration-300">
+          <span class="mr-2">←</span>
+          Questuri
+        </a>
+
+        <a href="/public/pages/assessment/badge.html" class="
+          inline-flex items-center justify-center 
+          px-[70px] py-2 rounded-2xl font-semibold text-[14px]  text-white
+          bg-gradient-to-r from-[#1156ea] to-[#4b86f7]
+          hover:opacity-90 shadow-md transition duration-300">
+          Badge-uri
+          <span class="ml-2">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
 
 
 
