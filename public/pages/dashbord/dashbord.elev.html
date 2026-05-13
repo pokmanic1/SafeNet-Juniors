@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../assets/css/app.css">
     <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
 
     <script>
@@ -37,25 +37,14 @@
     <!-- ----------------------------------------------- -->
 
 
-    <section
+ <section
         class="background2 flex justify-center items-center flex-col pb-[150px]  pt-[80px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
         style=" background-image: url('../../assets/img/backgrounds/background-alb2..png');">
 
 
 
 
-        <div class="w-full flex flex-col p-[32px]">
-            <h1 class="mb-4 text-3xl font-bold text-center text-gray-900 dark:text-[#EBF6FF] md:text-4xl">
-                Bun venit în dashboard-ul tău, elev!
-            </h1>
-            <p class="max-w-2xl mx-auto text-lg text-center text-gray-700 dark:text-[#EBF6FF]/80 md:text-xl">
-                Aici poți accesa jocurile și testele create de profesori pentru a învăța cum să fii în siguranță online.
-                Explorează resursele
-                și distrează-te în timp ce înveți!
-            </p>
-        </div>
-
-
+    
 
 
         <div class="w-full flex flex-col p-[32px]">
@@ -66,28 +55,38 @@
 
             <div class="flex flex-col w-full">
 
-                <div class="w-[92%] flex justify-start items-center mb-[20px] mx-auto">
-                    <h1 class="text-start font-semibold text-[24px] dark:text-[#EBF6FF]">Clasele Mele</h1>
-                </div>
+             
 
                 <div id="grila-clase"
                     class="w-[94%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-[10px]">
 
                     <div id="card-adauga-clasa"
-                        class="border border-dashed border-gray-500 dark:border-[#EBF6FF]/10 bg-[#30302E] dark:bg-[#3d4060]/90 rounded-2xl p-[20px] flex flex-col justify-center items-center gap-3 transition-transform hover:scale-[1.02] hover:bg-[#3a3a38] dark:hover:bg-[#3d4060]">
+                        class="bg-[#1a1a18] dark:bg-[#1e2035] rounded-[30px] p-8 flex flex-col items-center justify-start gap-6 relative overflow-hidden transition-transform hover:scale-[1.02]">
 
-                        <p class="text-[#aaa] dark:text-[#EBF6FF]/60 text-[16px] font-medium">Clasă nouă</p>
-                        <p class="text-[#aaa] dark:text-[#EBF6FF]/60 text-[14px] font-medium">Introdu codul clasei</p>
+                        <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
 
-                        <input id="input-cod-clasa" type="text" placeholder="Ex: B-RS4H"
-                            class="w-full border border-gray-600 dark:border-[#EBF6FF]/10 bg-[#252523] dark:bg-[#2a2c3e] px-3 py-2 rounded-xl text-white dark:text-[#EBF6FF] text-center text-[14px] focus:outline-none focus:border-blue-500 transition placeholder-gray-500" />
+                        <div class="w-full h-[160px] rounded-2xl flex justify-center items-center bg-[#252523] dark:bg-[#252840] border border-white/5">
+                            <img src="../../assets/img/img-pt-index/User_Add-normalMode.svg" alt="Clase"
+                                class="User_Add w-[35%] opacity-90 drop-shadow-lg">
+                        </div>
+
+                        <div class="text-center">
+                            <h3 class="text-white font-extrabold text-xl tracking-tight">Alătură-te unei clase</h3>
+                            <p class="text-gray-400 text-sm mt-1">Introdu codul primit de la profesor</p>
+                        </div>
+
+                        <div class="w-full flex flex-col gap-2">
+                            <label class="text-gray-400 text-xs font-semibold uppercase tracking-widest pl-1">Cod clasă</label>
+                            <input id="input-cod-clasa" type="text" placeholder="Ex: B-RS4H"
+                                class="w-full bg-[#2e2e2c] dark:bg-[#2d3050] border border-white/10 focus:border-blue-500 rounded-xl py-3 px-5 text-white text-center font-mono tracking-widest text-base focus:outline-none transition placeholder-gray-600" />
+                        </div>
 
                         <button id="btn-adauga-clasa"
-                            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-semibold px-5 py-2 rounded-full transition active:scale-95">
-                            <span class="text-[18px] ">+</span> Intra in clasa
+                            class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold text-base tracking-wide transition active:scale-[0.98] shadow-lg shadow-blue-900/30 flex items-center justify-center gap-2">
+                            <span>→</span> Alătură-te
                         </button>
 
-                        <p id="msg-adauga-clasa" class="text-[12px] text-green-400 hidden"> </p>
+                        <p id="msg-adauga-clasa" class="text-xs text-green-400 hidden -mt-3">✓ Te-ai alăturat cu succes!</p>
                     </div>
 
                 </div>

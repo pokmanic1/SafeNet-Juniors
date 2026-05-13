@@ -71,48 +71,59 @@ async function getDateJoc(teacherUid, colectie, jocId) {
     return snap.exists() ? { id: snap.id, ...snap.data() } : null;
 }
 
+
 function creeazaCard(clasa) {
     const jocuri = clasa.jocuri || [];
     const clasaId = clasa.id || clasa.clasaId;
-
+ 
     const card = document.createElement("div");
     card.dataset.id = clasaId;
-    card.className = "clasa-card border border-black bg-[#30302E] rounded-2xl py-[29px] xl:px-[20px] px-[10px] flex flex-col gap-[8px] transition-transform hover:scale-[1.02]";
-
+    card.className = "clasa-card bg-[#1a1a18] dark:bg-[#1e2035] rounded-[24px] p-6 flex flex-col gap-4 transition-transform hover:scale-[1.02] relative overflow-hidden";
+ 
     card.innerHTML = `
-        <div class="flex justify-between items-center">
-            <h2 class="text-white font-bold text-[18px]">${clasa.nume}</h2>
-            <span class="bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">
+        <div class="absolute top-[-50px] right-[-50px] w-[200px] h-[200px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
+ 
+        <div class="w-full h-[140px] rounded-2xl flex justify-center items-center bg-[#252523] dark:bg-[#252840] border border-white/5">
+            <img src="../../assets/img/img-pt-index/User_Add-normalMode.svg" alt="Clasa" class="w-[30%] opacity-90 drop-shadow-lg">
+        </div>
+ 
+        <div class="flex justify-between items-start gap-2">
+            <h2 class="text-white font-extrabold text-[18px] leading-tight">${clasa.nume}</h2>
+            <span class="flex-shrink-0 bg-white/10 text-white text-[11px] font-semibold px-3 py-1 rounded-full border border-white/10">
                 ${jocuri.length} joc${jocuri.length !== 1 ? "uri" : ""}
             </span>
         </div>
-        <p class="text-[#888] text-[13px]">Cod: <span class="font-mono font-bold text-white">${clasa.cod}</span></p>
-        <div class="jocuri-lista flex flex-col gap-1 mt-1">
+ 
+        <div class="flex items-center gap-2 bg-[#252523] dark:bg-[#252840] border border-white/5 rounded-xl px-4 py-2 w-fit">
+            <span class="text-gray-400 text-[12px]">Cod:</span>
+            <span class="font-mono font-bold text-white tracking-widest text-[13px]">${clasa.cod}</span>
+        </div>
+ 
+        <div class="jocuri-lista flex flex-col gap-2">
             ${jocuri.length === 0
-                ? `<p class="text-[#666] text-[12px]">Niciun joc adăugat încă.</p>`
+                ? `<p class="text-gray-600 text-[12px]">Niciun joc adăugat încă.</p>`
                 : jocuri.map(j => `
-                    <div class="flex items-center justify-between bg-[#252523] rounded-xl px-3 py-2 gap-2">
-                        <div class="flex items-center gap-2 min-w-0">
-                            <div class="flex flex-col min-w-0">
-                                <span class="text-white text-[12px] font-semibold truncate">${j.nume}</span>
-                                <span class="text-[10px] bg-blue-700 text-white px-2 py-0.5 rounded-full w-fit mt-0.5">${j.tipNume}</span>
-                            </div>
+                    <div class="flex items-center justify-between bg-[#252523] dark:bg-[#252840] border border-white/5 rounded-xl px-3 py-2 gap-2">
+                        <div class="flex flex-col min-w-0">
+                            <span class="text-white text-[12px] font-semibold truncate">${j.nume}</span>
+                            <span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full w-fit mt-0.5 font-semibold">${j.tipNume}</span>
                         </div>
-                        <button class="btn-joaca bg-green-600 hover:bg-green-700 active:scale-95 text-white text-[11px] font-bold px-3 py-1.5 rounded-full transition"
+                        <button class="btn-joaca bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 active:scale-95 text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition shadow-md shadow-green-900/30 flex-shrink-0"
                             data-joc-id="${j.jocId}" data-tip="${j.tip}" data-colectie="${j.colectie}" data-teacher="${j.teacherUid}">
-                            Joacă
+                            ▶ Joacă
                         </button>
                     </div>
                 `).join("")
             }
         </div>
-        <div class="flex justify-end mt-2">
-            <button class="btn-paraseste text-[14px] bg-red-700 text-white py-1 px-5 lg:text-[16px] rounded-full hover:bg-red-800 transition">
-                Părăsește
+ 
+        <div class="flex justify-end mt-auto pt-2 border-t border-white/5">
+            <button class="btn-paraseste text-[13px] bg-red-700/80 hover:bg-red-700 text-white py-2 px-5 rounded-xl transition font-semibold">
+                 Părăsește
             </button>
         </div>
     `;
-
+ 
     card.querySelectorAll(".btn-joaca").forEach(btn => {
         btn.addEventListener("click", async () => {
             const tip = parseInt(btn.dataset.tip);
@@ -126,15 +137,14 @@ function creeazaCard(clasa) {
             window.location.href = GAME_URL[tip];
         });
     });
-
+ 
     card.querySelector(".btn-paraseste").addEventListener("click", async () => {
         await parasestClasa(clasaId, clasa.teacherUid);
         card.remove();
     });
-
+ 
     return card;
 }
-
 async function randeazaClase() {
     const container  = document.querySelector("#grila-clase");
     const cardAdauga = document.querySelector("#card-adauga-clasa");
