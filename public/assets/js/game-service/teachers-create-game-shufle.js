@@ -78,10 +78,20 @@ function genereazaHTML(jocuri) {
     if (!container) return;
 
     if (jocuri.length === 0) {
-        container.innerHTML = `<p class="text-white text-center">Niciun joc salvat.</p>`;
+        container.innerHTML = `
+            <div class="bg-[#1a1a18] dark:bg-[#1e2035] border border-white/10 rounded-[24px] p-8 gap-[20px] flex flex-col items-center gap-5 w-full max-w-[400px] text-center relative overflow-hidden">
+                <div class="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[250px] h-[250px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
+                <p class="text-gray-400 text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-sm uppercase tracking-widest font-semibold">Niciun joc salvat</p>
+                <h3 class="text-white   text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-extrabold text-xl leading-snug">Nu ai creat niciun<br>joc de tip Shufle</h3>
+                <a
+                    href="/public/pages/game-page/shuffle-game-page/teachers-shufle-game.html"
+                    class="w-full py-2 md:py-3   text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold text-sm tracking-wide transition active:scale-[0.98] shadow-lg shadow-blue-900/30">
+                    Creeaza un joc
+                </a>
+            </div>
+        `;
         return;
     }
-
 
     container.innerHTML = jocuri.map(joc => {
 
