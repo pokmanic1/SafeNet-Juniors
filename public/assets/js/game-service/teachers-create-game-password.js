@@ -88,40 +88,40 @@ function genereazaHTML(jocuri) {
     container.innerHTML = jocuri.map(joc => `
     <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
         
-        <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
+        <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
             <img src="../../assets/img/backgrounds/password-game-bg1.png" 
                  alt="Game Background" class="w-full h-full object-cover">
         </div>
 
         <div class="flex-1 pt-[8px] pb-[5px] px-[6px] flex flex-col justify-center gap-4">
             
-            <div class="ptborderb flex items-center justify-between pb-[2px]">
+            <div class="ptborderb flex items-center justify-between gap-2 pb-[2px]">
                 
-                <img class="sageata cursor-pointer transition-transform duration-300 block w-[30px] h-[30px] mr-[20px] my-auto" 
+                <img class="sageata cursor-pointer transition-transform duration-300 block w-[22px] h-[22px] md:w-[30px] md:h-[30px] my-auto flex-shrink-0" 
                     src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
-                <h2 class="lg:text-[18px] md:text-[16px] sm:text-[14px] text-[12px] font-bold text-yellow-500 uppercase tracking-wider">
+                <h2 class="flex-1 min-w-0 text-[12px] sm:text-[15px] lg:text-[18px] font-bold text-yellow-500 uppercase tracking-wider truncate">
                     ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli
                 </h2>
 
-                <div class="flex gap-2">
+                <div class="flex flex-col sm:flex-row gap-1 sm:gap-2 flex-shrink-0">
                     <button data-id="${joc.id}" 
-                        class="btn-joaca hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
-                        Joacă acum
+                        class="btn-joaca hidden bg-blue-600 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg font-bold text-[10px] sm:text-sm hover:bg-blue-700 transition-all whitespace-nowrap">
+                        Joacă
                     </button>
-                    <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition" 
+                    <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-[10px] sm:text-sm font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg transition whitespace-nowrap" 
                         data-id="${joc.id}">
-                        Șterge joc
+                        Șterge
                     </button>
                 </div>
             </div>
 
-            <div class="gridul-intrebari hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="gridul-intrebari hidden grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                 ${(joc.reguli || []).map((r, index) => `
-                    <div class="bg-[#3a3a38] p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
-                        <span class="text-xs text-gray-400 uppercase font-bold">Regula ${index + 1}</span>
-                        <p class="text-white font-medium mt-1">${r.conditie}</p>
-                        ${r.valoare ? `<span class="text-xs font-bold text-green-400"> ${r.valoare}</span>` : ''}
+                    <div class="bg-[#3a3a38] p-2 sm:p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
+                        <span class="text-[9px] sm:text-xs text-gray-400 uppercase font-bold">Regula ${index + 1}</span>
+                        <p class="text-white font-medium mt-1 text-[11px] sm:text-[13px] leading-snug">${r.conditie}</p>
+                        ${r.valoare ? `<span class="text-[10px] sm:text-xs font-bold text-green-400">${r.valoare}</span>` : ''}
                     </div>
                 `).join('')}
             </div>

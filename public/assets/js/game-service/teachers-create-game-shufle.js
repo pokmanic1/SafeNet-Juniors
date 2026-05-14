@@ -98,45 +98,45 @@ function genereazaHTML(jocuri) {
         const perechi = grupeazaPerechi(joc.date);
 
         return `
-       <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
+    <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
-        <div class="imaginea hidden md:w-1/4 w-full h-48 md:h-auto">
+        <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
             <img src="../../assets/img/backgrounds/shufle-game-bg2.png" 
                 alt="Shuffle Game" class="w-full h-full object-cover">
         </div>
 
-        <div class="flex-1 pt-[8px] pb-[5px] px-[6px]  flex flex-col justify-center gap-4">
+        <div class="flex-1 pt-[8px] pb-[5px] px-[6px] flex flex-col justify-center gap-4">
             
-            <div class="ptborderb flex items-center justify-between pb-2">
+            <div class="ptborderb flex items-center justify-between gap-2 pb-2">
                 
-                <img class="sageata cursor-pointer transition-transform duration-300 block w-[30px] h-[30px]  mr-[20px] my-auto" 
+                <img class="sageata cursor-pointer transition-transform duration-300 block w-[22px] h-[22px] md:w-[30px] md:h-[30px] my-auto flex-shrink-0" 
                     src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
 
-                <h2 class="lg:text-[18px] md:text-[16px] sm:text-[14px] text-[12px] font-bold text-yellow-500 uppercase tracking-wider">
+                <h2 class="flex-1 min-w-0 text-[12px] sm:text-[15px] lg:text-[18px] font-bold text-yellow-500 uppercase tracking-wider truncate">
                     ${joc.nume || 'Fără nume'} — ${perechi.length} perechi
                 </h2>
 
-                <div class="flex gap-2">
+                <div class="flex flex-col sm:flex-row gap-1 sm:gap-2 flex-shrink-0">
                     <button data-id="${joc.id}"
-                        class="btn-joaca hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all">
-                        Joacă acum
+                        class="btn-joaca hidden bg-blue-600 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg font-bold text-[10px] sm:text-sm hover:bg-blue-700 transition-all whitespace-nowrap">
+                        Joacă
                     </button>
-                    <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition"
+                    <button class="btn-sterge hidden bg-red-600 hover:bg-red-700 text-white text-[10px] sm:text-sm font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg transition whitespace-nowrap"
                         data-id="${joc.id}">
-                        Șterge joc
+                        Șterge
                     </button>
                 </div>
             </div>
 
-            <div class="gridul-intrebari hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="gridul-intrebari hidden grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                 ${perechi.map((p, index) => `
-                    <div class="bg-[#3a3a38] p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors flex items-center gap-3">
-                        <div class="flex-shrink-0 w-12 h-12 bg-white rounded-md overflow-hidden p-1">
-                             <img src="${p.image}" class="w-full h-full object-contain">
+                    <div class="bg-[#3a3a38] p-2 sm:p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors flex items-center gap-2">
+                        <div class="flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-md overflow-hidden p-1">
+                            <img src="${p.image}" class="w-full h-full object-contain">
                         </div>
-                        <div>
-                            <span class="text-[10px] text-gray-400 uppercase font-bold">Perechea ${index + 1}</span>
-                            <p class="text-white font-medium text-sm leading-tight">${p.text}</p>
+                        <div class="min-w-0">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400 uppercase font-bold">Perechea ${index + 1}</span>
+                            <p class="text-white font-medium text-[11px] sm:text-sm leading-tight truncate">${p.text}</p>
                         </div>
                     </div>
                 `).join('')}
@@ -144,7 +144,7 @@ function genereazaHTML(jocuri) {
 
         </div>
     </div>
-    `;
+`;
     }).join('');
 
     container.addEventListener('click', (e) => {
