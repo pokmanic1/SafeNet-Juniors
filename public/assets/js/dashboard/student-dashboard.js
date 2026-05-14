@@ -276,7 +276,6 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-});
 
 // ==============================================
 // DARK MODE 
@@ -291,13 +290,13 @@ if (temaSalvata === "dark") {
 
 
 
-schimbăBackground();
+
 function schimbăBackground() {
   const isDark = localStorage.getItem("tema") === "dark";
 
   if (isDark) document.documentElement.classList.add("dark");
- 
- 
+
+
   // logo
   if (document.querySelector('.logo-index')) {
     const logoIndex = document.querySelector('.logo-index');
@@ -324,7 +323,7 @@ function schimbăBackground() {
     const a = isDark
       ? '/public/assets/img/img-assasment/sageata-pt-darkmode.png'
       : '/public/assets/img/img-assasment/sageata-pt-normalmode.png';
-    sageata_stanga.forEach((item)=>{
+    sageata_stanga.forEach((item) => {
       item.setAttribute('src', a);
     })
   }
@@ -334,7 +333,7 @@ function schimbăBackground() {
     const a = isDark
       ? '/public/assets/img/img-assasment/CalendarDark.png'
       : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
-    Calendar_fara_iconita.forEach((item)=>{
+    Calendar_fara_iconita.forEach((item) => {
       item.setAttribute('src', a);
     })
   }
@@ -344,7 +343,7 @@ function schimbăBackground() {
     const a = isDark
       ? '/public/assets/img/img-assasment/Calendar_CheckDark.png'
       : '/public/assets/img/img-assasment/Calendar_Check.png';
-    Calendar_fara_iconita.forEach((item)=>{
+    Calendar_fara_iconita.forEach((item) => {
       item.setAttribute('src', a);
     })
   }
@@ -403,7 +402,7 @@ function schimbăBackground() {
   }
 
 
-    // ------------------------------------------
+  // ------------------------------------------
   // ------------------------------------------
   // backgrounduri jocuri
   // bg1
@@ -437,7 +436,7 @@ function schimbăBackground() {
   }
 
 }
-
+schimbăBackground();
 document.addEventListener("change", (e) => {
   if (e.target.classList.contains("checkbox-toggle")) {
     if (e.target.checked) {
@@ -449,6 +448,7 @@ document.addEventListener("change", (e) => {
 
       document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
       document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
+
 
     } else {
 
@@ -464,35 +464,4 @@ document.addEventListener("change", (e) => {
   schimbăBackground();
 
 });
-// ==============================================
-
-
-
-
-
-// const menuBtn = document.getElementById('menuBtn');
-// const mobileMenu = document.getElementById('mobileMenu');
-// const iconOpen = document.getElementById('iconOpen');
-// const iconClose = document.getElementById('iconClose');
-
-// function setMenu(open) {
-//   mobileMenu.classList.toggle('hidden', !open);
-//   iconOpen.classList.toggle('hidden', open);
-//   iconClose.classList.toggle('hidden', !open);
-//   menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-// }
-
-// menuBtn.addEventListener('click', () => {
-//   const isOpen = !mobileMenu.classList.contains('hidden');
-//   setMenu(!isOpen);
-// });
-
-// // Închide meniul când se schimbă la desktop
-// window.addEventListener('resize', () => {
-//   if (window.innerWidth >= 768) setMenu(false);
-// });
-
-// // Închide meniul când se apasă Escape
-// window.addEventListener('keydown', (e) => {
-//   if (e.key === 'Escape') setMenu(false);
-// });
+});
