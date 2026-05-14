@@ -7,7 +7,7 @@ import {
 import {
     doc,
     setDoc,
-    getDoc      
+    getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 
@@ -45,7 +45,7 @@ function mesajPentruEroare(error, context = "register") {
 
 
 export async function register(username, email, password, role) {
-  try {
+    try {
         const userCredential = await createUserWithEmailAndPassword(
             auth,
             email,
@@ -61,7 +61,6 @@ export async function register(username, email, password, role) {
             createdAt: new Date()
         });
 
-        afiseazaEroare("Înregistrare reușită!", "text-green-600");
         window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
         if (link) {
@@ -82,7 +81,6 @@ export async function login(email, password) {
     try {
         await signInWithEmailAndPassword(auth, email, password);
 
-        afiseazaEroare("Autentificat cu succes!", "text-green-600");
 
         window.location.href = "games.html";
         const link = document.querySelector('.autentificat');
@@ -151,7 +149,7 @@ export async function getToateDatele() {
 
 let mesajEroare = document.querySelectorAll('.conectare_p');
 
-function afiseazaEroare(text, culoare, timp = 5000) {
+ function afiseazaEroare(text, culoare, timp = 5000) {
     mesajEroare.forEach(el => {
         el.innerText = text;
         el.classList.remove("hidden");
