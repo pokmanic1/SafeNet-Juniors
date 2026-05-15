@@ -1,4 +1,4 @@
-const QUEST_RESET_MS = 300000;
+const QUEST_RESET_MS = 50000;
 
 const arrSetsDeQuesturi = [
     {
@@ -28,10 +28,10 @@ const arrSetsDeQuesturi = [
 ];
 
 const sfert_config = [
-    { sfert: 'sfert-1', pozitie: 'top-0 left-0 rounded-tl-full', culoare: 'bg-red-400' },
-    { sfert: 'sfert-2', pozitie: 'top-0 right-0 rounded-tr-full', culoare: 'bg-blue-400' },
-    { sfert: 'sfert-3', pozitie: 'bottom-0 left-0 rounded-bl-full', culoare: 'bg-green-400' },
-    { sfert: 'sfert-4', pozitie: 'bottom-0 right-0 rounded-br-full', culoare: 'bg-yellow-400' },
+    { sfert: 'sfert-1', pozitie: 'top-0 left-0 rounded-tl-full', culoare: 'bg-gray-400' },
+    { sfert: 'sfert-2', pozitie: 'top-0 right-0 rounded-tr-full', culoare: 'bg-gray-400' },
+    { sfert: 'sfert-3', pozitie: 'bottom-0 left-0 rounded-bl-full', culoare: 'bg-gray-400' },
+    { sfert: 'sfert-4', pozitie: 'bottom-0 right-0 rounded-br-full', culoare: 'bg-gray-400' },
 ];
 
 const arrImagini = [
@@ -110,7 +110,9 @@ function pornesteCeas() {
             clearInterval(interval);
 
             setActiv.forEach(function (q) { localStorage.removeItem(q.id); });
-
+            localStorage.removeItem('quest_reset_at');
+            localStorage.removeItem('quest_set_idx');
+            localStorage.removeItem('quest_img_idx');
             localStorage.setItem('quest_reset_at', Date.now().toString());
             localStorage.setItem('quest_set_idx', Math.floor(Math.random() * arrSetsDeQuesturi.length).toString());
             localStorage.setItem('quest_img_idx', Math.floor(Math.random() * arrImagini.length).toString());
