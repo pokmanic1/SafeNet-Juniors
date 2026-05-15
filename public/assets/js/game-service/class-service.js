@@ -1,7 +1,4 @@
-// ============================================================
-// class-service.js  —  v2 (fix eliminare elev dupa uid)
-// Locatie: public/assets/js/game-service/class-service.js
-// ============================================================
+
 
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
@@ -22,10 +19,6 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/fi
 let claseActive=0;
 let eleviInscrisi=0;
 let jocuriPublicate=0;
-
-onAuthStateChanged(auth, (user) => {
-    if (!user) window.location.href = "../../../index.html";
-});
 
 function genereazaCod(numeClasa) {
     const prefix = numeClasa.replace(/\s+/g, "").slice(0, 3).toUpperCase();
