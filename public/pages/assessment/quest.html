@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/style.css">
 
-  <title>Teste</title>
+  <title>Questuri</title>
   <script>
     if (localStorage.getItem("tema") === "dark") {
       document.documentElement.classList.add("dark");
@@ -19,8 +19,7 @@
   </script>
 </head>
 
-<body class="w-full min-w-[375px] transition-colors duration-300  bg-white body  dark:bg-[#31344D] dark:text-white ">
-
+<body class="w-full min-w-[375px] transition-colors duration-300 bg-white body dark:bg-[#31344D] dark:text-white">
 
   <div class="sticky top-0 left-0 z-50 header"></div>
 
@@ -33,25 +32,30 @@
 
 
 
-  <section
-    class="background2  flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat">
 
-    <div class="quest-container w-[90%] flex items-center justify-center flex-col sm:flex-row gap-10 ">
+  <section
+    class="background2 flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat">
+
+    <!-- Titlu + timer -->
+    <div class="w-[90%] max-w-[900px] mb-6 flex items-center justify-between">
+      <h2 class="text-xl font-bold text-black dark:text-white">Questuri</h2>
+      <span id="quest-timer" class="text-xs font-mono text-gray-400 dark:text-gray-500">
+        Reset in: 05:00
+      </span>
+    </div>
+
+    <div class="quest-container w-[90%] max-w-[900px] flex items-center justify-center flex-col sm:flex-row gap-10">
+
+      <!-- STÂNGA: lista de questuri — completat de quest.js -->
       <div
-        class="questuri-side  flex items-center justify-center flex-col gap-10 border-2 border-black rounded-2xl w-[60%] sm:w-[50%]">
-        <h1 class="text-3xl font-bold text-center">Quest</h1>
-        <h1 class="text-3xl font-bold text-center">Quest</h1>
-        <h1 class="text-3xl font-bold text-center">Quest</h1>
-        <h1 class="text-3xl font-bold text-center">Quest</h1>
-        <h1 class="text-3xl font-bold text-center">Quest</h1>
+        class="questuri-side flex flex-col gap-3 w-full sm:w-[55%]">
+        <!-- quest.js injectează cardurile aici -->
       </div>
 
+      <!-- DREAPTA: cercul cu imaginea acoperită de 4 sferturi -->
       <div
-        class="pazzle-side relative w-[60%] sm:w-[40%] aspect-square rounded-full border border-black dark:border-white flex items-center justify-center">
-        <div class="absolute w-[50%] h-[50%] bg-red-500 bottom-0 left-0 rounded-bl-full"></div>
-        <div class="absolute w-[50%] h-[50%] bg-blue-500 bottom-0 right-0 rounded-br-full"></div>
-        <div class="absolute w-[50%] h-[50%] bg-green-500 top-0 left-0 rounded-tl-full"></div>
-        <div class="absolute w-[50%] h-[50%] bg-yellow-500 top-0 right-0 rounded-tr-full"></div>
+        class="pazzle-side relative w-[70vw] max-w-[300px] sm:w-[40%] aspect-square rounded-full border-2 border-black dark:border-white overflow-hidden flex-shrink-0">
+        <!-- quest.js injectează imaginea + sferturilelele -->
       </div>
 
     </div>
@@ -61,13 +65,9 @@
 
 
 
-
-
   <!-- ----------------------------------------------- -->
   <!-- ----------------------------------------------- -->
   <!-- ----------------------------------------------- -->
-
-
 
 
 
@@ -84,23 +84,16 @@
 
 
 
-
-
-
-
-
-
   <!-- ---------------header / footer-------------- -->
   <script src="../../assets/js/materialHTML/materialHTML.js"></script>
   <!-- ---------------quest-------------- -->
   <script src="../../assets/js/assasment/quest.js"></script>
 
-
-
   <!-- ---------------autentificat-------------- -->
   <script type="module" src="/public/assets/js/dashboard/autentificat.js"></script>
   <!-- ---------------dashboard-------------- -->
   <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
+
 </body>
 
 </html>
