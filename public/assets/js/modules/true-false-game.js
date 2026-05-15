@@ -523,6 +523,12 @@ function genereazaHTML() {
 
             contor_assasment_corecte++;
             contor_assasment_incercari++;
+
+            // ---- FLAG QUEST ----
+            // Quest: câștigă True/False cu cel puțin 7 răspunsuri corecte
+            localStorage.setItem('quest_truefalse_7', 'true');
+            // --------------------
+
         }
         else {
             contor_assasment_incercari++;
@@ -629,4 +635,3 @@ function restart() {
     pornesteCeas(0, 0);
     console.log("Jocul a fost resetat la întrebările implicite.");
 }
-

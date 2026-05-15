@@ -343,6 +343,12 @@ function match() {
         if (totalSecondsElapsed < 90) {
             contor_assasment_corecte++;
             contor_assasment_incercari++;
+
+            // ---- FLAG QUEST ----
+            // Quest: completează Shuffle în sub 90 de secunde
+            localStorage.setItem('quest_shuffle_90', 'true');
+            // --------------------
+
         } else {
             contor_assasment_incercari++;
         }
@@ -436,9 +442,3 @@ document.querySelector('.restart1').addEventListener('click', function () {
 let contorPerechi = 0;
 
 jocul.addEventListener('click', Click);
-
-
-
-
-
-

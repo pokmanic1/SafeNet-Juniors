@@ -575,6 +575,12 @@ function genereazaHTML() {
 
             contor_assasment_corecte++;
             contor_assasment_incercari++;
+
+            // ---- FLAG QUEST ----
+            // Quest: câștigă Variante cu cel puțin 8 puncte
+            localStorage.setItem('quest_variante_8', 'true');
+            // --------------------
+
         }
         else {
             contor_assasment_incercari++;

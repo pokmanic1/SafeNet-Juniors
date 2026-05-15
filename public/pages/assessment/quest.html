@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="../../assets/css/app.css">
   <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
   <title>Teste</title>
-    <script>
+  <script>
     if (localStorage.getItem("tema") === "dark") {
       document.documentElement.classList.add("dark");
     }
@@ -34,20 +34,24 @@
 
 
   <section
-    class="background2  flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
->
- 
-    <div class="quest-container w-[90%] flex items-center justify-center gap-10 ">
-      <div class="questuri-side  flex items-center justify-center flex-col gap-10 border-2 border-black rounded-2xl w-[35%]">
+    class="background2  flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat">
+
+    <div class="quest-container w-[90%] flex items-center justify-center flex-col sm:flex-row gap-10 ">
+      <div
+        class="questuri-side  flex items-center justify-center flex-col gap-10 border-2 border-black rounded-2xl w-[60%] sm:w-[50%]">
         <h1 class="text-3xl font-bold text-center">Quest</h1>
         <h1 class="text-3xl font-bold text-center">Quest</h1>
         <h1 class="text-3xl font-bold text-center">Quest</h1>
         <h1 class="text-3xl font-bold text-center">Quest</h1>
         <h1 class="text-3xl font-bold text-center">Quest</h1>
       </div>
-      <div class="pazzle-side w-[50%] min-h-[200px] rounded-full border border-black flex items-center justify-center">
-        <img src="" alt="pazzle" class="w-[80%]">
-          
+
+      <div
+        class="pazzle-side relative w-[60%] sm:w-[40%] aspect-square rounded-full border border-black dark:border-white flex items-center justify-center">
+        <div class="absolute w-[50%] h-[50%] bg-red-500 bottom-0 left-0 rounded-bl-full"></div>
+        <div class="absolute w-[50%] h-[50%] bg-blue-500 bottom-0 right-0 rounded-br-full"></div>
+        <div class="absolute w-[50%] h-[50%] bg-green-500 top-0 left-0 rounded-tl-full"></div>
+        <div class="absolute w-[50%] h-[50%] bg-yellow-500 top-0 right-0 rounded-tr-full"></div>
       </div>
 
     </div>
