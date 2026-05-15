@@ -16,9 +16,9 @@ import {
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 //statistici 
-let claseActive=0;
-let eleviInscrisi=0;
-let jocuriPublicate=0;
+let claseActive = 0;
+let eleviInscrisi = 0;
+let jocuriPublicate = 0;
 
 function genereazaCod(numeClasa) {
     const prefix = numeClasa.replace(/\s+/g, "").slice(0, 3).toUpperCase();
@@ -57,7 +57,7 @@ export const getToateClasele = async () => {
     if (!user) return [];
     try {
         const snap = await getDocs(collection(db, "users", user.uid, "clase"));
-        return snap.docs.map(d => ({ id: d.id, ...d.data() }) );
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
     } catch (err) {
         console.error("Eroare citire clase:", err);
         return [];
@@ -325,10 +325,10 @@ export function atasazaEventuri(container) {
 
         const btnElimina = e.target.closest(".btn-elimina-elev");
         if (btnElimina) {
-            const clasaId  = btnElimina.dataset.clasa;
-            const elevUid  = btnElimina.dataset.uid;   
+            const clasaId = btnElimina.dataset.clasa;
+            const elevUid = btnElimina.dataset.uid;
 
-            await eliminaElevDinClasa(clasaId, elevUid);  
+            await eliminaElevDinClasa(clasaId, elevUid);
 
             btnElimina.closest("div").remove();
 
@@ -401,6 +401,8 @@ export async function initDashboard() {
             if (msgAdauga) {
                 msgAdauga.classList.remove("hidden");
                 setTimeout(() => msgAdauga.classList.add("hidden"), 2500);
+                window.location.href = "/public/pages/dashbord/dashbord.html";
+
             }
             inputNume.value = "";
         }
