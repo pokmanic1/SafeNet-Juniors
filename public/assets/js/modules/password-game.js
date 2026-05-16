@@ -336,7 +336,6 @@ function verificaParola(password) {
                 contor_assasment_incercari++;
 
                 // ---- FLAG QUEST ----
-                // Quest: completează Password în sub 60 de secunde
                 localStorage.setItem('quest_password_60', 'true');
                 // --------------------
 

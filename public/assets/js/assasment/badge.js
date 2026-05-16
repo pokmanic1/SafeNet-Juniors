@@ -204,7 +204,6 @@ function genereazaBadgeHTML() {
             }
             if (!blocat) {
                 contor_general++;
-                // console.log('Contor crescut pentru badge: ' + badge.cerinta + ' | Contor general: ' + contor_general);
                 localStorage.setItem('contor_general', JSON.stringify(contor_general));
 
             }
