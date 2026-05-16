@@ -116,13 +116,13 @@ function dacaNuSaConectat() {
             </div>
             <h2 class="text-[22px] font-semibold text-gray-900 dark:text-[#EBF6FF] mb-2 tracking-tight">Înainte să începi…</h2>
             <p class="text-[13px] text-gray-400 dark:text-[#EBF6FF]/50 mb-8">Conectează-te pentru a îți salva progresul.</p>
-            <a href="../../conecteazate.html"
+            <a href='/public/pages/conecteazate.html'
                 class="h-[40px] bg-slate-900 dark:bg-blue-700 text-white px-20 py-2 rounded-2xl font-medium text-md hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
                 Conectează-te
             </a>
             <p class="mt-4 text-[12px] text-gray-400 dark:text-[#EBF6FF]/50">
                 Nu ai cont?
-                <a href="../../inregistreazate.html" class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
+                <a href='/public/pages/inregistreazate.html' class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
             </p>
         </div>
     </div>`;
