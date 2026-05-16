@@ -224,8 +224,7 @@
       <!-- ---------------loading screen-------------- -->
   <script src="/public/assets/js/loading-srean.js"></script>
 
-
-
+    
     <script type="module">
 
         import { auth, db, onAuthStateChanged } from "../assets/js/fierbase/firebase-init.js";
@@ -243,6 +242,7 @@
 
                 if (data.role === "Profesor") {
                     console.log("ROL:", data.role);
+                    
                     document.querySelectorAll(".plus").forEach((plus) => {
 
                         plus.classList.remove("hidden", "opacity-0");
