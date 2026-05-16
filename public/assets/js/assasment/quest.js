@@ -28,10 +28,10 @@ const arrSetsDeQuesturi = [
 ];
 
 const sfert_config = [
-    { sfert: 'sfert-1', pozitie: 'top-0 left-0 rounded-tl-full', culoare: 'bg-gray-400' },
-    { sfert: 'sfert-2', pozitie: 'top-0 right-0 rounded-tr-full', culoare: 'bg-gray-400' },
-    { sfert: 'sfert-3', pozitie: 'bottom-0 left-0 rounded-bl-full', culoare: 'bg-gray-400' },
-    { sfert: 'sfert-4', pozitie: 'bottom-0 right-0 rounded-br-full', culoare: 'bg-gray-400' },
+    { sfert: 'sfert-1', pozitie: 'top-0 left-0 rounded-tl-full', culoare: 'bg-[#1156ea]' },
+    { sfert: 'sfert-2', pozitie: 'top-0 right-0 rounded-tr-full', culoare: 'bg-[#1156ea]' },
+    { sfert: 'sfert-3', pozitie: 'bottom-0 left-0 rounded-bl-full', culoare: 'bg-[#1156ea]' },
+    { sfert: 'sfert-4', pozitie: 'bottom-0 right-0 rounded-br-full', culoare: 'bg-[#1156ea]' },
 ];
 
 const arrImagini = [
@@ -59,14 +59,14 @@ function randeaza() {
         htmlQuesturi += `
             <div class="quest-item w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300
                         ${completat ? 'bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700'
-                : 'bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10'}">
+                                    : 'bg-gray-100 dark:bg-white/5 border-3 border-blue-600 '}">
                 <div class="w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center text-sm font-bold
                             ${completat ? cfg.culoare + ' text-white'
-                : 'bg-gray-300 dark:bg-white/20 text-gray-600 dark:text-gray-300'}">
-                    ${completat ? '✓' : q.nr}
+                                        : 'bg-gray-300 dark:bg-white/20 text-gray-600 dark:text-gray-300'}">
+                            ${completat ? '✓' : q.nr}
                 </div>
                 <p class="text-sm leading-snug ${completat ? 'text-green-700 dark:text-green-300 opacity-70'
-                : 'text-black dark:text-white'}">
+                                                            : 'text-black dark:text-white'}">
                     ${q.text}
                 </p>
             </div>

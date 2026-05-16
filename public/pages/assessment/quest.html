@@ -35,27 +35,31 @@
 
   <section
     class="background2 flex justify-center items-center flex-col pb-[30px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat">
-
-    <!-- Titlu + timer -->
-    <div class="w-[90%] max-w-[900px] mb-6 flex items-center justify-between">
-      <h2 class="text-xl font-bold text-black dark:text-white">Questuri</h2>
-      <span id="quest-timer" class="text-xs font-mono text-gray-400 dark:text-gray-500">
-        Reset in: 05:00
-      </span>
+  
+    <div class="w-[85%]  max-w-[1200px]  mb-6 flex items-center justify-between ">
+      <h2 class="text-[22px] text-black dark:text-white ">
+        Questuri
+      </h2> 
+        <span id="quest-timer"
+            class="
+            px-4 py-1
+            rounded-full
+            border border-[#1156ea]
+            text-[#1156ea]
+            text-[16px]
+            font-black
+            shadow-[0_0_15px_rgba(17,86,234,0.35)]">
+    Reset in: 05:00
+  </span>
     </div>
 
-    <div class="quest-container w-[90%] max-w-[900px] flex items-center justify-center flex-col sm:flex-row gap-10">
+    <div class="quest-container w-[90%]  max-w-[1400px]  flex items-center justify-center flex-col sm:flex-row gap-[50px]">
 
-      <!-- STÂNGA: lista de questuri — completat de quest.js -->
-      <div
-        class="questuri-side flex flex-col gap-3 w-full sm:w-[55%]">
-        <!-- quest.js injectează cardurile aici -->
+      <div class="questuri-side flex flex-col gap-3 w-full sm:w-[55%]">
       </div>
 
-      <!-- DREAPTA: cercul cu imaginea acoperită de 4 sferturi -->
       <div
         class="pazzle-side relative w-[70vw] max-w-[300px] sm:w-[40%] aspect-square rounded-full border-2 border-black dark:border-white overflow-hidden flex-shrink-0">
-        <!-- quest.js injectează imaginea + sferturilelele -->
       </div>
 
     </div>
