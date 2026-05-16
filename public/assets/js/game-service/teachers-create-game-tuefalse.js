@@ -70,6 +70,8 @@ const container = document.getElementById("containerJocuri");
 let listaJocuriGlobal = [];
 
 function genereazaHTML(jocuri) {
+        if (!container) return; 
+
     if (jocuri.length === 0) {
         container.innerHTML = `
             <div class="bg-[#1a1a18] dark:bg-[#1e2035] border border-white/10 rounded-[24px] p-8 gap-[20px] flex flex-col items-center gap-5 w-full max-w-[400px] text-center relative overflow-hidden">

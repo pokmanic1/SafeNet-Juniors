@@ -249,7 +249,7 @@ function pornesteCeas(minute, secunde) {
 
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
-
+    
     const modal = document.getElementById("finalModal");
     modal.classList.add("hidden");
 
@@ -262,10 +262,9 @@ function restart() {
     arrIndex = [];
     contor = 0;
     contorScor = 0;
-
+    localStorage.removeItem("jocVarianteCustom");
     createArr();
     genereazaHTML();
-    localStorage.removeItem("jocVarianteCustom");
     clearInterval(interval)
     pornesteCeas(0, 0);
 

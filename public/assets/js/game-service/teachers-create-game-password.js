@@ -65,6 +65,8 @@ if (!container) {
 let listaJocuriGlobal = [];
 
 function genereazaHTML(jocuri) {
+   
+
     if (!container) {
         console.warn("Anulare generare HTML: .containerJocuriPassword nu a fost găsit în această pagină.");
         return;

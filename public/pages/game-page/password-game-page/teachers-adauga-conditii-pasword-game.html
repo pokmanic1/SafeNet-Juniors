@@ -128,8 +128,8 @@
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
 
-      <!-- ---------------loading screen-------------- -->
-  <script src="/public/assets/js/loading-srean.js"></script>
+    <!-- ---------------loading screen-------------- -->
+    <script src="/public/assets/js/loading-srean.js"></script>
 
 
 
@@ -263,8 +263,9 @@
 
             arrProfesori.push(obiect);
             titluPas.textContent = `Configurează regula ${arrProfesori.length + 1}`;
-            
-            localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
+            document.querySelector('#btn_mergilajoc').addEventListener('click', () => {
+                localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
+            })
             let joc = {
                 nume: nume_joc.value,
                 tip: "password",
