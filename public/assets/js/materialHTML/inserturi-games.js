@@ -1,3 +1,20 @@
+//----------------------------------------------------------------------------------------------------------------------
+//------------------------insereaza panourile ---------------------
+//-----------------------"Daca nu sa conecta"----------------------
+//-----------------------"Daca nu a citit documentatia"------------ 
+//-----------------------"Finalul jocului"-------------------------
+//-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//-----------------------"Daca nu s-a conectat in module scoate hiddenul din acest panou ------
+// -----------------------care te obliga sa te conectezi"------------ ---------------------
+//-----------------------------------------------------------------------------------------------
+
 function dacaNuSaConectat() {
     return `
     <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
@@ -19,6 +36,11 @@ function dacaNuSaConectat() {
     </div>`;
 }
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//-----------------------"Daca nu a citit documentati in module scoate hiddenul din acest panou ------
+//-----------------------------------------------------------------------------------------------
+
 function dacaNuACititDocum(linkDocumentatie) {
     return `
     <div id="dacaNuACititDocum" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
@@ -39,6 +61,13 @@ function dacaNuACititDocum(linkDocumentatie) {
         </div>
     </div>`;
 }
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//-----------------------Odata ce sa terminat jocul apare acest panou ------
+//-----------------------------------------------------------------------------------------------
 
 function finalModal(labelScor = "Întrebări corecte") {
     return `
@@ -75,6 +104,11 @@ function finalModal(labelScor = "Întrebări corecte") {
         </div>
     </div>`;
 }
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//-----------------------Panourile sunt inserate intrun container din pagina jocuri------
+//-----------------------------------------------------------------------------------------------
 
 export function buildModals(linkDocumentatie, labelScor = "Întrebări corecte") {
     const container = document.querySelector(".container");

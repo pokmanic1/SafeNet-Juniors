@@ -1,12 +1,22 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Pagina genereaza acelasi footer si header in toate paginiile
+//-----------------------------------------------------------------------------------------------
+
+
+
+
 let logo;
 if (localStorage.getItem("tema") === "dark") {
-  logo='/public/assets/img/logo-dark-mode.svg';
+  logo = '/public/assets/img/logo-dark-mode.svg';
 }
-else{
-  logo='/public/assets/img/Logo.svg';
+else {
+  logo = '/public/assets/img/Logo.svg';
 }
- 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia pentru genereare a Headerului
+//-----------------------------------------------------------------------------------------------
 
 function buildHeader() {
   const headerStr = `
@@ -50,6 +60,12 @@ function buildHeader() {
   const container = document.querySelector('.header');
   container.innerHTML = headerStr;
 
+
+  //----------------------------------------------------------------------------------------------------------------------
+//Pentru divesurile mai mici de 768 icon dashbord sau butoanele conectare inregistrare dispar 
+// si apare iconita burger care contine toate detaliile
+//-----------------------------------------------------------------------------------------------
+
   // Logica meniului mobil
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -78,6 +94,9 @@ function buildHeader() {
 }
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Functia pentru genereare a Footerului
+//-----------------------------------------------------------------------------------------------
 
 function buildFooter() {
   const footer = `
