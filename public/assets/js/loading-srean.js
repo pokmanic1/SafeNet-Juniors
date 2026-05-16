@@ -1,9 +1,24 @@
+//----------------------------------------------------------------------------------------------------------------------
+//primele milisecunde din pagina apare un video care dureaza pana se incarca tot JS si se genereaza toate paginiile HTML
+//----------------------------------------------------------------------------------------------------------------------
+
+
 document.documentElement.classList.add("overflow-hidden");
 const temaSalvata = localStorage.getItem("tema");
 let strLoadigVideo;
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//genreaza video alb sau negru 
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
 if (temaSalvata === "dark") {
     document.documentElement.classList.add("dark");
-    strLoadigVideo=`    <video
+    strLoadigVideo = `    <video
         class="absolute inset-0 w-[20%]  object-cover m-auto"
         autoplay
         muted
@@ -13,7 +28,7 @@ if (temaSalvata === "dark") {
     </video>`
 } else {
     document.documentElement.classList.remove("dark");
-       strLoadigVideo=`    <video
+    strLoadigVideo = `    <video
         class="absolute inset-0 w-[20%]  object-cover m-auto"
         autoplay
         muted
@@ -22,6 +37,14 @@ if (temaSalvata === "dark") {
         <source src="/public/assets/video/SNJ (1).mp4" type="video/mp4">
     </video>`
 }
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//creaza elementul adauga clasele tailwind si il insereaza in pagina
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
 const overlay = document.createElement("div");
 
 overlay.id = "loading-overlay";
@@ -37,10 +60,8 @@ overlay.className = `
     `;
 
 overlay.innerHTML = strLoadigVideo;
-// overlay.innerHTML=`
 
-//     <img src="/public/assets/img/DarkLogo.svg" class="block m-auto w-[5%] " alt="">
-// `
+
 document.documentElement.appendChild(overlay);
 
 document.addEventListener("DOMContentLoaded", () => {

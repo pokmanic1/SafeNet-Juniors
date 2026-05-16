@@ -1,3 +1,12 @@
+//----------------------------------------------------------------------------------------------------------------------
+//pagina care schimba butoanele ce conectare si inregistrare la telefon si devicesuri mai mari 
+//inlocueste cu butoanele "Iesi din cont" "Clase" "Schimbare temei dark/light"
+//adauga informatii despre numele utilizatorului si email-ul
+//schimba toate background-urile si inconitele daca le gaseste
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
 import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -5,24 +14,36 @@ import { getToateDatele } from "../fierbase/auth.js";
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//x e pentru butonul Conecteazata  y e pentru Inregistreaza 
+//xM yM tot pentru aceste botane doar pentru Mobil
+//----------------------------------------------------------------------------------------------------------------------
 
 const x = document.getElementById("ConecteazataID");
 const y = document.getElementById("InregistreazataID");
 
 const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
+
+
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
-let stareaInterfetei = "light";
 let dashIcon;
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam tema daca e light sau dark pentru a schimba iconita din dreapta sus a paginii
+//----------------------------------------------------------------------------------------------------------------------
+
 if (localStorage.getItem("tema") === "dark") {
   dashIcon = '/public/assets/img/dashIcon-darkMode.svg';
 }
 else {
   dashIcon = '/public/assets/img/dashIcon.svg';
 }
-let date = getToateDatele();
 
 onAuthStateChanged(auth, async (user) => {
+  //----------------------------------------------------------------------------------------------------------------------
+  //Construim dashbordul din dreapta sus cu toate butoanele
+  //----------------------------------------------------------------------------------------------------------------------
 
   function buildDashboard(ancora) {
     return `
@@ -54,7 +75,13 @@ onAuthStateChanged(auth, async (user) => {
     </div>
   `;
   }
+
+  //----------------------------------------------------------------------------------------------------------------------
+  //Construim Sliderul din dashbord care la apasarea lui schimba tema din light in dark si invers
+  //--------
+
   const esteLight = localStorage.getItem("tema") !== "dark";
+
   const sliderul = `
 
   
@@ -131,7 +158,9 @@ onAuthStateChanged(auth, async (user) => {
 
     const userRef = doc(db, "users", user.uid);
     const userSnap = await getDoc(userRef);
-
+    //----------------------------------------------------------------------------------------------------------------------
+    //Ancora pentru butonul clasei elevi sunt transmisi in pagina lor profesori in pagina lor
+    //-----------------------------------------------------------------------------------------------
     if (userSnap.exists()) {
 
       const data = userSnap.data();
@@ -150,8 +179,10 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
-    let iconSRC;
+    //----------------------------------------------------------------------------------------------------------------------
+    //Distrugem toate butoanele de conectare si inregistrare 
+    // apoi creaza iconita din dreapta sus cu profil-ul daca nu exista deja
+    //-----------------------------------------------------------------------------------------------
     if (x) x.style.display = "none";
     if (y) y.style.display = "none";
     if (xM) xM.style.display = "none";
@@ -160,14 +191,17 @@ onAuthStateChanged(auth, async (user) => {
       const userBtn = document.createElement("div");
       userBtn.className = "flex items-center";
       userBtn.innerHTML = `
-    <button type="button" id="butonProfil"
-      class="flex items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
-      <img class="w-full h-full object-cover dashIcon"  src="${dashIcon}" alt="Profil">
-    </button>
-  `;
-
+        <button type="button" id="butonProfil"
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
+            <img class="w-full h-full object-cover dashIcon"  src="${dashIcon}" alt="Profil">
+        </button>`;
       if (x) x.parentNode.insertBefore(userBtn, x.nextSibling);
     }
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Daca e pe telefon sa nu apara iconita dar sa apara direct in pagina dupa apasarea burgerului
+    //-----------------------------------------------------------------------------------------------
+
     if (xM) {
       const userInfoMobile = document.createElement("div");
       userInfoMobile.className = "flex items-center gap-3 py-2";
@@ -185,9 +219,7 @@ onAuthStateChanged(auth, async (user) => {
           <button id="logoutBtnMobile"
             class="h-[34px] mt-[10px] w-[150px]   flex items-center justify-center px-4 bg-red-600 text-white text-[13px] rounded-2xl hover:bg-red-600 transition">
             Ieși din cont
-          </button></div>
-        
-      `;
+          </button></div>`;
       xM.parentNode.insertBefore(userInfoMobile, xM.nextSibling);
 
       const docRef = doc(db, "users", user.uid);
@@ -204,11 +236,20 @@ onAuthStateChanged(auth, async (user) => {
       });
     }
 
+    //----------------------------------------------------------------------------------------------------------------------
+    //Daca se apasa pe iconita generata apeleaza functia toogleDashbord de mai jos
+    //-----------------------------------------------------------------------------------------------
+
+
     document.addEventListener("click", (e) => {
       if (e.target.closest("#butonProfil")) toggleDashboard(user);
     });
 
     console.log(`Bună ziua, ${user.email}`);
+    //----------------------------------------------------------------------------------------------------------------------
+    //Functia toogleDasbord daca exista il sterge daca nu il genereaza in dreapta sus 
+    //-----------------------------------------------------------------------------------------------
+
 
 
 
@@ -242,16 +283,25 @@ onAuthStateChanged(auth, async (user) => {
           ? "/public/pages/dashbord/dashbord.html"
           : "/public/pages/dashbord/dashbord.elev.html";
       }
+      //----------------------------------------------------------------------------------------------------------------------
+      //Aici cream dashbordul
+      //-----------------------------------------------------------------------------------------------
 
       dashboardWrapper.innerHTML = buildDashboard(ancora);
       document.body.appendChild(dashboardWrapper);
 
       document.getElementById("numeUser").textContent = username;
       document.getElementById("emailUser").textContent = user.email;
+      //----------------------------------------------------------------------------------------------------------------------
+      //daca apesi din nou pe iconita sau pe butonul x din dreapta sus se intampla acelasi lucru
+      //-----------------------------------------------------------------------------------------------
 
       document.getElementById("closeDashboard").addEventListener("click", () => {
         dashboardWrapper.remove();
       });
+      //----------------------------------------------------------------------------------------------------------------------
+      //Daca apasa pe butonul iesi din cont da signOut face reload la pagina si nu mai intra in functia onAuthStateChanged  in if-ul if(user) deci nu se mai genereaza nimic
+      //-----------------------------------------------------------------------------------------------
 
       document.getElementById("logoutBtn").addEventListener("click", () => {
         signOut(auth).then(() => window.location.reload());
@@ -261,11 +311,9 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-    // dark mode--------------------------
-
-
-
-
+    //----------------------------------------------------------------------------------------------------------------------
+    //tot ce e mai sus e doar pentru cei conectati 
+    //-----------------------------------------------------------------------------------------------
 
   }
   else {
@@ -277,191 +325,199 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-// ==============================================
-// DARK MODE 
-// ==============================================
-const temaSalvata = localStorage.getItem("tema");
-if (temaSalvata === "dark") {
-  document.documentElement.classList.add("dark");
+  // ==============================================
+  // DARK MODE 
+  // ==============================================
+  const temaSalvata = localStorage.getItem("tema");
+  if (temaSalvata === "dark") {
+    document.documentElement.classList.add("dark");
 
-} else {
-  document.documentElement.classList.remove("dark");
-}
-
-
-
-
-function schimbăBackground() {
-  const isDark = localStorage.getItem("tema") === "dark";
-
-  if (isDark) document.documentElement.classList.add("dark");
-
-
-  // logo
-  if (document.querySelector('.logo-index')) {
-    const logoIndex = document.querySelector('.logo-index');
-    const logoSrc = isDark
-      ? '/public/assets/img/DarkLogo.svg'
-      : '/public/assets/img/Vector.svg';
-    logoIndex.setAttribute('src', logoSrc);
-  }
-  // logo
-  if (document.querySelector('.User_Add')) {
-    const logoIndex = document.querySelector('.User_Add');
-    const logoSrc = isDark
-      ? '/public/assets/img/img-pt-index/User_Add-darkMode.svg'
-      : '/public/assets/img/img-pt-index/User_Add-normalMode.svg';
-    logoIndex.setAttribute('src', logoSrc);
-  }
-  // ------------------------------------------
-  // ------------------------------------------
-  // assasmenturii
-
-  //sageata
-  if (document.querySelector('.sageata_stanga')) {
-    const sageata_stanga = document.querySelectorAll('.sageata_stanga');
-    const a = isDark
-      ? '/public/assets/img/img-assasment/sageata-pt-darkmode.png'
-      : '/public/assets/img/img-assasment/sageata-pt-normalmode.png';
-    sageata_stanga.forEach((item) => {
-      item.setAttribute('src', a);
-    })
-  }
-  //calendar fara iconita
-  if (document.querySelector('.Calendar_fara_iconita')) {
-    const Calendar_fara_iconita = document.querySelectorAll('.Calendar_fara_iconita');
-    const a = isDark
-      ? '/public/assets/img/img-assasment/CalendarDark.png'
-      : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
-    Calendar_fara_iconita.forEach((item) => {
-      item.setAttribute('src', a);
-    })
-  }
-  //calendar fara iconita
-  if (document.querySelector('.Calendar_Check')) {
-    const Calendar_fara_iconita = document.querySelectorAll('.Calendar_Check');
-    const a = isDark
-      ? '/public/assets/img/img-assasment/Calendar_CheckDark.png'
-      : '/public/assets/img/img-assasment/Calendar_Check.png';
-    Calendar_fara_iconita.forEach((item) => {
-      item.setAttribute('src', a);
-    })
+  } else {
+    document.documentElement.classList.remove("dark");
   }
 
 
-  // ------------------------------------------
-  // ------------------------------------------
-  // backgrounduri
-  // bg1
 
-  if (document.querySelector('.background1')) {
-    const bg1 = document.querySelector('.background1');
-    bg1.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru1.png')"
-      : "url('/public/assets/img/backgrounds/background-alb1.png')";
-  }
+  //----------------------------------------------------------------------------------------------------------------------
+  //functia schimba backgroundurile
+  //-----------------------------------------------------------------------------------------------
 
-  // bg2
-  if (document.querySelector('.background2')) {
-    const bg2 = document.querySelector('.background2');
-    bg2.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru2.png')"
-      : "url('/public/assets/img/backgrounds/background-alb2..png')";
-  }
+  function schimbăBackground() {
+    const isDark = localStorage.getItem("tema") === "dark";
 
-  // bg3
-  if (document.querySelector('.background3')) {
-    const bg3 = document.querySelector('.background3');
-    bg3.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru3.png')"
-      : "url('/public/assets/img/backgrounds/background-alb3..png')";
-  }
-
-  // bg4
-  if (document.querySelector('.background4')) {
-    const bg4 = document.querySelector('.background4');
-    bg4.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru4.png')"
-      : "url('/public/assets/img/backgrounds/background-alb4..png')";
-  }
-
-  // bg5
-  if (document.querySelector('.background5')) {
-    const bg5 = document.querySelector('.background5');
-    bg5.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru5.png')"
-      : "url('/public/assets/img/backgrounds/background-alb5..png')";
-  }
-
-  // bg6
-  if (document.querySelector('.background6')) {
-    const bg6 = document.querySelector('.background6');
-    bg6.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-negru6.png')"
-      : "url('/public/assets/img/backgrounds/background-alb6..png')";
-  }
+    if (isDark) document.documentElement.classList.add("dark");
 
 
-  // ------------------------------------------
-  // ------------------------------------------
-  // backgrounduri jocuri
-  // bg1
-  if (document.querySelector('.background-joc1')) {
-    const bg_joc1 = document.querySelector('.background-joc1');
-    bg_joc1.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-1.png')"
-      : "url('/public/assets/img/backgrounds/background-jocuri-galben-1.png')";
-  }
-
-  // bg2
-  if (document.querySelector('.background-joc2')) {
-    const bg_joc2 = document.querySelector('.background-joc2');
-    bg_joc2.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-2.png')"
-      : "url('/public/assets/img/backgrounds/background-jocuri-galben-2.png')";
-  }
-  // bg3
-  if (document.querySelector('.background-joc3')) {
-    const bg_joc3 = document.querySelector('.background-joc3');
-    bg_joc3.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
-      : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
-  }
-  // bg4
-  if (document.querySelector('.background-joc4')) {
-    const bg_joc4 = document.querySelector('.background-joc4');
-    bg_joc4.style.backgroundImage = isDark
-      ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
-      : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
-  }
-
-}
-schimbăBackground();
-document.addEventListener("change", (e) => {
-  if (e.target.classList.contains("checkbox-toggle")) {
-    if (e.target.checked) {
-      document.documentElement.classList.remove("dark");
-
-
-      localStorage.setItem("tema", "light");
-      console.log("light");
-
-      document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
-      document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
-
-
-    } else {
-
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("tema", "dark");
-      console.log("dark");
-      document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
-      document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
-
+    // logo
+    if (document.querySelector('.logo-index')) {
+      const logoIndex = document.querySelector('.logo-index');
+      const logoSrc = isDark
+        ? '/public/assets/img/DarkLogo.svg'
+        : '/public/assets/img/Vector.svg';
+      logoIndex.setAttribute('src', logoSrc);
     }
-  }
+    // logo
+    if (document.querySelector('.User_Add')) {
+      const logoIndex = document.querySelector('.User_Add');
+      const logoSrc = isDark
+        ? '/public/assets/img/img-pt-index/User_Add-darkMode.svg'
+        : '/public/assets/img/img-pt-index/User_Add-normalMode.svg';
+      logoIndex.setAttribute('src', logoSrc);
+    }
+    // ------------------------------------------
+    // ------------------------------------------
+    // assasmenturii
 
+    //sageata
+    if (document.querySelector('.sageata_stanga')) {
+      const sageata_stanga = document.querySelectorAll('.sageata_stanga');
+      const a = isDark
+        ? '/public/assets/img/img-assasment/sageata-pt-darkmode.png'
+        : '/public/assets/img/img-assasment/sageata-pt-normalmode.png';
+      sageata_stanga.forEach((item) => {
+        item.setAttribute('src', a);
+      })
+    }
+    //calendar fara iconita
+    if (document.querySelector('.Calendar_fara_iconita')) {
+      const Calendar_fara_iconita = document.querySelectorAll('.Calendar_fara_iconita');
+      const a = isDark
+        ? '/public/assets/img/img-assasment/CalendarDark.png'
+        : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
+      Calendar_fara_iconita.forEach((item) => {
+        item.setAttribute('src', a);
+      })
+    }
+    //calendar fara iconita
+    if (document.querySelector('.Calendar_Check')) {
+      const Calendar_fara_iconita = document.querySelectorAll('.Calendar_Check');
+      const a = isDark
+        ? '/public/assets/img/img-assasment/Calendar_CheckDark.png'
+        : '/public/assets/img/img-assasment/Calendar_Check.png';
+      Calendar_fara_iconita.forEach((item) => {
+        item.setAttribute('src', a);
+      })
+    }
+
+
+    // ------------------------------------------
+    // ------------------------------------------
+    // backgrounduri
+    // bg1
+
+    if (document.querySelector('.background1')) {
+      const bg1 = document.querySelector('.background1');
+      bg1.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru1.png')"
+        : "url('/public/assets/img/backgrounds/background-alb1.png')";
+    }
+
+    // bg2
+    if (document.querySelector('.background2')) {
+      const bg2 = document.querySelector('.background2');
+      bg2.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru2.png')"
+        : "url('/public/assets/img/backgrounds/background-alb2..png')";
+    }
+
+    // bg3
+    if (document.querySelector('.background3')) {
+      const bg3 = document.querySelector('.background3');
+      bg3.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru3.png')"
+        : "url('/public/assets/img/backgrounds/background-alb3..png')";
+    }
+
+    // bg4
+    if (document.querySelector('.background4')) {
+      const bg4 = document.querySelector('.background4');
+      bg4.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru4.png')"
+        : "url('/public/assets/img/backgrounds/background-alb4..png')";
+    }
+
+    // bg5
+    if (document.querySelector('.background5')) {
+      const bg5 = document.querySelector('.background5');
+      bg5.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru5.png')"
+        : "url('/public/assets/img/backgrounds/background-alb5..png')";
+    }
+
+    // bg6
+    if (document.querySelector('.background6')) {
+      const bg6 = document.querySelector('.background6');
+      bg6.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-negru6.png')"
+        : "url('/public/assets/img/backgrounds/background-alb6..png')";
+    }
+
+
+    // ------------------------------------------
+    // ------------------------------------------
+    // backgrounduri jocuri
+    // bg1
+    if (document.querySelector('.background-joc1')) {
+      const bg_joc1 = document.querySelector('.background-joc1');
+      bg_joc1.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-1.png')"
+        : "url('/public/assets/img/backgrounds/background-jocuri-galben-1.png')";
+    }
+
+    // bg2
+    if (document.querySelector('.background-joc2')) {
+      const bg_joc2 = document.querySelector('.background-joc2');
+      bg_joc2.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-2.png')"
+        : "url('/public/assets/img/backgrounds/background-jocuri-galben-2.png')";
+    }
+    // bg3
+    if (document.querySelector('.background-joc3')) {
+      const bg_joc3 = document.querySelector('.background-joc3');
+      bg_joc3.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+        : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
+    }
+    // bg4
+    if (document.querySelector('.background-joc4')) {
+      const bg_joc4 = document.querySelector('.background-joc4');
+      bg_joc4.style.backgroundImage = isDark
+        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+        : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
+    }
+
+  }
   schimbăBackground();
 
-});
+
+  //----------------------------------------------------------------------------------------------------------------------
+  //schimba tema documentului 
+  //-----------------------------------------------------------------------------------------------
+  document.addEventListener("change", (e) => {
+    if (e.target.classList.contains("checkbox-toggle")) {
+      if (e.target.checked) {
+        document.documentElement.classList.remove("dark");
+
+
+        localStorage.setItem("tema", "light");
+        console.log("light");
+
+        document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
+        document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
+
+
+      } else {
+
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("tema", "dark");
+        console.log("dark");
+        document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
+        document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
+
+      }
+    }
+
+    schimbăBackground();
+
+  });
 });

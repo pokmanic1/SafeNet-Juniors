@@ -1,19 +1,21 @@
-
+//Pagina pentru gestionare a conectarii si inregistrarii
+//ia datele din pagina si cu ajutorul metodelor registeri si login din auth.js inregistreaza/conecteaza utilizatorul 
 import { register, login } from "./fierbase/auth.js";
 import { auth, db, onAuthStateChanged } from "./fierbase/firebase-init.js";
+
+
 console.log(auth, db);
 
 
 
 const registerBtn = document.getElementById("registerBtn");
 
-
+//ia datele din pagina cu butonul register si inregistreaza utilizatorul
 if (registerBtn) {
     const username = document.getElementById("username");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const role = document.getElementById("role");
-    // const checkbox=document.getElementById("checkbox");
     registerBtn.addEventListener("input", x);
     email.addEventListener("input", x);
     password.addEventListener("input", x);
@@ -42,13 +44,16 @@ if (registerBtn) {
     }
 
 }
+
+
+//ia datele din pagina cu butonul logic si conecteaza  utilizatorul
 const loginBtn = document.getElementById("loginBtn");
 
 if (loginBtn) {
 
     const email1 = document.getElementById("loginEmail");
     const password1 = document.getElementById("loginPassword");
-
+    //functia x schimba culoarea butonului dupa ce campuile au fost completate
     function x() {
         if (email1.value.trim() !== "" && password1.value.trim() !== "") {
             loginBtn.style.backgroundColor = "black";
@@ -69,6 +74,8 @@ if (loginBtn) {
     });
 
 }
+
+//functia x schimba culoarea butonului dupa ce campuile au fost completate
 
 
 

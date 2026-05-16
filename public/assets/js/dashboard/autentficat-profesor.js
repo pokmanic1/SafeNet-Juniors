@@ -1,3 +1,8 @@
+//----------------------------------------------------------------------------------------------------------------------
+//pagina care verificam daca utilizatorul e autentificat ca profesor
+//----------------------------------------------------------------------------------------------------------------------
+
+
 import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 onAuthStateChanged(auth, async (user) => {
