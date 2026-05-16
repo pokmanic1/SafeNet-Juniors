@@ -33,15 +33,18 @@
         }
     </style>
 </head>
+
 <body class="w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
-
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------Header----------------------- -->
+    <!-- ----------------------------------------------- -->
 
     <div class="sticky top-0 left-0 z-10 header"></div>
 
     <!-- ----------------------------------------------- -->
     <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
+    <!-- ---------Cartonasele 4------------------------ -->
 
     <section
         class="min-h-[91dvh] md:pt-[80px]  lg:pt-[50px] flex justify-center background3 items-center bg-cover bg-center bg-no-repeat"
@@ -52,7 +55,7 @@
             xl:w-[80%] lg:w-[80%] md:w-[70%] sm:w-[95%]
             lg:mx-auto mx-auto sm:p-[50px] md:p-[30px]  py-[50px] px-[0px] gap-[20px`]    ">
 
-
+            <!-- ---------Card1------------------------ -->
             <div class="card 
                 w-[160px] h-[260px] 
                 rounded-[25px] overflow-hidden shadow-[0_0_70px_rgba(0,0,0,1)] relative group bg-white
@@ -88,7 +91,7 @@
                 </div>
             </div>
 
-
+            <!-- ---------Card2------------------------ -->
             <div class="card 
                 w-[160px] h-[260px] 
                 rounded-[25px] overflow-hidden shadow-[0_0_70px_rgba(0,0,0,1)] relative group bg-white
@@ -125,7 +128,7 @@
                     </a>
                 </div>
             </div>
-
+            <!-- ---------Card3------------------------ -->
             <div class="card 
                 w-[160px] h-[260px] 
                 rounded-[25px] overflow-hidden shadow-[0_0_70px_rgba(0,0,0,1)] relative group bg-white
@@ -161,7 +164,7 @@
                     </a>
                 </div>
             </div>
-
+            <!-- ---------Card4------------------------ -->
             <div class="card 
                 w-[160px] h-[260px] 
                 rounded-[25px] overflow-hidden shadow-[0_0_70px_rgba(0,0,0,1)] relative group bg-white
@@ -201,30 +204,25 @@
 
 
 
-
-
     <!-- ----------------------------------------------- -->
+    <!-- --------------Footer---------------------- -->
     <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
-
-
-
-
 
 
 
 
     <div class="footer"></div>
 
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
 
-      <!-- ---------------loading screen-------------- -->
-  <script src="/public/assets/js/loading-srean.js"></script>
 
-    
+    <!-- ------------------------------ ------------------------------------ -->
+    <!-- ------------------------------Scripturi-------------------------------- -->
+    <!-- ------------------------------------------------------------------------------->
+    <!-- ---------------loading screen-------------- -->
+    <script src="/public/assets/js/loading-srean.js"></script>
+
+    <!-- --------------Scriptul care pune plusul(ancora) la cartonase care duce spre pagina de creare a jocurilor-------------- -->
+
     <script type="module">
 
         import { auth, db, onAuthStateChanged } from "../assets/js/fierbase/firebase-init.js";
@@ -242,7 +240,7 @@
 
                 if (data.role === "Profesor") {
                     console.log("ROL:", data.role);
-                    
+
                     document.querySelectorAll(".plus").forEach((plus) => {
 
                         plus.classList.remove("hidden", "opacity-0");

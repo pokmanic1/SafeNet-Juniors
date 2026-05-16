@@ -19,21 +19,27 @@
 <body class="background-joc1 h-[100dvh] bg-cover bg-center bg-no-repeat"
     style="background-image: url('../../../assets/img/backgrounds/Abackground.png')">
 
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------Containerul care insereaza panoul cu ----------------------- -->
+    <!-- -----------------------"Daca nu sa conecta"------------ -->
+    <!-- -----------------------"Daca nu a citit documentatia"------------ -->
+    <!-- -----------------------"Finalul jocului"------------ -->
+    <!-- ----------------------------------------------- -->
 
 
     <div class="container"> </div>
+
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------------------------------------- -->
+    <!-- --------------Face fundalul mai negru----------------- -->
 
 
     <div class="fixed inset-0 -z-10 bg-black opacity-0 dark:opacity-40 pointer-events-none"></div>
 
 
-
     <!-- ----------------------------------------------- -->
+    <!-- ----------------Header----------------------- -->
     <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-
-
-
 
     <div class="sticky top-0 left-0 z-10 header"></div>
 
@@ -78,12 +84,12 @@
         </div>
 
     </section>
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
+    <!-- ------------------------------ ------------------------------------ -->
+    <!-- ------------------------------Scripturi-------------------------------- -->
+    <!-- ------------------------------------------------------------------------------->
 
-      <!-- ---------------loading screen-------------- -->
-  <script src="/public/assets/js/loading-srean.js"></script>
+    <!-- ---------------loading screen-------------- -->
+    <script src="/public/assets/js/loading-srean.js"></script>
 
 
 
@@ -95,11 +101,17 @@
     <!-- ---------------dashboard-------------- -->
     <script type="module" src="../../../assets/js/dashboard/student-dashboard.js"></script>
 
-
+    
+    <!-- ---------------insereaza panourile -------------- -->
+    <!-- -----------------------"Daca nu sa conecta"------------ -->
+    <!-- -----------------------"Daca nu a citit documentatia"------------ -->
+    <!-- -----------------------"Finalul jocului"------------ -->
     <script type="module">
         import { buildModals } from "../../../assets/js/materialHTML/inserturi-games.js";
         buildModals("./documentatie-shuffle-game.html", "Perechi corecte");
     </script>
+
+    <!-- ---------------gestionarea jocului si genereare lui -------------- -->
     <script type="module" src="../../../assets/js/modules/shuffle.js"></script>
 
 </body>

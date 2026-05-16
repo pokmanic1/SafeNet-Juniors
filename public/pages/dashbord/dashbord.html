@@ -27,6 +27,11 @@
 <body class="w-full dark:bg-[#31344D] dark:text-white transition-colors duration-300">
 
 
+    <!-- ----------------------------------------------- -->
+    <!-- ----------------Header----------------------- -->
+    <!-- ----------------------------------------------- -->
+
+
     <div class="sticky top-0 left-0 z-10 header"></div>
 
 
@@ -40,8 +45,6 @@
 
 
 
-
-
     <section
         class="background6 flex justify-center items-center flex-col pb-[150px]  pt-[80px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
         style=" background-image: url('../../assets/img/backgrounds/background-alb6..png');">
@@ -50,130 +53,6 @@
 
 
         <div class="w-full flex flex-col gap-[40px] py-[32px]">
-
-
-            <!-- <div class="w-[92%] flex justify-start items-center  mx-auto">
-                <h1 class="text-start font-semibold text-[24px] dark:text-[#EBF6FF]">Statistici</h1>
-            </div>
-
-            <div class="flex items-center justify-center w-full mx-auto">
-                <div
-                    class="grid grid-cols-2 md:grid-cols-4 w-[92%]  md:gap-[25px] lg:gap-[30px] xl:gap-[40px] gap-[20px]">
-
-                    <div
-                        class="border border-black w-full max-w-[400px] mx-auto min-h-[140px] p-[18px] bg-[#30302E] dark:bg-[#3d4060]/90 dark:border-[#EBF6FF]/10 rounded-2xl shadow-md flex flex-col gap-2 transition-transform hover:scale-[1.02]">
-                        <p class="text-sm text-[#aaa] dark:text-[#EBF6FF]/60">Clase active</p>
-                        <h1 class="text-5xl font-light text-white dark:text-[#EBF6FF]">3</h1>
-                        <p class="text-sm text-[#777] dark:text-[#EBF6FF]/40">(Panou Informativ)</p>
-                    </div>
-
-                    <div
-                        class="border border-black w-full max-w-[400px] mx-auto min-h-[140px] p-[18px] bg-[#30302E] dark:bg-[#3d4060]/90 dark:border-[#EBF6FF]/10 rounded-2xl shadow-md flex flex-col gap-2 transition-transform hover:scale-[1.02]">
-                        <p class="text-sm text-[#aaa] dark:text-[#EBF6FF]/60">Elevi înscriși</p>
-                        <h1 class="text-5xl font-light text-white dark:text-[#EBF6FF]">64</h1>
-                        <p class="text-sm text-[#777] dark:text-[#EBF6FF]/40">În toate clasele</p>
-                    </div>
-
-                    <div
-                        class="border border-black w-full max-w-[400px] mx-auto min-h-[140px] p-[18px] bg-[#30302E] dark:bg-[#3d4060]/90 dark:border-[#EBF6FF]/10 rounded-2xl shadow-md flex flex-col gap-2 transition-transform hover:scale-[1.02]">
-                        <p class="text-sm text-[#aaa] dark:text-[#EBF6FF]/60">Jocuri publicate</p>
-                        <h1 class="text-5xl font-light text-white dark:text-[#EBF6FF]">4</h1>
-                        <p class="text-sm text-[#777] dark:text-[#EBF6FF]/40">(Panou Informativ)</p>
-                    </div>
-
-                    <div
-                        class="border border-black w-full max-w-[400px] mx-auto min-h-[140px] p-[18px] bg-[#30302E] dark:bg-[#3d4060]/90 dark:border-[#EBF6FF]/10 rounded-2xl shadow-md flex flex-col gap-2 transition-transform hover:scale-[1.02]">
-                        <p class="text-sm text-[#aaa] dark:text-[#EBF6FF]/60">Niveluri create</p>
-                        <h1 class="text-5xl font-light text-white dark:text-[#EBF6FF]">12</h1>
-                        <p class="text-sm text-[#777] dark:text-[#EBF6FF]/40">1 Nivel nou</p>
-                    </div>
-
-                </div>
-            </div> -->
-
-
-
-            <!-- 
-            <div class="w-[92%] flex justify-start items-center mb-[20px] mx-auto">
-                <h1 class="text-start font-semibold text-[24px]">Clasele Mele</h1>
-            </div>
-
-            <div class="w-[92%] mx-auto grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-
-                <div
-                    class="border border-black bg-[#30302E] rounded-2xl p-[20px] flex flex-col gap-[8px] cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-white font-bold text-[18px]">Clasa 4B</h2>
-                        <span class="bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">20
-                            elevi</span>
-                    </div>
-                    <p class="text-[#888] text-[13px]">Codul: C000000</p>
-                </div>
-
-                <div
-                    class="border border-black bg-[#30302E] rounded-2xl p-[20px] flex flex-col gap-[8px] cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-white font-bold text-[18px]">Clasa 2A</h2>
-                        <span class="bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">20
-                            elevi</span>
-                    </div>
-                    <p class="text-[#888] text-[13px]">Codul: C000001</p>
-                </div>
-
-                <div
-                    class="AdaugaClasaborder border-black bg-[#30302E] rounded-2xl p-[20px] flex flex-col justify-center items-center  transition-transform hover:scale-[1.02] hover:bg-[#3a3a38]">
-                    <input type="text" placeholder="Numele Clasei"
-                        class="w-full border border-gray-600 px-2 py-1 rounded-xl text-white text-center text-[16px] font-medium focus:outline-none">
-                    <button class="btnAdauga text-[#ccc] text-[16px] font-medium flex items-center gap-[8px]">
-                        <span class="text-[22px] leading-none">+</span> Adaugă clasă
-                    </button>
-                </div>
-
-                 <script>
-                        const adaugaClasa = document.querySelector('.AdaugaClasa');
-                        const inputNumeClasa = adaugaClasa.querySelector('input');
-                        const Adauga = document.querySelector('.btnAdauga');
-
-                        let clasele = [
-                            {
-                                nume: 'Clasa 4B',
-                                cod: 'C000000',
-                                elevi: 20
-                            },
-                            {
-                                nume: 'Clasa 2A',
-                                cod: 'C000001',
-                                elevi: 20
-                            }
-                        ]
-
-
-                        let claseleHTML = ``;
-
-                        Adauga.addEventListener('click', () => {
-                            const numeClasa = inputNumeClasa.value;
-                            if (numeClasa) {
-                                const codClasa = `C${String(clasele.length).padStart(6, '0')}`;
-                                clasele.push({ nume: numeClasa, cod: codClasa, elevi: 0 });
-                                claseleHTML = ``;
-                                clasele.forEach((clasa) => {
-                                    claseleHTML += `
-                                    <div class="border border-black bg-[#30302E] rounded-2xl p-[20px] flex flex-col gap-[8px] cursor-pointer transition-transform hover:scale-[1.02]">
-                                        <div class="flex items-center justify-between">
-                                            <h2 class="text-white font-bold text-[18px]">${clasa.nume}</h2>
-                                            <span class="bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">${clasa.elevi} elevi</span>
-                                        </div>
-                                    </div>
-                                `;
-                                    inputNumeClasa.value = '';
-                                });
-                            }
-                        });
-                    </script>  
-
-
-            </div> -->
-
 
 
         </div>
@@ -328,23 +207,28 @@
 
 
 
-
     <!-- ----------------------------------------------- -->
-    <!-- ----------------------------------------------- -->
+    <!-- --------------Footer---------------------- -->
     <!-- ----------------------------------------------- -->
 
 
     <div class="footer"></div>
 
-      <!-- ---------------loading screen-------------- -->
-  <script src="/public/assets/js/loading-srean.js"></script>
 
-          <!-- ---------------autentificat ca profesor-------------- -->
+    <!-- ------------------------------ ------------------------------------ -->
+    <!-- ------------------------------Scripturi-------------------------------- -->
+    <!-- ------------------------------------------------------------------------------->
+
+    <!-- ---------------loading screen-------------- -->
+    <script src="/public/assets/js/loading-srean.js"></script>
+
+    <!-- ---------------autentificat ca profesor-------------- -->
     <script type="module" src="/public/assets/js/dashboard/autentficat-profesor.js"></script>
 
     <!-- ---------------autentificat-------------- -->
     <script type="module" src="/public/assets/js/dashboard/autentificat.js"></script>
 
+    <!-- ---------------genrearea de clase pentru profesori------------- -->
     <script type="module" src="../../assets/js/game-service/class-service.js"></script>
 
 
@@ -352,8 +236,6 @@
     <script src="../../assets/js/materialHTML/materialHTML.js"></script>
 
     <!-- ---------------dashboard-------------- -->
-
-
 
     <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
 </body>
