@@ -1,6 +1,6 @@
 import { db, auth } from "../fierbase/firebase-init.js";
 import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
-import { incarcaContoareFirebase , contoare_jocuri } from "./contoarele_pentru_jocuri.js";
+import { incarcaContoareFirebase, contoare_jocuri } from "./contoarele_pentru_jocuri.js";
 import {
     doc,
     getDoc
@@ -107,25 +107,52 @@ function buildArrJocuri() {
     ];
 }
 
-initAssasment([]);
+function dacaNuSaConectat() {
+    return `
+    <div id="dacaNuSaConectat" class="fixed inset-0 z-20 flex items-center justify-center hidden bg-white dark:bg-black">
+        <div class="bg-white dark:bg-[#3d4060] border border-gray-200 dark:border-[#EBF6FF]/10 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
+            <div class="flex items-center justify-center mx-auto mb-6 w-14 h-14 bg-blue-50 dark:bg-blue-950/50 rounded-2xl">
+                <img src="../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
+            </div>
+            <h2 class="text-[22px] font-semibold text-gray-900 dark:text-[#EBF6FF] mb-2 tracking-tight">Înainte să începi…</h2>
+            <p class="text-[13px] text-gray-400 dark:text-[#EBF6FF]/50 mb-8">Conectează-te pentru a îți salva progresul.</p>
+            <a href="../../conecteazate.html"
+                class="h-[40px] bg-slate-900 dark:bg-blue-700 text-white px-20 py-2 rounded-2xl font-medium text-md hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
+                Conectează-te
+            </a>
+            <p class="mt-4 text-[12px] text-gray-400 dark:text-[#EBF6FF]/50">
+                Nu ai cont?
+                <a href="../../inregistreazate.html" class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
+            </p>
+        </div>
+    </div>`;
+}
 
+
+initAssasment([]);
 onAuthStateChanged(auth, async (user) => {
-    if (!user) return;
+    if (!user) {
+        let a=document.querySelector('.Neconectat');
+        a.innerHTML=dacaNuSaConectat();
+        const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
+        DacaNuSaConectat.classList.remove("hidden");
+        document.body.appendChild(a);
+    };
     await incarcaDateFirebase(user);
 
 
 
-        contor_assasment_corecte_shuffle   = contoare_jocuri.contor_assasment_corecte_shuffle   || 0;
-        contor_assasment_incercari_shuffle  = contoare_jocuri.contor_assasment_incercari_shuffle || 0;
+    contor_assasment_corecte_shuffle = contoare_jocuri.contor_assasment_corecte_shuffle || 0;
+    contor_assasment_incercari_shuffle = contoare_jocuri.contor_assasment_incercari_shuffle || 0;
 
-        contor_assasment_corecte_truefalse   = contoare_jocuri.contor_assasment_corecte_truefalse   || 0;
-        contor_assasment_incercari_truefalse  = contoare_jocuri.contor_assasment_incercari_truefalse || 0;
+    contor_assasment_corecte_truefalse = contoare_jocuri.contor_assasment_corecte_truefalse || 0;
+    contor_assasment_incercari_truefalse = contoare_jocuri.contor_assasment_incercari_truefalse || 0;
 
-        contor_assasment_corecte_password   = contoare_jocuri.contor_assasment_corecte_password   || 0;
-        contor_assasment_incercari_password  = contoare_jocuri.contor_assasment_incercari_password || 0;
+    contor_assasment_corecte_password = contoare_jocuri.contor_assasment_corecte_password || 0;
+    contor_assasment_incercari_password = contoare_jocuri.contor_assasment_incercari_password || 0;
 
-        contor_assasment_corecte_variante   = contoare_jocuri.contor_assasment_corecte_variante   || 0;
-        contor_assasment_incercari_variante  = contoare_jocuri.contor_assasment_incercari_variante || 0;
+    contor_assasment_corecte_variante = contoare_jocuri.contor_assasment_corecte_variante || 0;
+    contor_assasment_incercari_variante = contoare_jocuri.contor_assasment_incercari_variante || 0;
 
 
     // console.log(" assasment.js — vizite dupa Firebase:");
@@ -145,6 +172,7 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
+
 function initAssasment(ArrJocuri) {
 
     function schimbarea_statut(i) {
@@ -157,10 +185,10 @@ function initAssasment(ArrJocuri) {
     }
 
     function vizitare_paginilor() {
-        if (vizite.shuffle   === 1) { schimbarea_statut(1); }
+        if (vizite.shuffle === 1) { schimbarea_statut(1); }
         if (vizite.truefalse === 1) { schimbarea_statut(2); }
-        if (vizite.password  === 1) { schimbarea_statut(3); }
-        if (vizite.variante  === 1) { schimbarea_statut(4); }
+        if (vizite.password === 1) { schimbarea_statut(3); }
+        if (vizite.variante === 1) { schimbarea_statut(4); }
     }
 
     vizitare_paginilor();
