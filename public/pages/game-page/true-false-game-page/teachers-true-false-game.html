@@ -12,7 +12,8 @@
 
 </head>
 
-<body class="background4 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
+<body
+  class="background4 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
 
   <!-- ----------------------------------------------- -->
@@ -35,8 +36,10 @@
         <span
           class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
           Profesor</span>
-        <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-[#EBF6FF]">Configurare Joc True / False</h1>
-        <p class="mt-0 italic text-slate-500 dark:text-[#EBF6FF]/80">Stabilește numele si numărul de întrebări pentru elevi</p>
+        <h1 class="mt-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-[#EBF6FF]">Configurare Joc True / False
+        </h1>
+        <p class="mt-0 italic text-slate-500 dark:text-[#EBF6FF]/80">Stabilește numele si numărul de întrebări pentru
+          elevi</p>
       </div>
 
       <div id="pasul1" class="flex flex-col items-center space-y-6">
@@ -57,7 +60,9 @@
 
       <div id="pasul2" class="flex flex-col items-center hidden space-y-6">
 
-        <h2 id="titlu_pas" class="px-6 py-2 text-xl font-semibold text-blue-800 dark:text-blue-300 rounded-full bg-blue-50 dark:bg-[#2a2c3e]">Configurează
+        <h2 id="titlu_pas"
+          class="px-6 py-2 text-xl font-semibold text-blue-800 dark:text-blue-300 rounded-full bg-blue-50 dark:bg-[#2a2c3e]">
+          Configurează
           întrebarea 1</h2>
 
         <div class="w-full space-y-4 text-left">
@@ -107,7 +112,7 @@
   <!-- ----------------------------------------------- -->
   <!-- ----------------------------------------------- -->
   <!-- ----------------------------------------------- -->
-    <!-- ---------------loading screen-------------- -->
+  <!-- ---------------loading screen-------------- -->
   <script src="/public/assets/js/loading-srean.js"></script>
 
 
@@ -206,7 +211,10 @@
         console.log('-------------------------------------------------');
         console.log('-----------sssssssssssssssssssss-----------------');
         console.log("Întrebări adăugate:", arrIntrebariProfesor);
-        localStorage.setItem("intrebariTrueFalse", JSON.stringify(arrIntrebariProfesor));
+        document.querySelector('#btn_mergilajoc').addEventListener('click', () => {
+          localStorage.setItem("intrebariTrueFalse", JSON.stringify(arrIntrebariProfesor));
+        })
+
 
 
         btnAdauga.disabled = true;
@@ -241,8 +249,8 @@
   <!-- ----------------------------------------------- -->
 
 
-        <!-- ---------------autentificat ca profesor-------------- -->
-    <script type="module" src="/public/assets/js/dashboard/autentficat-profesor.js"></script>
+  <!-- ---------------autentificat ca profesor-------------- -->
+  <script type="module" src="/public/assets/js/dashboard/autentficat-profesor.js"></script>
 
   <!-- ---------------header / footer-------------- -->
   <script src="../../../assets/js/materialHTML/materialHTML.js"></script>

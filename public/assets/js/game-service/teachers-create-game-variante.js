@@ -56,7 +56,6 @@ export const stergeJocVariante = async (jocId) => {
         console.error("Eroare la ștergere:", error);
     }
 };
-
 const container = document.getElementById("containerJocuriVariante");
 
 if (!container) {

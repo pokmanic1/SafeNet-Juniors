@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="../../../assets/css/app.css">
   <link rel="icon" href="../../../assets/img/Vector.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
 
 </head>
 
-<body class="background1 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
+<body
+  class="background1 w-full min-w-[375px] transition-colors duration-300 bg-white body  dark:bg-[#31344D] dark:text-white ">
 
 
   <div class="sticky top-0 left-0 z-10 header"></div>
@@ -24,16 +25,19 @@
   <!-- ----------------------------------------------- -->
 
 
-  <div class="flex flex-col items-center justify-center w-full min-h-screen px-6 py-16 bg-slate-100 dark:bg-[#2a2c3e] border-slate-300">
+  <div
+    class="flex flex-col items-center justify-center w-full min-h-screen px-6 py-16 bg-slate-100 dark:bg-[#2a2c3e] border-slate-300">
 
-    <div class="w-full max-w-6xl p-10 bg-white dark:bg-[#3d4060]/90 border shadow-xl rounded-3xl border-slate-200 dark:border-[#EBF6FF]/10">
+    <div
+      class="w-full max-w-6xl p-10 bg-white dark:bg-[#3d4060]/90 border shadow-xl rounded-3xl border-slate-200 dark:border-[#EBF6FF]/10">
       <div class="flex flex-col items-center w-full ">
         <div class="mb-10 text-center">
           <span
             class="bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Panou
             Profesor</span>
           <h1 class="mt-4 text-4xl font-bold text-slate-900 dark:text-[#EBF6FF]">Configurare Joc Shuffle</h1>
-          <p class="mt-2 text-slate-500 dark:text-[#EBF6FF]/80">Adaugă perechi imagine + cuvânt pentru jocul elevilor</p>
+          <p class="mt-2 text-slate-500 dark:text-[#EBF6FF]/80">Adaugă perechi imagine + cuvânt pentru jocul elevilor
+          </p>
         </div>
 
         <div class="w-full max-w-sm">
@@ -177,8 +181,9 @@
       }
 
       finalArray.sort(() => Math.random() - 0.5);
-
-      localStorage.setItem("shuffleGameData", JSON.stringify(finalArray));
+      document.querySelector('#btn_mergilajoc').addEventListener('click', () => {
+        localStorage.setItem("shuffleGameData", JSON.stringify(finalArray));
+      })
       //
       document.getElementById('btn_salveaza_shuffle').disabled = true;
       document.getElementById('btn_salveaza_shuffle').classList.add("opacity-50", "cursor-not-allowed");;
@@ -215,12 +220,12 @@
   <!-- ----------------------------------------------- -->
 
 
-    <!-- ---------------loading screen-------------- -->
+  <!-- ---------------loading screen-------------- -->
   <script src="/public/assets/js/loading-srean.js"></script>
 
 
-        <!-- ---------------autentificat ca profesor-------------- -->
-    <script type="module" src="/public/assets/js/dashboard/autentficat-profesor.js"></script>
+  <!-- ---------------autentificat ca profesor-------------- -->
+  <script type="module" src="/public/assets/js/dashboard/autentficat-profesor.js"></script>
 
 
   <!-- ---------------header / footer-------------- -->
