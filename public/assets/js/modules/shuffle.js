@@ -1,5 +1,6 @@
-
-
+//----------------------------------------------------------------------------------------------------------------------
+//Jocul shuffle
+//----------------------------------------------------------------------------------------------------------------------
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
 
@@ -10,6 +11,10 @@ import {
     increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat daca nu insereaza panoul de conectare din materialHTML inserturi
+//----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         // window.location.href = "../../../pages/conecteazate.html";
@@ -17,6 +22,15 @@ onAuthStateChanged(auth, (user) => {
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat si daca e conectat 
+// din fierbase verificam daca a vizitat documentatia 
+// si luam contoarele de cate ori a castigat jocul si de cate ori a incercat sa joace
+//----------------------------------------------------------------------------------------------------------------------
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -51,22 +65,32 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
+// localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
+//----------------------------------------------------------------------------------------------------------------------
 let dateSalvate = JSON.parse(localStorage.getItem("shuffleGameData")) || [];
 console.log("Datele salvate de profesor -----------------------------------------");
 console.log(dateSalvate);
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Arraiurile sectionate pe nivele
+//----------------------------------------------------------------------------------------------------------------------
 let arrText1 = [], arrImaginea1 = [];
 let arrText2 = [], arrImaginea2 = [];
 let arrText3 = [], arrImaginea3 = [];
 let arrText4 = [], arrImaginea4 = [];
-
+//Arraiul care il folosim pentru genereare jocului
 let arrText = [];
 let arrImaginea = [];
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
+//----------------------------------------------------------------------------------------------------------------------
 fetch('../../../assets/js/modules/date-jocuri/shuffle.json')
     .then(response => response.json())
     .then(data => {
@@ -88,6 +112,11 @@ fetch('../../../assets/js/modules/date-jocuri/shuffle.json')
 let nivelul = 1;
 let totalSecondsElapsed = 0;
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Nivelul selectat de utilizator
+//----------------------------------------------------------------------------------------------------------------------
 const selectNivel = document.querySelector(".nivelul");
 selectNivel.addEventListener('change', (event) => {
     nivelul = event.target.value;
@@ -116,7 +145,6 @@ selectNivel.addEventListener('change', (event) => {
     initializare();
 });
 
-
 let primaIncercareId = null;
 let aDouaIncercareId = null;
 let contor = 0;
@@ -127,6 +155,14 @@ let newArr = [];
 
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//1)Verificam daca exista arr dat de profesor
+//2)Alegem un numar random de la 1 la n si in arrail obiectul pe pozitia numarului random 
+//  il introducem arr cu care il vom folosi la genrare de cartonase
+//3)in newArr introducem doar nr exac de cartonase caren e trebuie
+//  arr care lam atribuit mai sus are multe imagini si texte dar in newArr alegem doar 8 din ele 
+//----------------------------------------------------------------------------------------------------------------------
 function genereazaPerechi() {
     if (dateSalvate.length === 0) {
         let indexuri = [];
@@ -159,14 +195,27 @@ function genereazaPerechi() {
         newArr = [...dateSalvate];
     }
 }
-
 console.log(newArr)
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Sorteaza random cartonasele ca sa nu fie textul langa imagine
+//----------------------------------------------------------------------------------------------------------------------
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-function createCard(item) {
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Se creaza cartile li se adauga clasele 
+//----------------------------------------------------------------------------------------------------------------------
+function createCard(item) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.id = Number(item.id);
@@ -198,17 +247,20 @@ function createCard(item) {
     return card;
 }
 
-function initializare() {
-    genereazaPerechi();
-    shuffle(newArr);
-    pornesteCeas(0, 0);
-    newArr.forEach(item => {
-        const card = createCard(item);
-        jocul.appendChild(card);
-    });
 
-}
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//la click 
+//1)Verificam daca sunt matched in primul rand sau daca a deja sa apasat pe el pentru a nu putea apasa de 2 ori pe acelasi cartonas
+//2)Vedem daca contorul e pana la 2 poti apasa cate 2 cartonase odata (sa li se vada fata) 
+//3)Daca contorul e unu la variabila prima incercare i se atribuie id-ul cardului care a fost apasat 
+//  Daca contorul e doi la variabila a doua incercare i se atribuie id-ul cardului care a fost apasat 
+//4)Daca cartonasele apasate auacelasi ID li se atribuie clasa matched si nu mai pot fi apasate
+//5)Apoi se reseteaza tot contor 0 incercarile sunt null si toate elementele cu clasa selected sau fliped sunt sterse clasele respective
+//----------------------------------------------------------------------------------------------------------------------
 function Click(event) {
     const clicked = event.target.closest('.card');
     if (!clicked || clicked.classList.contains('matched') || clicked.classList.contains('selected')) return;
@@ -229,6 +281,17 @@ function Click(event) {
         }
     }
 }
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//1)La match se atribuie clasa matched care face  cartonasul verde 
+//2)Creste contorul general
+//3)Opreste jocul daca contorul e 8 (Toate cartonasele au fost gasite)
+//4)Salveaza contoarele in fierbase
+//----------------------------------------------------------------------------------------------------------------------
 function match() {
     const selected = document.querySelectorAll('.selected');
     selected.forEach(card => {
@@ -246,7 +309,6 @@ function match() {
             contor_assasment_incercari++;
 
             // ---- FLAG QUEST ----
-            // Quest: completează Shuffle în sub 90 de secunde
             localStorage.setItem('quest_shuffle_90', 'true');
             // --------------------
 
@@ -273,6 +335,12 @@ function match() {
 
 }
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//la reset se reseteaza tot jocul de la inceput inafara de cartonasele cu clasele matched
+//----------------------------------------------------------------------------------------------------------------------
 function reset() {
 
     primaIncercareId = null;
@@ -285,6 +353,11 @@ function reset() {
     });
 }
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Cronometrul
+//----------------------------------------------------------------------------------------------------------------------
 function pornesteCeas(minute, secunde) {
 
     interval = setInterval(() => {
@@ -311,7 +384,12 @@ function pornesteCeas(minute, secunde) {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care incepe tot jocul de la inceput
+//sterge araiul profesorului daca exista
+//opreste cronometru
+//si incepe jocul din nou
+//----------------------------------------------------------------------------------------------------------------------
 function rst() {
     localStorage.removeItem("shuffleGameData");
     primaIncercareId = null;
@@ -327,11 +405,17 @@ function rst() {
     initializare();
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//butonul restart 
+//----------------------------------------------------------------------------------------------------------------------
 document.querySelector(".restart").addEventListener('click', () => {
     rst();
 });
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul Incearca din nou din panou joc final  
+//----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart1').addEventListener('click', function () {
     rst();
     const modal = document.getElementById("finalModal");
@@ -340,6 +424,21 @@ document.querySelector('.restart1').addEventListener('click', function () {
 });
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
+//----------------------------------------------------------------------------------------------------------------------
+function initializare() {
+    genereazaPerechi();
+    shuffle(newArr);
+    pornesteCeas(0, 0);
+    newArr.forEach(item => {
+        const card = createCard(item);
+        jocul.appendChild(card);
+    });
+
+}
 let contorPerechi = 0;
+
 
 jocul.addEventListener('click', Click);
