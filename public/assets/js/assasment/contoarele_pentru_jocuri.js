@@ -1,3 +1,7 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Pagina contoare pentru jocuri
+//----------------------------------------------------------------------------------------------------------------------
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
 
@@ -24,11 +28,17 @@ export const contoare_jocuri = {
     contor_assasment_corecte_variante: 0,
     contor_assasment_incercari_variante: 0
 };
+//----------------------------------------------------------------------------------------------------------------------
+//Varificam daca utilizatorul e autentificat si apelam functia incarca contoare
+//----------------------------------------------------------------------------------------------------------------------
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
     await incarcaContoareFirebase(user);
 });
+//----------------------------------------------------------------------------------------------------------------------
+//Functia ia din fierbase toate contoare jocurilor care au fost marite in module si folosite in pagina badge si assassment
+//----------------------------------------------------------------------------------------------------------------------
 
 export async function incarcaContoareFirebase(user) {
 
@@ -42,7 +52,7 @@ export async function incarcaContoareFirebase(user) {
 
     const data = snap.data().gameCounters || {};
 
-   
+
 
     contoare_jocuri.contor_assasment_corecte_shuffle = data.shuffle_corecte || 0;
     contoare_jocuri.contor_assasment_incercari_shuffle = data.shuffle_incercari || 0;

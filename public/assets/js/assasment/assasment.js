@@ -1,3 +1,7 @@
+
+//----------------------------------------------------------------------------------------------------------------------
+//Pagina assasment
+//----------------------------------------------------------------------------------------------------------------------
 import { db, auth } from "../fierbase/firebase-init.js";
 import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
 import { incarcaContoareFirebase, contoare_jocuri } from "./contoarele_pentru_jocuri.js";
@@ -10,6 +14,11 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Contoarele care afisam cate corecte si cate incercari a avut utilizatorul pe un anumit joc
+//----------------------------------------------------------------------------------------------------------------------
 let contor_assasment_corecte_shuffle = 0;
 let contor_assasment_incercari_shuffle = 0;
 
@@ -22,6 +31,14 @@ let contor_assasment_incercari_password = 0;
 let contor_assasment_corecte_variante = 0;
 let contor_assasment_incercari_variante = 0;
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//functia care construeste arriurile in care se afla datele cartonaselor pentru documentatie si jocuri
+//----------------------------------------------------------------------------------------------------------------------
 function buildArrJocuri() {
     return [
         {
@@ -107,6 +124,11 @@ function buildArrJocuri() {
     ];
 }
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//functia care construeste panoul "daca nu sa conectat"
+//----------------------------------------------------------------------------------------------------------------------
 function dacaNuSaConectat() {
     return `
     <div id="dacaNuSaConectat" class="fixed inset-0 z-20 flex items-center justify-center hidden bg-white dark:bg-black">
@@ -130,10 +152,20 @@ function dacaNuSaConectat() {
 
 
 initAssasment([]);
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//1)Verificam daca  utilizatorul e conectat 
+//2)daca nu afisam panoul "daca nu sa conectat"
+//3)daca e conectat  din pagina vizitare_documentatie.js verificam daca a citit documentatiile
+//4)Din pagina contoare_pentru_jocuri.js luam contoarele jocurilor si le atribuim variabelelor
+//5)Facem arraiul si introducem datele importate
+//----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        let a=document.querySelector('.Neconectat');
-        a.innerHTML=dacaNuSaConectat();
+        let a = document.querySelector('.Neconectat');
+        a.innerHTML = dacaNuSaConectat();
         const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
         document.body.appendChild(a);
@@ -175,6 +207,13 @@ onAuthStateChanged(auth, async (user) => {
 
 function initAssasment(ArrJocuri) {
 
+    //----------------------------------------------------------------------------------------------------------------------
+    //functia schimba statutul 
+    //fiecarui joc ii se atribuie un statut 
+    //  implicit fiecarii joc i se atribui 1 la statut 
+    //  dar in paginile documentatie odata ce ai intrat ii baza de date se schimba statutul din 1 in 0
+    //  adica a citit documentatia
+    //----------------------------------------------------------------------------------------------------------------------
     function schimbarea_statut(i) {
         ArrJocuri.forEach((item) => {
             if (i == item.id) {
@@ -184,6 +223,9 @@ function initAssasment(ArrJocuri) {
         });
     }
 
+    //----------------------------------------------------------------------------------------------------------------------
+    //Functia verifica daca in baza de date este 1 atunci schimba statutul si in arr
+    //----------------------------------------------------------------------------------------------------------------------
     function vizitare_paginilor() {
         if (vizite.shuffle === 1) { schimbarea_statut(1); }
         if (vizite.truefalse === 1) { schimbarea_statut(2); }
@@ -193,6 +235,12 @@ function initAssasment(ArrJocuri) {
 
     vizitare_paginilor();
 
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Luam datele pentru cartonasele generale cu statistici
+    //----------------------------------------------------------------------------------------------------------------------
     let totalJocuri = 0;
     for (let i = 0; i < ArrJocuri.length; i++) {
         if (ArrJocuri[i].incercari !== -1) {
@@ -227,6 +275,11 @@ function initAssasment(ArrJocuri) {
         scorMediu = Math.round(sumaScoruri / numarJocuriCuScor);
     }
 
+
+    //----------------------------------------------------------------------------------------------------------------------
+//Functia care shimba culorile la bare si la textul din cartonasele din assassment
+//----------------------------------------------------------------------------------------------------------------------
+ 
     function culoareBara(procent) {
         if (procent >= 75) { return '#639922'; }
         if (procent >= 45) { return '#BA7517'; }
@@ -239,27 +292,35 @@ function initAssasment(ArrJocuri) {
         return 'text-red-600 dark:text-red-400';
     }
 
+//----------------------------------------------------------------------------------------------------------------------
+// Genereare cartonaselor cu statistici
+//----------------------------------------------------------------------------------------------------------------------
     const statisticiHTML = `
-<div class="w-full max-w-[800px] mx-auto px-5 mb-6">
-    <div class="grid grid-cols-3 gap-2 sm:gap-3">
-        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
-            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Jocuri completate</p>
-            <p class="text-xl font-medium text-black dark:text-white">${completate} / ${totalJocuri}</p>
-        </div>
-        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
-            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Scor mediu</p>
-            <p class="text-xl font-medium text-black dark:text-white">${scorMediu}%</p>
-        </div>
-        <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
-            <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Total încercări</p>
-            <p class="text-xl font-medium text-black dark:text-white">${totalIncercari}</p>
-        </div>
-    </div>
-</div>`;
+            <div class="w-full max-w-[800px] mx-auto px-5 mb-6">
+                <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Jocuri completate</p>
+                        <p class="text-xl font-medium text-black dark:text-white">${completate} / ${totalJocuri}</p>
+                    </div>
+                    <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Scor mediu</p>
+                        <p class="text-xl font-medium text-black dark:text-white">${scorMediu}%</p>
+                    </div>
+                    <div class="bg-black/5 dark:bg-white/5 rounded-xl px-3 py-3">
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-1">Total încercări</p>
+                        <p class="text-xl font-medium text-black dark:text-white">${totalIncercari}</p>
+                    </div>
+                </div>
+            </div>`;
 
     let sageata_stanga = "/public/assets/img/img-assasment/Sageata_stanga.png";
     let AssasmentHTML = statisticiHTML;
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Genereare cartonaselor cu assasment pentru care au citit sau nu documentatia
+//----------------------------------------------------------------------------------------------------------------------
     ArrJocuri.forEach((item) => {
         if (item.statut !== 1) return;
 
@@ -269,33 +330,33 @@ function initAssasment(ArrJocuri) {
 
         if (item.incercari === -1) {
             AssasmentHTML += `
-        <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
-            <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
-                <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
-                    hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
-                    <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                        <img src="${iconImg}" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
-                    </div>
-                    <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
-                        ${item.nume}
-                    </span>
-                    <img src="${sageata_stanga}" alt="" class="sageata_stanga w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
-                </button>
-                <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
-                    <div class="px-4 pt-3 pb-4">
-                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            ${item.descriere}
-                        </p>
-                        <div class="flex justify-end">
-                            <a href="${item.ancora}"
-                                class="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-xs sm:text-sm font-medium transition-colors duration-200">
-                                Învață
-                            </a>
+                <div class="w-full max-w-[800px] mx-auto px-5 mt-3 sm:mt-4">
+                    <div class="card-total w-full rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
+                        <button class="card-sus w-full flex items-center gap-3 px-4 py-3 bg-[#DADADA] dark:bg-[#3d4060]
+                            hover:bg-[#cfcfcf] dark:hover:bg-[#454870] transition-colors duration-200 cursor-pointer">
+                            <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                                <img src="${iconImg}" alt="" class="Calendar_fara_iconita w-full h-auto dark:opacity-80">
+                            </div>
+                            <span class="flex-1 text-left text-sm sm:text-[15px] font-medium text-black dark:text-[#EBF6FF] truncate">
+                                ${item.nume}
+                            </span>
+                            <img src="${sageata_stanga}" alt="" class="sageata_stanga w-4 h-4 flex-shrink-0 dark:opacity-80 transition-transform duration-300">
+                        </button>
+                        <div class="card-jos hidden bg-[#EEEEEE] dark:bg-[#3d4060] border-t border-gray-300 dark:border-white/10">
+                            <div class="px-4 pt-3 pb-4">
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                    ${item.descriere}
+                                </p>
+                                <div class="flex justify-end">
+                                    <a href="${item.ancora}"
+                                        class="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-xs sm:text-sm font-medium transition-colors duration-200">
+                                        Învață
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>`;
+                </div>`;
         } else {
             const culoare = culoareBara(item.media);
             const clsText = culoareText(item.media);
@@ -347,6 +408,9 @@ function initAssasment(ArrJocuri) {
 
     document.querySelector('.tabele_assasment').innerHTML = AssasmentHTML;
 
+//----------------------------------------------------------------------------------------------------------------------
+// aici la apasarea cartonasului partea de jos ii facem toogle daca e inchis ii scoatem hidden siinvers
+//----------------------------------------------------------------------------------------------------------------------
     document.querySelectorAll('.card-total').forEach((card) => {
         const buton = card.querySelector('.card-sus');
         const cardJos = card.querySelector('.card-jos');

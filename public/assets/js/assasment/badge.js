@@ -1,10 +1,20 @@
-import { auth } from "../fierbase/firebase-init.js";
+
+//----------------------------------------------------------------------------------------------------------------------
+// Pagina Badge
+//----------------------------------------------------------------------------------------------------------------------import { auth } from "../fierbase/firebase-init.js";
 import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
 import { incarcaContoareFirebase, contoare_jocuri } from "./contoarele_pentru_jocuri.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { auth } from "../fierbase/firebase-init.js";
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
+// variabilile badgurilor
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 let Bronze = '/public/assets/img/img-assasment/badge/bronze 1.svg';
 let Silver = '/public/assets/img/img-assasment/badge/silver 1.svg';
 let Gold = '/public/assets/img/img-assasment/badge/gold 1.svg';
@@ -63,6 +73,9 @@ let SuperVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (6).pn
 // console.log('arrBadge');
 // console.log(arrBadge);
 
+//----------------------------------------------------------------------------------------------------------------------
+// Arr cu date badgurilor
+//----------------------------------------------------------------------------------------------------------------------
 let arrBadge = [
     // 0 — Documentatie vizitata
     [
@@ -146,7 +159,9 @@ let arrBadge = [
 ];
 
 let contor_general = JSON.parse(localStorage.getItem('contor_general')) || 0;
-
+//----------------------------------------------------------------------------------------------------------------------
+// Arr cu date titluri 
+//----------------------------------------------------------------------------------------------------------------------
 let arrTitluri = [
     'Documentație',
     'Joc Shuffle — Jocuri completate',
@@ -159,6 +174,11 @@ let arrTitluri = [
     'Variante — Jocuri câștigate',
 ];
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// functia care ia contoarele din pagina contoare_pentru_jocuri.js 
+//----------------------------------------------------------------------------------------------------------------------
 function getContorPentruSectiune(indexSectiune) {
     if (indexSectiune === 1) return contoare_jocuri.contor_assasment_incercari_shuffle;
     if (indexSectiune === 2) return contoare_jocuri.contor_assasment_corecte_shuffle;
@@ -171,7 +191,9 @@ function getContorPentruSectiune(indexSectiune) {
     return 0;
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------
+// functia care genereaza HTML 
+//----------------------------------------------------------------------------------------------------------------------
 function genereazaBadgeHTML() {
 
     const container = document.getElementById('badge-section');
@@ -179,7 +201,12 @@ function genereazaBadgeHTML() {
 
     let badguriHTML = '';
 
+
+
     arrTitluri.forEach(function (titlu, i) {
+        //----------------------------------------------------------------------------------------------------------------------
+        // Se ia contorul pentru fiecare sectiunea aparte
+        //----------------------------------------------------------------------------------------------------------------------
 
         let contorCurent = getContorPentruSectiune(i);
         let badgeItemsHTML = '';
@@ -188,12 +215,20 @@ function genereazaBadgeHTML() {
 
             let blocat = false;
 
+
+            //----------------------------------------------------------------------------------------------------------------------
+            //Acest if e pentru documentatii si badgurile violet
+            //----------------------------------------------------------------------------------------------------------------------
             if (badge.prag === 0) {
                 if (badge.tip.includes('Shuffle') && !vizite.shuffle) blocat = true;
                 if (badge.tip.includes('Adevarat') && !vizite.truefalse) blocat = true;
                 if (badge.tip.includes('Password') && !vizite.password) blocat = true;
                 if (badge.tip.includes('Variante') && !vizite.variante) blocat = true;
             } else {
+                //----------------------------------------------------------------------------------------------------------------------
+                // daca contorul luat din fierbase e mai mici de cat pragul din arr atunci la blocatii dam true 
+                // care va micsora opacitatea badgurile dand un efect de blocat
+                //----------------------------------------------------------------------------------------------------------------------
 
                 if (contorCurent < badge.prag) blocat = true;
             }
@@ -208,6 +243,9 @@ function genereazaBadgeHTML() {
 
             }
             let dataBlocat = blocat ? '1' : '0';
+            //----------------------------------------------------------------------------------------------------------------------
+            // generam html pentru 1 badge aparte
+            //----------------------------------------------------------------------------------------------------------------------
 
             badgeItemsHTML += `
                 <div class="flex flex-col items-center  mx-auto">
@@ -223,6 +261,9 @@ function genereazaBadgeHTML() {
                 </div>
             `;
         });
+        //----------------------------------------------------------------------------------------------------------------------
+        //generare htmlului a badgurilor pe rand
+        //----------------------------------------------------------------------------------------------------------------------
 
         badguriHTML += `
             <div class="w-[90%] h-auto mt-6 mx-auto flex flex-col items-start">
@@ -238,6 +279,14 @@ function genereazaBadgeHTML() {
     container.innerHTML = badguriHTML;
 }
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//atunci cand apesi pe un badge apare element nou div 
+// care arata descrierea sau cerinta depinde daca pragul a fost atins
+//daca il apesi odata apare si daca il apesi din nou dispare
+//----------------------------------------------------------------------------------------------------------------------
 
 let cardTooltip = document.createElement('div');
 cardTooltip.id = 'badge-card';
