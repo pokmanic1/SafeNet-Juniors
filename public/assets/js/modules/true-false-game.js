@@ -1,3 +1,6 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Jocul True False
+//----------------------------------------------------------------------------------------------------------------------
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
 import {
@@ -6,6 +9,13 @@ import {
     updateDoc,
     increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat daca nu insereaza panoul de conectare din materialHTML inserturi
+//----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
@@ -13,6 +23,15 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat si daca e conectat 
+// din fierbase verificam daca a vizitat documentatia 
+// si luam contoarele de cate ori a castigat jocul si de cate ori a incercat sa joace
+//----------------------------------------------------------------------------------------------------------------------
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -46,14 +65,32 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
+// localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
+//----------------------------------------------------------------------------------------------------------------------
 let dateSalvate = JSON.parse(localStorage.getItem("intrebariTrueFalse")) || [];
 
 
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Arraiurile sectionate pe nivele
+//----------------------------------------------------------------------------------------------------------------------
 let arr1 = [], arr2 = [], arr3 = [], arr4 = [];
+//Arraiul care il folosim pentru genereare jocului
 let arr = [];
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
+//----------------------------------------------------------------------------------------------------------------------
 fetch('../../../assets/js/modules/date-jocuri/true-false-game.json')
     .then(response => response.json())
     .then(data => {
@@ -69,6 +106,9 @@ fetch('../../../assets/js/modules/date-jocuri/true-false-game.json')
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Nivelul selectat de utilizator
+//----------------------------------------------------------------------------------------------------------------------
 let newArr = [];
 let arrCuExercitii = [];
 let arrIndex = [];
@@ -101,7 +141,13 @@ selectNivel.addEventListener('change', (event) => {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//1)Verificam daca exista arr dat de profesor
+//2)Alegem un numar random de la 1 la n si in arrail obiectul pe pozitia numarului random 
+//  il introducem arr cu care il vom folosi la genrare de cartonase
+//3)in newArr introducem doar nr exac de conditii care ne trebuie
+//  arr care l-am atribuit mai sus are multe conditii si alegem doar 10 din ele
+//----------------------------------------------------------------------------------------------------------------------
 let contor = 0;
 let contorCorect = 0;
 let interval;
@@ -143,8 +189,15 @@ function creareArr() {
     }
 }
 
-// ... 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//geneream HTML schimbam textle din html cu celele din arr de x ori x-nr de inrebari
+//dupa ce a trecut de x ori afisam panoul de final 
+//verificam daca raspuns de un numar specific de ore cucare consideeram daca a castigat sau nu jocul
+//Salvam in fiebase datele despre cate ori a incercat si de cate ori a castigat
+//----------------------------------------------------------------------------------------------------------------------
 function genereazaHTML() {
     if (contor < arrCuExercitii.length) {
 
@@ -174,7 +227,6 @@ function genereazaHTML() {
             contor_assasment_incercari++;
 
             // ---- FLAG QUEST ----
-            // Quest: câștigă True/False cu cel puțin 7 răspunsuri corecte
             localStorage.setItem('quest_truefalse_7', 'true');
             // --------------------
 
@@ -204,6 +256,14 @@ function genereazaHTML() {
     }
 }
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca raspunsul apasat de utilizator e acelasi ca cel din Arr
+//Daca da marim contorul pentru raspunsul corect
+//----------------------------------------------------------------------------------------------------------------------
 function dacaECorect(raspunsUtilizator) {
     {
         if (raspunsUtilizator === arrCuExercitii[contor].raspuns) {
@@ -216,20 +276,37 @@ function dacaECorect(raspunsUtilizator) {
     }
 }
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Butonul true din html daca daca e apasat se duce  variabila true la functia DacaE corect
+//----------------------------------------------------------------------------------------------------------------------
+
 document.querySelector('#true').addEventListener('click', function () {
     dacaECorect(true);
     genereazaHTML();
 });
+//----------------------------------------------------------------------------------------------------------------------
+//Butonul false din html daca daca e apasat se duce  variabila false la functia DacaE corect
+//----------------------------------------------------------------------------------------------------------------------
 
 document.querySelector('#false').addEventListener('click', function () {
     dacaECorect(false);
     genereazaHTML();
 });
 
+//----------------------------------------------------------------------------------------------------------------------
+//butonul restart 
+//----------------------------------------------------------------------------------------------------------------------
+
 document.querySelector('.restart').addEventListener('click', function () {
     restart();
     genereazaHTML();
 });
+//----------------------------------------------------------------------------------------------------------------------
+//butonul Incearca din nou din panou joc final  
+//----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
     genereazaHTML();
@@ -237,6 +314,14 @@ document.querySelector('.restart1').addEventListener('click', function () {
     modal.classList.add("hidden");
 
 });
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Cronometrul
+//----------------------------------------------------------------------------------------------------------------------
 
 function pornesteCeas(minute, secunde) {
 
@@ -262,11 +347,26 @@ function pornesteCeas(minute, secunde) {
 
 }
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
+//----------------------------------------------------------------------------------------------------------------------
+
 function initializare() {
     pornesteCeas(0, 0);
     genereazaHTML()
 }
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care incepe tot jocul de la inceput
+//sterge araiul profesorului daca exista
+//opreste cronometru
+//si incepe jocul din nou
+//----------------------------------------------------------------------------------------------------------------------
 function restart() {
     localStorage.removeItem("intrebariTrueFalse");
 

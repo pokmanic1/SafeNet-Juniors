@@ -88,6 +88,7 @@ let arrImaginea = [];
 
 
 
+
 //----------------------------------------------------------------------------------------------------------------------
 //citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
 //----------------------------------------------------------------------------------------------------------------------
@@ -161,7 +162,7 @@ let newArr = [];
 //2)Alegem un numar random de la 1 la n si in arrail obiectul pe pozitia numarului random 
 //  il introducem arr cu care il vom folosi la genrare de cartonase
 //3)in newArr introducem doar nr exac de cartonase caren e trebuie
-//  arr care lam atribuit mai sus are multe imagini si texte dar in newArr alegem doar 8 din ele 
+//  arr care l-am atribuit mai sus are multe imagini si texte dar in newArr alegem doar 8 din ele 
 //----------------------------------------------------------------------------------------------------------------------
 function genereazaPerechi() {
     if (dateSalvate.length === 0) {
