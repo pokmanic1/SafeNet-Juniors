@@ -1,3 +1,6 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Jocul Variante
+//----------------------------------------------------------------------------------------------------------------------
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
 import {
@@ -7,14 +10,29 @@ import {
     increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat daca nu insereaza panoul de conectare din materialHTML inserturi
+//----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        // window.location.href = "../../../pages/conecteazate.html";
         const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
 
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat si daca e conectat 
+// din fierbase verificam daca a vizitat documentatia 
+// si luam contoarele de cate ori a castigat jocul si de cate ori a incercat sa joace
+//----------------------------------------------------------------------------------------------------------------------
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -34,7 +52,6 @@ onAuthStateChanged(auth, async (user) => {
         contor_assasment_incercari = counters.variante_incercari || 0;
 
         if (!vizitat_variante_game) {
-            // window.location.href = "../../../pages/assessment.html";
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
         }
@@ -45,20 +62,33 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
+// localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
+//----------------------------------------------------------------------------------------------------------------------
 let dateSalvate = JSON.parse(localStorage.getItem('jocVarianteCustom')) || [];
 
 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Arraiurile sectionate pe nivele
+//----------------------------------------------------------------------------------------------------------------------
 let arr1 = [], arr2 = [], arr3 = [], arr4 = [];
+//Arraiul care il folosim pentru genereare jocului
 let arr = [];
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Nivelul selectat de utilizator
+//----------------------------------------------------------------------------------------------------------------------
 let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
-
-
-
 selectNivel.addEventListener('change', (event) => {
     nivelul = event.target.value;
     if (nivelul == 1) {
@@ -81,6 +111,11 @@ selectNivel.addEventListener('change', (event) => {
 });
 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
+//----------------------------------------------------------------------------------------------------------------------
 fetch('../../../assets/js/modules/date-jocuri/variante.json')
     .then(response => response.json())
     .then(data => {
@@ -94,6 +129,9 @@ fetch('../../../assets/js/modules/date-jocuri/variante.json')
     });
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Selectam elementele html si le atribuim variabilelor
+//----------------------------------------------------------------------------------------------------------------------
 let intrebareElement = document.querySelector('.intrebarea1');
 let varianta1Element = document.querySelector('.varianta1');
 let varianta2Element = document.querySelector('.varianta2');
@@ -106,11 +144,20 @@ let contorScor = 0;
 let butonRestart = document.querySelector('.butonRestart');
 
 
-// let arr = [...arr1];
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//1)Verificam daca exista arr dat de profesor
+//2)Alegem un numar random de la 1 la n si in arrail obiectul pe pozitia numarului random 
+//  il introducem arr cu care il vom folosi la genrare de cartonase
+//3)in newArr introducem doar nr exac de conditii care ne trebuie
+//  arr care l-am atribuit mai sus are multe conditii si alegem doar 10 din ele
+//----------------------------------------------------------------------------------------------------------------------
 let newArr = [];
 let arrCuExercitii = [];
 let arrIndex = [];
-
 function createArr() {
     if (dateSalvate.length > 0) {
         console.log("Folosim întrebările profesorului.");
@@ -138,9 +185,19 @@ function createArr() {
     }
 
 }
-
-
 console.log(newArr);
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//geneream HTML schimbam textle din html cu celele din arr de x ori x-nr de inrebari
+//dupa ce a trecut de x ori afisam panoul de final 
+//verificam daca raspuns de un numar specific de ore cucare consideeram daca a castigat sau nu jocul
+//Salvam in fiebase datele despre cate ori a incercat si de cate ori a castigat
+//----------------------------------------------------------------------------------------------------------------------
 let contor = 0;
 function genereazaHTML() {
     if (contor < newArr.length) {
@@ -164,7 +221,6 @@ function genereazaHTML() {
             contor_assasment_incercari++;
 
             // ---- FLAG QUEST ----
-            // Quest: câștigă Variante cu cel puțin 8 puncte
             localStorage.setItem('quest_variante_8', 'true');
             // --------------------
 
@@ -191,13 +247,16 @@ function genereazaHTML() {
 
     }
 }
-function initializare() {
-    pornesteCeas(0, 0);
-    genereazaHTML();
-
-}
 
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca raspunsul apasat de utilizator e acelasi ca cel din Arr
+//Daca da marim contorul pentru raspunsul corect
+//----------------------------------------------------------------------------------------------------------------------
 let butoane = document.querySelectorAll('.butonVariante');
 butoane.forEach((buton, index) => {
     buton.addEventListener('click', () => {
@@ -219,10 +278,74 @@ butoane.forEach((buton, index) => {
 
     });
 });
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul restart 
+//----------------------------------------------------------------------------------------------------------------------
 butonRestart.addEventListener('click', () => {
     restart();
 })
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul Incearca din nou din panou joc final  
+//----------------------------------------------------------------------------------------------------------------------
+document.querySelector('.restart1').addEventListener('click', function () {
+    restart();
+    
+    const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
+
+});
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care incepe tot jocul de la inceput
+//sterge araiul profesorului daca exista
+//opreste cronometru
+//si incepe jocul din nou
+//----------------------------------------------------------------------------------------------------------------------
+function restart() {
+    newArr = [];
+    arrCuExercitii = [];
+    arrIndex = [];
+    contor = 0;
+    contorScor = 0;
+    localStorage.removeItem("jocVarianteCustom");
+    createArr();
+    genereazaHTML();
+    clearInterval(interval)
+    pornesteCeas(0, 0);
+
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
+//----------------------------------------------------------------------------------------------------------------------
+function initializare() {
+    pornesteCeas(0, 0);
+    genereazaHTML();
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Cronometrul
+//----------------------------------------------------------------------------------------------------------------------
 function pornesteCeas(minute, secunde) {
 
     interval = setInterval(() => {
@@ -244,28 +367,5 @@ function pornesteCeas(minute, secunde) {
         }
 
     }, 1000);
-
-}
-
-document.querySelector('.restart1').addEventListener('click', function () {
-    restart();
-    
-    const modal = document.getElementById("finalModal");
-    modal.classList.add("hidden");
-
-});
-
-
-function restart() {
-    newArr = [];
-    arrCuExercitii = [];
-    arrIndex = [];
-    contor = 0;
-    contorScor = 0;
-    localStorage.removeItem("jocVarianteCustom");
-    createArr();
-    genereazaHTML();
-    clearInterval(interval)
-    pornesteCeas(0, 0);
 
 }

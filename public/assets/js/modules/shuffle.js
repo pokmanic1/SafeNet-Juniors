@@ -146,6 +146,7 @@ selectNivel.addEventListener('change', (event) => {
     initializare();
 });
 
+
 let primaIncercareId = null;
 let aDouaIncercareId = null;
 let contor = 0;
@@ -356,6 +357,85 @@ function reset() {
 
 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care incepe tot jocul de la inceput
+//sterge araiul profesorului daca exista
+//opreste cronometru
+//si incepe jocul din nou
+//----------------------------------------------------------------------------------------------------------------------
+function rst() {
+    localStorage.removeItem("shuffleGameData");
+    primaIncercareId = null;
+    aDouaIncercareId = null;
+    newArr = [];
+    contor = 0;
+    contorPerechi = 0;
+    document.querySelector(".scor").innerHTML = `Scorul : ${contorPerechi}`;
+
+
+    jocul.innerHTML = '';
+    clearInterval(interval);
+    initializare();
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul restart 
+//----------------------------------------------------------------------------------------------------------------------
+document.querySelector(".restart").addEventListener('click', () => {
+    rst();
+});
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul Incearca din nou din panou joc final  
+//----------------------------------------------------------------------------------------------------------------------
+document.querySelector('.restart1').addEventListener('click', function () {
+    rst();
+    const modal = document.getElementById("finalModal");
+    modal.classList.add("hidden");
+
+});
+
+
+
+
+
+let contorPerechi = 0;
+
+
+jocul.addEventListener('click', Click);
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
+//----------------------------------------------------------------------------------------------------------------------
+function initializare() {
+    genereazaPerechi();
+    shuffle(newArr);
+    pornesteCeas(0, 0);
+    newArr.forEach(item => {
+        const card = createCard(item);
+        jocul.appendChild(card);
+    });
+
+}
+
+
+
+
+
+
+
 //----------------------------------------------------------------------------------------------------------------------
 //Cronometrul
 //----------------------------------------------------------------------------------------------------------------------
@@ -382,64 +462,3 @@ function pornesteCeas(minute, secunde) {
     }, 1000);
 
 }
-
-
-
-//----------------------------------------------------------------------------------------------------------------------
-//Functia care incepe tot jocul de la inceput
-//sterge araiul profesorului daca exista
-//opreste cronometru
-//si incepe jocul din nou
-//----------------------------------------------------------------------------------------------------------------------
-function rst() {
-    localStorage.removeItem("shuffleGameData");
-    primaIncercareId = null;
-    aDouaIncercareId = null;
-    newArr = [];
-    contor = 0;
-    contorPerechi = 0;
-    document.querySelector(".scor").innerHTML = `Scorul : ${contorPerechi}`;
-
-
-    jocul.innerHTML = '';
-    clearInterval(interval);
-    initializare();
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-//butonul restart 
-//----------------------------------------------------------------------------------------------------------------------
-document.querySelector(".restart").addEventListener('click', () => {
-    rst();
-});
-
-
-//----------------------------------------------------------------------------------------------------------------------
-//butonul Incearca din nou din panou joc final  
-//----------------------------------------------------------------------------------------------------------------------
-document.querySelector('.restart1').addEventListener('click', function () {
-    rst();
-    const modal = document.getElementById("finalModal");
-    modal.classList.add("hidden");
-
-});
-
-
-//----------------------------------------------------------------------------------------------------------------------
-//Aici se initializaraza jocul
-//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
-//----------------------------------------------------------------------------------------------------------------------
-function initializare() {
-    genereazaPerechi();
-    shuffle(newArr);
-    pornesteCeas(0, 0);
-    newArr.forEach(item => {
-        const card = createCard(item);
-        jocul.appendChild(card);
-    });
-
-}
-let contorPerechi = 0;
-
-
-jocul.addEventListener('click', Click);

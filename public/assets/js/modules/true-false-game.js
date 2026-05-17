@@ -319,45 +319,6 @@ document.querySelector('.restart1').addEventListener('click', function () {
 
 
 
-//----------------------------------------------------------------------------------------------------------------------
-//Cronometrul
-//----------------------------------------------------------------------------------------------------------------------
-
-function pornesteCeas(minute, secunde) {
-
-    interval = setInterval(() => {
-
-        document.querySelector(".time").innerHTML = `${String(minute).padStart(2, '0')}:${String(secunde).padStart(2, '0')}`;
-
-
-        secunde++;
-
-        if (secunde === 60) {
-            secunde = 0;
-            minute++;
-        }
-
-        if (minute === 59 && secunde === 59) {
-
-            clearInterval(interval);
-
-        }
-
-    }, 1000);
-
-}
-
-
-
-//----------------------------------------------------------------------------------------------------------------------
-//Aici se initializaraza jocul
-//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
-//----------------------------------------------------------------------------------------------------------------------
-
-function initializare() {
-    pornesteCeas(0, 0);
-    genereazaHTML()
-}
 
 
 
@@ -383,4 +344,51 @@ function restart() {
     clearInterval(interval);
     pornesteCeas(0, 0);
     console.log("Jocul a fost resetat la întrebările implicite.");
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot incepand dupa ce sau scos datele din fisierul json
+//----------------------------------------------------------------------------------------------------------------------
+function initializare() {
+    pornesteCeas(0, 0);
+    genereazaHTML()
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Cronometrul
+//----------------------------------------------------------------------------------------------------------------------
+function pornesteCeas(minute, secunde) {
+
+    interval = setInterval(() => {
+
+        document.querySelector(".time").innerHTML = `${String(minute).padStart(2, '0')}:${String(secunde).padStart(2, '0')}`;
+
+
+        secunde++;
+
+        if (secunde === 60) {
+            secunde = 0;
+            minute++;
+        }
+
+        if (minute === 59 && secunde === 59) {
+
+            clearInterval(interval);
+
+        }
+
+    }, 1000);
+
 }
