@@ -299,7 +299,6 @@ document.querySelector('#false').addEventListener('click', function () {
 //----------------------------------------------------------------------------------------------------------------------
 //butonul restart 
 //----------------------------------------------------------------------------------------------------------------------
-
 document.querySelector('.restart').addEventListener('click', function () {
     restart();
     genereazaHTML();

@@ -1,3 +1,6 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Jocul Password
+//----------------------------------------------------------------------------------------------------------------------
 import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
 import { db } from "../fierbase/firebase-init.js";
 import {
@@ -7,15 +10,30 @@ import {
     increment
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat daca nu insereaza panoul de conectare din materialHTML inserturi
+//----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        // window.location.href = "../../../pages/conecteazate.html";
         const DacaNuSaConectat=document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
 
-// Contoare – citite din Firebase
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca e conectat si daca e conectat 
+// din fierbase verificam daca a vizitat documentatia 
+// si luam contoarele de cate ori a castigat jocul si de cate ori a incercat sa joace
+//----------------------------------------------------------------------------------------------------------------------
 let contor_assasment_corecte = 0;
 let contor_assasment_incercari = 0;
 let _currentUser = null;
@@ -49,9 +67,19 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
+// localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
+//----------------------------------------------------------------------------------------------------------------------
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//luam fiecare conditie care a adaugato profesorul si ii dam o  expresie regulata
+//apoi il adaugam in arr cu conditii create de profesor
+//----------------------------------------------------------------------------------------------------------------------
 dateSalvate.forEach(element => {
     let obj = {
         text: element.valoare ? `${element.conditie}: ${element.valoare}` : element.conditie,
@@ -109,11 +137,16 @@ dateSalvate.forEach(element => {
 
     newArrConditii1.push(obj);
 });
-
 console.log("Condiții profesor încărcate:", newArrConditii1);
 
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Arraiurile sectionate pe nivele
+//fiecare conditie are textul si o metoda(o verificare a expresiei regulate)
+//passwordul e valoare inputului care vin din html ce a pus utilizatorul
+//----------------------------------------------------------------------------------------------------------------------
 const Conditii1 = [
     {
         text: "Minim 8 caractere",
@@ -186,7 +219,6 @@ const Conditii3 = [
     { text: "Conține cel puțin 2 litere mari", validate: (p) => (p.match(/[A-Z]/g) || []).length >= 2 },
     { text: "Nu are caractere care se repetă consecutiv (ex: 'aa')", validate: (p) => !/(.)\1/.test(p) }
 ];
-
 const Conditii4 = [
     { text: "Lungime exactă de 16 caractere", validate: (p) => p.length === 16 },
     { text: "Conține un prefix de protocol securizat (https)", validate: (p) => p.toLowerCase().includes("https") },
@@ -198,6 +230,12 @@ const Conditii4 = [
 ];
 
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Nivelul selectat de utilizator
+//----------------------------------------------------------------------------------------------------------------------
 let numarDeConditii=4;
 let interval;
 const selectNivel = document.querySelector(".nivelul");
@@ -234,6 +272,14 @@ selectNivel.addEventListener('change', (event) => {
 
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//1)Verificam daca exista arr dat de profesor
+//2)Alegem un numar random de la 1 la n si in arrail obiectul pe pozitia numarului random 
+//  il introducem arr cu care il vom folosi la genrare de cartonase
+//3)in newArr introducem doar nr exac de conditii care ne trebuie
+//  arr care l-am atribuit mai sus are multe conditii si alegem doar 10 din ele
+//----------------------------------------------------------------------------------------------------------------------
 let newArrConditii=[];
 let arrIndex=[];
 creareArr();
@@ -264,13 +310,15 @@ function creareArr() {
         newArrConditii = [...newArrConditii1];
     }
 }
-
 console.log(newArrConditii)
-let contor=0;
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//geneream HTML a toate conditiilor 
+//----------------------------------------------------------------------------------------------------------------------
 const container = document.getElementById("conditiiContainer");
 const input = document.querySelector(".input-parola");
-
 function afisareConditii() {
 
     newArrConditii.forEach((conditie, index) => {
@@ -299,6 +347,19 @@ function afisareConditii() {
 
 }
 
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam daca conditia e completata si ii schimbam culoarea
+//dupa ce a  completat toate condiitiile
+//Afisam panoul de final de joc
+//Salvam in fiebase datele despre cate ori a incercat si de cate ori a castigat
+//----------------------------------------------------------------------------------------------------------------------
 function verificaParola(password) {
 
     let completate = 0;
@@ -372,10 +433,17 @@ function verificaParola(password) {
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//butonul restart 
+//----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart').addEventListener('click',function (){
     restart();
-
 })
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//butonul Incearca din nou din panou joc final  
+//----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
     
@@ -387,6 +455,14 @@ document.querySelector('.restart1').addEventListener('click', function () {
 
 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care incepe tot jocul de la inceput
+//sterge araiul profesorului daca exista
+//opreste cronometru
+//si incepe jocul din nou
+//----------------------------------------------------------------------------------------------------------------------
 function restart() {
     const win = document.querySelector('#winMessage');
     if (win) {
@@ -415,7 +491,10 @@ function restart() {
 
 
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//Verificam de fiecare data cand a adaugat cevain imput 
+// si transmitem valoare catre metoda verificaParola care testeaza daca se indeplinesc cerintele 
+//----------------------------------------------------------------------------------------------------------------------
 input.addEventListener("input", (e) => {
     verificaParola(e.target.value);
 });
@@ -424,16 +503,22 @@ input.addEventListener("input", (e) => {
 
 
 
-
-
+//----------------------------------------------------------------------------------------------------------------------
+//Aici se initializaraza jocul
+//cu aceasta se porneste tot 
+//----------------------------------------------------------------------------------------------------------------------
+function initializare() {
 afisareConditii();
-  pornesteCeas(0, 0);
+pornesteCeas(0, 0);
+}
+initializare();
 
 
 
 
-
-  
+//----------------------------------------------------------------------------------------------------------------------
+//Cronometrul
+//----------------------------------------------------------------------------------------------------------------------
 function pornesteCeas(minute, secunde) {
 
     interval = setInterval(() => {
