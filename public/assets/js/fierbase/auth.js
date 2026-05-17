@@ -109,6 +109,55 @@ export async function login(email, password) {
 }
 
 
+export async function getToateDatele() {
+    return new Promise((resolve) => {
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                console.log("[getToateDatele] Niciun user conectat.");
+                resolve(null);
+                return;
+            }
+
+            // console.log("[getToateDatele] UID Auth:", user.uid);
+            // console.log("[getToateDatele] Email:", user.email);
+
+            try {
+                const snap = await getDoc(doc(db, "users", user.uid));
+
+                if (snap.exists()) {
+                    const raw = snap.data();
+                    //console.log("[getToateDatele] Date gasite:", JSON.stringify(raw));
+
+                    userData = {
+                        uid: user.uid,
+                        email: user.email,
+                        username: raw.usearname || raw.usarname || raw.username
+                            || user.displayName || user.email.split("@")[0],
+                        role: raw.role || "Elev",
+                        ancora: raw.role === "Profesor"
+                            ? "/public/pages/dashbord/dashbord.html"
+                            : "/public/pages/dashbord/dashbord.elev.html"
+                    };
+
+                    // console.log("[getToateDatele] userData final:", userData);
+                    resolve(userData);
+
+                } else {
+                    console.warn("[getToateDatele] Document inexistent pentru UID:", user.uid);
+                    console.warn("[getToateDatele] Emailul Auth:", user.email);
+                    console.warn("[getToateDatele] Posibil: contul a fost sters si recreat din Auth.");
+                    console.warn("[getToateDatele] Mergi in Firestore si adauga manual documentul cu ID:", user.uid);
+                    resolve(null);
+                }
+
+            } catch (err) {
+                console.error("[getToateDatele] Eroare Firestore:", err);
+                resolve(null);
+            }
+        });
+    });
+}
+
 export let userData = null;
 
 //----------------------------------------------------------------------------------------------------------------------

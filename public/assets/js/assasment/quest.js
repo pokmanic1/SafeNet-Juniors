@@ -161,7 +161,7 @@ function pornesteCeas() {
 
 
 //----------------------------------------------------------------------------------------------------------------------
-//verifica
+//verifica daca timpul sa terminat
 //---------------------------------------------------------------------------------------------------------------------
 if (QUEST_RESET_MS - (Date.now() - parseInt(localStorage.getItem('quest_reset_at'))) <= 0) {
     setActiv.forEach(function (q) { localStorage.removeItem(q.id); });

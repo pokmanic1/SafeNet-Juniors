@@ -28,7 +28,7 @@ const yM = document.getElementById("InregistreazataID_M");
 
 let ancora = `/public/pages/dashbord/dashbord.elev.html`;
 let dashIcon;
-
+let date = getToateDatele();
 //----------------------------------------------------------------------------------------------------------------------
 //Verificam tema daca e light sau dark pentru a schimba iconita din dreapta sus a paginii
 //----------------------------------------------------------------------------------------------------------------------
@@ -174,6 +174,7 @@ onAuthStateChanged(auth, async (user) => {
       }
 
     }
+    
     console.log("ROL:", role);
 
 
