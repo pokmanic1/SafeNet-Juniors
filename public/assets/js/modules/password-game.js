@@ -463,6 +463,7 @@ document.querySelector('.restart1').addEventListener('click', function () {
 //opreste cronometru
 //si incepe jocul din nou
 //----------------------------------------------------------------------------------------------------------------------
+let contor=0;   
 function restart() {
     const win = document.querySelector('#winMessage');
     if (win) {
