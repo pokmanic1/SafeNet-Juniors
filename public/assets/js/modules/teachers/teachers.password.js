@@ -1,6 +1,26 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Pagina de crearea a jocului password
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Importul din class service care salveaza jocul in baza de date
+//----------------------------------------------------------------------------------------------------------------------
 import { salveazaJocPassword } from '/public/assets/js/game-service/teachers-create-game-password.js'
+
+
+
+
+
 let arrProfesori = [];
 let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocPassword")) || [];
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Elementele HTML din pagina
+//----------------------------------------------------------------------------------------------------------------------
 const nume_joc = document.getElementById("nume_joc");
 let nr_conditii = document.getElementById("nr_conditii");
 let btn_incepe = document.getElementById("btn_incepe");
@@ -10,6 +30,16 @@ let valoareExtra = document.getElementById("valoareExtra");
 let button = document.getElementById("btn");
 let mesajEroare = document.getElementById("mesajEroare");
 const titluPas = document.getElementById("titlu_pas");
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care afiseaza vreo erroare daca exista
+//----------------------------------------------------------------------------------------------------------------------
 function afiseazaEroare(text, culoare, timp = 2000) {
     mesajEroare.innerText = text;
     mesajEroare.classList.remove("hidden");
@@ -21,10 +51,19 @@ function afiseazaEroare(text, culoare, timp = 2000) {
     }, timp);
 }
 
+
+
 conditie.classList.add("hidden");
 btn.classList.add("hidden");
 document.getElementById("btn_restart").classList.add("hidden");
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care verifica daca a adaugat nr de conditi si da hiden la primul panou
+//----------------------------------------------------------------------------------------------------------------------
 function alegereaNumarului() {
 
     const numar = Number(nr_conditii.value);
@@ -47,7 +86,6 @@ function alegereaNumarului() {
     }
 
 }
-
 btn_incepe.addEventListener("click", () => {
     alegereaNumarului();
 });
@@ -55,8 +93,13 @@ btn_incepe.addEventListener("click", () => {
 
 
 
-conditie.addEventListener("change", () => {
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Unele aleger au nevoie sa introduce valoarea 
+// in HTML cele care au valoarea 0 inseamna ca trebuie sa pui un imput
+//----------------------------------------------------------------------------------------------------------------------
+conditie.addEventListener("change", () => {
     if (conditie.value === "1") {
         valoareExtra.classList.remove("hidden");
     } else {
@@ -67,24 +110,30 @@ conditie.addEventListener("change", () => {
 });
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Apasarea butonul de adaugare a conditiei
+//----------------------------------------------------------------------------------------------------------------------
 button.addEventListener("click", async () => {
 
 
     if (conditie.value === "") {
         afiseazaEroare("Alege o condiție!", 'text-red-500');
-
-
         return;
     }
 
+
+
+
     const textConditie = conditie.options[conditie.selectedIndex].text;
     const valoareNoua = valoareExtra.value.trim();
+
+
 
     const conflictGasit = arrProfesori.some(element => {
         if (element.conditie === textConditie) {
             if (conditie.value === "1") {
                 if (element.valoare === valoareNoua) {
-
                     afiseazaEroare("Această condiție cu această valoare există deja!", 'text-red-500');
                     return true;
                 }
@@ -94,28 +143,36 @@ button.addEventListener("click", async () => {
             }
         }
 
+
+
+
+
         if (textConditie === "Sa aiba lungime para" && element.conditie === "Sa aiba lungime impara") {
-
             afiseazaEroare("Conflict: Ai deja lungime IMPARĂ setată!", 'text-red-500');
-
             return true;
         }
+
+
+
+
         if (textConditie === "Sa aiba lungime impara" && element.conditie === "Sa aiba lungime para") {
-
             afiseazaEroare("Conflict: Ai deja lungime PARĂ setată!", 'text-red-500');
-
             return true;
         }
-
         return false;
     });
 
-    if (conflictGasit) return;
 
+
+
+
+    if (conflictGasit) return;
     let obiect = {
         tip: conditie.value,
         conditie: textConditie
     };
+
+
 
     if (conditie.value === "1") {
         if (!valoareNoua) {
@@ -125,11 +182,22 @@ button.addEventListener("click", async () => {
         obiect.valoare = valoareNoua;
     }
 
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Se salveaza in local storage conditii care daca apesi pe butonul Mergi la joc
+    //----------------------------------------------------------------------------------------------------------------------
     arrProfesori.push(obiect);
     titluPas.textContent = `Configurează regula ${arrProfesori.length + 1}`;
     document.querySelector('#btn_mergilajoc').addEventListener('click', () => {
         localStorage.setItem("conditiiProfesori", JSON.stringify(arrProfesori));
     })
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Salvarea jocului in baza de date
+    //----------------------------------------------------------------------------------------------------------------------
     let joc = {
         nume: nume_joc.value,
         tip: "password",
@@ -161,6 +229,10 @@ button.addEventListener("click", async () => {
 });
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Butonul care da hidden la panoul al 2 de adaugare a conditiilor si trimite la inceput
+//----------------------------------------------------------------------------------------------------------------------
 document.getElementById("btn_restart").addEventListener('click', () => {
     arrProfesori = [];
     nr_conditii.value = "";

@@ -1,4 +1,25 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Pagina de crearea a jocului variante
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Importul din class service care salveaza jocul in baza de date
+//----------------------------------------------------------------------------------------------------------------------
 import { salveazaJocVariante } from "/public/assets/js/game-service/teachers-create-game-variante.js";
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Elementele HTML din pagina
+//----------------------------------------------------------------------------------------------------------------------
 let arrIntrebariVariante = [];
 let numarTotal = 0;
 let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocVariante")) || [];
@@ -14,6 +35,15 @@ const btnRestart = document.getElementById("btn_restart");
 const titluPas = document.getElementById("titlu_pas");
 const progresText = document.getElementById("progres");
 
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Inceperea dupa ce a fost adaugat numarul deconditii necesare
+//----------------------------------------------------------------------------------------------------------------------
 btnIncepe.addEventListener("click", () => {
     numarTotal = parseInt(inputNr.value);
     if (numarTotal > 0) {
@@ -25,37 +55,60 @@ btnIncepe.addEventListener("click", () => {
     }
 });
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Apasarea butonul de adaugare a conditiei
+//----------------------------------------------------------------------------------------------------------------------
 btnAdauga.addEventListener("click", async () => {
     const textIntrebare = inputText.value.trim();
     const radioCorect = document.querySelector('input[name="raspuns_corect"]:checked');
 
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //textul din variantee fara spatii adaugatoare
+    //----------------------------------------------------------------------------------------------------------------------
     const v0 = document.getElementById("v0").value.trim();
     const v1 = document.getElementById("v1").value.trim();
     const v2 = document.getElementById("v2").value.trim();
     const v3 = document.getElementById("v3").value.trim();
     let mesajEroare = document.getElementById("mesajEroare");
 
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Functia care afiseaza vreo erroare daca exista
+    //----------------------------------------------------------------------------------------------------------------------
     function afiseazaEroare(text, culoare, timp = 2000) {
         mesajEroare.innerText = text;
         mesajEroare.classList.remove("hidden");
         mesajEroare.classList.add(culoare);
-
         setTimeout(() => {
             mesajEroare.classList.add("hidden");
             mesajEroare.innerText = "";
         }, timp);
     }
 
+
+
     if (!textIntrebare || !v0 || !v1 || !v2 || !v3) {
         afiseazaEroare("Te rugăm să completezi toate câmpurile!", "text-red-500");
         return;
     }
+
+
 
     if (!radioCorect) {
         afiseazaEroare("Te rugăm să bifezi varianta corectă!", "text-red-500");
         return;
     }
 
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Varificare care varianta a ales utiilizatorul sa fie corecta
+    //----------------------------------------------------------------------------------------------------------------------
     const indexCorect = parseInt(radioCorect.value);
 
     const obiectIntrebare = {
@@ -70,10 +123,23 @@ btnAdauga.addEventListener("click", async () => {
 
     arrIntrebariVariante.push(obiectIntrebare);
 
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Se salveaza in local storage conditii care daca apesi pe butonul Mergi la joc
+    //----------------------------------------------------------------------------------------------------------------------
     document.querySelector('#btn_mergilajoc').addEventListener('click', () => {
         localStorage.setItem("jocVarianteCustom", JSON.stringify(arrIntrebariVariante));
     })
 
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Salvarea jocului in baza de date
+    //----------------------------------------------------------------------------------------------------------------------
     let joc = {
         nume: nume_joc.value,
         tip: 'variante',
@@ -83,6 +149,10 @@ btnAdauga.addEventListener("click", async () => {
     console.log("Joc salvat:", joc);
 
 
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //resetul inputurilor
+    //----------------------------------------------------------------------------------------------------------------------
     inputText.value = "";
     document.getElementById("v0").value = "";
     document.getElementById("v1").value = "";
@@ -90,6 +160,11 @@ btnAdauga.addEventListener("click", async () => {
     document.getElementById("v3").value = "";
     radioCorect.checked = false;
 
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Verificam daca a a adaugat toate conditiile
+    //----------------------------------------------------------------------------------------------------------------------
     if (arrIntrebariVariante.length < numarTotal) {
         actualizeazaInterfata();
     } else {
@@ -101,12 +176,20 @@ btnAdauga.addEventListener("click", async () => {
     }
 });
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Butonul de restart
+//----------------------------------------------------------------------------------------------------------------------
 btnRestart.addEventListener("click", () => {
-    if (confirm("Ești sigur că vrei să ștergi tot?")) {
-        localStorage.removeItem("jocVarianteCustom");
-        location.reload();
-    }
+    localStorage.removeItem("jocVarianteCustom");
+    location.reload();
+
 });
+
+
+
+
 
 function actualizeazaInterfata() {
     titluPas.textContent = `Configurează Întrebarea ${arrIntrebariVariante.length + 1}`;
