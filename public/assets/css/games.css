@@ -1,0 +1,15 @@
+        .container {
+            display: flex;
+            gap: 5px;
+            width: 70%;
+        }
+
+        .card {
+            transition: 0.4s ease-in-out;
+            flex: 1;
+        }
+
+        .card:hover {
+            flex: 2;
+            cursor: pointer;
+        }
