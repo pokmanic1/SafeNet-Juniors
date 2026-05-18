@@ -1,3 +1,10 @@
+//----------------------------------------------------------------------------------------------------------------------
+//BPagina de clase pentru  profesori
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 import { db, auth } from "../fierbase/firebase-init.js";
@@ -20,14 +27,32 @@ let claseActive = 0;
 let eleviInscrisi = 0;
 let jocuriPublicate = 0;
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Generare unui nr random incepand cu numele clasei
+//----------------------------------------------------------------------------------------------------------------------
 function genereazaCod(numeClasa) {
     const prefix = numeClasa.replace(/\s+/g, "").slice(0, 3).toUpperCase();
     const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
     return `${prefix}-${rand}`;
 }
 
-// ─── CRUD Clase ───────────────────────────────────────────────
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CRUD Clase
+//---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//creare de clasa
+//----------------------------------------------------------------------------------------------------------------------
 export const adaugaClasa = async (numeClasa) => {
     const user = auth.currentUser;
     if (!user) return null;
@@ -52,6 +77,14 @@ export const adaugaClasa = async (numeClasa) => {
     }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Toate claseleprofesorului
+//----------------------------------------------------------------------------------------------------------------------
 export const getToateClasele = async () => {
     const user = auth.currentUser;
     if (!user) return [];
@@ -65,6 +98,14 @@ export const getToateClasele = async () => {
     console.log("Clasele au fost citite cu succes.");
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Stergerea de clasa
+//----------------------------------------------------------------------------------------------------------------------
 export const stergeClasa = async (clasaId) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -76,6 +117,14 @@ export const stergeClasa = async (clasaId) => {
     }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Stergerea unui elev din clasa
+//----------------------------------------------------------------------------------------------------------------------
 export const eliminaElevDinClasa = async (clasaId, elevUid) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -96,6 +145,14 @@ export const eliminaElevDinClasa = async (clasaId, elevUid) => {
     }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Adauga elev in clasa
+//----------------------------------------------------------------------------------------------------------------------
 export const adaugaElevInClasa = async (teacherUid, clasaId, elevData) => {
     try {
         await updateDoc(doc(db, "users", teacherUid, "clase", clasaId), {
@@ -106,6 +163,13 @@ export const adaugaElevInClasa = async (teacherUid, clasaId, elevData) => {
     }
 };
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Variabilele jocului care le poate adauga profesorului in butonul adauga joc
+//----------------------------------------------------------------------------------------------------------------------
 const TIP_COLECTIE = {
     "1": "jocuri_shufle", "2": "jocuri_true_false",
     "3": "jocuri_password", "4": "jocuri_variante"
@@ -115,6 +179,13 @@ const TIP_NUME = {
     "3": "Parola", "4": "Variante"
 };
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Obtinerea din baza de date a unui joc
+//----------------------------------------------------------------------------------------------------------------------
 const getJocuriDeTip = async (tip) => {
     const user = auth.currentUser;
     if (!user) return [];
@@ -126,6 +197,13 @@ const getJocuriDeTip = async (tip) => {
     } catch (err) { return []; }
 };
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Adauga joc in clasa
+//----------------------------------------------------------------------------------------------------------------------
 const adaugaJocInClasa = async (clasaId, jocData) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -139,6 +217,12 @@ const adaugaJocInClasa = async (clasaId, jocData) => {
     } catch (err) { console.error("Eroare adaugare joc:", err); }
 };
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//sterge joc in clasa
+//----------------------------------------------------------------------------------------------------------------------
 const eliminaJocDinClasa = async (clasaId, jocData) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -152,6 +236,14 @@ const eliminaJocDinClasa = async (clasaId, jocData) => {
     } catch (err) { console.error("Eroare eliminare joc:", err); }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Insert la panou cu jocuri
+//----------------------------------------------------------------------------------------------------------------------
 function deschideModalJocuri(clasaId, tip, onJocAles) {
     document.querySelector("#modal-selectare-joc")?.remove();
 
@@ -214,8 +306,15 @@ function deschideModalJocuri(clasaId, tip, onJocAles) {
     });
 }
 
-let listaClaseGlobal = [];
 
+
+
+
+
+let listaClaseGlobal = [];
+//----------------------------------------------------------------------------------------------------------------------
+//Generare de HTML
+//----------------------------------------------------------------------------------------------------------------------
 export function genereazaHTMLClase(clase, container) {
     listaClaseGlobal = clase;
     const cardAdauga = document.querySelector("#card-adauga-clasa");

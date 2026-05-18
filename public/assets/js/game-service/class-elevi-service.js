@@ -1,3 +1,14 @@
+//----------------------------------------------------------------------------------------------------------------------
+//BPagina de clase pentru elevi
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection, getDocs, doc, getDoc,
@@ -17,6 +28,9 @@ const GAME_URL = {
 
 let userGlobal = null;
 
+//----------------------------------------------------------------------------------------------------------------------
+//Cauta in baza de date un cod asemanator cu cel introdus de utilizator
+//----------------------------------------------------------------------------------------------------------------------
 async function cautaClasaDupaCod(cod) {
     const snap = await getDocs(collection(db, "clase_globale"));
     for (const d of snap.docs) {
@@ -28,16 +42,26 @@ async function cautaClasaDupaCod(cod) {
     return null;
 }
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Ia clasa din clase globale din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 async function getClasaFresh(clasaId) {
     const snap = await getDoc(doc(db, "clase_globale", clasaId));
     return snap.exists() ? { id: snap.id, ...snap.data() } : null;
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+//Toate clasele elevului
+//----------------------------------------------------------------------------------------------------------------------
 async function getClaseleElevului() {
     const snap = await getDocs(collection(db, "users", userGlobal.uid, "clase_elev"));
     return snap.docs.map(d => d.data());
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+//Salveaza clasa in care e elevul
+//----------------------------------------------------------------------------------------------------------------------
 async function salveazaClasaLaElev(clasa) {
     const clasaId = clasa.id || clasa.clasaId;
     await setDoc(doc(db, "users", userGlobal.uid, "clase_elev", clasaId), {
@@ -45,6 +69,9 @@ async function salveazaClasaLaElev(clasa) {
     }, { merge: true });
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+//Il inregistreaza in clasa profesorului in baza de date a profesorului
+//----------------------------------------------------------------------------------------------------------------------
 async function inregistreazaElev(clasa) {
     const clasaId = clasa.id || clasa.clasaId;
     const elevData = { uid: userGlobal.uid, email: userGlobal.email, nume: userGlobal.displayName || userGlobal.email };
@@ -58,6 +85,9 @@ async function inregistreazaElev(clasa) {
     } catch (err) { console.error(err); }
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+//Iesi din clasa
+//----------------------------------------------------------------------------------------------------------------------
 async function parasestClasa(clasaId, teacherUid) {
     await deleteDoc(doc(db, "users", userGlobal.uid, "clase_elev", clasaId));
     try {
@@ -66,20 +96,26 @@ async function parasestClasa(clasaId, teacherUid) {
     } catch (err) { console.error(err); }
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+//Obtine datele despre un joc
+//----------------------------------------------------------------------------------------------------------------------
 async function getDateJoc(teacherUid, colectie, jocId) {
     const snap = await getDoc(doc(db, "users", teacherUid, colectie, jocId));
     return snap.exists() ? { id: snap.id, ...snap.data() } : null;
 }
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//generare HTML
+//----------------------------------------------------------------------------------------------------------------------
 function creeazaCard(clasa) {
     const jocuri = clasa.jocuri || [];
     const clasaId = clasa.id || clasa.clasaId;
- 
+
     const card = document.createElement("div");
     card.dataset.id = clasaId;
     card.className = "clasa-card bg-[#1a1a18] dark:bg-[#1e2035] rounded-[24px] p-6 flex flex-col gap-4 transition-transform hover:scale-[1.02] relative overflow-hidden";
- 
+
     card.innerHTML = `
         <div class="absolute top-[-50px] right-[-50px] w-[200px] h-[200px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
  
@@ -101,8 +137,8 @@ function creeazaCard(clasa) {
  
         <div class="jocuri-lista flex flex-col gap-2">
             ${jocuri.length === 0
-                ? `<p class="text-gray-600 text-[12px]">Niciun joc adăugat încă.</p>`
-                : jocuri.map(j => `
+            ? `<p class="text-gray-600 text-[12px]">Niciun joc adăugat încă.</p>`
+            : jocuri.map(j => `
                     <div class="flex items-center justify-between bg-[#252523] dark:bg-[#252840] border border-white/5 rounded-xl px-3 py-2 gap-2">
                         <div class="flex flex-col min-w-0">
                             <span class="text-white text-[12px] font-semibold truncate">${j.nume}</span>
@@ -114,7 +150,7 @@ function creeazaCard(clasa) {
                         </button>
                     </div>
                 `).join("")
-            }
+        }
         </div>
  
         <div class="flex justify-end mt-auto pt-2 border-t border-white/5">
@@ -123,7 +159,7 @@ function creeazaCard(clasa) {
             </button>
         </div>
     `;
- 
+
     card.querySelectorAll(".btn-joaca").forEach(btn => {
         btn.addEventListener("click", async () => {
             const tip = parseInt(btn.dataset.tip);
@@ -132,21 +168,21 @@ function creeazaCard(clasa) {
             const cheie = LOCALSTORAGE_KEY[tip];
             if (tip === 1) localStorage.setItem(cheie, JSON.stringify(dateJoc.date));
             if (tip === 2) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
-            if (tip === 3) localStorage.setItem(cheie, JSON.stringify(dateJoc.conditii  || dateJoc.date || dateJoc));
+            if (tip === 3) localStorage.setItem(cheie, JSON.stringify(dateJoc.conditii || dateJoc.date || dateJoc));
             if (tip === 4) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
             window.location.href = GAME_URL[tip];
         });
     });
- 
+
     card.querySelector(".btn-paraseste").addEventListener("click", async () => {
         await parasestClasa(clasaId, clasa.teacherUid);
         card.remove();
     });
- 
+
     return card;
 }
 async function randeazaClase() {
-    const container  = document.querySelector("#grila-clase");
+    const container = document.querySelector("#grila-clase");
     const cardAdauga = document.querySelector("#card-adauga-clasa");
     if (!container || !cardAdauga) return;
 
@@ -159,10 +195,14 @@ async function randeazaClase() {
     }
 }
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Codul care il adauga elevul
+//----------------------------------------------------------------------------------------------------------------------
 function initInput() {
     const input = document.querySelector("#input-cod-clasa");
-    const btn   = document.querySelector("#btn-adauga-clasa");
-    const msg   = document.querySelector("#msg-adauga-clasa");
+    const btn = document.querySelector("#btn-adauga-clasa");
+    const msg = document.querySelector("#msg-adauga-clasa");
     if (!input || !btn) return;
 
     const afiseazaMesaj = (text, culoare) => {
@@ -180,12 +220,12 @@ function initInput() {
         const clasa = await cautaClasaDupaCod(cod);
 
         if (!clasa) {
-            afiseazaMesaj("✗ Cod invalid. Verifică și încearcă din nou.", "text-red-400");
+            afiseazaMesaj("Cod invalid. Verifică și încearcă din nou.", "text-red-400");
             return;
         }
 
         const clasaId = clasa.id || clasa.clasaId;
-        const container  = document.querySelector("#grila-clase");
+        const container = document.querySelector("#grila-clase");
         const cardAdauga = document.querySelector("#card-adauga-clasa");
 
         if (container.querySelector(`[data-id="${clasaId}"]`)) {
