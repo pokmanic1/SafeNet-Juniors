@@ -164,7 +164,10 @@ function creeazaCard(clasa) {
         btn.addEventListener("click", async () => {
             const tip = parseInt(btn.dataset.tip);
             const dateJoc = await getDateJoc(btn.dataset.teacher, btn.dataset.colectie, btn.dataset.jocId);
-            if (!dateJoc) { console.log("Jocul nu a putut fi încărcat."); return; }
+            if (!dateJoc) {
+                //console.log("Jocul nu a putut fi încărcat.");
+                return;
+            }
             const cheie = LOCALSTORAGE_KEY[tip];
             if (tip === 1) localStorage.setItem(cheie, JSON.stringify(dateJoc.date));
             if (tip === 2) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));

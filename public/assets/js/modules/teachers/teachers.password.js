@@ -79,7 +79,7 @@ function alegereaNumarului() {
         btn_incepe.classList.add("hidden");
         nume_joc.classList.add("hidden");
 
-        console.log("Joc început cu", numar, "condiții");
+        //console.log("Joc început cu", numar, "condiții");
 
     } else {
         afiseazaEroare("Introdu un număr de condiții dintre 1 și 10", 'text-red-500');
@@ -205,11 +205,11 @@ button.addEventListener("click", async () => {
     };
     toateIntrebarile.push(joc);
     await salveazaJocPassword(joc);
-    console.log("Joc salvat:", joc);
+    //console.log("Joc salvat:", joc);
 
 
     valoareExtra.value = "";
-    console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
+    //console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
     // button.classList.add("scale-110", "bg-green-500", "shadow-green-200");
     // button.innerText = "Adăugat! ";
 

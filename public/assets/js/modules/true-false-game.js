@@ -50,7 +50,7 @@ onAuthStateChanged(auth, async (user) => {
         contor_assasment_corecte  = counters.truefalse_corecte  || 0;
         contor_assasment_incercari = counters.truefalse_incercari || 0;
 
-        console.log("Utilizator autentificat, vizitat_truefalse_game:", vizitat_truefalse_game);
+        //console.log("Utilizator autentificat, vizitat_truefalse_game:", vizitat_truefalse_game);
         if (!vizitat_truefalse_game) {
             const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
@@ -119,17 +119,19 @@ selectNivel.addEventListener('change', (event) => {
     nivelul = event.target.value;
     if (nivelul == 1) {
         arr = arr1;
-        console.log("nivelul a fost schimbat");
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 2) {
         arr = arr2;
-        console.log("nivelul a fost schimbat");
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 3) {
-        arr = arr3; console.log("nivelul a fost schimbat");
+        arr = arr3; 
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 4) {
-        arr = arr4; console.log("nivelul a fost schimbat");
+        arr = arr4; 
+        //console.log("nivelul a fost schimbat");
 
     }
     clearInterval(interval);
@@ -157,11 +159,11 @@ function creareArr() {
     arrIndex = [];
 
     if (dateSalvate && dateSalvate.length > 0) {
-        console.log("Folosim întrebările profesorului.");
+        //console.log("Folosim întrebările profesorului.");
         arrCuExercitii = [...dateSalvate];
     }
     else {
-        console.log("Folosim întrebările default.");
+        //console.log("Folosim întrebările default.");
         for (let i = 0; i < 10; i++) {
             let nr;
             let adv = true;
@@ -342,7 +344,7 @@ function restart() {
     genereazaHTML();
     clearInterval(interval);
     pornesteCeas(0, 0);
-    console.log("Jocul a fost resetat la întrebările implicite.");
+    //console.log("Jocul a fost resetat la întrebările implicite.");
 }
 
 

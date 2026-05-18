@@ -227,9 +227,9 @@
 
         import { auth, db, onAuthStateChanged } from "../assets/js/fierbase/firebase-init.js";
         import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-        console.log("SCRIPT PORNIT");
+        //console.log("SCRIPT PORNIT");
         onAuthStateChanged(auth, async (user) => {
-            console.log("USER:", user);
+            //console.log("USER:", user);
             if (!user) return;
             const userRef = doc(db, "users", user.uid);
             const userSnap = await getDoc(userRef);
@@ -239,7 +239,7 @@
                 const data = userSnap.data();
 
                 if (data.role === "Profesor") {
-                    console.log("ROL:", data.role);
+                    //console.log("ROL:", data.role);
 
                     document.querySelectorAll(".plus").forEach((plus) => {
 

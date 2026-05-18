@@ -93,17 +93,19 @@ selectNivel.addEventListener('change', (event) => {
     nivelul = event.target.value;
     if (nivelul == 1) {
         arr = arr1;
-        console.log("nivelul a fost schimbat");
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 2) {
         arr = arr2;
-        console.log("nivelul a fost schimbat");
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 3) {
-        arr = arr3; console.log("nivelul a fost schimbat");
+        arr = arr3; 
+        //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 4) {
-        arr = arr4; console.log("nivelul a fost schimbat");
+        arr = arr4; 
+        //console.log("nivelul a fost schimbat");
 
     }
     restart()
@@ -160,7 +162,7 @@ let arrCuExercitii = [];
 let arrIndex = [];
 function createArr() {
     if (dateSalvate.length > 0) {
-        console.log("Folosim întrebările profesorului.");
+        //console.log("Folosim întrebările profesorului.");
         newArr = [...dateSalvate];
     } else {
         for (let i = 0; i < 10; i++) {
@@ -185,7 +187,7 @@ function createArr() {
     }
 
 }
-console.log(newArr);
+//console.log(newArr);
 
 
 

@@ -33,7 +33,7 @@ export async function incarcaDateFirebase(user) {
     const snap = await getDoc(userRef);
 
     if (!snap.exists()) {
-        console.log("Nu există date.");
+        // console.log("Nu există date.");
         return;
     }
 

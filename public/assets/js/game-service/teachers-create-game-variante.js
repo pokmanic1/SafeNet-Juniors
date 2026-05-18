@@ -39,7 +39,7 @@ export const salveazaJocVariante = async (joc) => {
             ...joc,
             creatLa: serverTimestamp()
         });
-        console.log("Jocul a fost salvat în Firestore!");
+        //console.log("Jocul a fost salvat în Firestore!");
     } catch (error) {
         console.error("Eroare la salvare:", error);
     }
@@ -76,7 +76,7 @@ export const stergeJocVariante = async (jocId) => {
     if (!user) return;
     try {
         await deleteDoc(doc(db, "users", user.uid, "jocuri_variante", jocId));
-        console.log("Jocul a fost șters!");
+        //console.log("Jocul a fost șters!");
     } catch (error) {
         console.error("Eroare la ștergere:", error);
     }

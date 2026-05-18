@@ -159,7 +159,7 @@ btnAdauga.addEventListener("click", async () => {
       intrebari: [...arrIntrebariProfesor]
     };
     await salveazaJocTrueFalse(joc);
-    console.log("Joc salvat:", joc);
+    //console.log("Joc salvat:", joc);
 
   }
 });

@@ -137,7 +137,7 @@ dateSalvate.forEach(element => {
 
     newArrConditii1.push(obj);
 });
-console.log("Condiții profesor încărcate:", newArrConditii1);
+//console.log("Condiții profesor încărcate:", newArrConditii1);
 
 
 
@@ -285,7 +285,7 @@ let arrIndex=[];
 creareArr();
 function creareArr() {
     if (newArrConditii1.length === 0) {
-        console.log("Generăm condiții aleatorii...");
+        //console.log("Generăm condiții aleatorii...");
         for (let i = 0; i < numarDeConditii; i++) { 
             let nr;
             let adv = true;
@@ -306,11 +306,11 @@ function creareArr() {
         }
     } 
     else {
-        console.log("Folosim condițiile profesorului.");
+        //console.log("Folosim condițiile profesorului.");
         newArrConditii = [...newArrConditii1];
     }
 }
-console.log(newArrConditii)
+//console.log(newArrConditii)
 
 
 

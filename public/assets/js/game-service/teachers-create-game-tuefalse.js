@@ -42,7 +42,7 @@ export const salveazaJocTrueFalse = async (joc) => {
             ...joc,
             creatLa: serverTimestamp()
         });
-        console.log("Jocul a fost salvat în Firestore!");
+        //console.log("Jocul a fost salvat în Firestore!");
     } catch (error) {
         console.error("Eroare la salvare:", error);
     }
@@ -64,7 +64,7 @@ export const getToateJocurileTrueFalse = async () => {
         const jocuriRef = collection(db, "users", user.uid, "jocuri_true_false");
         const snapshot = await getDocs(jocuriRef);
 
-        console.log(snapshot.docs.map(doc => doc.data()));
+        //console.log(snapshot.docs.map(doc => doc.data()));
 
         return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     } catch (error) {
@@ -83,7 +83,7 @@ export const stergeJocTrueFalse = async (jocId) => {
     if (!user) return;
     try {
         await deleteDoc(doc(db, "users", user.uid, "jocuri_true_false", jocId));
-        console.log("Jocul a fost șters!");
+        //console.log("Jocul a fost șters!");
     } catch (error) { console.error("Eroare la ștergere:", error); }
 };
 
@@ -242,7 +242,7 @@ onAuthStateChanged(auth, async (user) => {
     if (!user) return;
     listaJocuriGlobal = await getToateJocurileTrueFalse();
 
-    console.log('Toate jocurile încărcate:', listaJocuriGlobal);
+    //console.log('Toate jocurile încărcate:', listaJocuriGlobal);
     genereazaHTML(listaJocuriGlobal);
 });
 

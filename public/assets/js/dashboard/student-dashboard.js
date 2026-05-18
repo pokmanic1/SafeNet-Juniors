@@ -501,7 +501,7 @@ onAuthStateChanged(auth, async (user) => {
 
 
         localStorage.setItem("tema", "light");
-        console.log("light");
+        //console.log("light");
 
         document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
         document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
@@ -511,7 +511,7 @@ onAuthStateChanged(auth, async (user) => {
 
         document.documentElement.classList.add("dark");
         localStorage.setItem("tema", "dark");
-        console.log("dark");
+        //console.log("dark");
         document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
         document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
 

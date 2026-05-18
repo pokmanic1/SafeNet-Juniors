@@ -42,7 +42,7 @@ onAuthStateChanged(auth, async (user) => {
         const snap = await getDoc(userRef);
 
         if (!snap.exists()) {
-            console.log("Nu există date.");
+            //console.log("Nu există date.");
             return;
         }
         const data = snap.data();
@@ -53,7 +53,7 @@ onAuthStateChanged(auth, async (user) => {
         contor_assasment_corecte  = counters.shuffle_corecte  || 0;
         contor_assasment_incercari = counters.shuffle_incercari || 0;
 
-        console.log("Datele utilizatorului vizitat_shuffle_game:", vizitat_shuffle_game);
+        //console.log("Datele utilizatorului vizitat_shuffle_game:", vizitat_shuffle_game);
 
         if (!vizitat_shuffle_game) {
             // window.location.href = "../../../pages/assessment.html";
@@ -70,8 +70,8 @@ onAuthStateChanged(auth, async (user) => {
 // localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
 //----------------------------------------------------------------------------------------------------------------------
 let dateSalvate = JSON.parse(localStorage.getItem("shuffleGameData")) || [];
-console.log("Datele salvate de profesor -----------------------------------------");
-console.log(dateSalvate);
+//console.log("Datele salvate de profesor -----------------------------------------");
+//console.log(dateSalvate);
 
 
 
@@ -197,7 +197,7 @@ function genereazaPerechi() {
         newArr = [...dateSalvate];
     }
 }
-console.log(newArr)
+//console.log(newArr)
 
 
 

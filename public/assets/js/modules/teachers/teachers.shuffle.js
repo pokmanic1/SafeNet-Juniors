@@ -108,7 +108,7 @@ document.getElementById('btn_salveaza_shuffle').addEventListener('click', async 
     document.getElementById('btn_salveaza_shuffle').disabled = true;
     document.getElementById('btn_salveaza_shuffle').classList.add("opacity-50", "cursor-not-allowed");;
     document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
-    console.log(finalArray);
+    //console.log(finalArray);
 
 
 
@@ -122,7 +122,7 @@ document.getElementById('btn_salveaza_shuffle').addEventListener('click', async 
     };
     toateIntrebarile.push(joc);
     await salveazaJocShufle(joc);
-    console.log("Joc salvat:", joc);
+    //console.log("Joc salvat:", joc);
 });
 
 

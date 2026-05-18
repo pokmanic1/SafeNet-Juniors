@@ -4,7 +4,7 @@ import { register, login } from "./fierbase/auth.js";
 import { auth, db, onAuthStateChanged } from "./fierbase/firebase-init.js";
 
 
-console.log(auth, db);
+//console.log(auth, db);
 
 
 
@@ -83,12 +83,12 @@ export function checkAuthState() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             if (userData) {
-                console.log("User is authenticated:", userData);
+                //console.log("User is authenticated:", userData);
             } else {
-                console.log("User is authenticated but not found in database");
+                //console.log("User is authenticated but not found in database");
             }
         } else {
-            console.log("User is not authenticated");
+            //console.log("User is not authenticated");
         }
 
     });

@@ -113,7 +113,7 @@ export async function getToateDatele() {
     return new Promise((resolve) => {
         onAuthStateChanged(auth, async (user) => {
             if (!user) {
-                console.log("[getToateDatele] Niciun user conectat.");
+                //console.log("[getToateDatele] Niciun user conectat.");
                 resolve(null);
                 return;
             }

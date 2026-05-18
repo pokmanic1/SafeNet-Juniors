@@ -44,7 +44,7 @@ export const salveazaJocPassword = async (joc) => {
             ...joc,
             creatLa: serverTimestamp()
         });
-        console.log("Jocul a fost salvat în Firestore!");
+        //console.log("Jocul a fost salvat în Firestore!");
     } catch (error) {
         console.error("Eroare la salvare:", error);
     }
@@ -82,7 +82,7 @@ export const stergeJocPassword = async (jocId) => {
     if (!user) return;
     try {
         await deleteDoc(doc(db, "users", user.uid, "jocuri_password", jocId));
-        console.log("Jocul a fost șters!");
+        //console.log("Jocul a fost șters!");
     } catch (error) {
         console.error("Eroare la ștergere:", error);
     }
@@ -229,7 +229,7 @@ function genereazaHTML(jocuri) {
             localStorage.setItem('conditiiProfesori', JSON.stringify(joc.reguli));
             window.location.href = "../../pages/game-page/password-game-page/password-game.html";
         } else {
-            console.log('Jocul nu a fost găsit.');
+            //console.log('Jocul nu a fost găsit.');
         }
     });
 
