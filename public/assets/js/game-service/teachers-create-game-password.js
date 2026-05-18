@@ -1,3 +1,11 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Istoricul jocului password
+//Fierbase si genereare HTML
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection,
@@ -9,12 +17,21 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "../../../index.html";
-    }
-});
+// onAuthStateChanged(auth, (user) => {
+//     if (!user) {
+//         window.location.href = "../../../index.html";
+//     }
+// });
 
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Salveaza jocul in baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const salveazaJocPassword = async (joc) => {
     const user = auth.currentUser;
     if (!user) {
@@ -33,6 +50,14 @@ export const salveazaJocPassword = async (joc) => {
     }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Ia toate jocurile din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const getToateJocurilePassword = async () => {
     const user = auth.currentUser;
     if (!user) return [];
@@ -46,6 +71,12 @@ export const getToateJocurilePassword = async () => {
     }
 };
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Sterge jocul din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const stergeJocPassword = async (jocId) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -62,10 +93,17 @@ if (!container) {
     console.error("Containerul pentru jocuri nu a fost găsit!");
 }
 
-let listaJocuriGlobal = [];
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Generearea de HTML
+//----------------------------------------------------------------------------------------------------------------------
+let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
-   
+
 
     if (!container) {
         console.warn("Anulare generare HTML: .containerJocuriPassword nu a fost găsit în această pagină.");
@@ -131,6 +169,13 @@ function genereazaHTML(jocuri) {
         </div>
     </div>
 `).join('');
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Sageata care face cardul din mic in mai mare si cu mai multe detalii
+    //----------------------------------------------------------------------------------------------------------------------
     container.addEventListener('click', (e) => {
 
         const sageata = e.target.closest('.sageata');
@@ -153,6 +198,13 @@ function genereazaHTML(jocuri) {
             return;
         }
     });
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Butonul care sterge jocul din baza de date
+    //----------------------------------------------------------------------------------------------------------------------
     container.addEventListener('click', async (e) => {
         const btn = e.target.closest('.btn-sterge');
         if (!btn) return;
@@ -161,6 +213,13 @@ function genereazaHTML(jocuri) {
         btn.closest('.mb-6').remove();
     });
 
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //Butonul care salveaza jocul in local storage si te trimite catre joc cu datele alese
+    //----------------------------------------------------------------------------------------------------------------------
     container.addEventListener('click', (e) => {
         const btn = e.target.closest('.btn-joaca');
         if (!btn) return;

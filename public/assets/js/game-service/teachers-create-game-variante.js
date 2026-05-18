@@ -1,3 +1,11 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Istoricul jocului variante 
+//Fierbase si genereare HTML
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection,
@@ -9,12 +17,16 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "../../../index.html";
-    }
-});
+// onAuthStateChanged(auth, (user) => {
+//     if (!user) {
+//         window.location.href = "../../../index.html";
+//     }
+// });
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Salveaza jocul in baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const salveazaJocVariante = async (joc) => {
     const user = auth.currentUser;
     if (!user) {
@@ -33,6 +45,13 @@ export const salveazaJocVariante = async (joc) => {
     }
 };
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Ia toate jocurile din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const getToateJocurileVariante = async () => {
     const user = auth.currentUser;
     if (!user) return [];
@@ -46,6 +65,12 @@ export const getToateJocurileVariante = async () => {
     }
 };
 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Sterge jocul din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const stergeJocVariante = async (jocId) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -60,14 +85,18 @@ const container = document.getElementById("containerJocuriVariante");
 
 if (!container) {
     console.warn("containerJocuriVariante nu există pe această pagină");
-
 }
 
 
-let listaJocuriGlobal = [];
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Generearea de HTML
+//----------------------------------------------------------------------------------------------------------------------
+let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
-    if (!container) return; 
+    if (!container) return;
     if (jocuri.length === 0) {
         container.innerHTML = `
             <div class="bg-[#1a1a18] dark:bg-[#1e2035] border border-white/10 rounded-[24px] p-8 gap-[20px] flex flex-col items-center gap-5 w-full max-w-[400px] text-center relative overflow-hidden">
@@ -83,7 +112,7 @@ function genereazaHTML(jocuri) {
         `;
         return;
     }
-   container.innerHTML = jocuri.map(joc => `
+    container.innerHTML = jocuri.map(joc => `
     <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
         <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
@@ -116,8 +145,8 @@ function genereazaHTML(jocuri) {
 
             <div class="gridul-intrebari hidden grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                 ${(joc.intrebari || []).map((q, index) => {
-                    const raspunsCorect = (q.variante || []).find(v => v.raspuns === true);
-                    return `
+        const raspunsCorect = (q.variante || []).find(v => v.raspuns === true);
+        return `
                     <div class="bg-[#3a3a38] p-2 sm:p-3 rounded-lg border-l-4 border-yellow-500 hover:bg-[#454542] transition-colors">
                         <span class="text-[9px] sm:text-xs text-gray-400 uppercase font-bold">Întrebarea ${index + 1}</span>
                         <p class="text-white font-medium mt-1 text-[11px] sm:text-[13px] leading-snug">${q.intrebare}</p>
@@ -125,13 +154,16 @@ function genereazaHTML(jocuri) {
                             ${raspunsCorect ? raspunsCorect.varianta : 'N/A'}
                         </span>
                     </div>`;
-                }).join('')}
+    }).join('')}
             </div>
 
         </div>
     </div>
 `).join('');
 
+    //----------------------------------------------------------------------------------------------------------------------
+    //Sageata care face cardul din mic in mai mare si cu mai multe detalii
+    //----------------------------------------------------------------------------------------------------------------------
     container.addEventListener('click', (e) => {
 
         const sageata = e.target.closest('.sageata');
@@ -156,6 +188,9 @@ function genereazaHTML(jocuri) {
             return;
         }
 
+        //----------------------------------------------------------------------------------------------------------------------
+        //Butonul care sterge jocul din baza de date
+        //----------------------------------------------------------------------------------------------------------------------
         const btnSterge = e.target.closest('.btn-sterge');
         if (btnSterge) {
             const jocId = btnSterge.dataset.id;
@@ -164,6 +199,9 @@ function genereazaHTML(jocuri) {
             return;
         }
 
+        //----------------------------------------------------------------------------------------------------------------------
+        //Butonul care salveaza jocul in local storage si te trimite catre joc cu datele alese
+        //----------------------------------------------------------------------------------------------------------------------
         const btnJoaca = e.target.closest('.btn-joaca');
         if (btnJoaca) {
             const jocId = btnJoaca.dataset.id;
@@ -176,6 +214,9 @@ function genereazaHTML(jocuri) {
         }
     });
 }
+
+
+
 onAuthStateChanged(auth, async (user) => {
     if (!user) return;
     listaJocuriGlobal = await getToateJocurileVariante();

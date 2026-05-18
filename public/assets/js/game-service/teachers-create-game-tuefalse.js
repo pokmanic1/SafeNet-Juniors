@@ -1,3 +1,11 @@
+//----------------------------------------------------------------------------------------------------------------------
+//Istoricul jocului variante 
+//Fierbase si genereare HTML
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
 import { db, auth } from "../fierbase/firebase-init.js";
 import {
     collection,
@@ -9,15 +17,18 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "../../../index.html";
-
-    }
-});
-
+// onAuthStateChanged(auth, (user) => {
+//     if (!user) {
+//         window.location.href = "../../../index.html";
+//     }
+// });
 
 
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Salveaza jocul in baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const salveazaJocTrueFalse = async (joc) => {
     const user = auth.currentUser;
     if (!user) {
@@ -37,6 +48,14 @@ export const salveazaJocTrueFalse = async (joc) => {
     }
 };
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Ia toate jocurile din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const getToateJocurileTrueFalse = async () => {
     const user = auth.currentUser;
     if (!user) return [];
@@ -55,6 +74,10 @@ export const getToateJocurileTrueFalse = async () => {
 };
 
 
+
+//----------------------------------------------------------------------------------------------------------------------
+//Sterge jocul din baza de date
+//----------------------------------------------------------------------------------------------------------------------
 export const stergeJocTrueFalse = async (jocId) => {
     const user = auth.currentUser;
     if (!user) return;
@@ -67,10 +90,20 @@ export const stergeJocTrueFalse = async (jocId) => {
 let contorTrueFalseCreateGame = 0;
 
 const container = document.getElementById("containerJocuri");
-let listaJocuriGlobal = [];
 
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Generearea de HTML
+//----------------------------------------------------------------------------------------------------------------------
+let listaJocuriGlobal = [];
 function genereazaHTML(jocuri) {
-        if (!container) return; 
+    if (!container) return;
 
     if (jocuri.length === 0) {
         container.innerHTML = `
@@ -88,7 +121,7 @@ function genereazaHTML(jocuri) {
         return;
     }
 
-container.innerHTML = jocuri.map(joc => `
+    container.innerHTML = jocuri.map(joc => `
     <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
         <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
@@ -136,8 +169,13 @@ container.innerHTML = jocuri.map(joc => `
 `).join('');
     contorTrueFalseCreateGame = jocuri.length + 1;
 
-    container.addEventListener('click', (e) => {
 
+
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    //Sageata care face cardul din mic in mai mare si cu mai multe detalii
+    //----------------------------------------------------------------------------------------------------------------------
+    container.addEventListener('click', (e) => {
         const sageata = e.target.closest('.sageata');
         if (sageata) {
             const card = sageata.closest('.mb-6');
@@ -158,6 +196,10 @@ container.innerHTML = jocuri.map(joc => `
             return;
         }
 
+
+        //----------------------------------------------------------------------------------------------------------------------
+        //Butonul care sterge jocul din baza de date
+        //----------------------------------------------------------------------------------------------------------------------
         const btnSterge = e.target.closest('.btn-sterge');
         if (btnSterge) {
             const jocId = btnSterge.dataset.id;
@@ -166,6 +208,11 @@ container.innerHTML = jocuri.map(joc => `
             return;
         }
 
+
+
+        //----------------------------------------------------------------------------------------------------------------------
+        //Butonul care salveaza jocul in local storage si te trimite catre joc cu datele alese
+        //----------------------------------------------------------------------------------------------------------------------
         const btnJoaca = e.target.closest('.btn-joaca');
         if (btnJoaca) {
             const jocId = btnJoaca.dataset.id;
