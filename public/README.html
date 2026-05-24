@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/app.css">
+
+    <title>README</title>
+</head>
+
+<body>
+    <section class="w-full min-h-[100px] flex flex-col sm:flex-row justify-center items-center">
+        <button class="btn a w-[10%] border border-black ">Vezi documentatia</button>
+        <script>
+            const btn = document.querySelector('.btn');
+            btn.addEventListener('click', () => {
+                const sec1 = document.querySelector('.sec1');
+                const sec2 = document.querySelector('.sec2');
+
+                sec1.classList.toggle('hidden');
+                sec2.classList.toggle('hidden');
+
+                if (btn.classList.contains('a')) {
+                    btn.textContent = 'Vezi schema'
+                    btn.classList.remove('a');
+
+                }
+                else if (!btn.classList.contains('a')) {
+                    btn.textContent = 'Vezi documentatia';
+                    btn.classList.add('a');
+                }
+            });
+
+        </script>
+    </section>
+    <section class="w-full min-h-dvh flex flex-col items-center justify-center mt-[20px]">
+        <div class="sec1 w-full hidden h-dvh flex justify-center items-center">
+                <div class="w-[80%] flex justify-center items-center"> 
+                    <img src="/public/assets/img/readme/image 18.svg" class="object-center object-fit object-cover block" alt="">
+                </div>
+        </div>
+
+
+        <div class="w-full flex flex-col items-center justify-start pt-10 pb-20 px-4">
+
+    
+
+            <div class="sec2 w-full max-w-[900px] flex flex-col gap-10">
+
+                <div class="text-center pt-2">
+                    <h1 class="text-4xl font-extrabold tracking-tight mb-2">
+                        <span class="gradient-text">SafeNet Junior</span>
+                    </h1>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Platformă educațională pentru siguranța digitală
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-4">
+                    <h2
+                        class="text-lg font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest text-xs mb-1">
+                        Descriere</h2>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Proiectul SafeNet Junior are ca pagină principală <code
+                            class="bg-blue-50 dark:bg-blue-900/30 text-[#1156ea] px-1.5 py-0.5 rounded text-[13px]">index.html</code>.
+                        Din index sau din orice altă pagină, butoanele din dreapta-sus te vor duce la conectare sau
+                        înregistrare.
+                        Conectarea și înregistrarea salvează toate datele în baza de date, cu ajutorul cărora putem
+                        colecta statistici
+                        și date despre activitatea utilizatorului, pentru o experiență mai plăcută.
+                    </p>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        După conectare, butoanele de navigare dispar și apare un dashboard cu numele, emailul
+                        utilizatorului,
+                        opțiunea de ieșire din cont, modul întunecat și un buton pentru pagina claselor.
+                        Odată conectat, ai acces la toate paginile aplicației.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                    <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest mb-1">
+                        Jocuri</h2>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Primul lucru promovat în index sunt jocurile. Pagina jocurilor conține mai multe opțiuni:
+                        jocul în sine, documentația jocului și, pentru profesori, opțiunea de creare a propriului joc.
+                    </p>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Fiecare joc are o documentație pe care aplicația o promovează să o citești înainte de a începe.
+                        Dacă ai intrat în documentație, bannerul de promovare dispare, deoarece în baza de date se
+                        salvează faptul că ai citit-o.
+                    </p>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        În jocuri, contoarelor de câte ori ai câștigat și de câte ori ai încercat li se trimit în baza
+                        de date,
+                        folosite mai apoi în pagina de assessment.
+                        Profesorul poate crea un joc care se salvează imediat într-un array și, cu ajutorul funcției din
+                        <code
+                            class="bg-blue-50 dark:bg-blue-900/30 text-[#1156ea] px-1.5 py-0.5 rounded text-[13px]">class-service</code>,
+                        jocul este salvat în baza de date.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                    <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest mb-1">Clase
+                    </h2>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Al doilea lucru promovat în index sunt clasele, care funcționează diferit pentru profesori și
+                        elevi.
+                    </p>
+                    <ul class="flex flex-col gap-2 mt-1">
+                        <li class="flex gap-2 items-start text-[15px] text-gray-700 dark:text-gray-300">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-[#1156ea] flex-shrink-0"></span>
+                            <span><strong>Profesorii</strong> pot crea o clasă și pot vedea toți elevii înscriși în ea.
+                                De asemenea, pot vedea istoricul jocurilor create și le pot adăuga unei clase. Jocurile
+                                adăugate clasei sunt vizibile tuturor elevilor.</span>
+                        </li>
+                        <li class="flex gap-2 items-start text-[15px] text-gray-700 dark:text-gray-300">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                            <span><strong>Elevii</strong> pot intra într-o clasă introducând codul specific al acesteia.
+                                Ei pot vedea jocurile adăugate de profesor și le pot juca.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                    <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest mb-1">
+                        Assessment</h2>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Al treilea lucru promovat în index este secțiunea de assessment, care conține 4 carduri
+                        specifice
+                        fiecărui joc în parte și afișează statisticile unui elev.
+                    </p>
+                    <p class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+                        Din pagina de assessment poți vedea și <strong>badge-urile</strong> — realizările obținute de
+                        elev pe parcurs.
+                        Tot aici se află și <strong>questurile</strong> — misiuni pe care elevii le pot îndeplini pentru
+                        a descoperi o imagine ascunsă.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-4">
+                    <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest mb-1">
+                        Structura proiectului</h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[13px]">
+
+                        <div class="flex flex-col gap-1">
+                            <p class="font-semibold text-black dark:text-white mb-1">📁 pages/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">inregistreaza, conecteaza-te, about, games
+                            </p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 pages/assessment/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">assessment, badge, quest</p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 pages/dashboard/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">dashboard, dashboard-elevi,
+                                dashboard-shuffle, dashboard-true-false, dashboard-password, dashboard-variante</p>
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <p class="font-semibold text-black dark:text-white mb-1">📁 pages/game-pages/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">shuffle-game-page, true-false-game-page,
+                                password-game-page, variante-game-page</p>
+                            <p class="text-gray-400 dark:text-gray-500 pl-3 mt-1 text-[12px]">Fiecare folder conține:
+                                joc, documentație, teachers</p>
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <p class="font-semibold text-black dark:text-white mb-1">📁 assets/js/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">main, loading-screen</p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 js/assessment/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">assessment, badge, quest</p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 js/modules/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">shuffle, true-false-game, password-game,
+                                variante</p>
+                            <p class="text-gray-400 dark:text-gray-500 pl-3 mt-1 text-[12px]">+ date-jocuri/ (shuffle,
+                                variante, true-false) + teachers/</p>
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <p class="font-semibold text-black dark:text-white mb-1">📁 js/firebase/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">auth, firebase-init</p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 js/game-service/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">teachers-create-game-password,
+                                teachers-create-game-shuffle, teachers-create-game-truefalse,
+                                teachers-create-game-variante</p>
+                            <p class="font-semibold text-black dark:text-white mt-2 mb-1">📁 assets/</p>
+                            <p class="text-gray-500 dark:text-gray-400 pl-3">css/, js/, images/, video/</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div
+                        class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                        <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest">Canva
+                        </h2>
+                        <p class="text-[13px] text-gray-500 dark:text-gray-400">Link prezentare / design Canva</p>
+                        <a href="#" target="_blank"
+                            class="mt-auto inline-flex items-center justify-center gap-2 btn-primary text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            Deschide Canva
+                        </a>
+                    </div>
+
+                    <div
+                        class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                        <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest">Figma
+                        </h2>
+                        <p class="text-[13px] text-gray-500 dark:text-gray-400">Link design / prototip Figma</p>
+                        <a href="#" target="_blank"
+                            class="mt-auto inline-flex items-center justify-center gap-2 btn-primary text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            Deschide Figma
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
