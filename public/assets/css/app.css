@@ -4222,6 +4222,11 @@
       border-color: color-mix(in oklab, #EBF6FF 30%, transparent);
     }
   }
+  .dark\:border-black {
+    &:where(.dark, .dark *) {
+      border-color: var(--color-black);
+    }
+  }
   .dark\:border-blue-800 {
     &:where(.dark, .dark *) {
       border-color: var(--color-blue-800);

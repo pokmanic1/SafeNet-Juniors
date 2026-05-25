@@ -99,7 +99,7 @@ function genereazaHTML(jocuri) {
     if (!container) return;
     if (jocuri.length === 0) {
         container.innerHTML = `
-            <div class="bg-[#1a1a18] dark:bg-[#1e2035] border border-white/10 rounded-[24px] p-8 gap-[20px] flex flex-col items-center gap-5 w-full max-w-[400px] text-center relative overflow-hidden">
+            <div class="bg-[#1a1a18] dark:bg-[#1e2035] rounded-[24px] p-8 gap-[20px] flex flex-col items-center gap-5 w-full max-w-[400px] text-center relative overflow-hidden">
                 <div class="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[250px] h-[250px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
                 <p class="text-gray-400 text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-sm uppercase tracking-widest font-semibold">Niciun joc salvat</p>
                 <h3 class="text-white   text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-extrabold text-xl leading-snug">Nu ai creat niciun<br>joc de tip Variante</h3>
@@ -113,7 +113,7 @@ function genereazaHTML(jocuri) {
         return;
     }
     container.innerHTML = jocuri.map(joc => `
-    <div class="flex flex-col md:flex-row bg-[#30302E] border-2 border-gray-600 rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
+    <div class="flex flex-col md:flex-row bg-[#30302E]  rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
         <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
             <img src="../../assets/img/backgrounds/variante-game-bg1.png" 
