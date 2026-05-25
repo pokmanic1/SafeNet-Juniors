@@ -137,8 +137,8 @@ function genereazaHTML(jocuri) {
             
             <div class="ptborderb flex items-center justify-between gap-2 pb-[2px]">
                 
-                <img class="sageata cursor-pointer transition-transform duration-300 block w-[22px] h-[22px] md:w-[30px] md:h-[30px] my-auto flex-shrink-0" 
-                    src="../../assets/img/img-assasment/Sageata_stanga.png" alt="toggle">
+                <img class="sageata cursor-pointer transition-transform duration-300 opacity-75 block w-[22px] h-[22px] md:w-[30px] md:h-[30px] my-auto flex-shrink-0" 
+                    src='/public/assets/img/img-assasment/sageata-pt-darkmode.png' alt="toggle">
 
                 <h2 class="flex-1 min-w-0 text-[12px] sm:text-[15px] lg:text-[18px] font-bold text-yellow-500 uppercase tracking-wider truncate">
                     ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli
