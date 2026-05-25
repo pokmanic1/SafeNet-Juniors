@@ -101,7 +101,7 @@ function buildHeader() {
 function buildFooter() {
   const footer = `
           <section
-    class="flex flex-col items-center justify-center w-full bg-white border-t dark:bg-[#1A1C26] subsol dark:border-[#4C5074]">
+    class="flex flex-col items-center justify-center w-full bg-white  dark:bg-[#1A1C26] subsol ">
     <div class="w-[85%] mx-auto px-2 md:px-[100px] py-16">
 
       <div class="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">

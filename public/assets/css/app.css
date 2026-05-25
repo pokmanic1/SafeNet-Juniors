@@ -1983,6 +1983,9 @@
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
+  .py-\[2px\] {
+    padding-block: 2px;
+  }
   .py-\[4px\] {
     padding-block: 4px;
   }
@@ -2031,11 +2034,20 @@
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
+  .pt-\[0px\] {
+    padding-top: 0px;
+  }
   .pt-\[8px\] {
     padding-top: 8px;
   }
+  .pt-\[20px\] {
+    padding-top: 20px;
+  }
   .pt-\[40px\] {
     padding-top: 40px;
+  }
+  .pt-\[50px\] {
+    padding-top: 50px;
   }
   .pt-\[80px\] {
     padding-top: 80px;
