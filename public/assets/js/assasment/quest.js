@@ -6,7 +6,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Timpul dupa care se reseteaza questurile
 //----------------------------------------------------------------------------------------------------------------------
-const QUEST_RESET_MS = 50000;
+const QUEST_RESET_MS =  5*60*1000;
 
 
 
@@ -18,26 +18,34 @@ const QUEST_RESET_MS = 50000;
 const arrSetsDeQuesturi = [
     {
         questuri: [
-            { id: 'quest_truefalse_7', nr: 1, text: 'Câștigă Adevărat sau Fals cu cel puțin 7 răspunsuri corecte' },
-            { id: 'quest_variante_8', nr: 2, text: 'Câștigă Răspunde Corect cu cel puțin 8 puncte' },
+            { id: 'quest_truefalse_7_lvl_3', nr: 1, text: 'Câștigă Adevărat sau Fals cu cel puțin 7 răspunsuri corecte la nivelul 3' },
+            { id: 'quest_variante_8_lvl_3', nr: 2, text: 'Câștigă Răspunde Corect cu cel puțin 7 puncte la nivelul 3' },
             { id: 'quest_shuffle_90', nr: 3, text: 'Completează Potrivește Perechile în sub 90 de secunde' },
-            { id: 'quest_password_60', nr: 4, text: 'Completează Creează Parola în sub 60 de secunde' },
+            { id: 'quest_password_70_lvl_3', nr: 4, text: 'Completează Creează Parola în sub 70 de secunde la nivelul 3' },
         ]
     },
     {
         questuri: [
-            { id: 'quest_truefalse_7', nr: 1, text: 'Răspunde corect la 7 întrebări în jocul Adevărat sau Fals' },
-            { id: 'quest_variante_8', nr: 2, text: 'Obține 8 puncte la jocul cu variante de răspuns' },
-            { id: 'quest_shuffle_90', nr: 3, text: 'Găsește toate perechile în mai puțin de 1 minut și 30 secunde' },
+            { id: 'quest_truefalse_lvl_2', nr: 1, text: 'Răspunde corect la 7 întrebări în jocul Adevărat sau Fals la nivelul 2' },
+            { id: 'quest_variante_lvl_2', nr: 2, text: 'Obține 8 puncte la jocul cu variante de răspuns nivelul 2' },
+            { id: 'quest_shuffle_120_lvl_3', nr: 3, text: 'Găsește toate perechile în mai puțin de 2 minut la nivelul 3' },
             { id: 'quest_password_60', nr: 4, text: 'Creează o parolă corectă în mai puțin de un minut' },
+        ]
+    },
+    {
+        questuri: [
+            { id: 'quest_truefalse_lvl_4', nr: 1, text: 'Fii atent! Câștigă True/False la nivelul 4' },
+            { id: 'quest_variante_lvl_4', nr: 2, text: 'Demonstrează că știi! jocul Variante la nivelul 4' },
+            { id: 'quest_shuffle_80_lvl_2', nr: 3, text: 'Memorie rapidă — termină Shuffle în sub 1 minuta si 20 secunde la nivelul 2' },
+            { id: 'quest_password_45_lvl_2', nr: 4, text: 'Viteză și precizie — parola corectă în sub 45 secunde la nivelul 2' },
         ]
     },
     {
         questuri: [
             { id: 'quest_truefalse_7', nr: 1, text: 'Fii atent! Câștigă True/False cu 7 sau mai multe corecte' },
             { id: 'quest_variante_8', nr: 2, text: 'Demonstrează că știi! 8 puncte la jocul Variante' },
-            { id: 'quest_shuffle_90', nr: 3, text: 'Memorie rapidă — termină Shuffle în sub 90 secunde' },
-            { id: 'quest_password_60', nr: 4, text: 'Viteză și precizie — parola corectă în sub 60 secunde' },
+            { id: 'quest_shuffle_lvl_4', nr: 3, text: 'Memorie rapidă — termină Shuffle la nivelul 4' },
+            { id: 'quest_password_lvl_4', nr: 4, text: 'Viteză și precizie — parola corectă la nivelul 4' },
         ]
     }
 ];

@@ -48,7 +48,7 @@ onAuthStateChanged(auth, async (user) => {
         const vizitat_variante_game = data.documentationVisits?.variante;
         const counters = data.gameCounters || {};
 
-        contor_assasment_corecte  = counters.variante_corecte  || 0;
+        contor_assasment_corecte = counters.variante_corecte || 0;
         contor_assasment_incercari = counters.variante_incercari || 0;
 
         if (!vizitat_variante_game) {
@@ -100,11 +100,11 @@ selectNivel.addEventListener('change', (event) => {
         //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 3) {
-        arr = arr3; 
+        arr = arr3;
         //console.log("nivelul a fost schimbat");
 
     } else if (nivelul == 4) {
-        arr = arr4; 
+        arr = arr4;
         //console.log("nivelul a fost schimbat");
 
     }
@@ -231,6 +231,31 @@ function genereazaHTML() {
             contor_assasment_incercari++;
         }
 
+
+
+        if (contorCorect > 6 && nivelul == 3) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_variante_8_lvl_3', 'true');
+            // --------------------
+        }
+        if (contorCorect > 7 && nivelul == 2) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_variante_lvl_2', 'true');
+            // --------------------
+        }
+        if (nivelul == 4) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_variante_lvl_4', 'true');
+            // --------------------
+        }
+
+
+
+
+
+
+
+
         const modal = document.getElementById("finalModal");
         modal.classList.remove("hidden");
 
@@ -299,7 +324,7 @@ butonRestart.addEventListener('click', () => {
 //----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
-    
+
     const modal = document.getElementById("finalModal");
     modal.classList.add("hidden");
 

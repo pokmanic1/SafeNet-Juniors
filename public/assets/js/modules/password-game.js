@@ -18,7 +18,7 @@ import {
 //----------------------------------------------------------------------------------------------------------------------
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        const DacaNuSaConectat=document.getElementById("dacaNuSaConectat");
+        const DacaNuSaConectat = document.getElementById("dacaNuSaConectat");
         DacaNuSaConectat.classList.remove("hidden");
     }
 });
@@ -49,17 +49,17 @@ onAuthStateChanged(auth, async (user) => {
         const vizitat_password_game = data.documentationVisits?.password;
         const counters = data.gameCounters || {};
 
-        contor_assasment_corecte  = counters.password_corecte  || 0;
+        contor_assasment_corecte = counters.password_corecte || 0;
         contor_assasment_incercari = counters.password_incercari || 0;
 
         if (!vizitat_password_game) {
             // window.location.href = "../../../pages/assessment.html";
-            const DacaNuAVizitatDocu= document.getElementById("dacaNuACititDocum");
+            const DacaNuAVizitatDocu = document.getElementById("dacaNuACititDocum");
             DacaNuAVizitatDocu.classList.remove("hidden");
         }
     }
 });
-    
+
 
 
 
@@ -88,51 +88,51 @@ dateSalvate.forEach(element => {
 
     switch (element.conditie) {
         case "Să conțină un număr":
-            obj.validate = (password) => /\d/.test(password); 
+            obj.validate = (password) => /\d/.test(password);
             break;
 
         case "Să conțină un cuvânt specific":
-            obj.validate = (password) => password.includes(element.valoare); 
+            obj.validate = (password) => password.includes(element.valoare);
             break;
 
         case "Să aibă un număr minim de caractere":
-            obj.validate = (password) => password.length >= parseInt(element.valoare); 
+            obj.validate = (password) => password.length >= parseInt(element.valoare);
             break;
 
         case "Să conțină o literă mare":
-            obj.validate = (password) => /[A-Z]/.test(password); 
+            obj.validate = (password) => /[A-Z]/.test(password);
             break;
 
         case "Să conțină un caracter special":
-            obj.validate = (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password); 
+            obj.validate = (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password);
             break;
 
         case "Să aibă un număr minim de cifre":
-            obj.validate = (password) => (password.match(/\d/g) || []).length >= parseInt(element.valoare); 
+            obj.validate = (password) => (password.match(/\d/g) || []).length >= parseInt(element.valoare);
             break;
 
         case "Să nu conțină spații":
-            obj.validate = (password) => !password.includes(" "); 
+            obj.validate = (password) => !password.includes(" ");
             break;
 
         case "Să aibă lungime pară":
-            obj.validate = (password) => password.length % 2 === 0; 
+            obj.validate = (password) => password.length % 2 === 0;
             break;
 
         case "Să aibă lungime impară":
-            obj.validate = (password) => password.length % 2 !== 0; 
+            obj.validate = (password) => password.length % 2 !== 0;
             break;
 
-        case "Să conțină un număr specific": 
-            obj.validate = (password) => password.includes(element.valoare); 
+        case "Să conțină un număr specific":
+            obj.validate = (password) => password.includes(element.valoare);
             break;
 
         case "Sa contine o litera specifica":
-            obj.validate = (password) => password.includes(element.valoare); 
+            obj.validate = (password) => password.includes(element.valoare);
             break;
 
         default:
-            obj.validate = (password) => true; 
+            obj.validate = (password) => true;
     }
 
     newArrConditii1.push(obj);
@@ -153,32 +153,32 @@ const Conditii1 = [
         validate: (password) => password.length >= 8
     },
     {
-    
+
         text: "Conține o literă mare",
         validate: (password) => /[A-Z]/.test(password)
     },
     {
-    
+
         text: "Conține o cifră",
         validate: (password) => /\d/.test(password)
     },
     {
-    
+
         text: "Conține un caracter special",
         validate: (password) => /[!@#$%^&*]/.test(password)
     },
     {
-    
+
         text: "Conține cuvântul 'safe'",
         validate: (password) => password.includes("safe")
     },
     {
-    
+
         text: "Are cel puțin 2 cifre",
         validate: (password) => (password.match(/\d/g) || []).length >= 2
     },
     {
-    
+
         text: "Nu conține spații",
         validate: (password) => !password.includes(" ")
     },
@@ -192,7 +192,7 @@ const Conditii1 = [
         validate: (password) => password.length % 2 === 0
     },
     {
-        
+
         text: "Conține '2024'",
         validate: (password) => password.includes("2024")
     }
@@ -210,10 +210,12 @@ const Conditii2 = [
 const Conditii3 = [
     { text: "Minim 12 caractere", validate: (p) => p.length >= 12 },
     { text: "Conține un număr prim de o cifră (2, 3, 5 sau 7)", validate: (p) => /[2357]/.test(p) },
-    { text: "Suma primelor două cifre din parolă este 10", validate: (p) => {
-        const digits = p.match(/\d/g);
-        return digits && digits.length >= 2 && (parseInt(digits[0]) + parseInt(digits[1]) === 10);
-    }},
+    {
+        text: "Suma primelor două cifre din parolă este 10", validate: (p) => {
+            const digits = p.match(/\d/g);
+            return digits && digits.length >= 2 && (parseInt(digits[0]) + parseInt(digits[1]) === 10);
+        }
+    },
     { text: "Conține o culoare (rosu, verde, albastru)", validate: (p) => /(rosu|verde|albastru|galben|negru|alb)/i.test(p) },
     { text: "Include un an din secolul 21 (2000-2099)", validate: (p) => /20\d{2}/.test(p) },
     { text: "Conține cel puțin 2 litere mari", validate: (p) => (p.match(/[A-Z]/g) || []).length >= 2 },
@@ -236,39 +238,36 @@ const Conditii4 = [
 //----------------------------------------------------------------------------------------------------------------------
 //Nivelul selectat de utilizator
 //----------------------------------------------------------------------------------------------------------------------
-let numarDeConditii=4;
+let numarDeConditii = 4;
 let interval;
 const selectNivel = document.querySelector(".nivelul");
 let nivelul = 1;
-let Conditii = [...Conditii1]; 
+let Conditii = [...Conditii1];
 let totalSecondsElapsed = 0;
 selectNivel.addEventListener('change', (event) => {
     nivelul = parseInt(event.target.value);
-    
-    if (nivelul == 1) { 
-        Conditii = [...Conditii1]; 
-        numarDeConditii = 4; 
-    } 
-    else if (nivelul == 2) { 
-        Conditii = [...Conditii2]; 
-        numarDeConditii = 5; 
-    } 
-    else if (nivelul == 3) { 
-        Conditii = [...Conditii3]; 
-        numarDeConditii = 6; 
-    } 
-    else if (nivelul == 4) { 
-        Conditii = [...Conditii4]; 
-        numarDeConditii = 7; 
+
+    if (nivelul == 1) {
+        Conditii = [...Conditii1];
+        numarDeConditii = 4;
+    }
+    else if (nivelul == 2) {
+        Conditii = [...Conditii2];
+        numarDeConditii = 5;
+    }
+    else if (nivelul == 3) {
+        Conditii = [...Conditii3];
+        numarDeConditii = 6;
+    }
+    else if (nivelul == 4) {
+        Conditii = [...Conditii4];
+        numarDeConditii = 7;
     }
 
-    restart(); 
+    restart();
     clearInterval(interval);
     pornesteCeas(0, 0);
 });
-
-
-
 
 
 
@@ -280,13 +279,13 @@ selectNivel.addEventListener('change', (event) => {
 //3)in newArr introducem doar nr exac de conditii care ne trebuie
 //  arr care l-am atribuit mai sus are multe conditii si alegem doar 10 din ele
 //----------------------------------------------------------------------------------------------------------------------
-let newArrConditii=[];
-let arrIndex=[];
+let newArrConditii = [];
+let arrIndex = [];
 creareArr();
 function creareArr() {
     if (newArrConditii1.length === 0) {
         //console.log("Generăm condiții aleatorii...");
-        for (let i = 0; i < numarDeConditii; i++) { 
+        for (let i = 0; i < numarDeConditii; i++) {
             let nr;
             let adv = true;
             while (adv) {
@@ -304,7 +303,7 @@ function creareArr() {
             }
             newArrConditii.push(Conditii[nr]);
         }
-    } 
+    }
     else {
         //console.log("Folosim condițiile profesorului.");
         newArrConditii = [...newArrConditii1];
@@ -326,7 +325,7 @@ function afisareConditii() {
         const div = document.createElement("div");
 
         div.id = "conditie-" + index;
-        
+
         div.className = `
             py-[16px]
             //border-2
@@ -375,7 +374,7 @@ function verificaParola(password) {
             element.classList.add("shadow-[0_0_15px_#22C55E]");
             completate++;
 
-        } else {    
+        } else {
 
             element.classList.remove("bg-[#22C55E]");
             element.classList.add("bg-[#1156EA]");
@@ -392,38 +391,66 @@ function verificaParola(password) {
             </div>
         `);
 
-            if (totalSecondsElapsed < 60) { 
-                contor_assasment_corecte++;
-                contor_assasment_incercari++;
+        console.log('nivelul')
+        console.log('nivelul')
+        console.log('nivelul')
+        console.log('nivelul')
+        console.log('nivelul')
+        console.log(nivelul)
 
-                // ---- FLAG QUEST ----
-                localStorage.setItem('quest_password_60', 'true');
-                // --------------------
 
-            } else {
-                contor_assasment_incercari++;  
+        if (totalSecondsElapsed < 60) {
+            contor_assasment_corecte++;
+            contor_assasment_incercari++;
+
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_password_60', 'true');
+            // --------------------
+
+        } else {
+            contor_assasment_incercari++;
+        }
+
+
+
+        if (totalSecondsElapsed < 70 && nivelul==3) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_password_70_lvl_3', 'true');
+            // --------------------
+        }
+        if (totalSecondsElapsed < 45 && nivelul==2) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_password_45_lvl_2', 'true');
+            // --------------------
+        }
+        if (nivelul==4) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_password_lvl_4', 'true');
+            // --------------------
+        }
+
+       
+        const modal = document.getElementById("finalModal");
+        modal.classList.remove("hidden");
+
+        document.getElementById("scorFinal").innerText = `${newArrConditii.length} / ${newArrConditii.length}`;
+        document.getElementById("nivelFinal").innerText = nivelul;
+        document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
+
+        if (_currentUser) {
+            const userRef = doc(db, "users", _currentUser.uid);
+            const updateObj = { "gameCounters.password_incercari": increment(1) };
+            if (totalSecondsElapsed < 60) {
+                updateObj["gameCounters.password_corecte"] = increment(1);
             }
-            const modal = document.getElementById("finalModal");
-            modal.classList.remove("hidden");
-
-            document.getElementById("scorFinal").innerText = `${newArrConditii.length} / ${newArrConditii.length}`;
-            document.getElementById("nivelFinal").innerText = nivelul;
-            document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
-
-            if (_currentUser) {
-                const userRef = doc(db, "users", _currentUser.uid);
-                const updateObj = { "gameCounters.password_incercari": increment(1) };
-                if (totalSecondsElapsed < 60) {
-                    updateObj["gameCounters.password_corecte"] = increment(1);
-                }
-                updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase password:", err));
-            }
+            updateDoc(userRef, updateObj).catch(err => console.error("Eroare Firebase password:", err));
+        }
 
 
 
         clearInterval(interval);
         input.disabled = true;
-            
+
     }
 
 }
@@ -436,7 +463,7 @@ function verificaParola(password) {
 //----------------------------------------------------------------------------------------------------------------------
 //butonul restart 
 //----------------------------------------------------------------------------------------------------------------------
-document.querySelector('.restart').addEventListener('click',function (){
+document.querySelector('.restart').addEventListener('click', function () {
     restart();
 })
 
@@ -446,7 +473,7 @@ document.querySelector('.restart').addEventListener('click',function (){
 //----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart1').addEventListener('click', function () {
     restart();
-    
+
     const modal = document.getElementById("finalModal");
     modal.classList.add("hidden");
 
@@ -463,7 +490,7 @@ document.querySelector('.restart1').addEventListener('click', function () {
 //opreste cronometru
 //si incepe jocul din nou
 //----------------------------------------------------------------------------------------------------------------------
-let contor=0;   
+let contor = 0;
 function restart() {
     const win = document.querySelector('#winMessage');
     if (win) {
@@ -472,17 +499,17 @@ function restart() {
 
     container.innerHTML = "";
     input.disabled = false;
-    input.value = ""; 
+    input.value = "";
     localStorage.removeItem("conditiiProfesori");
 
     contor = 0;
     newArrConditii = [];
     arrIndex = [];
-    
-    newArrConditii1 = []; 
+
+    newArrConditii1 = [];
 
     creareArr();
-    
+
     afisareConditii();
     clearInterval(interval);
     pornesteCeas(0, 0);
@@ -509,8 +536,8 @@ input.addEventListener("input", (e) => {
 //cu aceasta se porneste tot 
 //----------------------------------------------------------------------------------------------------------------------
 function initializare() {
-afisareConditii();
-pornesteCeas(0, 0);
+    afisareConditii();
+    pornesteCeas(0, 0);
 }
 initializare();
 

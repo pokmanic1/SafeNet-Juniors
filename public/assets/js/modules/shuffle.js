@@ -50,7 +50,7 @@ onAuthStateChanged(auth, async (user) => {
         const counters = data.gameCounters || {};
 
         // Citim contoarele din Firebase
-        contor_assasment_corecte  = counters.shuffle_corecte  || 0;
+        contor_assasment_corecte = counters.shuffle_corecte || 0;
         contor_assasment_incercari = counters.shuffle_incercari || 0;
 
         //console.log("Datele utilizatorului vizitat_shuffle_game:", vizitat_shuffle_game);
@@ -317,6 +317,25 @@ function match() {
         } else {
             contor_assasment_incercari++;
         }
+
+        if (totalSecondsElapsed < 120 && nivelul == 3) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_shuffle_120_lvl_3', 'true');
+            // --------------------
+        }
+        if (totalSecondsElapsed < 80 && nivelul == 2) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_shuffle_80_lvl_2', 'true');
+            // --------------------
+        }
+        if (nivelul == 4) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_shuffle_lvl_4', 'true');
+            // --------------------
+        }
+
+
+
 
         if (_currentUser) {
             const userRef = doc(db, "users", _currentUser.uid);

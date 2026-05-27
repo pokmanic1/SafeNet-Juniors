@@ -236,6 +236,35 @@ function genereazaHTML() {
         else {
             contor_assasment_incercari++;
         }
+
+
+
+        if (contorCorect > 6 && nivelul == 3) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_truefalse_7_lvl_3', 'true');
+            // --------------------
+        }
+        if (contorCorect > 6 && nivelul == 2) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_truefalse_lvl_2', 'true');
+            // --------------------
+        }
+        if (nivelul == 4) {
+            // ---- FLAG QUEST ----
+            localStorage.setItem('quest_truefalse_lvl_4', 'true');
+            // --------------------
+        }
+
+
+
+
+
+
+
+
+
+
+
         if (_currentUser) {
             const userRef = doc(db, "users", _currentUser.uid);
             const updateObj = { "gameCounters.truefalse_incercari": increment(1) };
