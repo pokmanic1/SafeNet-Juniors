@@ -1,12 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Pagina questuri
 //----------------------------------------------------------------------------------------------------------------------
- 
+
 
 //----------------------------------------------------------------------------------------------------------------------
 //Timpul dupa care se reseteaza questurile
 //----------------------------------------------------------------------------------------------------------------------
-const QUEST_RESET_MS =  60*60*1000;
+const QUEST_RESET_MS = 24 * 60 * 60 * 1000;
 
 
 
@@ -98,11 +98,11 @@ function randeaza() {
                                     : 'bg-gray-100 dark:bg-white/5 border-3 border-blue-600 '}">
                 <div class="w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center text-sm font-bold
                             ${completat ? cfg.culoare + ' text-white'
-                                        : 'bg-gray-300 dark:bg-white/20 text-gray-600 dark:text-gray-300'}">
+                                    : 'bg-gray-300 dark:bg-white/20 text-gray-600 dark:text-gray-300'}">
                             ${completat ? '✓' : q.nr}
                 </div>
                 <p class="text-sm leading-snug ${completat ? 'text-green-700 dark:text-green-300 opacity-70'
-                                                            : 'text-black dark:text-white'}">
+                                    : 'text-black dark:text-white'}">
                     ${q.text}
                 </p>
             </div>
@@ -115,7 +115,7 @@ function randeaza() {
         const cfg = sfert_config[i];
         sferturiHTML += `
             <div id="${cfg.sfert}"
-                 class="absolute w-[50%] h-[50%] ${cfg.culoare} ${cfg.pozitie} transition-all duration-700
+                    class="absolute w-[50%] h-[50%] ${cfg.culoare} ${cfg.pozitie} transition-all duration-700
                         ${completat ? 'opacity-0 pointer-events-none' : 'opacity-100'}">
             </div>
         `;
@@ -124,8 +124,8 @@ function randeaza() {
     document.querySelector('.questuri-side').innerHTML = htmlQuesturi;
     document.querySelector('.pazzle-side').innerHTML = `
         <img src="${IMAGINE}" alt="Quest"
-             class="absolute inset-0 w-full h-full object-cover rounded-full"
-             onerror="this.style.opacity='0'">
+                class="absolute inset-0 w-full h-full object-cover rounded-full"
+                onerror="this.style.opacity='0'">
         ${sferturiHTML}
     `;
 }
@@ -142,10 +142,10 @@ function pornesteCeas() {
 
     interval = setInterval(function () {
         const ramas = QUEST_RESET_MS - (Date.now() - parseInt(localStorage.getItem('quest_reset_at')));
-        const minute = Math.floor(ramas / 60000);
+        const ore = Math.floor(ramas / 3600000);
+        const minute = Math.floor((ramas % 3600000) / 60000);
         const secunde = Math.floor((ramas % 60000) / 1000);
-
-        timerEl.textContent = 'Reset in: ' + String(minute).padStart(2, '0') + ':' + String(secunde).padStart(2, '0');
+        timerEl.textContent = 'Reset in: ' + String(ore).padStart(2, '0') + ':' + String(minute).padStart(2, '0') + ':' + String(secunde).padStart(2, '0');
 
         if (ramas <= 0) {
             clearInterval(interval);
@@ -167,11 +167,12 @@ function pornesteCeas() {
     }, 1000);
 }
 
-
 //----------------------------------------------------------------------------------------------------------------------
 //verifica daca timpul sa terminat
 //---------------------------------------------------------------------------------------------------------------------
-if (QUEST_RESET_MS - (Date.now() - parseInt(localStorage.getItem('quest_reset_at'))) <= 0) {
+const timpRamas = QUEST_RESET_MS - (Date.now() - parseInt(localStorage.getItem('quest_reset_at')));
+
+if (timpRamas <= 0) {
     setActiv.forEach(function (q) { localStorage.removeItem(q.id); });
 
     localStorage.setItem('quest_reset_at', Date.now().toString());
