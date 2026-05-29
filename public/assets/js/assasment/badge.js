@@ -9,153 +9,7 @@ import { auth } from "../fierbase/firebase-init.js";
 
 
 
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-// variabilile badgurilor
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-let Bronze = '/public/assets/img/img-assasment/badge/bronze 1.svg';
-let Silver = '/public/assets/img/img-assasment/badge/silver 1.svg';
-let Gold = '/public/assets/img/img-assasment/badge/gold 1.svg';
-let Diamond = '/public/assets/img/img-assasment/badge/diamond 1.svg';
-let Legend = '/public/assets/img/img-assasment/badge/legend 1.svg';
-let Super = '/public/assets/img/img-assasment/badge/super 1.svg';
-
-// =======================
-// PASSWORD
-// =======================
-
-let BronzePassword = '/public/assets/img/img-assasment/badge/BadgePassword (2).png';
-let SilverPassword = '/public/assets/img/img-assasment/badge/BadgePassword (3).png';
-let GoldPassword = '/public/assets/img/img-assasment/badge/BadgePassword (4).png';
-let DiamondPassword = '/public/assets/img/img-assasment/badge/BadgePassword (5).png';
-let LegendPassword = '/public/assets/img/img-assasment/badge/BadgePassword (6).png';
-let SuperPassword = '/public/assets/img/img-assasment/badge/BadgePassword (1).png';
-
-
-// =======================
-// SHUFFLE
-// =======================
-
-let BronzeShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (2).png';
-let SilverShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (3).png';
-let GoldShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (4).png';
-let DiamondShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (5).png';
-let LegendShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (6).png';
-let SuperShuffle = '/public/assets/img/img-assasment/badge/BadgeShufle (1).png';
-
-
-// =======================
-// TRUE FALSE
-// =======================
-
-let BronzeTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (2).png';
-let SilverTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (3).png';
-let GoldTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (4).png';
-let DiamondTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (5).png';
-let LegendTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (6).png';
-let SuperTrueFalse = '/public/assets/img/img-assasment/badge/BadgeTrueFalse (1).png';
-
-
-// =======================
-// VARIANTE
-// =======================
-
-let BronzeVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (1).png';
-let SilverVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (2).png';
-let GoldVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (3).png';
-let DiamondVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (4).png';
-let LegendVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (5).png';
-let SuperVariante = '/public/assets/img/img-assasment/badge/BadgeVariante (6).png';
-
-// let arrBadge = badgeData;
-// console.log('arrBadge');
-// console.log(arrBadge);
-
-//----------------------------------------------------------------------------------------------------------------------
-// Arr cu date badgurilor
-//----------------------------------------------------------------------------------------------------------------------
 let arrBadge = [
-    // 0 — Documentatie vizitata
-    [
-        { tip: 'Joc Shuffle Documentatia', rank: 'Super', rankImg: SuperShuffle, cerinta: 'Citeste documentatia jocului Shuffle', descriere: 'Ai citit documentatia jocului Shuffle', prag: 0 },
-        { tip: 'Joc Adevarat-Fals Documentatia', rank: 'Super', rankImg: SuperTrueFalse, cerinta: 'Citeste documentatia jocului Adevarat-Fals', descriere: 'Ai citit documentatia jocului Adevarat-Fals', prag: 0 },
-        { tip: 'Joc Password  Documentatia', rank: 'Super', rankImg: SuperPassword, cerinta: 'Citeste documentatia jocului Password', descriere: 'Ai citit documentatia jocului Password', prag: 0 },
-        { tip: 'Joc Variante Documentatia', rank: 'Super', rankImg: SuperVariante, cerinta: 'Citeste documentatia jocului Variante', descriere: 'Ai citit documentatia jocului Variante', prag: 0 },
-    ],
-
-    // 1 — SHUFFLE COMPLETAT
-    [
-        { tip: 'Joc Shuffle', rank: 'Bronze', rankImg: BronzeShuffle, cerinta: 'Completează jocul Shuffle de 5 ori', descriere: 'Ai completat jocul Shuffle de 5 ori', prag: 5 },
-        { tip: 'Joc Shuffle', rank: 'Silver', rankImg: SilverShuffle, cerinta: 'Completează jocul Shuffle de 10 ori', descriere: 'Ai completat jocul Shuffle de 10 ori', prag: 10 },
-        { tip: 'Joc Shuffle', rank: 'Gold', rankImg: GoldShuffle, cerinta: 'Completează jocul Shuffle de 20 de ori', descriere: 'Ai completat jocul Shuffle de 20 de ori', prag: 20 },
-        { tip: 'Joc Shuffle', rank: 'Diamond', rankImg: DiamondShuffle, cerinta: 'Completează jocul Shuffle de 30 de ori', descriere: 'Ai completat jocul Shuffle de 30 de ori', prag: 30 },
-        { tip: 'Joc Shuffle', rank: 'Legend', rankImg: LegendShuffle, cerinta: 'Completează jocul Shuffle de 50 de ori', descriere: 'Ai completat jocul Shuffle de 50 de ori', prag: 50 },
-    ],
-
-    // 2 — SHUFFLE CASTIGAT
-    [
-        { tip: 'Joc Shuffle', rank: 'Bronze', rankImg: BronzeShuffle, cerinta: 'Câștigă jocul Shuffle o dată', descriere: 'Ai câștigat jocul Shuffle o dată', prag: 1 },
-        { tip: 'Joc Shuffle', rank: 'Silver', rankImg: SilverShuffle, cerinta: 'Câștigă jocul Shuffle de 3 ori', descriere: 'Ai câștigat jocul Shuffle de 3 ori', prag: 3 },
-        { tip: 'Joc Shuffle', rank: 'Gold', rankImg: GoldShuffle, cerinta: 'Câștigă jocul Shuffle de 7 ori', descriere: 'Ai câștigat jocul Shuffle de 7 ori', prag: 7 },
-        { tip: 'Joc Shuffle', rank: 'Diamond', rankImg: DiamondShuffle, cerinta: 'Câștigă jocul Shuffle de 14 ori', descriere: 'Ai câștigat jocul Shuffle de 14 ori', prag: 14 },
-        { tip: 'Joc Shuffle', rank: 'Legend', rankImg: LegendShuffle, cerinta: 'Câștigă jocul Shuffle de 20 de ori', descriere: 'Ai câștigat jocul Shuffle de 20 de ori', prag: 20 },
-    ],
-
-    // 3 — TRUE/FALSE COMPLETAT
-    [
-        { tip: 'True sau False', rank: 'Bronze', rankImg: BronzeTrueFalse, cerinta: 'Completează jocul True sau False de 5 ori', descriere: 'Ai completat jocul True sau False de 5 ori', prag: 5 },
-        { tip: 'True sau False', rank: 'Silver', rankImg: SilverTrueFalse, cerinta: 'Completează jocul True sau False de 10 ori', descriere: 'Ai completat jocul True sau False de 10 ori', prag: 10 },
-        { tip: 'True sau False', rank: 'Gold', rankImg: GoldTrueFalse, cerinta: 'Completează jocul True sau False de 20 de ori', descriere: 'Ai completat jocul True sau False de 20 de ori', prag: 20 },
-        { tip: 'True sau False', rank: 'Diamond', rankImg: DiamondTrueFalse, cerinta: 'Completează jocul True sau False de 30 de ori', descriere: 'Ai completat jocul True sau False de 30 de ori', prag: 30 },
-        { tip: 'True sau False', rank: 'Legend', rankImg: LegendTrueFalse, cerinta: 'Completează jocul True sau False de 50 de ori', descriere: 'Ai completat jocul True sau False de 50 de ori', prag: 50 },
-    ],
-
-    // 4 — TRUE/FALSE CASTIGAT
-    [
-        { tip: 'True sau False', rank: 'Bronze', rankImg: BronzeTrueFalse, cerinta: 'Câștigă jocul True sau False o dată', descriere: 'Ai câștigat jocul True sau False o dată', prag: 1 },
-        { tip: 'True sau False', rank: 'Silver', rankImg: SilverTrueFalse, cerinta: 'Câștigă jocul True sau False de 3 ori', descriere: 'Ai câștigat jocul True sau False de 3 ori', prag: 3 },
-        { tip: 'True sau False', rank: 'Gold', rankImg: GoldTrueFalse, cerinta: 'Câștigă jocul True sau False de 7 ori', descriere: 'Ai câștigat jocul True sau False de 7 ori', prag: 7 },
-        { tip: 'True sau False', rank: 'Diamond', rankImg: DiamondTrueFalse, cerinta: 'Câștigă jocul True sau False de 14 ori', descriere: 'Ai câștigat jocul True sau False de 14 ori', prag: 14 },
-        { tip: 'True sau False', rank: 'Legend', rankImg: LegendTrueFalse, cerinta: 'Câștigă jocul True sau False de 20 de ori', descriere: 'Ai câștigat jocul True sau False de 20 de ori', prag: 20 },
-    ],
-
-    // 5 — PASSWORD COMPLETAT
-    [
-        { tip: 'Password', rank: 'Bronze', rankImg: BronzePassword, cerinta: 'Completează jocul Password de 5 ori', descriere: 'Ai completat jocul Password de 5 ori', prag: 5 },
-        { tip: 'Password', rank: 'Silver', rankImg: SilverPassword, cerinta: 'Completează jocul Password de 10 ori', descriere: 'Ai completat jocul Password de 10 ori', prag: 10 },
-        { tip: 'Password', rank: 'Gold', rankImg: GoldPassword, cerinta: 'Completează jocul Password de 20 de ori', descriere: 'Ai completat jocul Password de 20 de ori', prag: 20 },
-        { tip: 'Password', rank: 'Diamond', rankImg: DiamondPassword, cerinta: 'Completează jocul Password de 30 de ori', descriere: 'Ai completat jocul Password de 30 de ori', prag: 30 },
-        { tip: 'Password', rank: 'Legend', rankImg: LegendPassword, cerinta: 'Completează jocul Password de 50 de ori', descriere: 'Ai completat jocul Password de 50 de ori', prag: 50 },
-    ],
-
-    // 6 — PASSWORD CASTIGAT
-    [
-        { tip: 'Password', rank: 'Bronze', rankImg: BronzePassword, cerinta: 'Câștigă jocul Password o dată', descriere: 'Ai câștigat jocul Password o dată', prag: 1 },
-        { tip: 'Password', rank: 'Silver', rankImg: SilverPassword, cerinta: 'Câștigă jocul Password de 3 ori', descriere: 'Ai câștigat jocul Password de 3 ori', prag: 3 },
-        { tip: 'Password', rank: 'Gold', rankImg: GoldPassword, cerinta: 'Câștigă jocul Password de 7 ori', descriere: 'Ai câștigat jocul Password de 7 ori', prag: 7 },
-        { tip: 'Password', rank: 'Diamond', rankImg: DiamondPassword, cerinta: 'Câștigă jocul Password de 14 ori', descriere: 'Ai câștigat jocul Password de 14 ori', prag: 14 },
-        { tip: 'Password', rank: 'Legend', rankImg: LegendPassword, cerinta: 'Câștigă jocul Password de 20 de ori', descriere: 'Ai câștigat jocul Password de 20 de ori', prag: 20 },
-    ],
-
-    // 7 — VARIANTE COMPLETAT
-    [
-        { tip: 'Variante', rank: 'Bronze', rankImg: BronzeVariante, cerinta: 'Completează jocul Variante de 5 ori', descriere: 'Ai completat jocul Variante de 5 ori', prag: 5 },
-        { tip: 'Variante', rank: 'Silver', rankImg: SilverVariante, cerinta: 'Completează jocul Variante de 10 ori', descriere: 'Ai completat jocul Variante de 10 ori', prag: 10 },
-        { tip: 'Variante', rank: 'Gold', rankImg: GoldVariante, cerinta: 'Completează jocul Variante de 20 de ori', descriere: 'Ai completat jocul Variante de 20 de ori', prag: 20 },
-        { tip: 'Variante', rank: 'Diamond', rankImg: DiamondVariante, cerinta: 'Completează jocul Variante de 30 de ori', descriere: 'Ai completat jocul Variante de 30 de ori', prag: 30 },
-        { tip: 'Variante', rank: 'Legend', rankImg: LegendVariante, cerinta: 'Completează jocul Variante de 50 de ori', descriere: 'Ai completat jocul Variante de 50 de ori', prag: 50 },
-    ],
-
-    // 8 — VARIANTE CASTIGAT
-    [
-        { tip: 'Variante', rank: 'Bronze', rankImg: BronzeVariante, cerinta: 'Câștigă jocul Variante o dată', descriere: 'Ai câștigat jocul Variante o dată', prag: 1 },
-        { tip: 'Variante', rank: 'Silver', rankImg: SilverVariante, cerinta: 'Câștigă jocul Variante de 3 ori', descriere: 'Ai câștigat jocul Variante de 3 ori', prag: 3 },
-        { tip: 'Variante', rank: 'Gold', rankImg: GoldVariante, cerinta: 'Câștigă jocul Variante de 7 ori', descriere: 'Ai câștigat jocul Variante de 7 ori', prag: 7 },
-        { tip: 'Variante', rank: 'Diamond', rankImg: DiamondVariante, cerinta: 'Câștigă jocul Variante de 14 ori', descriere: 'Ai câștigat jocul Variante de 14 ori', prag: 14 },
-        { tip: 'Variante', rank: 'Legend', rankImg: LegendVariante, cerinta: 'Câștigă jocul Variante de 20 de ori', descriere: 'Ai câștigat jocul Variante de 20 de ori', prag: 20 },
-    ],
 ];
 
 let contor_general = JSON.parse(localStorage.getItem('contor_general')) || 0;
@@ -163,91 +17,94 @@ let contor_general = JSON.parse(localStorage.getItem('contor_general')) || 0;
 // Arr cu date titluri 
 //----------------------------------------------------------------------------------------------------------------------
 let arrTitluri = [
-    'Documentație',
-    'Joc Shuffle — Jocuri completate',
-    'Joc Shuffle — Jocuri câștigate',
-    'True sau False — Jocuri completate',
-    'True sau False — Jocuri câștigate',
-    'Password — Jocuri completate',
-    'Password — Jocuri câștigate',
-    'Variante — Jocuri completate',
-    'Variante — Jocuri câștigate',
 ];
 
-
-
-//----------------------------------------------------------------------------------------------------------------------
-// functia care ia contoarele din pagina contoare_pentru_jocuri.js 
-//----------------------------------------------------------------------------------------------------------------------
-function getContorPentruSectiune(indexSectiune) {
-    if (indexSectiune === 1) return contoare_jocuri.contor_assasment_incercari_shuffle;
-    if (indexSectiune === 2) return contoare_jocuri.contor_assasment_corecte_shuffle;
-    if (indexSectiune === 3) return contoare_jocuri.contor_assasment_incercari_truefalse;
-    if (indexSectiune === 4) return contoare_jocuri.contor_assasment_corecte_truefalse;
-    if (indexSectiune === 5) return contoare_jocuri.contor_assasment_incercari_password;
-    if (indexSectiune === 6) return contoare_jocuri.contor_assasment_corecte_password;
-    if (indexSectiune === 7) return contoare_jocuri.contor_assasment_incercari_variante;
-    if (indexSectiune === 8) return contoare_jocuri.contor_assasment_corecte_variante;
-    return 0;
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-// functia care genereaza HTML 
-//----------------------------------------------------------------------------------------------------------------------
-function genereazaBadgeHTML() {
-
-    const container = document.getElementById('badge-section');
-    if (!container) return;
-
-    let badguriHTML = '';
+fetch('/public/assets/js/assasment/date-assasment/badge.json')
+    .then(response => response.json())
+    .then(data => {
+        arrBadge = data.arrBadge;
+        arrTitluri = data.arrTitluri;
+        
+        initializare()
+        })
+    .catch(err => console.log(err));
 
 
 
-    arrTitluri.forEach(function (titlu, i) {
-        //----------------------------------------------------------------------------------------------------------------------
-        // Se ia contorul pentru fiecare sectiunea aparte
-        //----------------------------------------------------------------------------------------------------------------------
 
-        let contorCurent = getContorPentruSectiune(i);
-        let badgeItemsHTML = '';
+function initializare() {
+    //----------------------------------------------------------------------------------------------------------------------
+    // functia care ia contoarele din pagina contoare_pentru_jocuri.js 
+    //----------------------------------------------------------------------------------------------------------------------
+    function getContorPentruSectiune(indexSectiune) {
+        if (indexSectiune === 1) return contoare_jocuri.contor_assasment_incercari_shuffle;
+        if (indexSectiune === 2) return contoare_jocuri.contor_assasment_corecte_shuffle;
+        if (indexSectiune === 3) return contoare_jocuri.contor_assasment_incercari_truefalse;
+        if (indexSectiune === 4) return contoare_jocuri.contor_assasment_corecte_truefalse;
+        if (indexSectiune === 5) return contoare_jocuri.contor_assasment_incercari_password;
+        if (indexSectiune === 6) return contoare_jocuri.contor_assasment_corecte_password;
+        if (indexSectiune === 7) return contoare_jocuri.contor_assasment_incercari_variante;
+        if (indexSectiune === 8) return contoare_jocuri.contor_assasment_corecte_variante;
+        return 0;
+    }
 
-        arrBadge[i].forEach(function (badge) {
+    //----------------------------------------------------------------------------------------------------------------------
+    // functia care genereaza HTML 
+    //----------------------------------------------------------------------------------------------------------------------
+    function genereazaBadgeHTML() {
 
-            let blocat = false;
+        const container = document.getElementById('badge-section');
+        if (!container) return;
+
+        let badguriHTML = '';
 
 
+
+        arrTitluri.forEach(function (titlu, i) {
             //----------------------------------------------------------------------------------------------------------------------
-            //Acest if e pentru documentatii si badgurile violet
+            // Se ia contorul pentru fiecare sectiunea aparte
             //----------------------------------------------------------------------------------------------------------------------
-            if (badge.prag === 0) {
-                if (badge.tip.includes('Shuffle') && !vizite.shuffle) blocat = true;
-                if (badge.tip.includes('Adevarat') && !vizite.truefalse) blocat = true;
-                if (badge.tip.includes('Password') && !vizite.password) blocat = true;
-                if (badge.tip.includes('Variante') && !vizite.variante) blocat = true;
-            } else {
+
+            let contorCurent = getContorPentruSectiune(i);
+            let badgeItemsHTML = '';
+
+            arrBadge[i].forEach(function (badge) {
+
+                let blocat = false;
+
+
                 //----------------------------------------------------------------------------------------------------------------------
-                // daca contorul luat din fierbase e mai mici de cat pragul din arr atunci la blocatii dam true 
-                // care va micsora opacitatea badgurile dand un efect de blocat
+                //Acest if e pentru documentatii si badgurile violet
+                //----------------------------------------------------------------------------------------------------------------------
+                if (badge.prag === 0) {
+                    if (badge.tip.includes('Shuffle') && !vizite.shuffle) blocat = true;
+                    if (badge.tip.includes('Adevarat') && !vizite.truefalse) blocat = true;
+                    if (badge.tip.includes('Password') && !vizite.password) blocat = true;
+                    if (badge.tip.includes('Variante') && !vizite.variante) blocat = true;
+                } else {
+                    //----------------------------------------------------------------------------------------------------------------------
+                    // daca contorul luat din fierbase e mai mici de cat pragul din arr atunci la blocatii dam true 
+                    // care va micsora opacitatea badgurile dand un efect de blocat
+                    //----------------------------------------------------------------------------------------------------------------------
+
+                    if (contorCurent < badge.prag) blocat = true;
+                }
+
+                let stilImg = '';
+                if (blocat) {
+                    stilImg = 'filter: grayscale(100%) brightness(0.35); opacity: 0.5;';
+                }
+                if (!blocat) {
+                    contor_general++;
+                    localStorage.setItem('contor_general', JSON.stringify(contor_general));
+
+                }
+                let dataBlocat = blocat ? '1' : '0';
+                //----------------------------------------------------------------------------------------------------------------------
+                // generam html pentru 1 badge aparte
                 //----------------------------------------------------------------------------------------------------------------------
 
-                if (contorCurent < badge.prag) blocat = true;
-            }
-
-            let stilImg = '';
-            if (blocat) {
-                stilImg = 'filter: grayscale(100%) brightness(0.35); opacity: 0.5;';
-            }
-            if (!blocat) {
-                contor_general++;
-                localStorage.setItem('contor_general', JSON.stringify(contor_general));
-
-            }
-            let dataBlocat = blocat ? '1' : '0';
-            //----------------------------------------------------------------------------------------------------------------------
-            // generam html pentru 1 badge aparte
-            //----------------------------------------------------------------------------------------------------------------------
-
-            badgeItemsHTML += `
+                badgeItemsHTML += `
                 <div class="flex flex-col items-center  mx-auto">
                     <img
                         src="${badge.rankImg}"
@@ -260,12 +117,12 @@ function genereazaBadgeHTML() {
                     >
                 </div>
             `;
-        });
-        //----------------------------------------------------------------------------------------------------------------------
-        //generare htmlului a badgurilor pe rand
-        //----------------------------------------------------------------------------------------------------------------------
+            });
+            //----------------------------------------------------------------------------------------------------------------------
+            //generare htmlului a badgurilor pe rand
+            //----------------------------------------------------------------------------------------------------------------------
 
-        badguriHTML += `
+            badguriHTML += `
             <div class="w-[90%] h-auto mt-6 mx-auto flex flex-col items-start">
                 <h2 class="text-[15px] font-semibold text-black dark:text-white mb-1">${titlu}</h2>
                 <div class="w-full h-[1px] bg-black/10 dark:bg-white/10 mb-3"></div>
@@ -274,31 +131,31 @@ function genereazaBadgeHTML() {
                 </div>
             </div>
         `;
-    });
+        });
 
-    container.innerHTML = badguriHTML;
-}
-
-
+        container.innerHTML = badguriHTML;
+    }
 
 
-//----------------------------------------------------------------------------------------------------------------------
-//atunci cand apesi pe un badge apare element nou div 
-// care arata descrierea sau cerinta depinde daca pragul a fost atins
-//daca il apesi odata apare si daca il apesi din nou dispare
-//----------------------------------------------------------------------------------------------------------------------
 
-let cardTooltip = document.createElement('div');
-cardTooltip.id = 'badge-card';
-cardTooltip.className = 'hidden fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md';
-document.body.appendChild(cardTooltip);
 
-function arataChard(badge) {
-    let esteBlocat = badge.dataset.blocat === '1';
+    //----------------------------------------------------------------------------------------------------------------------
+    //atunci cand apesi pe un badge apare element nou div 
+    // care arata descrierea sau cerinta depinde daca pragul a fost atins
+    //daca il apesi odata apare si daca il apesi din nou dispare
+    //----------------------------------------------------------------------------------------------------------------------
 
-    if (esteBlocat) {
-        cardTooltip.className = 'fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-red-300 dark:border-red-800';
-        cardTooltip.innerHTML = `
+    let cardTooltip = document.createElement('div');
+    cardTooltip.id = 'badge-card';
+    cardTooltip.className = 'hidden fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md';
+    document.body.appendChild(cardTooltip);
+
+    function arataChard(badge) {
+        let esteBlocat = badge.dataset.blocat === '1';
+
+        if (esteBlocat) {
+            cardTooltip.className = 'fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-red-300 dark:border-red-800';
+            cardTooltip.innerHTML = `
             <div class="flex items-center gap-3">
                 <div class="flex-shrink-0 w-9 h-9 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center">
                     <svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
@@ -311,9 +168,9 @@ function arataChard(badge) {
                 </div>
             </div>
         `;
-    } else {
-        cardTooltip.className = 'fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-green-300 dark:border-green-800';
-        cardTooltip.innerHTML = `
+        } else {
+            cardTooltip.className = 'fixed z-50 bottom-6 left-1/2 -translate-x-1/2 w-[280px] sm:w-[320px] p-4 rounded-2xl shadow-xl border backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-green-300 dark:border-green-800';
+            cardTooltip.innerHTML = `
             <div class="flex items-center gap-3">
                 <div class="flex-shrink-0 w-9 h-9 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
                     <svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
@@ -326,52 +183,53 @@ function arataChard(badge) {
                 </div>
             </div>
         `;
-    }
-}
-
-function ascundeCard() {
-    cardTooltip.className = 'hidden';
-}
-
-
-let container_badge = document.getElementById('badge-section');
-
-container_badge.addEventListener('click', function (e) {
-    let el = e.target;
-
-    if (!el.classList.contains('badge')) {
-        ascundeCard();
-        return;
+        }
     }
 
-    if (el.dataset.deschis === '1') {
-        el.dataset.deschis = '0';
-        ascundeCard();
-        return;
+    function ascundeCard() {
+        cardTooltip.className = 'hidden';
     }
-    document.querySelectorAll('.badge').forEach(function (b) {
-        b.dataset.deschis = '0';
-    });
 
-    el.dataset.deschis = '1';
-    arataChard(el);
-});
 
-document.addEventListener('click', function (e) {
-    if (!e.target.classList.contains('badge') && e.target.id !== 'badge-card') {
-        ascundeCard();
+    let container_badge = document.getElementById('badge-section');
+
+    container_badge.addEventListener('click', function (e) {
+        let el = e.target;
+
+        if (!el.classList.contains('badge')) {
+            ascundeCard();
+            return;
+        }
+
+        if (el.dataset.deschis === '1') {
+            el.dataset.deschis = '0';
+            ascundeCard();
+            return;
+        }
         document.querySelectorAll('.badge').forEach(function (b) {
             b.dataset.deschis = '0';
         });
-    }
-});
+
+        el.dataset.deschis = '1';
+        arataChard(el);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('badge') && e.target.id !== 'badge-card') {
+            ascundeCard();
+            document.querySelectorAll('.badge').forEach(function (b) {
+                b.dataset.deschis = '0';
+            });
+        }
+    });
 
 
-onAuthStateChanged(auth, async function (user) {
-    if (!user) return;
+    onAuthStateChanged(auth, async function (user) {
+        if (!user) return;
 
-    await incarcaDateFirebase(user);
-    await incarcaContoareFirebase(user);
+        await incarcaDateFirebase(user);
+        await incarcaContoareFirebase(user);
 
-    genereazaBadgeHTML();
-});
+        genereazaBadgeHTML();
+    });
+}
