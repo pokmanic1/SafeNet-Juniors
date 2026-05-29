@@ -11,7 +11,10 @@
 
 <body>
     <section class="w-full min-h-[100px] flex flex-col sm:flex-row justify-center items-center">
-        <button class="btn a w-[20%] max-w-[500px]  text-[10px] flex justify-center items-center border border-black ">Vezi documentatia</button>
+        <button class="btn a w-[20%] max-w-[500px]  text-[10px] inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold text-white
+                bg-gradient-to-r from-[#1156ea] via-[#2563EB] to-[#71a4f0]
+                shadow-lg hover:scale-105 hover:shadow-xl transition duration-300
+                focus:outline-none focus:ring-4 focus:ring-[#7DB2FF]/40 z-50 ">Vezi documentatia</button>
         <script>
             const btn = document.querySelector('.btn');
             btn.addEventListener('click', () => {
@@ -34,17 +37,18 @@
 
         </script>
     </section>
-    <section class="w-full min-h-dvh flex flex-col items-center justify-center mt-[20px]">
+    <section class="w-full  min-h-dvh flex flex-col items-center justify-center mt-[20px]">
         <div class="sec1 w-full hidden h-dvh flex justify-center items-center ">
-                <div class="w-[100%] h-full flex justify-center items-center"> 
-                    <img src="/public/assets/img/readme/image 18.svg" class="object-center object-fit object-cover block" alt="">
-                </div>
+            <div class="w-[100%] block m-0 h-full flex justify-center items-center">
+                <img src="/public/assets/img/readme/image 18.svg" class="object-center object-fit object-cover block"
+                    alt="">
+            </div>
         </div>
 
 
         <div class="w-full flex flex-col items-center justify-start pt-10 pb-20 px-4">
 
-    
+
 
             <div class="sec2 w-full max-w-[900px] flex flex-col gap-10">
 
@@ -201,8 +205,8 @@
                         <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest">Canva
                         </h2>
                         <p class="text-[13px] text-gray-500 dark:text-gray-400">Link prezentare / design Canva</p>
-                        <a href="#" target="_blank"
-                            class="mt-auto inline-flex items-center justify-center gap-2 btn-primary text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
+                        <a href="https://www.canva.com/design/DAHBgc98Rz8/W-ICZXKwP5PxOg4kavkpcg/edit" target="_blank"
+                            class="mt-auto inline-flex items-center justify-center gap-2 btn-primary text-black text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -214,12 +218,12 @@
                     </div>
 
                     <div
-                        class="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                        class="bg-gray-50 text-black dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                         <h2 class="text-xs font-bold text-[#1156ea] dark:text-blue-400 uppercase tracking-widest">Figma
                         </h2>
                         <p class="text-[13px] text-gray-500 dark:text-gray-400">Link design / prototip Figma</p>
-                        <a href="#" target="_blank"
-                            class="mt-auto inline-flex items-center justify-center gap-2 btn-primary text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
+                        <a href="https://www.figma.com/design/slveHcgZsvX6KBqt6ej0ZG/copieSafeNet?node-id=0-1&p=f&t=8DwtyhYn93HrNO7I-0" target="_blank"
+                            class="mt-auto text-black inline-flex items-center justify-center gap-2 btn-primary  text-sm font-semibold px-4 py-2.5 rounded-xl shadow hover:opacity-90 transition">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
