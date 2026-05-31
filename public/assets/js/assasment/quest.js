@@ -66,10 +66,10 @@ const sfert_config = [
 //Arr cu imaginile ce pot aparea dupa ce completez questurile
 //---------------------------------------------------------------------------------------------------------------------
 const arrImagini = [
-    '/public/assets/img/backgrounds/password-game-bg1.png',
-    '/public/assets/img/backgrounds/variante-game-bg8.png',
-    '/public/assets/img/backgrounds/adevarat-fals-game-bg1.png',
-    '/public/assets/img/backgrounds/shufle-game-bg1.png',
+    '/assets/img/backgrounds/password-game-bg1.png',
+    '/assets/img/backgrounds/variante-game-bg8.png',
+    '/assets/img/backgrounds/adevarat-fals-game-bg1.png',
+    '/assets/img/backgrounds/shufle-game-bg1.png',
 ];
 
 if (!localStorage.getItem('quest_reset_at')) {

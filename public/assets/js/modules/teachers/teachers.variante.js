@@ -8,7 +8,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Importul din class service care salveaza jocul in baza de date
 //----------------------------------------------------------------------------------------------------------------------
-import { salveazaJocVariante } from "/public/assets/js/game-service/teachers-create-game-variante.js";
+import { salveazaJocVariante } from "/assets/js/game-service/teachers-create-game-variante.js";
 
 
 

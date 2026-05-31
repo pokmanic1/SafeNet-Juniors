@@ -116,7 +116,7 @@ function genereazaHTML(jocuri) {
                 <p class="text-gray-400 text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-sm uppercase tracking-widest font-semibold">Niciun joc salvat</p>
                 <h3 class="text-white   text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-extrabold text-xl leading-snug">Nu ai creat niciun<br>joc de tip Password</h3>
                 <a
-                    href="/public/pages/game-page/password-game-page/teachers-adauga-conditii-pasword-game.html"
+                    href="/pages/game-page/password-game-page/teachers-adauga-conditii-pasword-game.html"
                     class="w-full py-2 md:py-3   text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold text-sm tracking-wide transition active:scale-[0.98] shadow-lg shadow-blue-900/30">
                     Creeaza un joc
                 </a>
@@ -138,7 +138,7 @@ function genereazaHTML(jocuri) {
             <div class="ptborderb flex items-center justify-between gap-2 pb-[2px]">
                 
                 <img class="sageata cursor-pointer transition-transform duration-300 opacity-75 block w-[22px] h-[22px] md:w-[30px] md:h-[30px] my-auto flex-shrink-0" 
-                    src='/public/assets/img/img-assasment/sageata-pt-darkmode.png' alt="toggle">
+                    src='/assets/img/img-assasment/sageata-pt-darkmode.png' alt="toggle">
 
                 <h2 class="flex-1 min-w-0 text-[12px] sm:text-[15px] lg:text-[18px] font-bold text-yellow-500 uppercase tracking-wider truncate">
                     ${joc.nume || 'Fără nume'} — ${(joc.reguli || []).length} reguli

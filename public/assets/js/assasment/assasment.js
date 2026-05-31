@@ -47,7 +47,7 @@ function buildArrJocuri() {
             descriere: 'Înainte de a începe, citește documentația pentru a învăța termenii. Apoi potrivește fiecare imagine cu perechea sa!',
             incercari: -1,
             media: 0,
-            ancora: '/public/pages/game-page/shuffle-game-page/documentatie-shuffle-game.html',
+            ancora: '/pages/game-page/shuffle-game-page/documentatie-shuffle-game.html',
             statut: 1
         },
         {
@@ -58,7 +58,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_shuffle === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_shuffle / contor_assasment_incercari_shuffle) * 100),
-            ancora: '/public/pages/game-page/shuffle-game-page/shuffle-game.html',
+            ancora: '/pages/game-page/shuffle-game-page/shuffle-game.html',
             statut: 0
         },
         {
@@ -67,7 +67,7 @@ function buildArrJocuri() {
             descriere: 'Parcurge mai întâi documentația, apoi testează ce ai învățat! Tu decizi care afirmații sunt adevărate și care sunt false.',
             incercari: -1,
             media: 0,
-            ancora: '/public/pages/game-page/true-false-game-page/documentatie-true-false-game.html',
+            ancora: '/pages/game-page/true-false-game-page/documentatie-true-false-game.html',
             statut: 1
         },
         {
@@ -78,7 +78,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_truefalse === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_truefalse / contor_assasment_incercari_truefalse) * 100),
-            ancora: '/public/pages/game-page/true-false-game-page/true-false-game.html',
+            ancora: '/pages/game-page/true-false-game-page/true-false-game.html',
             statut: 0
         },
         {
@@ -87,7 +87,7 @@ function buildArrJocuri() {
             descriere: 'Știi ce face o parolă sigură? Citește mai întâi documentația, apoi pune în practică ce ai învățat!',
             incercari: -1,
             media: 0,
-            ancora: '/public/pages/game-page/password-game-page/documentatie-password-game.html',
+            ancora: '/pages/game-page/password-game-page/documentatie-password-game.html',
             statut: 1
         },
         {
@@ -98,7 +98,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_password === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_password / contor_assasment_incercari_password) * 100),
-            ancora: '/public/pages/game-page/password-game-page/password-game.html',
+            ancora: '/pages/game-page/password-game-page/password-game.html',
             statut: 0
         },
         {
@@ -107,7 +107,7 @@ function buildArrJocuri() {
             descriere: 'Pregătește-te bine! Citește documentația înainte de a intra în quiz. Cel mai bine pregătit câștigă!',
             incercari: -1,
             media: 0,
-            ancora: '/public/pages/game-page/variante-game-page/documentatie-variante-game.html',
+            ancora: '/pages/game-page/variante-game-page/documentatie-variante-game.html',
             statut: 1
         },
         {
@@ -118,7 +118,7 @@ function buildArrJocuri() {
             media: contor_assasment_incercari_variante === 0
                 ? 0
                 : Math.round((contor_assasment_corecte_variante / contor_assasment_incercari_variante) * 100),
-            ancora: '/public/pages/game-page/variante-game-page/variante-game.html',
+            ancora: '/pages/game-page/variante-game-page/variante-game.html',
             statut: 0
         },
     ];
@@ -138,13 +138,13 @@ function dacaNuSaConectat() {
             </div>
             <h2 class="text-[22px] font-semibold text-gray-900 dark:text-[#EBF6FF] mb-2 tracking-tight">Înainte să începi…</h2>
             <p class="text-[13px] text-gray-400 dark:text-[#EBF6FF]/50 mb-8">Conectează-te pentru a îți salva progresul.</p>
-            <a href='/public/pages/conecteazate.html'
+            <a href='/pages/conecteazate.html'
                 class="h-[40px] bg-slate-900 dark:bg-blue-700 text-white px-20 py-2 rounded-2xl font-medium text-md hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
                 Conectează-te
             </a>
             <p class="mt-4 text-[12px] text-gray-400 dark:text-[#EBF6FF]/50">
                 Nu ai cont?
-                <a href='/public/pages/inregistreazate.html' class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
+                <a href='/pages/inregistreazate.html' class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
             </p>
         </div>
     </div>`;
@@ -313,7 +313,7 @@ function initAssasment(ArrJocuri) {
                 </div>
             </div>`;
 
-    let sageata_stanga = "/public/assets/img/img-assasment/Sageata_stanga.png";
+    let sageata_stanga = "/assets/img/img-assasment/Sageata_stanga.png";
     let AssasmentHTML = statisticiHTML;
 
 
@@ -325,8 +325,8 @@ function initAssasment(ArrJocuri) {
         if (item.statut !== 1) return;
 
         const iconImg = item.incercari === -1
-            ? `/public/assets/img/img-assasment/Calendar_fara_iconita.png`
-            : `/public/assets/img/img-assasment/Calendar_Check.png`;
+            ? `/assets/img/img-assasment/Calendar_fara_iconita.png`
+            : `/assets/img/img-assasment/Calendar_Check.png`;
 
         if (item.incercari === -1) {
             AssasmentHTML += `

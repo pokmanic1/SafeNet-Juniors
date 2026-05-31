@@ -8,7 +8,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Importul din class service care salveaza jocul in baza de date
 //----------------------------------------------------------------------------------------------------------------------
-import { salveazaJocPassword } from '/public/assets/js/game-service/teachers-create-game-password.js'
+import { salveazaJocPassword } from '/assets/js/game-service/teachers-create-game-password.js'
 
 
 

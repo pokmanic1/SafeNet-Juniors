@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "watch:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./public/assets/css/app.css --watch",
-        "build:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./public/assets/css/app.css --minify"
+        "watch:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./assets/css/app.css --watch",
+        "build:css": "npx @tailwindcss/cli -i ./src/styles/app.css -o ./assets/css/app.css --minify"
     },
     "keywords": [],
     "license": "ISC",

@@ -8,7 +8,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Importul din class service care salveaza jocul in baza de date
 //----------------------------------------------------------------------------------------------------------------------
-import { salveazaJocTrueFalse } from "/public/assets/js/game-service/teachers-create-game-tuefalse.js";
+import { salveazaJocTrueFalse } from "/assets/js/game-service/teachers-create-game-tuefalse.js";
 
 
 

@@ -9,7 +9,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Importul din class service care salveaza jocul in baza de date
 //----------------------------------------------------------------------------------------------------------------------
-import { salveazaJocShufle } from '/public/assets/js/game-service/teachers-create-game-shufle.js'
+import { salveazaJocShufle } from '/assets/js/game-service/teachers-create-game-shufle.js'
 
 
 

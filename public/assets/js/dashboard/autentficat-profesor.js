@@ -16,7 +16,7 @@ onAuthStateChanged(auth, async (user) => {
         const data = userSnap.data();
 
         if (data.role !== "Profesor") {
-                    window.location.href = "/public/index.html";
+                    window.location.href = "/index.html";
         }
 
     }

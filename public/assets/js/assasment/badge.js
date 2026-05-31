@@ -19,7 +19,7 @@ let contor_general = JSON.parse(localStorage.getItem('contor_general')) || 0;
 let arrTitluri = [
 ];
 
-fetch('/public/assets/js/assasment/date-assasment/badge.json')
+fetch('/assets/js/assasment/date-assasment/badge.json')
     .then(response => response.json())
     .then(data => {
         arrBadge = data.arrBadge;

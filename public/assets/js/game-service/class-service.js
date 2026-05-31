@@ -500,7 +500,7 @@ export async function initDashboard() {
             if (msgAdauga) {
                 msgAdauga.classList.remove("hidden");
                 setTimeout(() => msgAdauga.classList.add("hidden"), 2500);
-                window.location.href = "/public/pages/dashbord/dashbord.html";
+                window.location.href = "/pages/dashbord/dashbord.html";
 
             }
             inputNume.value = "";

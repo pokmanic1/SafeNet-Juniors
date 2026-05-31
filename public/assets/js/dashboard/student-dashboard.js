@@ -26,7 +26,7 @@ const xM = document.getElementById("ConecteazataID_M");
 const yM = document.getElementById("InregistreazataID_M");
 
 
-let ancora = `/public/pages/dashbord/dashbord.elev.html`;
+let ancora = `/pages/dashbord/dashbord.elev.html`;
 let dashIcon;
 let date = getToateDatele();
 //----------------------------------------------------------------------------------------------------------------------
@@ -34,10 +34,10 @@ let date = getToateDatele();
 //----------------------------------------------------------------------------------------------------------------------
 
 if (localStorage.getItem("tema") === "dark") {
-  dashIcon = '/public/assets/img/dashIcon-darkMode.svg';
+  dashIcon = '/assets/img/dashIcon-darkMode.svg';
 }
 else {
-  dashIcon = '/public/assets/img/dashIcon.svg';
+  dashIcon = '/assets/img/dashIcon.svg';
 }
 
 onAuthStateChanged(auth, async (user) => {
@@ -167,10 +167,10 @@ onAuthStateChanged(auth, async (user) => {
 
       if (data.role === "Profesor") {
         role = "Profesor";
-        ancora = "/public/pages/dashbord/dashbord.html";
+        ancora = "/pages/dashbord/dashbord.html";
       } else {
         role = "Elev";
-        ancora = "/public/pages/dashbord/dashbord.elev.html";
+        ancora = "/pages/dashbord/dashbord.elev.html";
       }
 
     }
@@ -281,8 +281,8 @@ onAuthStateChanged(auth, async (user) => {
         username = data.usearname;
         role = data.role;
         ancora = role === "Profesor"
-          ? "/public/pages/dashbord/dashbord.html"
-          : "/public/pages/dashbord/dashbord.elev.html";
+          ? "/pages/dashbord/dashbord.html"
+          : "/pages/dashbord/dashbord.elev.html";
       }
       //----------------------------------------------------------------------------------------------------------------------
       //Aici cream dashbordul
@@ -353,16 +353,16 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.logo-index')) {
       const logoIndex = document.querySelector('.logo-index');
       const logoSrc = isDark
-        ? '/public/assets/img/DarkLogo.svg'
-        : '/public/assets/img/Vector.svg';
+        ? '/assets/img/DarkLogo.svg'
+        : '/assets/img/Vector.svg';
       logoIndex.setAttribute('src', logoSrc);
     }
     // logo
     if (document.querySelector('.User_Add')) {
       const logoIndex = document.querySelector('.User_Add');
       const logoSrc = isDark
-        ? '/public/assets/img/img-pt-index/User_Add-darkMode.svg'
-        : '/public/assets/img/img-pt-index/User_Add-normalMode.svg';
+        ? '/assets/img/img-pt-index/User_Add-darkMode.svg'
+        : '/assets/img/img-pt-index/User_Add-normalMode.svg';
       logoIndex.setAttribute('src', logoSrc);
     }
     // ------------------------------------------
@@ -373,8 +373,8 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.sageata_stanga')) {
       const sageata_stanga = document.querySelectorAll('.sageata_stanga');
       const a = isDark
-        ? '/public/assets/img/img-assasment/sageata-pt-darkmode.png'
-        : '/public/assets/img/img-assasment/sageata-pt-normalmode.png';
+        ? '/assets/img/img-assasment/sageata-pt-darkmode.png'
+        : '/assets/img/img-assasment/sageata-pt-normalmode.png';
       sageata_stanga.forEach((item) => {
         item.setAttribute('src', a);
       })
@@ -383,8 +383,8 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.Calendar_fara_iconita')) {
       const Calendar_fara_iconita = document.querySelectorAll('.Calendar_fara_iconita');
       const a = isDark
-        ? '/public/assets/img/img-assasment/CalendarDark.png'
-        : '/public/assets/img/img-assasment/Calendar_fara_iconita.png';
+        ? '/assets/img/img-assasment/CalendarDark.png'
+        : '/assets/img/img-assasment/Calendar_fara_iconita.png';
       Calendar_fara_iconita.forEach((item) => {
         item.setAttribute('src', a);
       })
@@ -393,8 +393,8 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.Calendar_Check')) {
       const Calendar_fara_iconita = document.querySelectorAll('.Calendar_Check');
       const a = isDark
-        ? '/public/assets/img/img-assasment/Calendar_CheckDark.png'
-        : '/public/assets/img/img-assasment/Calendar_Check.png';
+        ? '/assets/img/img-assasment/Calendar_CheckDark.png'
+        : '/assets/img/img-assasment/Calendar_Check.png';
       Calendar_fara_iconita.forEach((item) => {
         item.setAttribute('src', a);
       })
@@ -409,48 +409,48 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.background1')) {
       const bg1 = document.querySelector('.background1');
       bg1.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru1.png')"
-        : "url('/public/assets/img/backgrounds/background-alb1.png')";
+        ? "url('/assets/img/backgrounds/background-negru1.png')"
+        : "url('/assets/img/backgrounds/background-alb1.png')";
     }
 
     // bg2
     if (document.querySelector('.background2')) {
       const bg2 = document.querySelector('.background2');
       bg2.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru2.png')"
-        : "url('/public/assets/img/backgrounds/background-alb2..png')";
+        ? "url('/assets/img/backgrounds/background-negru2.png')"
+        : "url('/assets/img/backgrounds/background-alb2..png')";
     }
 
     // bg3
     if (document.querySelector('.background3')) {
       const bg3 = document.querySelector('.background3');
       bg3.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru3.png')"
-        : "url('/public/assets/img/backgrounds/background-alb3..png')";
+        ? "url('/assets/img/backgrounds/background-negru3.png')"
+        : "url('/assets/img/backgrounds/background-alb3..png')";
     }
 
     // bg4
     if (document.querySelector('.background4')) {
       const bg4 = document.querySelector('.background4');
       bg4.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru4.png')"
-        : "url('/public/assets/img/backgrounds/background-alb4..png')";
+        ? "url('/assets/img/backgrounds/background-negru4.png')"
+        : "url('/assets/img/backgrounds/background-alb4..png')";
     }
 
     // bg5
     if (document.querySelector('.background5')) {
       const bg5 = document.querySelector('.background5');
       bg5.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru5.png')"
-        : "url('/public/assets/img/backgrounds/background-alb5..png')";
+        ? "url('/assets/img/backgrounds/background-negru5.png')"
+        : "url('/assets/img/backgrounds/background-alb5..png')";
     }
 
     // bg6
     if (document.querySelector('.background6')) {
       const bg6 = document.querySelector('.background6');
       bg6.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-negru6.png')"
-        : "url('/public/assets/img/backgrounds/background-alb6..png')";
+        ? "url('/assets/img/backgrounds/background-negru6.png')"
+        : "url('/assets/img/backgrounds/background-alb6..png')";
     }
 
 
@@ -461,30 +461,30 @@ onAuthStateChanged(auth, async (user) => {
     if (document.querySelector('.background-joc1')) {
       const bg_joc1 = document.querySelector('.background-joc1');
       bg_joc1.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-1.png')"
-        : "url('/public/assets/img/backgrounds/background-jocuri-galben-1.png')";
+        ? "url('/assets/img/backgrounds/background-jocuri-albastru-1.png')"
+        : "url('/assets/img/backgrounds/background-jocuri-galben-1.png')";
     }
 
     // bg2
     if (document.querySelector('.background-joc2')) {
       const bg_joc2 = document.querySelector('.background-joc2');
       bg_joc2.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-2.png')"
-        : "url('/public/assets/img/backgrounds/background-jocuri-galben-2.png')";
+        ? "url('/assets/img/backgrounds/background-jocuri-albastru-2.png')"
+        : "url('/assets/img/backgrounds/background-jocuri-galben-2.png')";
     }
     // bg3
     if (document.querySelector('.background-joc3')) {
       const bg_joc3 = document.querySelector('.background-joc3');
       bg_joc3.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
-        : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
+        ? "url('/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+        : "url('/assets/img/backgrounds/background-jocuri-galben-3.png')";
     }
     // bg4
     if (document.querySelector('.background-joc4')) {
       const bg_joc4 = document.querySelector('.background-joc4');
       bg_joc4.style.backgroundImage = isDark
-        ? "url('/public/assets/img/backgrounds/background-jocuri-albastru-3.png')"
-        : "url('/public/assets/img/backgrounds/background-jocuri-galben-3.png')";
+        ? "url('/assets/img/backgrounds/background-jocuri-albastru-3.png')"
+        : "url('/assets/img/backgrounds/background-jocuri-galben-3.png')";
     }
 
   }
@@ -503,8 +503,8 @@ onAuthStateChanged(auth, async (user) => {
         localStorage.setItem("tema", "light");
         //console.log("light");
 
-        document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon.svg');
-        document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/Logo.svg');
+        document.querySelector('.dashIcon')?.setAttribute('src', '/assets/img/dashIcon.svg');
+        document.querySelector('.logo')?.setAttribute('src', '/assets/img/Logo.svg');
 
 
       } else {
@@ -512,8 +512,8 @@ onAuthStateChanged(auth, async (user) => {
         document.documentElement.classList.add("dark");
         localStorage.setItem("tema", "dark");
         //console.log("dark");
-        document.querySelector('.dashIcon')?.setAttribute('src', '/public/assets/img/dashIcon-darkMode.svg');
-        document.querySelector('.logo')?.setAttribute('src', '/public/assets/img/logo-dark-mode.svg');
+        document.querySelector('.dashIcon')?.setAttribute('src', '/assets/img/dashIcon-darkMode.svg');
+        document.querySelector('.logo')?.setAttribute('src', '/assets/img/logo-dark-mode.svg');
 
       }
     }

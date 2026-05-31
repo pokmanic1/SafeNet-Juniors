@@ -135,8 +135,8 @@ export async function getToateDatele() {
                             || user.displayName || user.email.split("@")[0],
                         role: raw.role || "Elev",
                         ancora: raw.role === "Profesor"
-                            ? "/public/pages/dashbord/dashbord.html"
-                            : "/public/pages/dashbord/dashbord.elev.html"
+                            ? "/pages/dashbord/dashbord.html"
+                            : "/pages/dashbord/dashbord.elev.html"
                     };
 
                     // console.log("[getToateDatele] userData final:", userData);

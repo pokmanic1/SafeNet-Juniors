@@ -24,7 +24,7 @@ if (temaSalvata === "dark") {
         muted
         playsinline
         preload="auto">
-        <source src="/public/assets/video/loading_video_black.mp4" type="video/mp4">
+        <source src="/assets/video/loading_video_black.mp4" type="video/mp4">
     </video>`
 } else {
     document.documentElement.classList.remove("dark");
@@ -34,7 +34,7 @@ if (temaSalvata === "dark") {
         muted
         playsinline
         preload="auto">
-        <source src="/public/assets/video/SNJ (1).mp4" type="video/mp4">
+        <source src="/assets/video/SNJ (1).mp4" type="video/mp4">
     </video>`
 }
 
