@@ -4,7 +4,7 @@
 
 
 
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         window.location.href = "/index.html";

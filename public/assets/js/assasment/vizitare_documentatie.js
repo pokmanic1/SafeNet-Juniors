@@ -6,8 +6,8 @@ import {
     doc,
     getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { db } from "../fierbase/firebase-init.js";
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { db } from "/assets/js/fierbase/firebase-init";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init";
 
 export const vizite = {
     shuffle: 0,

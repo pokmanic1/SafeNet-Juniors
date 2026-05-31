@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Jocul Password
 //----------------------------------------------------------------------------------------------------------------------
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-import { db } from "../fierbase/firebase-init.js";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
+import { db } from "/assets/js/fierbase/firebase-init.js";
 import {
     doc,
     getDoc,

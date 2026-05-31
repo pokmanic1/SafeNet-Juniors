@@ -6,7 +6,7 @@
 
 
 
-import { db, auth } from "../fierbase/firebase-init.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init.js";
 import {
     collection,
     addDoc,
@@ -125,7 +125,7 @@ function genereazaHTML(jocuri) {
     <div class="flex flex-col md:flex-row bg-[#30302E]  rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
         <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
-            <img src="../../assets/img/backgrounds/adevarat-fals-game-bg1.png" 
+            <img src="/assets/img/backgrounds/adevarat-fals-game-bg1.png" 
                 alt="Game Background" class="w-full   h-full object-cover">
         </div>
 
@@ -219,7 +219,7 @@ function genereazaHTML(jocuri) {
             const joc = listaJocuriGlobal.find(j => j.id === jocId);
             if (joc) {
                 localStorage.setItem('intrebariTrueFalse', JSON.stringify(joc.intrebari));
-                window.location.href = "../../pages/game-page/true-false-game-page/true-false-game.html";
+                window.location.href = "/pages/game-page/true-false-game-page/true-false-game.html";
             }
             return;
         }

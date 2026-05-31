@@ -6,7 +6,7 @@
 
 
 
-import { db, auth } from "../fierbase/firebase-init.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init.js";
 import {
     collection,
     addDoc,
@@ -129,8 +129,8 @@ function genereazaHTML(jocuri) {
     <div class="flex flex-col md:flex-row bg-[#30302E]  rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
         
         <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
-            <img src="../../assets/img/backgrounds/password-game-bg1.png" 
-                 alt="Game Background" class="w-full h-full object-cover">
+            <img src="/assets/img/backgrounds/password-game-bg1.png" 
+                alt="Game Background" class="w-full h-full object-cover">
         </div>
 
         <div class="flex-1 pt-[8px] pb-[5px] px-[6px] flex flex-col justify-center gap-4">
@@ -227,7 +227,7 @@ function genereazaHTML(jocuri) {
         const joc = listaJocuriGlobal.find(j => j.id === jocId);
         if (joc) {
             localStorage.setItem('conditiiProfesori', JSON.stringify(joc.reguli));
-            window.location.href = "../../pages/game-page/password-game-page/password-game.html";
+            window.location.href = "/pages/game-page/password-game-page/password-game.html";
         } else {
             //console.log('Jocul nu a fost găsit.');
         }

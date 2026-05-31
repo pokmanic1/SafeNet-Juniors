@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Jocul shuffle
 //----------------------------------------------------------------------------------------------------------------------
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-import { db } from "../fierbase/firebase-init.js";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
+import { db } from "/assets/js/fierbase/firebase-init.js";
 
 import {
     doc,
@@ -92,7 +92,7 @@ let arrImaginea = [];
 //----------------------------------------------------------------------------------------------------------------------
 //citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
 //----------------------------------------------------------------------------------------------------------------------
-fetch('../../../assets/js/modules/date-jocuri/shuffle.json')
+fetch('/assets/js/modules/date-jocuri/shuffle.json')
     .then(response => response.json())
     .then(data => {
         arrText1 = data.arrText1;

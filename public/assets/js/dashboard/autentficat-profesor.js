@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { auth, db, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 onAuthStateChanged(auth, async (user) => {
     //console.log("USER:", user);

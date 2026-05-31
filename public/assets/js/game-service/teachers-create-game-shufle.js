@@ -6,7 +6,7 @@
 
 
 
-import { db, auth } from "../fierbase/firebase-init.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init.js";
 import {
     collection,
     addDoc,
@@ -148,7 +148,7 @@ function genereazaHTML(jocuri) {
                 <div class="flex flex-col md:flex-row bg-[#30302E]  rounded-xl overflow-hidden w-full max-w-[70%] min-h-[70px] shadow-2xl mb-6">
 
                     <div class="imaginea hidden md:w-1/4 w-full h-24 md:h-auto">
-                        <img src="../../assets/img/backgrounds/shufle-game-bg2.png" 
+                        <img src="/assets/img/backgrounds/shufle-game-bg2.png" 
                             alt="Shuffle Game" class="w-full h-full object-cover">
                     </div>
 
@@ -251,7 +251,7 @@ function genereazaHTML(jocuri) {
 
         if (joc) {
             localStorage.setItem("shuffleGameData", JSON.stringify(joc.date));
-            window.location.href = "../../pages/game-page/shuffle-game-page/shuffle-game.html";
+            window.location.href = "/pages/game-page/shuffle-game-page/shuffle-game.html";
         }
     });
 }

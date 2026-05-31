@@ -124,8 +124,6 @@ function buildArrJocuri() {
     ];
 }
 
-
-
 //----------------------------------------------------------------------------------------------------------------------
 //functia care construeste panoul "daca nu sa conectat"
 //----------------------------------------------------------------------------------------------------------------------
@@ -134,7 +132,7 @@ function dacaNuSaConectat() {
     <div id="dacaNuSaConectat" class="fixed inset-0 z-20 flex items-center justify-center hidden bg-white dark:bg-black">
         <div class="bg-white dark:bg-[#3d4060] border border-gray-200 dark:border-[#EBF6FF]/10 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
             <div class="flex items-center justify-center mx-auto mb-6 w-14 h-14 bg-blue-50 dark:bg-blue-950/50 rounded-2xl">
-                <img src="../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
+                <img src="/assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
             </div>
             <h2 class="text-[22px] font-semibold text-gray-900 dark:text-[#EBF6FF] mb-2 tracking-tight">Înainte să începi…</h2>
             <p class="text-[13px] text-gray-400 dark:text-[#EBF6FF]/50 mb-8">Conectează-te pentru a îți salva progresul.</p>

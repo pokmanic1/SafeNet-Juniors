@@ -7,7 +7,7 @@
 
 
 
-import { db, auth } from "../fierbase/firebase-init.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init.js";
 import {
     collection,
     addDoc,

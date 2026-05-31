@@ -8,9 +8,9 @@
 
 
 import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { auth, db, onAuthStateChanged } from "../fierbase/firebase-init.js";
+import { auth, db, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getToateDatele } from "../fierbase/auth.js";
+import { getToateDatele } from "/assets/js/fierbase/auth.js";
 
 
 

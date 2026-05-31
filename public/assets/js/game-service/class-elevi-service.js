@@ -9,7 +9,7 @@
 
 
 
-import { db, auth } from "../fierbase/firebase-init.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init.js";
 import {
     collection, getDocs, doc, getDoc,
     updateDoc, setDoc, arrayUnion, arrayRemove, deleteDoc
@@ -18,10 +18,10 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/fi
 
 const LOCALSTORAGE_KEY = { 1: "shuffleGameData", 2: "intrebariTrueFalse", 3: "conditiiProfesori", 4: "jocVarianteCustom" };
 const GAME_URL = {
-    1: "../../pages/game-page/shuffle-game-page/shuffle-game.html",
-    2: "../../pages/game-page/true-false-game-page/true-false-game.html",
-    3: "../../pages/game-page/password-game-page/password-game.html",
-    4: "../../pages/game-page/variante-game-page/variante-game.html"
+    1: "/pages/game-page/shuffle-game-page/shuffle-game.html",
+    2: "/pages/game-page/true-false-game-page/true-false-game.html",
+    3: "/pages/game-page/password-game-page/password-game.html",
+    4: "/pages/game-page/variante-game-page/variante-game.html"
 };
 
 
@@ -120,7 +120,7 @@ function creeazaCard(clasa) {
         <div class="absolute top-[-50px] right-[-50px] w-[200px] h-[200px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
  
         <div class="w-full h-[140px] rounded-2xl flex justify-center items-center bg-[#252523] dark:bg-[#252840] border border-white/5">
-            <img src="../../assets/img/img-pt-index/User_Add-normalMode.svg" alt="Clasa" class="w-[30%] opacity-90 drop-shadow-lg">
+            <img src="/assets/img/img-pt-index/User_Add-normalMode.svg" alt="Clasa" class="w-[30%] opacity-90 drop-shadow-lg">
         </div>
  
         <div class="flex justify-between items-start gap-2">
@@ -146,7 +146,7 @@ function creeazaCard(clasa) {
                         </div>
                         <button class="btn-joaca bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 active:scale-95 text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition shadow-md shadow-green-900/30 flex-shrink-0"
                             data-joc-id="${j.jocId}" data-tip="${j.tip}" data-colectie="${j.colectie}" data-teacher="${j.teacherUid}">
-                            ▶ Joacă
+                            Joacă
                         </button>
                     </div>
                 `).join("")
@@ -252,7 +252,7 @@ function initInput() {
 }
 
 onAuthStateChanged(auth, async (user) => {
-    if (!user) { window.location.href = "../../index.html"; return; }
+    if (!user) { window.location.href = "/index.html"; return; }
     userGlobal = user;
     await randeazaClase();
     initInput();

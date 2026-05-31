@@ -20,17 +20,17 @@ function dacaNuSaConectat() {
     <div id="dacaNuSaConectat" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
         <div class="bg-white dark:bg-[#3d4060] border border-gray-200 dark:border-[#EBF6FF]/10 rounded-3xl w-[420px] px-10 py-10 text-center shadow-2xl">
             <div class="flex items-center justify-center mx-auto mb-6 w-14 h-14 bg-blue-50 dark:bg-blue-950/50 rounded-2xl">
-                <img src="../../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
+                <img src="/assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
             </div>
             <h2 class="text-[22px] font-semibold text-gray-900 dark:text-[#EBF6FF] mb-2 tracking-tight">Înainte să începi…</h2>
             <p class="text-[13px] text-gray-400 dark:text-[#EBF6FF]/50 mb-8">Conectează-te pentru a îți salva progresul.</p>
-            <a href="../../conecteazate.html"
+            <a href="/pages/conecteazate.html"
                 class="h-[40px] bg-slate-900 dark:bg-blue-700 text-white px-20 py-2 rounded-2xl font-medium text-md hover:bg-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95">
                 Conectează-te
             </a>
             <p class="mt-4 text-[12px] text-gray-400 dark:text-[#EBF6FF]/50">
                 Nu ai cont?
-                <a href="../../inregistreazate.html" class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
+                <a href="/pages/inregistreazate.html" class="text-[#185FA5] dark:text-blue-300 hover:underline">Înregistrează-te</a>
             </p>
         </div>
     </div>`;
@@ -50,7 +50,7 @@ function dacaNuACititDocum(linkDocumentatie) {
                 ×
             </button>
             <div class="flex justify-center mb-5">
-                <img src="../../../assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
+                <img src="/assets/img/Vector.svg" alt="Shield" class="h-auto w-14">
             </div>
             <h2 class="mb-2 text-xl font-semibold text-gray-900 dark:text-[#EBF6FF]">Înainte să începi ...</h2>
             <p class="mb-6 text-sm text-gray-500 dark:text-[#EBF6FF]/60">Citește cu atenție Documentația</p>
@@ -97,7 +97,7 @@ function finalModal(labelScor = "Întrebări corecte") {
                 <button id="retryBtn" class="restart1 flex-1 py-[11px] border dark:border-[#EBF6FF]/20 bg-white dark:bg-[#3d4060] dark:text-[#EBF6FF] rounded-full text-[13px]">
                     Încearcă din nou
                 </button>
-                <a href="../../games.html" class="flex-1 py-[11px] bg-[#3a7bd5] rounded-full text-white">
+                <a href="/pages/games.html" class="flex-1 py-[11px] bg-[#3a7bd5] rounded-full text-white">
                     Meniu Jocuri
                 </a>
             </div>

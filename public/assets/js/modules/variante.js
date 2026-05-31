@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Jocul Variante
 //----------------------------------------------------------------------------------------------------------------------
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-import { db } from "../fierbase/firebase-init.js";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
+import { db } from "/assets/js/fierbase/firebase-init.js";
 import {
     doc,
     getDoc,
@@ -118,7 +118,7 @@ selectNivel.addEventListener('change', (event) => {
 //----------------------------------------------------------------------------------------------------------------------
 //citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
 //----------------------------------------------------------------------------------------------------------------------
-fetch('../../../assets/js/modules/date-jocuri/variante.json')
+fetch('/assets/js/modules/date-jocuri/variante.json')
     .then(response => response.json())
     .then(data => {
         arr1 = data.arr1;

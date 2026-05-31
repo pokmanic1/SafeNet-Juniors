@@ -2,8 +2,8 @@
 //Pagina contoare pentru jocuri
 //----------------------------------------------------------------------------------------------------------------------
 
-import { db, auth } from "../fierbase/firebase-init.js";
-import { incarcaDateFirebase, vizite } from "./vizitare_documentatie.js";
+import { db, auth } from "/assets/js/fierbase/firebase-init";
+import { incarcaDateFirebase, vizite } from "/assets/js/assasment/vizitare_documentatie";
 
 import {
     doc,

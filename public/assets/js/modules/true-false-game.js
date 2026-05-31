@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 //Jocul True False
 //----------------------------------------------------------------------------------------------------------------------
-import { auth, onAuthStateChanged } from "../fierbase/firebase-init.js";
-import { db } from "../fierbase/firebase-init.js";
+import { auth, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
+import { db } from "/assets/js/fierbase/firebase-init.js";
 import {
     doc,
     getDoc,
@@ -91,7 +91,7 @@ let arr = [];
 //----------------------------------------------------------------------------------------------------------------------
 //citim din fisierul json datele la arraiuri pe nivele si le atribui variabelelor
 //----------------------------------------------------------------------------------------------------------------------
-fetch('../../../assets/js/modules/date-jocuri/true-false-game.json')
+fetch('/assets/js/modules/date-jocuri/true-false-game.json')
     .then(response => response.json())
     .then(data => {
         arr1 = data.arr1;
@@ -203,7 +203,7 @@ function creareArr() {
 function genereazaHTML() {
     if (contor < arrCuExercitii.length) {
 
-        document.querySelector('.restart').innerHTML = `<img class="w-[60%] " src="../../../assets/img/img-shufle-game/A-buton-restart.png" alt="">`;
+        document.querySelector('.restart').innerHTML = `<img class="w-[60%] " src="/assets/img/img-shufle-game/A-buton-restart.png" alt="">`;
         document.querySelector('#true').style.display = 'inline-block';
         document.querySelector('#false').style.display = 'inline-block';
 
