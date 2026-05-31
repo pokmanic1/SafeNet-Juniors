@@ -8,11 +8,11 @@
         content="Despre proiectul SafeNet Junior și scopul educațional pentru elevii claselor I–IV.">
     <meta name="keywords" content="SafeNet Junior, siguranță online, copii, proiect educațional, Cahul">
     <title>dashboard - SafeNet Junior</title>
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <link rel="icon" href="../../assets/img/Vector.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="icon" href="/assets/img/Vector.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 <!-- 
     <script>
         if (localStorage.getItem("tema") === "dark") {
@@ -45,7 +45,7 @@
 
     <section
         class="background6 flex justify-center items-center flex-col pb-[150px]  pt-[20px] w-full mx-auto min-h-[100dvh] bg-cover bg-center bg-no-repeat"
-        style=" background-image: url('../../assets/img/backgrounds/background-alb6..png');">
+        style=" background-image: url('/assets/img/backgrounds/background-alb6..png');">
 
 
 
@@ -136,26 +136,27 @@
                             {
                                 titlu: 'Jocul Potriveste Perechi',
                                 jocuri: 1,
-                                img: '../../assets/img/backgrounds/shufle-game-bg1.png',
-                                ancora: './dashbord-shuffle.html'
+                                img: '/assets/img/backgrounds/shufle-game-bg1.png',
+                                //ancora: '/assets/pages/dashbord-shuffle.html'
+                                ancora: '/pages/dashbord-shuffle.html'
                             },
                             {
                                 titlu: 'Jocul True False ',
                                 jocuri: 1,
-                                img: '../../assets/img/backgrounds/adevarat-fals-game-bg1.png',
-                                ancora: './dashbord-truefalse.html'
+                                img: '/assets/img/backgrounds/adevarat-fals-game-bg1.png',
+                                ancora: '/pages/dashbord-truefalse.html'
                             },
                             {
                                 titlu: 'Jocul Password',
                                 jocuri: 1,
-                                img: '../../assets/img/backgrounds/password-game-bg1.png',
-                                ancora: './dashbord-password.html'
+                                img: '/assets/img/backgrounds/password-game-bg1.png',
+                                ancora: '/pages/dashbord-password.html'
                             },
                             {
                                 titlu: 'Jocul Variante',
                                 jocuri: 1,
-                                img: '../../assets/img/backgrounds/variante-game-bg8.png',
-                                ancora: './dashbord-variante.html'
+                                img: '/assets/img/backgrounds/variante-game-bg8.png',
+                                ancora: '/pages/dashbord-variante.html'
                             }
                         ]
 
@@ -227,15 +228,15 @@
     <script type="module" src="/assets/js/dashboard/autentificat.js"></script>
 
     <!-- ---------------genrearea de clase pentru profesori------------- -->
-    <script type="module" src="../../assets/js/game-service/class-service.js"></script>
+    <script type="module" src="/assets/js/game-service/class-service.js"></script>
 
 
     <!-- ---------------header / footer-------------- -->
-    <script src="../../assets/js/materialHTML/materialHTML.js"></script>
+    <script src="/assets/js/materialHTML/materialHTML.js"></script>
 
     <!-- ---------------dashboard-------------- -->
 
-    <script type="module" src="../../assets/js/dashboard/student-dashboard.js"></script>
+    <script type="module" src="/assets/js/dashboard/student-dashboard.js"></script>
 </body>
 
 </html>
