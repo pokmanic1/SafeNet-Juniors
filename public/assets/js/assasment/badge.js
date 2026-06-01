@@ -2,11 +2,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Pagina Badge
 //----------------------------------------------------------------------------------------------------------------------import { auth } from "../fierbase/firebase-init.js";
-import { incarcaDateFirebase, vizite } from "/assets/js/assasment/vizitare_documentatie";
-import { incarcaContoareFirebase, contoare_jocuri } from "/assets/js/assasment/contoarele_pentru_jocuri";
+import { incarcaDateFirebase, vizite } from "/assets/js/assasment/vizitare_documentatie.js";
+import { incarcaContoareFirebase, contoare_jocuri } from "/assets/js/assasment/contoarele_pentru_jocuri.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { auth } from "/assets/js/fierbase/firebase-init";
-
+import { auth } from "/assets/js/fierbase/firebase-init.js";
 
 
 let arrBadge = [
