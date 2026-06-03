@@ -206,7 +206,7 @@ function genereazaHTML() {
         document.querySelector('#true').style.display = 'inline-block';
         document.querySelector('#false').style.display = 'inline-block';
 
-        document.querySelector('.nrIntrebare').innerHTML = `Intrebare ${contor + 1}`;
+        document.querySelector('.nrIntrebare').innerHTML = `Intrebare: ${contor + 1}`;
         document.querySelector('.textIntrebare').innerHTML = `${arrCuExercitii[contor].text}`;
         document.querySelector(".scorul").innerHTML = `Scor: ${contorCorect}`;
         document.querySelector(".scorul").style.display = 'block';

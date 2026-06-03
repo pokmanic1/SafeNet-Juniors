@@ -210,7 +210,7 @@ function genereazaHTML() {
         varianta2Element.innerHTML = itemCurent.variante[1].varianta;
         varianta3Element.innerHTML = itemCurent.variante[2].varianta;
         varianta4Element.innerHTML = itemCurent.variante[3].varianta;
-        textIntrebare.innerHTML = `Intrebarea : ${contor + 1}`;
+        textIntrebare.innerHTML = `Intrebarea: ${contor + 1}`;
         textScoar.innerHTML = contorScor;
 
     } else {
