@@ -372,12 +372,7 @@ onAuthStateChanged(auth, async (user) => {
     // buton restaart la jocuri
 
 
-        if (document.querySelector('.rst')) {
-      const buton_rst = document.querySelector('.rst');
-      buton_rst.style.backgroundImage = isDark
-        ? "url('/assets/img/img-shufle-game/Buton_daqrkMode_restart.svg')"
-        : "url('/assets/img/img-shufle-game/buton_restart.svg')";
-    }
+      
 
       if (document.querySelector('.rst')) {
       const aaa = document.querySelector('.rst');

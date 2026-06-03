@@ -203,7 +203,6 @@ function creareArr() {
 function genereazaHTML() {
     if (contor < arrCuExercitii.length) {
 
-        document.querySelector('.restart').innerHTML = `<img class="w-[60%] " src="/assets/img/img-shufle-game/A-buton-restart.png" alt="">`;
         document.querySelector('#true').style.display = 'inline-block';
         document.querySelector('#false').style.display = 'inline-block';
 
@@ -281,9 +280,6 @@ function genereazaHTML() {
         document.getElementById("scorFinal").innerText = `${contorCorect} / ${arrCuExercitii.length}`;
         document.getElementById("nivelFinal").innerText = nivelul;
         document.getElementById("timpFinal").innerText = document.querySelector(".time").innerText;
-        document.querySelector('#restart-btn').addEventListener('click', function () {
-            restart();
-        });
     }
 }
 
@@ -332,17 +328,21 @@ document.querySelector('#false').addEventListener('click', function () {
 //----------------------------------------------------------------------------------------------------------------------
 document.querySelector('.restart').addEventListener('click', function () {
     restart();
-    genereazaHTML();
 });
 //----------------------------------------------------------------------------------------------------------------------
 //butonul Incearca din nou din panou joc final  
 //----------------------------------------------------------------------------------------------------------------------
-document.querySelector('.restart1').addEventListener('click', function () {
+document.querySelector('.restart1')?.addEventListener('click', function () {
     restart();
-    genereazaHTML();
-    const modal = document.getElementById("finalModal");
-    modal.classList.add("hidden");
+    document.getElementById("finalModal").classList.add("hidden");
+});
 
+//----------------------------------------------------------------------------------------------------------------------
+//butonul #restart-btn din modal final (adaugat o singura data)
+//----------------------------------------------------------------------------------------------------------------------
+document.querySelector('#restart-btn')?.addEventListener('click', function () {
+    restart();
+    document.getElementById("finalModal").classList.add("hidden");
 });
 
 
