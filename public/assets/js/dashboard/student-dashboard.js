@@ -174,7 +174,7 @@ onAuthStateChanged(auth, async (user) => {
       }
 
     }
-    
+
     console.log("ROL:", role);
 
 
@@ -364,6 +364,29 @@ onAuthStateChanged(auth, async (user) => {
         ? '/assets/img/img-pt-index/User_Add-darkMode.svg'
         : '/assets/img/img-pt-index/User_Add-normalMode.svg';
       logoIndex.setAttribute('src', logoSrc);
+    }
+
+
+    // ------------------------------------------
+    // ------------------------------------------
+    // buton restaart la jocuri
+
+
+        if (document.querySelector('.rst')) {
+      const buton_rst = document.querySelector('.rst');
+      buton_rst.style.backgroundImage = isDark
+        ? "url('/assets/img/img-shufle-game/Buton_daqrkMode_restart.svg')"
+        : "url('/assets/img/img-shufle-game/buton_restart.svg')";
+    }
+
+      if (document.querySelector('.rst')) {
+      const aaa = document.querySelector('.rst');
+      const a = isDark
+        ? '/assets/img/img-shufle-game/Buton_daqrkMode_restart.svg'
+        : '/assets/img/img-shufle-game/buton_restart.svg';
+    
+        aaa.setAttribute('src', a);
+      
     }
     // ------------------------------------------
     // ------------------------------------------
