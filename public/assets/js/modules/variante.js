@@ -211,11 +211,11 @@ function genereazaHTML() {
         varianta3Element.innerHTML = itemCurent.variante[2].varianta;
         varianta4Element.innerHTML = itemCurent.variante[3].varianta;
         textIntrebare.innerHTML = `Intrebarea: ${contor + 1}`;
-        textScoar.innerHTML = contorScor;
+        textScoar.innerHTML = `Scor: ${contorScor}`;
 
     } else {
         textIntrebare.innerHTML = contor;
-        textScoar.innerHTML = contorScor;
+        textScoar.innerHTML = `Scor: ${contorScor}`;
         clearInterval(interval);
         if (contorScor > 7) {
 
@@ -233,12 +233,12 @@ function genereazaHTML() {
 
 
 
-        if (contorCorect > 6 && nivelul == 3) {
+        if (contorScor > 6 && nivelul == 3) {
             // ---- FLAG QUEST ----
             localStorage.setItem('quest_variante_8_lvl_3', 'true');
             // --------------------
         }
-        if (contorCorect > 7 && nivelul == 2) {
+        if (contorScor > 7 && nivelul == 2) {
             // ---- FLAG QUEST ----
             localStorage.setItem('quest_variante_lvl_2', 'true');
             // --------------------
@@ -312,9 +312,7 @@ butoane.forEach((buton, index) => {
 //----------------------------------------------------------------------------------------------------------------------
 //butonul restart 
 //----------------------------------------------------------------------------------------------------------------------
-butonRestart.addEventListener('click', () => {
-    restart();
-})
+butonRestart.addEventListener('click', () => { restart(); });
 
 
 

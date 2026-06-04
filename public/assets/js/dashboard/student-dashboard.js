@@ -175,7 +175,7 @@ onAuthStateChanged(auth, async (user) => {
 
     }
 
-    console.log("ROL:", role);
+    // console.log("ROL:", role);
 
 
 
@@ -246,7 +246,7 @@ onAuthStateChanged(auth, async (user) => {
       if (e.target.closest("#butonProfil")) toggleDashboard(user);
     });
 
-    console.log(`Bună ziua, ${user.email}`);
+    // console.log(`Bună ziua, ${user.email}`);
     //----------------------------------------------------------------------------------------------------------------------
     //Functia toogleDasbord daca exista il sterge daca nu il genereaza in dreapta sus 
     //-----------------------------------------------------------------------------------------------
@@ -318,7 +318,7 @@ onAuthStateChanged(auth, async (user) => {
 
   }
   else {
-    console.log("conectează-te");
+    // console.log("conectează-te");
 
 
     localStorage.removeItem('dark');
