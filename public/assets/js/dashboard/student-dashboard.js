@@ -319,6 +319,9 @@ onAuthStateChanged(auth, async (user) => {
   }
   else {
     console.log("conectează-te");
+
+
+    localStorage.removeItem('dark');
   }
 
 
