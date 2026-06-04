@@ -23,7 +23,7 @@ function buildHeader() {
       <header class="w-full bg-white dark:bg-[#1A1C26] border-b border-gray-300 dark:border-[#4C5074] z-20">  
             <div class="mx-[10px] md:mx-[30px] lg:mx-[40px] max-w-full px-6 py-3 flex items-center justify-between">
             <a href="/index.html" class="flex items-center gap-3">
-                <img class="logo object-contain w-[100px] dark:brightness-110" src="${logo}" alt="SafeNet Junior">
+                <img class="logo object-contain w-[90px] dark:brightness-110" src="${logo}" alt="SafeNet Junior">
             </a>
 
             <nav class="absolute items-center hidden gap-12 font-semibold transform -translate-x-1/2 md:flex left-1/2">

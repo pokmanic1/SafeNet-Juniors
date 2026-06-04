@@ -129,6 +129,7 @@
     --radius-3xl: 1.5rem;
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-bounce: bounce 1s infinite;
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -805,9 +806,6 @@
   .min-h-\[100dvh\] {
     min-height: 100dvh;
   }
-  .min-h-\[100px\] {
-    min-height: 100px;
-  }
   .min-h-\[160px\] {
     min-height: 160px;
   }
@@ -822,9 +820,6 @@
   }
   .min-h-\[520px\] {
     min-height: 520px;
-  }
-  .min-h-dvh {
-    min-height: 100dvh;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -870,6 +865,9 @@
   }
   .w-\[5px\] {
     width: 5px;
+  }
+  .w-\[9px\] {
+    width: 9px;
   }
   .w-\[10px\] {
     width: 10px;
@@ -928,17 +926,20 @@
   .w-\[80px\] {
     width: 80px;
   }
-  .w-\[82px\] {
-    width: 82px;
-  }
   .w-\[85\%\] {
     width: 85%;
   }
   .w-\[90\%\] {
     width: 90%;
   }
+  .w-\[90px\] {
+    width: 90px;
+  }
   .w-\[92\%\] {
     width: 92%;
+  }
+  .w-\[92px\] {
+    width: 92px;
   }
   .w-\[94\%\] {
     width: 94%;
@@ -952,11 +953,11 @@
   .w-\[96\%\] {
     width: 96%;
   }
+  .w-\[99px\] {
+    width: 99px;
+  }
   .w-\[100\%\] {
     width: 100%;
-  }
-  .w-\[100px\] {
-    width: 100px;
   }
   .w-\[110px\] {
     width: 110px;
@@ -1030,9 +1031,6 @@
   .max-w-\[400px\] {
     max-width: 400px;
   }
-  .max-w-\[500px\] {
-    max-width: 500px;
-  }
   .max-w-\[520px\] {
     max-width: 520px;
   }
@@ -1041,9 +1039,6 @@
   }
   .max-w-\[800px\] {
     max-width: 800px;
-  }
-  .max-w-\[900px\] {
-    max-width: 900px;
   }
   .max-w-\[1200px\] {
     max-width: 1200px;
@@ -1103,6 +1098,12 @@
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .scale-95 {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    --tw-scale-z: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
   }
   .scale-110 {
     --tw-scale-x: 110%;
@@ -1592,9 +1593,6 @@
   .bg-blue-300 {
     background-color: var(--color-blue-300);
   }
-  .bg-blue-400 {
-    background-color: var(--color-blue-400);
-  }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
   }
@@ -1794,9 +1792,6 @@
   .object-cover {
     object-fit: cover;
   }
-  .object-center {
-    object-position: center;
-  }
   .object-right {
     object-position: right;
   }
@@ -1851,9 +1846,6 @@
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
   }
-  .px-1\.5 {
-    padding-inline: calc(var(--spacing) * 1.5);
-  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -1881,9 +1873,6 @@
   .px-\[0px\] {
     padding-inline: 0px;
   }
-  .px-\[5px\] {
-    padding-inline: 5px;
-  }
   .px-\[6px\] {
     padding-inline: 6px;
   }
@@ -1904,9 +1893,6 @@
   }
   .px-\[70px\] {
     padding-inline: 70px;
-  }
-  .px-\[1003px\] {
-    padding-inline: 1003px;
   }
   .py-0 {
     padding-block: calc(var(--spacing) * 0);
@@ -1992,9 +1978,6 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
-  }
   .pt-\[8px\] {
     padding-top: 8px;
   }
@@ -2033,9 +2016,6 @@
   }
   .pl-1 {
     padding-left: calc(var(--spacing) * 1);
-  }
-  .pl-3 {
-    padding-left: calc(var(--spacing) * 3);
   }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
@@ -2541,6 +2521,10 @@
   .ease-\[cubic-bezier\(0\.22\,1\,0\.36\,1\)\] {
     --tw-ease: cubic-bezier(0.22,1,0.36,1);
     transition-timing-function: cubic-bezier(0.22,1,0.36,1);
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
   }
   .outline-none {
     --tw-outline-style: none;
@@ -4267,14 +4251,6 @@
   .dark\:bg-blue-800 {
     &:where(.dark, .dark *) {
       background-color: var(--color-blue-800);
-    }
-  }
-  .dark\:bg-blue-900\/30 {
-    &:where(.dark, .dark *) {
-      background-color: color-mix(in srgb, oklch(37.9% 0.146 265.522) 30%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--color-blue-900) 30%, transparent);
-      }
     }
   }
   .dark\:bg-blue-950\/40 {
