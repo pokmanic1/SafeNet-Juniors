@@ -32,15 +32,15 @@ if (registerBtn) {
     });
 
     function x() {
-        if (username.value.trim() !== "" && email.value.trim() !== ""
-            && password.value.trim() !== "" && role.value !== "Selectează rol") {
-            registerBtn.style.backgroundColor = "black";      
+        // if (username.value.trim() !== "" && email.value.trim() !== ""
+        //     && password.value.trim() !== "" && role.value !== "Selectează rol") {
+        //     registerBtn.style.backgroundColor = "black";      
 
-        }
-        else {
-            registerBtn.style.backgroundColor = "rgb(229 231 235)";  
+        // }
+        // else {
+        //     registerBtn.style.backgroundColor = "rgb(229 231 235)";  
 
-        }
+        // }
     }
 
 }
