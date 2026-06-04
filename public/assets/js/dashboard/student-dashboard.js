@@ -47,7 +47,7 @@ onAuthStateChanged(auth, async (user) => {
 
   function buildDashboard(ancora) {
     return `
-    <div id="dashboardUser" class="bg-white border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden">
+    <div id="dashboardUser" class="bg-white  border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden">
         
         <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent pointer-events-none rounded-[32px]"></div>
 
@@ -193,7 +193,7 @@ onAuthStateChanged(auth, async (user) => {
       userBtn.className = "flex items-center";
       userBtn.innerHTML = `
         <button type="button" id="butonProfil"
-            class="flex items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
+            class="flex cursor-pointer items-center justify-center w-10 h-10 rounded-full border border-black  bg-white dark:border-white dark:bg-black overflow-hidden">
             <img class="w-full h-full object-cover dashIcon"  src="${dashIcon}" alt="Profil">
         </button>`;
       if (x) x.parentNode.insertBefore(userBtn, x.nextSibling);
