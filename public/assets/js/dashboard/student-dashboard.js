@@ -45,6 +45,8 @@ onAuthStateChanged(auth, async (user) => {
   //Construim dashbordul din dreapta sus cu toate butoanele
   //----------------------------------------------------------------------------------------------------------------------
 
+
+
   function buildDashboard(ancora) {
     return `
     <div id="dashboardUser" class="bg-white  border border-gray-100 rounded-[32px] p-4 text-center shadow-2xl min-w-[200px] relative overflow-hidden">
@@ -151,7 +153,6 @@ onAuthStateChanged(auth, async (user) => {
 `;
 
 
-
   if (user) {
 
     let role;
@@ -233,6 +234,8 @@ onAuthStateChanged(auth, async (user) => {
       });
 
       document.getElementById("logoutBtnMobile").addEventListener("click", () => {
+            localStorage.removeItem("tema");
+
         signOut(auth).then(() => window.location.reload());
       });
     }
@@ -305,6 +308,8 @@ onAuthStateChanged(auth, async (user) => {
       //-----------------------------------------------------------------------------------------------
 
       document.getElementById("logoutBtn").addEventListener("click", () => {
+                    localStorage.removeItem("tema");
+
         signOut(auth).then(() => window.location.reload());
       });
     }
@@ -321,7 +326,6 @@ onAuthStateChanged(auth, async (user) => {
     // console.log("conectează-te");
 
 
-    localStorage.removeItem('dark');
   }
 
 
@@ -375,16 +379,16 @@ onAuthStateChanged(auth, async (user) => {
     // buton restaart la jocuri
 
 
-      
 
-      if (document.querySelector('.rst')) {
+
+    if (document.querySelector('.rst')) {
       const aaa = document.querySelector('.rst');
       const a = isDark
         ? '/assets/img/img-shufle-game/Buton_daqrkMode_restart.svg'
         : '/assets/img/img-shufle-game/buton_restart.svg';
-    
-        aaa.setAttribute('src', a);
-      
+
+      aaa.setAttribute('src', a);
+
     }
     // ------------------------------------------
     // ------------------------------------------

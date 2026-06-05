@@ -324,7 +324,7 @@
 
 
           <a href="/pages/dashbord/dashbord.html"
-            class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm text-center">
+            class="ancoraDashBoardIndex w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm text-center">
             Mergi la clasă pentru a începe
           </a>
 
@@ -362,13 +362,42 @@
           </div>
         </div>
 
-        <a href="/pages/dashbord/dashbord.html" class="mt-2 w-fit inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold text-white
+        <a href="/pages/dashbord/dashbord.html" class="ancoraDashBoardIndex mt-2 w-fit inline-flex items-center justify-center rounded-2xl px-8 py-3 font-semibold text-white
         bg-gradient-to-r from-[#1156ea] via-[#2563EB] to-[#71a4f0]
         shadow-md transition duration-300">
           Mergi la dashboard →
         </a>
       </div>
+      <script type="module">
+        let anc = '/pages/dashbord/dashbord.elev.html';
+        import { auth, db, onAuthStateChanged } from "/assets/js/fierbase/firebase-init.js";
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        onAuthStateChanged(auth, async (user) => {
+          //console.log("USER:", user);
+          if (!user) return;
+          const userRef = doc(db, "users", user.uid);
+          const userSnap = await getDoc(userRef);
 
+          if (userSnap.exists()) {
+
+            const data = userSnap.data();
+
+            if (data.role === "Profesor") {
+              anc = '/pages/dashbord/dashbord.html';
+            }
+            else if (data.role === "Elev") {
+              anc = '/pages/dashbord/dashbord.elev.html';
+            }
+          }
+
+        });
+
+        document.querySelectorAll('.ancoraDashBoardIndex').forEach(item => {
+          item.setAttribute('href', anc);
+        });
+
+        
+      </script>
 
 
 
