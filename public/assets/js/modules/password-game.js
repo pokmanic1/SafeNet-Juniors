@@ -71,8 +71,34 @@ onAuthStateChanged(auth, async (user) => {
 //Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
 // localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
 //----------------------------------------------------------------------------------------------------------------------
-localStorage.removeItem("conditiiProfesori");
-const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
+const citesteConditiiProfesori = () => {
+    try {
+        const date = JSON.parse(localStorage.getItem("conditiiProfesori") || "[]");
+
+        if (Array.isArray(date)) {
+            return date;
+        }
+
+        if (Array.isArray(date.reguli)) {
+            return date.reguli;
+        }
+
+        if (Array.isArray(date.conditii)) {
+            return date.conditii;
+        }
+
+        if (Array.isArray(date.date)) {
+            return date.date;
+        }
+
+        return [];
+    } catch (error) {
+        console.error("Eroare la citirea condițiilor profesorului:", error);
+        return [];
+    }
+};
+
+const dateSalvate = citesteConditiiProfesori();
 let newArrConditii1 = [];
 console.log("Condiții profesor încărcate:", dateSalvate);   
 
@@ -128,7 +154,7 @@ dateSalvate.forEach(element => {
             obj.validate = (password) => password.includes(element.valoare);
             break;
 
-        case "Sa contine o litera specifica":
+        case "Să conțină o literă specifică":
             obj.validate = (password) => password.includes(element.valoare);
             break;
 

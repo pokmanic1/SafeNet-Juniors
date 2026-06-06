@@ -171,8 +171,17 @@ function creeazaCard(clasa) {
             const cheie = LOCALSTORAGE_KEY[tip];
             if (tip === 1) localStorage.setItem(cheie, JSON.stringify(dateJoc.date));
             if (tip === 2) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
-            if (tip === 3) localStorage.setItem(cheie, JSON.stringify(dateJoc.conditii || dateJoc.date || dateJoc));
-            if (tip === 4) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
+            if (tip === 3) {
+                const reguliPassword = Array.isArray(dateJoc.reguli)
+                    ? dateJoc.reguli
+                    : Array.isArray(dateJoc.conditii)   
+                        ? dateJoc.conditii
+                        : Array.isArray(dateJoc.date)
+                            ? dateJoc.date
+                            : [];
+
+                localStorage.setItem(cheie, JSON.stringify(reguliPassword));
+            } if (tip === 4) localStorage.setItem(cheie, JSON.stringify(dateJoc.intrebari || dateJoc.date || dateJoc));
             window.location.href = GAME_URL[tip];
         });
     });
