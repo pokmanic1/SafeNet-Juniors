@@ -369,26 +369,29 @@
         onAuthStateChanged(auth, async (user) => {
           //console.log("USER:", user);
           if (!user) return;
-          const userRef = doc(db, "users", user.uid);
+          const userRef = await doc(db, "users", user.uid);
           const userSnap = await getDoc(userRef);
 
           if (userSnap.exists()) {
 
-            const data = userSnap.data();
+            const data = await userSnap.data();
 
             if (data.role === "Profesor") {
               anc = '/pages/dashbord/dashbord.html';
+              console.log("profesor",anc);
+        document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
+        console.log(anc);
             }
             else if (data.role === "Elev") {
               anc = '/pages/dashbord/dashbord.elev.html';
+              console.log("elev");
+        document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
+        console.log(anc);
             }
           }
 
         });
 
-        document.querySelectorAll('.ancoraDashBoardIndex').forEach(item => {
-          item.setAttribute('href', anc);
-        });
 
         
       </script>
