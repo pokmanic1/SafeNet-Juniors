@@ -134,22 +134,6 @@ btnAdauga.addEventListener("click", async () => {
 
 
 
-
-
-
-    //----------------------------------------------------------------------------------------------------------------------
-    //Salvarea jocului in baza de date
-    //----------------------------------------------------------------------------------------------------------------------
-    let joc = {
-        nume: nume_joc.value,
-        tip: 'variante',
-        intrebari: [...arrIntrebariVariante]
-    }
-    await salveazaJocVariante(joc);
-    console.log("Joc salvat:", joc);
-
-
-
     //----------------------------------------------------------------------------------------------------------------------
     //resetul inputurilor
     //----------------------------------------------------------------------------------------------------------------------
@@ -168,6 +152,17 @@ btnAdauga.addEventListener("click", async () => {
     if (arrIntrebariVariante.length < numarTotal) {
         actualizeazaInterfata();
     } else {
+        //----------------------------------------------------------------------------------------------------------------------
+        //Salvarea jocului in baza de date
+        //----------------------------------------------------------------------------------------------------------------------
+        let joc = {
+            nume: nume_joc.value,
+            tip: 'variante',
+            intrebari: [...arrIntrebariVariante]
+        }
+        await salveazaJocVariante(joc);
+        console.log("Joc salvat:", joc);
+
         afiseazaEroare("Toate întrebările au fost salvate cu succes!", "text-green-500");
         document.querySelector(".btnMergiLaJoc").classList.remove("hidden");
 

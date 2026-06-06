@@ -195,19 +195,6 @@ button.addEventListener("click", async () => {
     })
 
 
-    //----------------------------------------------------------------------------------------------------------------------
-    //Salvarea jocului in baza de date
-    //----------------------------------------------------------------------------------------------------------------------
-    let joc = {
-        nume: nume_joc.value,
-        tip: "password",
-        reguli: [...arrProfesori]
-    };
-    toateIntrebarile.push(joc);
-    await salveazaJocPassword(joc);
-    //console.log("Joc salvat:", joc);
-
-
     valoareExtra.value = "";
     //console.log("Adăugat cu succes:", obiect); mesajEroare.classList.add("hidden");
     // button.classList.add("scale-110", "bg-green-500", "shadow-green-200");
@@ -219,6 +206,18 @@ button.addEventListener("click", async () => {
     //     button.disabl
     // }, 1000);
     if (arrProfesori.length === Number(nr_conditii.value)) {
+
+        //----------------------------------------------------------------------------------------------------------------------
+        //Salvarea jocului in baza de date
+        //----------------------------------------------------------------------------------------------------------------------
+        let joc = {
+            nume: nume_joc.value,
+            tip: "password",
+            reguli: [...arrProfesori]
+        };
+        toateIntrebarile.push(joc);
+        await salveazaJocPassword(joc);
+        //console.log("Joc salvat:", joc);
 
         afiseazaEroare(`Felicitări! Ai configurat toate întrebările. Acum poți merge la joc.`, 'text-green-500');
         button.disabled = true;

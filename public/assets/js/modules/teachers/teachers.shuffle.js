@@ -18,7 +18,7 @@ let toateIntrebarile = JSON.parse(localStorage.getItem("toate_jocShuffle")) || [
 
 
 const nume_joc = document.getElementById("nume_joc");
-
+    
 
 
 //----------------------------------------------------------------------------------------------------------------------

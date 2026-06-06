@@ -321,9 +321,9 @@
           </div>
 
 
-          
+
         </div>
-      </div>  
+      </div>
       <!-- DREAPTA —  -->
 
       <div class="dreapta w-full md:w-[50%]  dark:bg-[#31344D] flex flex-col justify-center items-center gap-6 p-10">
@@ -378,22 +378,18 @@
 
             if (data.role === "Profesor") {
               anc = '/pages/dashbord/dashbord.html';
-              console.log("profesor",anc);
-        document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
-        console.log(anc);
+              document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
             }
             else if (data.role === "Elev") {
               anc = '/pages/dashbord/dashbord.elev.html';
-              console.log("elev");
-        document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
-        console.log(anc);
+              document.querySelector('.ancoraDashBoardIndex').setAttribute('href', anc);
             }
           }
 
         });
 
 
-        
+
       </script>
 
 
