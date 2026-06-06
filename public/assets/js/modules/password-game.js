@@ -71,9 +71,10 @@ onAuthStateChanged(auth, async (user) => {
 //Verificam daca in local storage e salvat un arr cu jocuri creat de profesori
 // localStorage.setItem se face in pagina de clase sau creaza jocuri pentru profesori
 //----------------------------------------------------------------------------------------------------------------------
+localStorage.removeItem("conditiiProfesori");
 const dateSalvate = JSON.parse(localStorage.getItem("conditiiProfesori")) || [];
 let newArrConditii1 = [];
-
+console.log("Condiții profesor încărcate:", dateSalvate);   
 
 
 //----------------------------------------------------------------------------------------------------------------------

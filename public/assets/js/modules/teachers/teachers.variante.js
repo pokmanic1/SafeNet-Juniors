@@ -39,6 +39,22 @@ const progresText = document.getElementById("progres");
 
 
 
+//----------------------------------------------------------------------------------------------------------------------
+//Functia care afiseaza vreo erroare daca exista
+//----------------------------------------------------------------------------------------------------------------------
+function afiseazaEroare(text, culoare, timp = 2000) {
+    const mesajEroare = document.getElementById("mesajEroare");
+    if (!mesajEroare) return;
+    mesajEroare.innerText = text;
+    mesajEroare.classList.remove("hidden");
+    mesajEroare.classList.add(culoare);
+    setTimeout(() => {
+        mesajEroare.classList.add("hidden");
+        mesajEroare.innerText = "";
+    }, timp);
+}
+
+
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -73,23 +89,6 @@ btnAdauga.addEventListener("click", async () => {
     const v1 = document.getElementById("v1").value.trim();
     const v2 = document.getElementById("v2").value.trim();
     const v3 = document.getElementById("v3").value.trim();
-    let mesajEroare = document.getElementById("mesajEroare");
-
-
-
-
-    //----------------------------------------------------------------------------------------------------------------------
-    //Functia care afiseaza vreo erroare daca exista
-    //----------------------------------------------------------------------------------------------------------------------
-    function afiseazaEroare(text, culoare, timp = 2000) {
-        mesajEroare.innerText = text;
-        mesajEroare.classList.remove("hidden");
-        mesajEroare.classList.add(culoare);
-        setTimeout(() => {
-            mesajEroare.classList.add("hidden");
-            mesajEroare.innerText = "";
-        }, timp);
-    }
 
 
 
