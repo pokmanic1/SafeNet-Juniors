@@ -328,9 +328,7 @@ export function genereazaHTMLClase(clase, container) {
         card.innerHTML = `
             <div class="flex justify-between items-center">
                 <h2 class="text-white font-bold text-[18px]">${clasa.nume}</h2>
-                <span class="elevi-counter bg-white text-black text-[12px] font-medium px-[12px] py-[4px] rounded-full">
-                    ${(clasa.elevi || []).length} elevi
-                </span>
+                
             </div>
             <p class="text-[#888] text-[13px]">Codul: <span class="font-mono font-bold text-white">${clasa.cod}</span></p>
 
